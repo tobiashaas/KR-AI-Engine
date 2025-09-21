@@ -1,0 +1,79 @@
+{
+  "name": "krai",
+  "version": "1.0.0",
+  "description": "🤖 KRAI - Knowledge Retrieval AI System",
+  "main": "setup_supabase.js",
+  "scripts": {
+    "setup": "npm run setup:python && node setup_supabase.js",
+    "setup:python": "python -m pip install -r requirements.txt",
+    "setup:python:venv": "python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt",
+    "test": "jest",
+    "test:supabase": "node -e \"require('./setup_supabase.js')\"",
+    "test:python": "cd backend && python -m pytest",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && python -m uvicorn app:app --reload --host 0.0.0.0 --port 8001",
+    "dev:frontend": "cd dashboard && php artisan serve --host=0.0.0.0 --port=8000",
+    "docker:up": "docker-compose -f docker/docker-compose.yml up -d",
+    "docker:down": "docker-compose -f docker/docker-compose.yml down",
+    "docker:logs": "docker-compose -f docker/docker-compose.yml logs -f",
+    "docker:rebuild": "docker-compose -f docker/docker-compose.yml down && docker-compose -f docker/docker-compose.yml build --no-cache && docker-compose -f docker/docker-compose.yml up -d",
+    "deploy": "npm run setup && npm run docker:up",
+    "ollama:setup": "./ollama/setup.sh",
+    "ollama:models": "ollama list",
+    "health": "node scripts/health-check.js",
+    "backup": "node scripts/backup.js",
+    "migrate": "node scripts/migrate.js"
+  },
+  "keywords": [
+    "ai",
+    "knowledge-retrieval",
+    "vector-search",
+    "document-processing",
+    "techniker-support",
+    "supabase",
+    "fastapi",
+    "laravel",
+    "filament",
+    "ollama"
+  ],
+  "author": "KRAI Development Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/krai.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/krai/issues"
+  },
+  "homepage": "https://github.com/your-org/krai#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.38.0",
+    "dotenv": "^16.3.1",
+    "axios": "^1.5.0",
+    "chalk": "^4.1.2",
+    "ora": "^5.4.1",
+    "inquirer": "^8.2.5"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.1",
+    "@types/node": "^20.8.0",
+    "typescript": "^5.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "config": {
+    "supabase": {
+      "project_id": "nxzqpobjklqhqkqrvvvl",
+      "region": "eu-central-1"
+    },
+    "deployment": {
+      "environment": "development",
+      "auto_backup": true,
+      "health_check_interval": 300
+    }
+  }
+}

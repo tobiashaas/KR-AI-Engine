@@ -1,0 +1,47 @@
+# 🐍 KRAI Backend Dependencies
+# Production-Ready Python Backend
+
+# Core Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.4.2
+
+# Database & Supabase
+supabase==2.0.0
+psycopg2-binary==2.9.7
+sqlalchemy==2.0.23
+
+# Document Processing
+PyPDF2==3.0.1
+python-docx==0.8.11
+pytesseract==0.3.10
+Pillow==10.0.1
+
+# AI & Machine Learning
+sentence-transformers==2.2.2
+numpy==1.24.3
+scikit-learn==1.3.0
+
+# File Handling
+python-multipart==0.0.6
+aiofiles==23.2.1
+
+# Environment & Configuration
+python-dotenv==1.0.0
+
+# Utilities
+httpx==0.25.0
+requests==2.31.0
+
+# Development
+pytest==7.4.2
+pytest-asyncio==0.21.1
+black==23.7.0
+flake8==6.0.0
+
+# Monitoring & Logging
+structlog==23.1.0
+
+# Optional: GPU acceleration
+# torch==2.0.1
+# transformers==4.33.2

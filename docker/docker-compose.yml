@@ -1,0 +1,161 @@
+# 🐳 KRAI Docker Compose Stack
+# Production-Ready Development Environment
+
+version: '3.8'
+
+services:
+  # 🗃️ PostgreSQL Database with pgvector
+  postgres:
+    image: pgvector/pgvector:pg15
+    container_name: krai-postgres
+    environment:
+      POSTGRES_DB: krai
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./deploy_sql:/docker-entrypoint-initdb.d
+    networks:
+      - krai-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d krai"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # 🐍 Python FastAPI Backend
+  python-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: krai-python-backend
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/krai
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_SERVICE_KEY=${SUPABASE_SERVICE_KEY}
+      - OLLAMA_BASE_URL=http://ollama:11434
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./backend:/app
+      - ./uploads:/app/uploads
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - krai-network
+    restart: unless-stopped
+
+  # 🖥️ Laravel Filament Admin Dashboard
+  filament-admin:
+    build:
+      context: ./dashboard
+      dockerfile: Dockerfile
+    container_name: krai-filament-admin
+    environment:
+      - DB_CONNECTION=pgsql
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=krai
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
+      - APP_URL=http://localhost:8000
+      - APP_ENV=local
+      - APP_DEBUG=true
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./dashboard:/var/www/html
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - krai-network
+    restart: unless-stopped
+
+  # 🤖 Ollama Local AI Models
+  ollama:
+    image: ollama/ollama:latest
+    container_name: krai-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - krai-network
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  # 🔄 n8n Workflow Automation
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: krai-n8n
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=admin123
+      - WEBHOOK_URL=http://localhost:5678
+      - GENERIC_TIMEZONE=Europe/Berlin
+    ports:
+      - "5678:5678"
+    volumes:
+      - n8n_data:/home/node/.n8n
+    networks:
+      - krai-network
+    restart: unless-stopped
+
+  # 📊 Redis Cache & Session Store
+  redis:
+    image: redis:7-alpine
+    container_name: krai-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - krai-network
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+
+  # 🔍 Elasticsearch for Advanced Search
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.9.0
+    container_name: krai-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    networks:
+      - krai-network
+    restart: unless-stopped
+
+# 🌐 Network Configuration
+networks:
+  krai-network:
+    driver: bridge
+
+# 💾 Persistent Volumes
+volumes:
+  postgres_data:
+    driver: local
+  ollama_data:
+    driver: local
+  n8n_data:
+    driver: local
+  redis_data:
+    driver: local
+  elasticsearch_data:
+    driver: local

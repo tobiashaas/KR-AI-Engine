@@ -1,0 +1,70 @@
+# 🤖 Ollama Configuration for KRAI
+# Local AI Model Management
+
+# Model Configuration
+models:
+  # Text Processing Models
+  text:
+    - name: "llama3.1:8b"
+      description: "Primary text analysis model"
+      size: "4.7GB"
+      capabilities: ["text-generation", "summarization", "qa"]
+    
+    - name: "mistral:7b"
+      description: "Fast inference model for quick responses"
+      size: "4.1GB"
+      capabilities: ["text-generation", "classification"]
+  
+  # Vision Models  
+  vision:
+    - name: "llava:7b"
+      description: "Vision-language model for image analysis"
+      size: "4.7GB"
+      capabilities: ["image-to-text", "visual-qa"]
+    
+    - name: "bakllava:7b"
+      description: "Enhanced vision model for technical documents"
+      size: "4.7GB"
+      capabilities: ["technical-image-analysis", "diagram-interpretation"]
+
+  # Embedding Models
+  embeddings:
+    - name: "nomic-embed-text:latest"
+      description: "Text embedding model for vector search"
+      size: "274MB"
+      capabilities: ["text-embeddings", "semantic-search"]
+
+# Service Configuration
+service:
+  host: "0.0.0.0"
+  port: 11434
+  cors_origins: ["*"]
+  max_concurrent_requests: 4
+  model_cache_size: "8GB"
+  
+# GPU Configuration
+gpu:
+  enabled: true
+  memory_fraction: 0.8
+  device_ids: [0]
+
+# Model Loading Strategy
+loading:
+  preload_models: ["llama3.1:8b", "nomic-embed-text:latest"]
+  auto_unload_idle: true
+  idle_timeout: 300  # 5 minutes
+
+# Performance Tuning
+performance:
+  context_length: 4096
+  batch_size: 1
+  num_threads: 8
+  temperature: 0.7
+  top_p: 0.9
+
+# Logging
+logging:
+  level: "INFO"
+  file: "/var/log/ollama/ollama.log"
+  max_size: "100MB"
+  max_files: 5
