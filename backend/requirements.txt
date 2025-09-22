@@ -1,47 +1,66 @@
 # 🐍 KRAI Backend Dependencies
-# Production-Ready Python Backend
+# Interactive Terminal Processor + Future API Integration
 
 # Core Framework
 fastapi==0.104.1
 uvicorn[standard]==0.24.0
 pydantic==2.4.2
 
-# Database & Supabase
-supabase==2.0.0
+# Interactive Terminal UI (NEW!)
+inquirer==3.1.3          # Interactive prompts
+rich==13.6.0             # Beautiful terminal output
+click==8.1.7             # CLI utilities
+colorama==0.4.6          # Cross-platform colors
+
+# Database & PostgreSQL
 psycopg2-binary==2.9.7
 sqlalchemy==2.0.23
 
-# Document Processing
-PyPDF2==3.0.1
+# Document Processing (Enhanced)
+PyMuPDF==1.23.8          # PDF processing (better than PyPDF2)
 python-docx==0.8.11
-pytesseract==0.3.10
-Pillow==10.0.1
+pytesseract==0.3.10      # OCR for text extraction
+Pillow==10.0.1           # Image processing
 
-# AI & Machine Learning
+# Computer Vision & AI (NEW!)
+opencv-python==4.8.1.78  # Computer vision
+torch==2.1.0             # PyTorch for AI models
+torchvision==0.16.0      # Computer vision models
+ultralytics==8.0.206     # YOLOv8 for defect detection
+transformers==4.35.2     # Hugging Face models
+
+# Vector Embeddings & Search
 sentence-transformers==2.2.2
+openai==1.3.5            # OpenAI API for embeddings
 numpy==1.24.3
 scikit-learn==1.3.0
 
 # File Handling
 python-multipart==0.0.6
 aiofiles==23.2.1
+python-magic==0.4.27     # File type detection
+pathlib2==2.3.7
 
 # Environment & Configuration
 python-dotenv==1.0.0
+pydantic-settings==2.1.0 # Settings management
+
+# Progress & Monitoring
+tqdm==4.66.1             # Progress bars
+loguru==0.7.2            # Enhanced logging
+structlog==23.1.0
 
 # Utilities
 httpx==0.25.0
 requests==2.31.0
+python-dateutil==2.8.2   # Date parsing
 
-# Development
+# Development & Testing
 pytest==7.4.2
 pytest-asyncio==0.21.1
 black==23.7.0
 flake8==6.0.0
+mypy==1.7.1             # Type checking
 
-# Monitoring & Logging
-structlog==23.1.0
-
-# Optional: GPU acceleration
-# torch==2.0.1
-# transformers==4.33.2
+# Data Processing
+pandas==2.0.3           # Data analysis (for statistics)

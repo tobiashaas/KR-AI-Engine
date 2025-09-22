@@ -1,52 +1,242 @@
 # 📚 KRAI ENGINE - PYTHON PROCESSING HANDBOOK
-**Complete Data Flow & Storage Guide for Multi-Manufacturer Document Processing**
-*Version 1.0 - Production Implementation Guide*
+**Interactive Terminal Processing + Filament Dashboard Integration**
+*Version 1.0 - Development Implementation Guide*
 *Created: 22. September 2025*
 
-## 🎯 **OVERVIEW - WAS MACHT DAS PYTHON SYSTEM?**
+## 🎯 **DEVELOPMENT APPROACH - 2-PHASE IMPLEMENTATION**
 
-Das Python Processing System ist das **Herzstück** der KRAI Engine. Es nimmt Dokumente von **allen Herstellern** (HP, Canon, Epson, Brother, etc.) entgegen, analysiert sie intelligent und speichert die Daten strukturiert in der 16-Tabellen-Architektur für optimale Suchperformance.
+### **Phase 1: Interactive Terminal Script** 🖥️
+- **Interaktives Python Skript** für manuelle Kategorisierung
+- **Terminal-basierte Eingabe** für Hersteller, Dokumenttyp, etc.
+- **Sofortige Verarbeitung** und Datenbankeinträge
+- **Print Quality ML Training** mit Techniker-Feedback
 
-### **🔄 High-Level Data Flow**
+### **Phase 2: Filament Dashboard Integration** 🌐  
+- **Web-Interface** für Upload und Kategorisierung
+- **Automatische Vorschläge** basierend auf Phase 1 Daten
+- **Drag & Drop** Upload mit intelligenter Kategorisierung
+- **Dashboard Monitoring** aller Verarbeitungsprozesse
+
+### **🔄 Data Flow - Interactive Processing**
 
 ```
-📄 Hersteller Dokument Upload → 🧠 Python Analysis → 🗃️ Structured Storage → 🔍 Intelligent Search
+📄 Document/Image → 🖥️ Terminal Questions → 👨‍� User Input → 🧠 AI Processing → 🗃️ Database → � Dashboard View
 ```
 
 ---
 
-## 📋 **DOCUMENT TYPES & PROCESSING STRATEGIES**
+## 📋 **INTERACTIVE TERMINAL SCRIPT ARCHITECTURE**
 
-### **1. HP CPMD Database Files (.pdf)**
-**Input**: HP CPMD PDF v2.1+ Dateien  
-**Processing Strategy**: OCR + Error Code Extraction + Solution Mapping
-**Target Tables**: `documents`, `chunks`, `error_codes`
-**Uniqueness**: HP-specific structured error database in PDF format
+### **🖥️ Script Flow: krai_processor.py**
 
-### **2. Service Manuals (.pdf) - ALL MANUFACTURERS**
-**Input**: PDF Service Manuals (HP, Canon, Epson, Brother, Xerox, etc.)
-**Processing Strategy**: OCR + Section Detection + Error Code Extraction
-**Target Tables**: `documents`, `chunks`, `error_codes` (extracted from content)
+```text
+SCHRITT 1: Datei-Upload Detection
+├── PDF Document detected
+├── Image File detected  
+└── Batch Folder detected
+
+SCHRITT 2: Interactive Questions
+├── Welcher Hersteller? [HP/Canon/Epson/Brother/Xerox/Other]
+├── Dokumenttyp? [CPMD/Service Manual/Parts Catalog/Print Quality Image]
+├── Produktmodell? [LaserJet Pro 4000/PIXMA TR8500/etc.]
+└── Zusätzliche Metadaten? [Version/Sprache/etc.]
+
+SCHRITT 3: AI Processing
+├── OCR Text Extraction (Documents)
+├── Computer Vision Analysis (Images)  
+├── Error Code Pattern Recognition
+└── Structured Data Extraction
+
+SCHRITT 4: Database Storage
+├── Insert into documents/images table
+├── Create chunks with metadata
+├── Generate vector embeddings
+└── Link to manufacturer/product tables
+
+SCHRITT 5: Learning Feedback
+├── Print Quality Defect Training (für Images)
+├── Error Code Pattern Validation
+├── User Feedback Collection
+└── ML Model Improvement
+```
+
+### **🎯 Terminal Script Features**
+
+#### **Interactive User Input**
+
+- **Manufacturer Selection**: Dropdown-like selection für alle Hersteller
+- **Document Type Detection**: Intelligente Vorschläge basierend auf Dateiinhalt
+- **Product Model Matching**: Auto-complete für bekannte Modelle
+- **Quality Assessment**: Techniker-Feedback für Print Quality Images
+
+#### **AI-Powered Suggestions**
+
+- **Content Analysis**: Automatische Kategorisierung basierend auf Inhalt
+- **Pattern Recognition**: Bekannte Error Code Patterns erkennen
+- **Model Training**: Jeder Upload verbessert die AI-Genauigkeit
+- **Conflict Resolution**: Hilft bei unklaren Kategorisierungen
+
+#### **Batch Processing Support**
+
+- **Folder Scanning**: Komplette Ordner verarbeiten
+- **Progress Tracking**: Fortschrittsanzeige für große Batches
+- **Error Handling**: Robuste Fehlerbehandlung mit Retry-Logic
+- **Resume Capability**: Unterbrochene Prozesse fortsetzen
+
+---
+
+## 🗂️ **DOCUMENT TYPES & INTERACTIVE PROCESSING**
+
+### **1. CPMD Database Files (.pdf) - Interactive Processing**
+
+**Terminal Questions:**
+
+```text
+🏢 Hersteller: HP (detected from filename pattern)
+📄 Dokumenttyp: CPMD Database (auto-detected)
+🏷️ Version: [User Input] v2.1, v2.2, etc.
+🌍 Sprache: [User Input] EN/DE/FR/ES
+```
+
+**Processing Strategy**: OCR + Structured Error Code Extraction  
+**Target Tables**: `documents`, `chunks`, `error_codes`  
+**Uniqueness**: HP-specific error database with solutions
+
+### **2. Service Manuals (.pdf) - ALL MANUFACTURERS - Interactive Processing**
+
+**Terminal Questions:**
+
+```text
+🏢 Hersteller: [Interactive Selection] HP/Canon/Epson/Brother/Xerox
+📄 Dokumenttyp: Service Manual (detected from content)
+🖨️ Produktmodell: [Auto-complete Input] LaserJet Pro 4000, PIXMA TR8500, etc.
+📅 Jahr: [Optional] 2020-2025
+🌍 Sprache: [User Input] EN/DE/FR/ES
+```
+
+**Processing Strategy**: OCR + Error Code Pattern Recognition  
+**Target Tables**: `documents`, `chunks`, `error_codes` (extracted from content)  
 **Uniqueness**: Most manufacturers embed error codes IN the service manual text
 
-### **3. Canon/Epson/Brother Error Code Processing**
-**Input**: Service Manual PDFs with embedded error codes
-**Processing Strategy**: 
-- OCR text extraction
-- Pattern recognition for error codes (E001, C-001, etc.)
-- Context extraction around error codes for solutions
-**Target Tables**: `documents`, `chunks`, `error_codes`
-**Example Patterns**:
+**Example Error Code Patterns:**
+
 ```text
 Canon: "Error Code E001: Paper jam in rear unit"
 Epson: "Error 031: Ink cartridge not recognized"  
 Brother: "Error Code E-32: Fuser unit malfunction"
 ```
 
-### **4. Parts Catalogs (.pdf) - ALL MANUFACTURERS**
-**Input**: Parts Catalog PDFs
-**Processing Strategy**: Part Number Extraction + Product Mapping
+### **3. Parts Catalogs (.pdf) - ALL MANUFACTURERS - Interactive Processing**
+
+**Terminal Questions:**
+
+```text
+🏢 Hersteller: [Interactive Selection] HP/Canon/Epson/Brother/Xerox
+📄 Dokumenttyp: Parts Catalog (detected from content)
+🖨️ Produktserie: [Auto-complete] LaserJet Pro Series, PIXMA Series, etc.
+📅 Jahr: [Optional] 2020-2025
+🌍 Sprache: [User Input] EN/DE/FR/ES
+```
+
+**Processing Strategy**: Part Number Extraction + Product Mapping  
 **Target Tables**: `documents`, `chunks` (with part number metadata)
+
+### **4. 🖼️ PRINT QUALITY IMAGES - Interactive Processing & ML Training**
+
+**Terminal Questions:**
+
+```text
+🏢 Hersteller: [Interactive Selection] HP/Canon/Epson/Brother/Xerox
+🖨️ Druckermodell: [Auto-complete] LaserJet Pro 4000, PIXMA TR8500, etc.
+🖼️ Bildtyp: [Selection] Test Page/Defect Sample/Before-After Comparison
+🔧 Problem: [Multi-select] Banding/Streaking/Color Issues/Paper Jam/etc.
+👨‍� Techniker: [Input] Name für Feedback-Training
+⭐ Qualität: [1-5 Scale] Für ML Training
+```
+
+**Processing Strategy**: Computer Vision + Defect Classification + Techniker Feedback  
+**Target Tables**: `images`, `print_defects`, `quality_assessments`, `technician_feedback`  
+**AI Models**: Computer Vision (YOLOv8, MobileNet) + Custom defect classifiers
+
+#### **🔍 Interactive Print Quality Analysis Workflow:**
+
+```python
+def interactive_print_quality_analysis():
+    # Step 1: Capture User Context
+    manufacturer = select_manufacturer()
+    printer_model = autocomplete_printer_model(manufacturer)
+    defect_type = multi_select_defects()
+    technician_name = input("Techniker Name: ")
+    
+    # Step 2: AI Vision Analysis
+    defects = analyze_print_quality_with_ai(image_path)
+    confidence_scores = calculate_confidence(defects)
+    
+    # Step 3: Techniker Feedback Collection
+    user_confirms_defects = confirm_ai_analysis(defects)
+    user_adds_missing_defects = add_additional_defects()
+    quality_rating = input("Quality Rating (1-5): ")
+    
+    # Step 4: ML Training Data Generation
+    store_training_data(defects, user_feedback, quality_rating)
+    update_ml_model_with_feedback()
+    
+    # Step 5: Database Storage
+    store_print_quality_analysis_results()
+```
+# AI Vision Pipeline for Print Quality
+def analyze_print_quality_image(image_upload, technician_context):
+    """
+    Complete AI-powered print quality analysis pipeline
+    
+    Args:
+        image_upload: Raw image file from technician
+        technician_context: Service context (manufacturer, model, etc.)
+    """
+    analysis_result = {
+        # 1. Image preprocessing
+        "preprocessed_image": preprocess_print_sample(image_upload),
+        "image_quality_check": validate_image_quality(image_upload),
+        
+        # 2. AI defect detection
+        "detected_defects": detect_print_defects(image_upload),
+        "defect_locations": get_defect_bounding_boxes(image_upload),
+        "confidence_scores": calculate_detection_confidence(detected_defects),
+        
+        # 3. Quality assessment
+        "overall_quality_score": assess_overall_quality(image_upload),
+        "quality_metrics": {
+            "color_accuracy": measure_color_accuracy(image_upload),
+            "sharpness": measure_sharpness(image_upload),
+            "uniformity": measure_uniformity(image_upload),
+            "banding_severity": detect_banding_level(image_upload)
+        },
+        
+        # 4. Root cause analysis
+        "probable_causes": suggest_probable_causes(detected_defects, technician_context),
+        "recommended_actions": suggest_repair_actions(detected_defects, technician_context),
+        
+        # 5. Quality standards compliance
+        "quality_assessment": assess_against_standards(quality_metrics, manufacturer),
+        "pass_fail_result": determine_pass_fail(quality_metrics, quality_standard)
+    }
+    
+    return analysis_result
+
+# Defect Classification Categories
+DEFECT_CATEGORIES = {
+    'banding': 'Horizontal/vertical bands across print',
+    'streaking': 'Linear streaks or lines',
+    'color_issues': 'Color deviation, mixing, registration',
+    'density_variation': 'Uneven light/dark areas',
+    'contamination': 'Spots, dirt, debris on print',
+    'mechanical_defects': 'Physical damage patterns',
+    'paper_handling': 'Wrinkles, jams, feeding issues',
+    'toner_issues': 'Low toner, scatter, smearing',
+    'fuser_problems': 'Heat/pressure related defects',
+    'registration': 'Color misalignment issues'
+}
+```
 
 #### **Multi-Manufacturer Error Code Processing:**
 
@@ -231,16 +421,124 @@ chunks → Part-focused text segments with part number extraction
 
 ## 🗃️ **DETAILED TABLE STORAGE MAPPING**
 
-### **Core HP Documentation Tables**
+### **🖼️ Print Quality Analysis Tables**
 
-#### **📋 `manufacturers` Table**
-**Purpose**: HP + Competitor management
-**Data Source**: Configuration/Admin input
-**Python Interaction**: Lookup for manufacturer_id assignment
+#### **� `images` Table**
+**Purpose**: Store technician-uploaded photos and processed images
+**Data Source**: Mobile uploads, scanner uploads, camera captures
+**Python Interaction**: Image preprocessing and storage management
 ```python
-# Get HP manufacturer ID
-hp_manufacturer = await get_manufacturer_by_name("HP Inc.")
-manufacturer_id = hp_manufacturer['id']
+# Store uploaded print quality image
+async def store_print_quality_image(image_upload, technician_context):
+    # 1. Image validation and preprocessing
+    validated_image = validate_and_preprocess_image(image_upload)
+    
+    # 2. Store original image
+    image_record = {
+        'document_id': None,  # Not linked to a document
+        'chunk_id': None,     # Standalone quality image
+        'file_name': f"quality_sample_{timestamp}.jpg",
+        'storage_url': await upload_to_storage(validated_image),
+        'width': validated_image.width,
+        'height': validated_image.height,
+        'file_size_bytes': len(validated_image.data),
+        'image_format': 'jpg',
+        'image_type': 'photo',  # Print quality photo
+        'alt_text': f"Print quality sample from {technician_context.manufacturer}",
+        'extracted_text': None,  # No OCR needed for quality analysis
+        'technician_id': technician_context.technician_id,
+        'upload_context': {
+            'manufacturer': technician_context.manufacturer,
+            'product_model': technician_context.product_model,
+            'service_call_id': technician_context.service_call_id,
+            'upload_method': 'mobile_app'  # or 'web_interface'
+        }
+    }
+    
+    image_id = await insert_image_record(image_record)
+    return image_id
+```
+
+#### **🔍 `print_defects` Table**
+**Purpose**: AI analysis results for print quality defects
+**Data Source**: Computer vision analysis of uploaded images
+**Python Interaction**: Core defect detection and classification
+```python
+# AI-powered defect analysis
+async def analyze_and_store_defects(image_id, analysis_context):
+    # 1. Load AI models
+    defect_detector = load_defect_detection_model()
+    quality_assessor = load_quality_assessment_model()
+    
+    # 2. Run AI analysis
+    image_data = await get_image_data(image_id)
+    
+    # Detect defects using computer vision
+    detected_defects = defect_detector.detect(image_data)
+    quality_metrics = quality_assessor.assess(image_data)
+    
+    # 3. Store analysis results
+    for defect in detected_defects:
+        defect_record = {
+            'original_image_id': image_id,
+            'processed_image_url': await create_annotated_image(image_data, defect),
+            'thumbnail_url': await create_thumbnail(image_data, defect),
+            'technician_id': analysis_context.technician_id,
+            'manufacturer_id': analysis_context.manufacturer_id,
+            'product_id': analysis_context.product_id,
+            'service_call_id': analysis_context.service_call_id,
+            
+            # AI Classification Results
+            'defect_category': defect.category,  # 'banding', 'streaking', etc.
+            'confidence_score': defect.confidence,
+            'ai_model_version': defect_detector.version,
+            'detection_boxes': defect.bounding_boxes,
+            'severity_level': classify_severity(defect),
+            
+            # AI Analysis
+            'defect_description': generate_defect_description(defect),
+            'affected_area_percentage': calculate_affected_area(defect, image_data),
+            'probable_causes': suggest_probable_causes(defect, analysis_context),
+            'recommended_actions': suggest_repair_actions(defect, analysis_context),
+            
+            # Quality Metrics
+            'overall_quality_score': quality_metrics.overall_score,
+            'color_accuracy_score': quality_metrics.color_accuracy,
+            'sharpness_score': quality_metrics.sharpness,
+            'uniformity_score': quality_metrics.uniformity,
+            
+            # Print Context
+            'print_settings': analysis_context.print_settings,
+            'test_pattern_used': analysis_context.test_pattern,
+            'before_after': analysis_context.before_after,  # 'before', 'after', 'comparison'
+            
+            # Training Data
+            'training_sample': True,  # Use for AI improvement
+            'expert_verified': False,  # Needs technician confirmation
+            'training_weight': calculate_training_weight(defect.confidence)
+        }
+        
+        await insert_defect_record(defect_record)
+
+# Defect severity classification
+def classify_severity(defect):
+    severity_thresholds = {
+        'banding': {'minor': 0.05, 'moderate': 0.15, 'severe': 0.30},
+        'streaking': {'minor': 0.03, 'moderate': 0.10, 'severe': 0.25},
+        'color_issues': {'minor': 2.0, 'moderate': 5.0, 'severe': 10.0},
+        'registration': {'minor': 0.1, 'moderate': 0.3, 'severe': 0.6}
+    }
+    
+    thresholds = severity_thresholds.get(defect.category, {'minor': 0.1, 'moderate': 0.3, 'severe': 0.6})
+    
+    if defect.intensity <= thresholds['minor']:
+        return 'minor'
+    elif defect.intensity <= thresholds['moderate']:
+        return 'moderate'
+    elif defect.intensity <= thresholds['severe']:
+        return 'severe'
+    else:
+        return 'critical'
 ```
 
 #### **🏭 `products` Table** 
@@ -495,8 +793,41 @@ job = {
 
 ## 🔄 **COMPLETE PROCESSING WORKFLOW**
 
-### **📥 Step 1: Document Upload & Classification**
+### **📥 Step 1: Document Upload & Classification - ENHANCED**
+
 ```python
+async def process_uploaded_content(file_upload, content_type, metadata):
+    """Universal content processing for documents and images"""
+    
+    if content_type == 'image':
+        # NEW: Print quality image processing
+        return await process_print_quality_image(file_upload, metadata)
+    elif content_type == 'document':
+        # Existing document processing
+        return await process_uploaded_document(file_upload, metadata)
+
+async def process_print_quality_image(image_upload, metadata):
+    """Process technician-uploaded print quality photos"""
+    
+    # 1. Image validation and preprocessing
+    validated_image = await validate_print_image(image_upload)
+    if not validated_image.is_valid:
+        raise ValueError(f"Invalid image: {validated_image.error_message}")
+    
+    # 2. Store original image
+    image_id = await store_print_quality_image(validated_image, metadata)
+    
+    # 3. Create processing job for AI analysis
+    job_id = await create_quality_analysis_job(image_id, metadata)
+    
+    # 4. Return immediate response while processing async
+    return {
+        "image_id": image_id,
+        "job_id": job_id,
+        "status": "analyzing",
+        "estimated_completion": "30-60 seconds"
+    }
+
 async def process_uploaded_document(file_upload, metadata):
     # 1. File validation and storage
     file_hash = calculate_file_hash(file_upload.content)
@@ -600,22 +931,30 @@ async def update_search_indexes(document_id):
 
 ## ⚙️ **PYTHON CONFIGURATION MAPPING**
 
-### **Environment Variables Usage**
+## Environment Variables Usage
+
 ```python
-# HP-Specific Configuration
-CPMD_SUPPORTED_VERSIONS = os.getenv('CPMD_SUPPORTED_VERSIONS', 'v2.1,v2.2,v2.3').split(',')
-OPTION_VALIDATION_ENABLED = os.getenv('OPTION_VALIDATION_ENABLED', 'true').lower() == 'true'
+# Multi-Manufacturer Configuration
+SUPPORTED_MANUFACTURERS = os.getenv('SUPPORTED_MANUFACTURERS', 'HP,Canon,Epson,Brother,Xerox').split(',')
 ERROR_CODE_NORMALIZATION = os.getenv('ERROR_CODE_NORMALIZATION', 'true').lower() == 'true'
+UNIVERSAL_PARTS_LOOKUP = os.getenv('UNIVERSAL_PARTS_LOOKUP', 'true').lower() == 'true'
+
+# Print Quality Analysis Configuration  
+IMAGE_ANALYSIS_ENABLED = os.getenv('IMAGE_ANALYSIS_ENABLED', 'true').lower() == 'true'
+DEFECT_MODEL = os.getenv('DEFECT_MODEL', 'mobilenet_v2')
+CONFIDENCE_THRESHOLD = float(os.getenv('CONFIDENCE_THRESHOLD', '0.85'))
+MAX_IMAGE_SIZE = os.getenv('MAX_IMAGE_SIZE', '10MB')
+SUPPORTED_IMAGE_FORMATS = os.getenv('SUPPORTED_FORMATS', 'jpg,png,jpeg').split(',')
+
+# AI Model Configuration
+EMBEDDING_PROVIDER = os.getenv('EMBEDDING_PROVIDER', 'openai')
+EMBEDDING_MODEL = os.getenv('EMBEDDING_MODEL', 'text-embedding-3-small')
+SIMILARITY_THRESHOLD = float(os.getenv('SIMILARITY_THRESHOLD', '0.7'))
 
 # Storage Configuration
 STORAGE_PROVIDER = os.getenv('STORAGE_PROVIDER', 'supabase')
 SUPABASE_URL = os.getenv('SUPABASE_URL')
 SUPABASE_SERVICE_KEY = os.getenv('SUPABASE_SERVICE_ROLE_KEY')
-
-# AI Configuration  
-EMBEDDING_PROVIDER = os.getenv('EMBEDDING_PROVIDER', 'openai')
-EMBEDDING_MODEL = os.getenv('EMBEDDING_MODEL', 'text-embedding-3-small')
-SIMILARITY_THRESHOLD = float(os.getenv('SIMILARITY_THRESHOLD', '0.7'))
 ```
 
 ### **Database Connection Management**
@@ -641,19 +980,42 @@ db_connection = asyncpg.connect(
 ## 🎯 **SUCCESS METRICS & VALIDATION**
 
 ### **Processing Success Criteria**
+
 - **CPMD Files**: Error codes extracted and normalized successfully
-- **Service Manuals**: Chapters segmented and cross-references created
+- **Service Manuals**: Chapters segmented and cross-references created  
 - **Parts Catalogs**: Part numbers extracted with compatibility mapping
+- **🖼️ Print Quality Images**: AI defect detection with confidence scores >85%
 - **All Files**: Vector embeddings generated for semantic search
 
 ### **Data Quality Validation**
+
 ```python
-# Validate processed data quality
-async def validate_processing_quality(document_id):
+# Enhanced validation including image analysis
+async def validate_processing_quality(document_id, content_type):
+    if content_type == 'image':
+        return await validate_image_analysis_quality(document_id)
+    else:
+        return await validate_document_processing_quality(document_id)
+
+async def validate_image_analysis_quality(image_id):
+    """Validate AI analysis quality for print defect detection"""
+    checks = {
+        'image_stored': await check_image_storage(image_id),
+        'defects_detected': await count_detected_defects(image_id) >= 0,  # 0 defects is valid
+        'confidence_acceptable': await check_detection_confidence(image_id, min_confidence=0.7),
+        'quality_metrics_calculated': await check_quality_metrics(image_id),
+        'ai_annotations_generated': await check_annotated_image(image_id),
+        'training_data_prepared': await check_training_readiness(image_id)
+    }
+    
+    quality_score = sum(checks.values()) / len(checks)
+    return quality_score >= 0.8  # 80% success threshold
+
+async def validate_document_processing_quality(document_id):
     checks = {
         'chunks_created': await count_document_chunks(document_id) > 0,
         'embeddings_generated': await check_chunk_embeddings(document_id),
-        'error_codes_extracted': await count_error_codes(document_id) if cpmd else True,
+        'error_codes_extracted': await count_error_codes(document_id) if not image else True,
         'relationships_created': await check_document_relationships(document_id),
         'metadata_complete': await validate_document_metadata(document_id)
     }
@@ -666,35 +1028,46 @@ async def validate_processing_quality(document_id):
 
 ## 📋 **IMPLEMENTATION CHECKLIST**
 
-### **Phase 1: Core Processing Engine**
-- [ ] Document type detection algorithm
-- [ ] CPMD XML parser with error code extraction
-- [ ] PDF text extraction with OCR fallback
-- [ ] Semantic chunking strategy implementation
-- [ ] Vector embedding generation pipeline
+### **Phase 1: Interactive Terminal Script (CURRENT)** 🖥️
 
-### **Phase 2: Multi-Manufacturer Intelligence**
+**Implemented Files:**
+- `backend/krai_interactive_processor.py` - Main interactive script
+- `backend/config.py` - Configuration management  
+- `backend/requirements.txt` - Dependencies
+- `backend/.env.example` - Environment template
 
-- [ ] Error code normalization logic for ALL manufacturers
-- [ ] Manufacturer-specific error code pattern recognition
-- [ ] Product model detection from content (HP, Canon, Epson, Brother)
-- [ ] Cross-manufacturer option compatibility rules
-- [ ] Intelligent document pairing algorithm (Service Manual + Parts Catalog)
+**Features:**
+- [x] Interactive file processing via terminal
+- [x] Multi-manufacturer support with interactive selection
+- [x] Print quality image analysis with technician feedback
+- [x] AI vision integration for defect detection
+- [x] Database storage with structured data
+- [x] ML training data collection from user feedback
 
-### **Phase 3: Storage Integration**
+**Usage:**
+```bash
+cd backend
+python krai_interactive_processor.py [file_path]
+```
 
-- [ ] Supabase client integration
-- [ ] Structured data insertion pipelines for all manufacturers
-- [ ] Universal relationship creation logic
-- [ ] Search index maintenance across all brands
+### **Phase 2: Filament Dashboard Integration (UPCOMING)** 🌐
 
-### **Phase 4: Performance & Monitoring**
+**Planned Implementation:**
+- [ ] Web-based upload interface in Filament dashboard
+- [ ] Automatic categorization suggestions based on Phase 1 data
+- [ ] Drag & drop file upload with progress tracking
+- [ ] Batch processing management via web interface
+- [ ] Real-time AI analysis status and results display
+- [ ] Technician feedback interface for continuous ML improvement
 
-- [ ] Processing job queue management
-- [ ] Performance metrics logging per manufacturer
-- [ ] Error handling and retry logic
-- [ ] Data quality validation for all document types
+**Integration Strategy:**
+- Reuse Phase 1 processing logic as backend API
+- Import accumulated training data from Phase 1
+- Provide both manual and automatic categorization modes
+- Maintain backward compatibility with terminal script
 
 ---
 
-**🎯 Dieses Handbuch definiert exakt, wie jedes Datenelement von ALLEN Herstellern verarbeitet und in der 16-Tabellen-Architektur gespeichert wird. Ready für die Multi-Manufacturer Python Implementation!**
+**🎯 Dieses Handbuch definiert exakt, wie jedes Datenelement von ALLEN Herstellern UND Print Quality Images verarbeitet und in der erweiterten Tabellen-Architektur gespeichert wird. Ready für die Multi-Manufacturer + AI Vision Python Implementation!**
+ 
+ 
