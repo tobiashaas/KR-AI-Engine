@@ -37,16 +37,37 @@ KRAI Engine is a production-ready AI-powered document processing system designed
 └─────────────────┘    └──────────────────┘    └─────────────────┘
 ```
 
-## 🗃️ Database Schema (16 Tables)
+## 🗃️ Database Schema (20+ Tables across 5 Schemas)
 
-### Core Multi-Manufacturer Documentation Tables
-
+### **🏗️ KRAI_CORE** - Core Business Data
 - **`manufacturers`** - All printer manufacturers (HP, Canon, Epson, Brother, etc.)
 - **`products`** - Product hierarchy across all brands (Series → Model → Options)
-- **`documents`** - Service manuals, parts catalogs, CPMD databases, defect images
-- **`chunks`** - Semantic text chunks with embeddings for universal search
-- **`error_codes`** - Error codes from all manufacturers with solutions
+- **`documents`** - Service manuals, parts catalogs, CPMD databases (HP), technical bulletins, user manuals
 - **`document_relationships`** - Intelligent document pairing and cross-references
+
+### **🧠 KRAI_INTELLIGENCE** - AI & Intelligence
+- **`chunks`** - Semantic text chunks with embeddings for universal search
+- **`embeddings`** - Vector embeddings (768D) with HNSW indexing
+- **`error_codes`** - Error codes from all manufacturers with solutions
+- **`search_analytics`** - Search performance tracking and optimization
+
+### **🎥 KRAI_CONTENT** - Content & Media
+- **`images`** - Technical images, schematics, diagrams
+- **`instructional_videos`** - Video tutorials and repair guides
+- **`print_defects`** - AI-analyzed print quality issues
+- **`defect_patterns`** - Training data for defect classification
+
+### **⚙️ KRAI_CONFIG** - Configuration & Rules
+- **`product_compatibility`** - Option compatibility matrix
+- **`option_groups`** - Option group rules (exclusive/required)
+- **`competitive_features`** - Feature definitions
+- **`product_features`** - Product feature values
+
+### **🔧 KRAI_SYSTEM** - System Operations
+- **`processing_queue`** - Background processing jobs
+- **`performance_metrics`** - System performance monitoring
+- **`audit_log`** - Audit trail and compliance
+- **`system_health`** - Health monitoring and alerts
 
 ### Advanced Business Logic Tables
 
