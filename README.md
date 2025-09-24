@@ -5,8 +5,8 @@
 [![Database](https://img.shields.io/badge/Database-Supabase%20PostgreSQL-blue)](https://supabase.com/)
 [![Backend](https://img.shields.io/badge/Backend-Python%20FastAPI-green)](https://fastapi.tiangolo.com/)
 [![Frontend](https://img.shields.io/badge/Frontend-Laravel%20Filament-red)](https://filamentphp.com/)
-[![AI](https://img.shields.io/badge/AI-Vector%20Search%20%2B%20LLM-purple)](https://github.com/tobiashaas/KRAI-Engine)
-[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)](https://github.com/tobiashaas/KRAI-Engine)
+[![AI](https://img.shields.io/badge/AI-Vector%20Search%20%2B%20LLM-purple)](https://github.com/tobiashaas/KR-AI-Engine)
+[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)](https://github.com/tobiashaas/KR-AI-Engine)
 
 ## 🚀 Overview
 
@@ -85,7 +85,7 @@ KRAI Engine is a production-ready AI-powered document processing system designed
 
 ```bash
 # Clone repository
-git clone https://github.com/tobiashaas/KRAI-Engine.git
+git clone https://github.com/tobiashaas/KR-AI-Engine.git
 cd KRAI-Engine
 
 # Setup environment
