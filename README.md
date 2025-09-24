@@ -86,7 +86,7 @@ KRAI Engine is a production-ready AI-powered document processing system designed
 ```bash
 # Clone repository
 git clone https://github.com/tobiashaas/KR-AI-Engine.git
-cd KRAI-Engine
+cd KR-AI-Engine
 
 # Setup environment
 cp .env.example .env
