@@ -8,6 +8,14 @@ import torch
 from pathlib import Path
 from typing import Dict, Any, Optional
 import platform
+from dotenv import load_dotenv
+
+# Load environment variables from ROOT .env file (Single Source of Truth)
+root_env_path = Path(__file__).parent.parent.parent / '.env'
+if root_env_path.exists():
+    load_dotenv(root_env_path)
+else:
+    print(f"WARNING: .env file not found at {root_env_path}")
 
 class ProductionConfig:
     """Production configuration with GPU optimization"""
@@ -34,14 +42,21 @@ class ProductionConfig:
     
     def _configure_device(self) -> Dict[str, Any]:
         """Configure optimal device for current system"""
-        if torch.cuda.is_available():
+        # Allow override from environment
+        env_device = os.getenv("ML_DEVICE")
+        env_memory = os.getenv("ML_MEMORY_GB")
+        
+        if env_device:
+            device = env_device
+            device_name = os.getenv("ML_DEVICE_NAME", device.upper())
+            memory_gb = float(env_memory) if env_memory else 16
+        elif torch.cuda.is_available():
             device = "cuda"
             device_name = f"CUDA {torch.version.cuda}"
             memory_gb = torch.cuda.get_device_properties(0).total_memory / 1e9
         elif torch.backends.mps.is_available():
             device = "mps"
             device_name = "Apple Metal Performance Shaders"
-            # M1 Pro has 16-core GPU with unified memory
             memory_gb = 16  # Approximate for M1 Pro
         else:
             device = "cpu"
@@ -52,7 +67,7 @@ class ProductionConfig:
             "device": device,
             "device_name": device_name,
             "memory_gb": memory_gb,
-            "batch_size": self._calculate_optimal_batch_size(memory_gb),
+            "batch_size": int(os.getenv("ML_BATCH_SIZE", str(self._calculate_optimal_batch_size(memory_gb)))),
             "num_workers": self._calculate_optimal_workers(device, memory_gb)
         }
     
@@ -67,6 +82,11 @@ class ProductionConfig:
     
     def _calculate_optimal_workers(self, device: str, memory_gb: float) -> int:
         """Calculate optimal number of workers"""
+        # Allow override from environment
+        env_workers = os.getenv("KRAI_API_WORKERS")
+        if env_workers:
+            return int(env_workers)
+            
         cpu_count = os.cpu_count() or 4
         
         if device == "cuda":
@@ -80,7 +100,7 @@ class ProductionConfig:
         """Configure model settings for production"""
         return {
             "llm": {
-                "model_name": "llama3.2:3b",
+                "model_name": os.getenv("OLLAMA_LLM_MODEL", "llama3.2:3b"),
                 "temperature": 0.7,
                 "max_tokens": 2048,
                 "top_p": 0.9,
@@ -88,13 +108,13 @@ class ProductionConfig:
                 "context_length": 8192
             },
             "embedding": {
-                "model_name": "embeddinggemma",
+                "model_name": os.getenv("OLLAMA_EMBEDDING_MODEL", "embeddinggemma"),
                 "dimension": 768,
                 "batch_size": self.device_config["batch_size"],
                 "normalize": True
             },
             "vision": {
-                "model_name": "llava:7b",
+                "model_name": os.getenv("OLLAMA_VISION_MODEL", "llava:7b"),
                 "image_size": 512,
                 "batch_size": min(self.device_config["batch_size"], 4),
                 "max_new_tokens": 1024
@@ -111,7 +131,7 @@ class ProductionConfig:
         """Configure performance optimizations"""
         return {
             "async_processing": True,
-            "concurrent_documents": 3,
+            "concurrent_documents": int(os.getenv("ML_CONCURRENT_DOCUMENTS", 3)),
             "concurrent_chunks": 10,
             "embedding_cache_size": 10000,
             "vector_cache_size": 1000,
@@ -126,8 +146,8 @@ class ProductionConfig:
     def get_ollama_config(self) -> Dict[str, Any]:
         """Get Ollama-specific configuration"""
         return {
-            "base_url": "http://localhost:11434",
-            "timeout": 300,
+            "base_url": os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
+            "timeout": int(os.getenv("OLLAMA_TIMEOUT", 300)),
             "retry_attempts": 3,
             "retry_delay": 1,
             "models": {

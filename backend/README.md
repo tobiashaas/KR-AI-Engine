@@ -1,298 +1,380 @@
-# Backend - KRAI Engine
+# KRAI Engine Backend
 
-The backend of KRAI Engine is a high-performance Python FastAPI application that provides AI-powered document processing capabilities.
+**AI-Powered Document Processing Engine**
 
-## 🚀 **Core Components**
+## Overview
 
-### **Production API**
-- **`production_main.py`** - Main FastAPI application
-- **`production_document_processor.py`** - Core document processing logic
-- **`supabase_main.py`** - Supabase-integrated API
-- **`supabase_document_processor.py`** - Supabase document processor
+The KRAI Engine backend is a FastAPI-based application that provides intelligent document processing capabilities for technical service environments. It specializes in processing service manuals, parts catalogs, and technical documentation from printer and copier manufacturers.
 
-### **Configuration**
-- **`config/production_config.py`** - Production configuration
-- **`config/supabase_config.py`** - Supabase integration
-- **`config/database_config.py`** - Database configuration
-- **`config/*.json`** - JSON-based pattern configurations
+## Core Features
 
-### **API Endpoints**
-- **`api/document_api.py`** - Document processing endpoints
-- **`api/supabase_document_api.py`** - Supabase document API
+- **Intelligent Document Classification** - Automatic detection of document type, manufacturer, and models
+- **Advanced Text Processing** - Error code and part number extraction with manufacturer-specific patterns
+- **AI-Powered Image Analysis** - Technical diagram and chart analysis using Vision AI
+- **Semantic Search** - Vector-based search with embedding technology
+- **Multi-Modal AI** - Integration with LLM, Vision, and Embedding models via Ollama
+- **Scalable Architecture** - Async processing with GPU acceleration support
 
-## 🏗️ **Architecture**
+## Quick Start
 
-### **Document Processing Pipeline**
-1. **Document Upload** → PDF validation and storage
-2. **Text Extraction** → PyPDF2-based content extraction
-3. **Image Processing** → Computer vision with LLaVA
-4. **Classification** → Hybrid filename + content-based
-5. **Chunking** → Contextual chunking for technical documents
-6. **Embedding Generation** → 768D vectors with EmbeddingGemma
-7. **Database Storage** → PostgreSQL with pgvector
-8. **Search Indexing** → Vector search capabilities
+### Prerequisites
+- Python 3.12+
+- PostgreSQL with pgvector extension
+- Ollama with required AI models
+- Supabase (local or cloud)
 
-### **AI/ML Integration**
-- **LLM**: Llama3.2 for text analysis
-- **Embeddings**: EmbeddingGemma for semantic search
-- **Vision**: LLaVA for image analysis
-- **GPU Acceleration**: Apple Metal Performance Shaders (MPS)
+### Installation
 
-## 📁 **File Structure**
+1. **Install Dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-```
-backend/
-├── production_main.py              # Main FastAPI application
-├── production_document_processor.py # Core processing logic
-├── supabase_main.py               # Supabase API
-├── supabase_document_processor.py # Supabase processor
-├── config/                        # Configuration files
-│   ├── production_config.py       # Production settings
-│   ├── supabase_config.py         # Supabase integration
-│   ├── database_config.py         # Database configuration
-│   ├── error_code_patterns.json   # Error code patterns
-│   ├── chunk_settings.json        # Chunking strategies
-│   ├── version_patterns.json     # Version extraction
-│   └── model_placeholder_patterns.json # Model placeholders
-├── api/                          # API endpoints
-│   ├── document_api.py           # Document API
-│   └── supabase_document_api.py  # Supabase API
-├── tests/                        # Unit tests
-│   ├── test_*.py                 # Test files
-│   └── *.json                    # Test configurations
-├── requirements.txt              # Python dependencies
-└── logs/                         # Application logs
-```
+2. **Configure Environment**
+   ```bash
+   # Root .env file is automatically loaded
+   # Ensure /.env exists with proper configuration
+   ```
 
-## 🔧 **Configuration**
+3. **Start Application**
+   ```bash
+   python3 production_main.py
+   ```
 
-### **Environment Variables**
-```bash
-# Database
-POSTGRES_HOST=localhost
-POSTGRES_PORT=5432
-POSTGRES_DB=krai_engine
+The API will be available at `http://localhost:8001`
+
+## Application Architecture
+
+### Main Components
+
+#### Production Document Processor (`production_document_processor.py`)
+Core document processing pipeline with the following capabilities:
+- Multi-format document ingestion (PDF, DOCX)
+- Intelligent chunking with configurable strategies
+- AI-powered content analysis and classification
+- Image extraction and Vision AI processing
+- Embedding generation for semantic search
+- Comprehensive metadata extraction
+
+#### Configuration System (`config/`)
+Centralized configuration management:
+- **Production Config**: Runtime environment configuration
+- **Database Config**: Connection and pool management
+- **Supabase Config**: Storage and API configuration
+- **JSON Configs**: Dynamic pattern configurations for error codes, versions, and chunking
+
+#### API Layer (`api/`)
+RESTful API endpoints:
+- Document upload and processing
+- Real-time processing status
+- Search and query interfaces
+- AI model management
+- Performance monitoring
+
+### AI Integration
+
+#### Ollama Models
+- **LLM**: Llama 3.2:3b for text analysis and chat
+- **Vision**: LLaVA:7b for image analysis and OCR
+- **Embedding**: EmbeddingGemma for semantic vectorization
+
+#### Device Support
+- **Apple Silicon**: MPS (Metal Performance Shaders) 
+- **NVIDIA GPU**: CUDA acceleration
+- **CPU Fallback**: Intel/AMD processor support
+
+## Configuration
+
+### Environment Variables
+
+The backend loads configuration from the root `.env` file:
+
+```env
+# Database Configuration
+POSTGRES_HOST=127.0.0.1
+POSTGRES_PORT=54322
+POSTGRES_DB=postgres
 POSTGRES_USER=postgres
-POSTGRES_PASSWORD=your_password
+POSTGRES_PASSWORD=postgres
 
-# Supabase
-SUPABASE_URL=http://localhost:54321
-SUPABASE_ANON_KEY=your_anon_key
-SUPABASE_SERVICE_ROLE_KEY=your_service_key
+# Supabase Configuration  
+SUPABASE_URL=http://127.0.0.1:54321
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 
-# Ollama
+# Ollama Configuration
 OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_LLM_MODEL=llama3.2:3b
+OLLAMA_VISION_MODEL=llava:7b
+OLLAMA_EMBEDDING_MODEL=embeddinggemma
+
+# Performance Configuration
+ML_DEVICE=mps
+ML_BATCH_SIZE=32
+ML_CONCURRENT_DOCUMENTS=3
 ```
 
-### **JSON Configuration Files**
+### JSON Configuration Files
 
-#### **Error Code Patterns** (`error_code_patterns.json`)
-```json
-{
-  "manufacturers": {
-    "hp": {
-      "patterns": ["C####", "J##-##", "E##-##"],
-      "validation_regex": "^(C|J|E)\\d{2,4}$"
-    },
-    "konica_minolta": {
-      "patterns": ["C####", "J##-##", "E##-##", "##.##"],
-      "validation_regex": "^(C|J|E)\\d{2,4}$|^\\d{2}\\.\\d{2}$"
-    }
-  }
-}
+#### Chunking Strategies (`config/chunk_settings.json`)
+Configures text chunking behavior:
+- Strategy selection (contextual, structure-based, etc.)
+- Document-type specific settings
+- Manufacturer-specific optimizations
+
+#### Error Code Patterns (`config/error_code_patterns.json`)
+Manufacturer-specific error code extraction:
+- HP: Alphanumeric patterns (C4-750, 13.05.00)
+- Konica Minolta: C-series and E-series codes  
+- Lexmark: Numeric patterns (XXX.XX format)
+
+#### Version Patterns (`config/version_patterns.json`)
+Document version extraction rules:
+- Edition patterns
+- Date patterns  
+- Firmware version patterns
+- Validation rules
+
+## API Endpoints
+
+### Core Processing
+```http
+POST /api/production/documents/upload
+GET  /health
+GET  /config
+GET  /api/production/documents/stats
 ```
 
-#### **Chunk Settings** (`chunk_settings.json`)
-```json
-{
-  "default": {
-    "chunk_size": 512,
-    "chunk_overlap": 50,
-    "strategy": "contextual"
-  },
-  "document_types": {
-    "service_manual": {
-      "chunk_size": 768,
-      "chunk_overlap": 100,
-      "strategy": "structure_based"
-    }
-  }
-}
+### AI Interaction
+```http
+POST /api/production/chat
+POST /api/production/vision/analyze
+GET  /api/production/models/status
 ```
 
-#### **Version Patterns** (`version_patterns.json`)
-```json
-{
-  "pattern_categories": {
-    "edition_patterns": {
-      "patterns": [
-        {
-          "regex": "edition\\s+([0-9]+(?:\\.[0-9]+)?)\\s*,?\\s*([0-9]+/[0-9]{4})",
-          "output_format": "Edition {edition}, {date}",
-          "confidence": 1.0
-        }
-      ]
-    }
-  }
-}
+### Performance Monitoring
+```http
+GET /api/production/performance
 ```
 
-## 🚀 **Running the Backend**
+See `../API_DOCUMENTATION.md` for complete endpoint documentation.
 
-### **Development Mode**
+## Document Processing Pipeline
+
+### 1. Document Upload
+- File validation (type, size)
+- Temporary storage
+- Initial metadata extraction
+
+### 2. Classification
+- Filename-based classification
+- Content-based analysis
+- Manufacturer detection
+- Model identification
+
+### 3. Text Processing
+- PDF text extraction
+- Structure analysis
+- Error code detection
+- Part number extraction
+- Version identification
+
+### 4. Chunking
+- Strategy selection based on document type
+- Intelligent boundary detection
+- Context preservation
+- Overlap optimization
+
+### 5. Image Processing
+- Image extraction from PDF
+- Vision AI analysis
+- Technical diagram interpretation
+- OCR for text in images
+
+### 6. Embedding Generation
+- Text vectorization using EmbeddingGemma
+- Semantic embedding creation
+- Vector database storage
+
+### 7. Database Storage
+- Structured data storage in PostgreSQL
+- File storage in Supabase Storage
+- Metadata indexing
+- Relationship mapping
+
+## Testing Framework
+
+### Test Structure
+```
+tests/
+├── comprehensive_test_runner.py    # Main test orchestrator
+├── real_document_tester.py        # Real PDF testing
+├── *_classifier*.py              # Classification tests
+├── *_extractor*.py               # Extraction tests
+├── test_documents/               # Test data
+└── analysis_reports/             # Test results
+```
+
+### Running Tests
 ```bash
-cd backend
-pip install -r requirements.txt
-python production_main.py
+# Run comprehensive tests
+python tests/comprehensive_test_runner.py
+
+# Test specific component
+python tests/test_json_config_classifier.py
+
+# Test with real documents
+python tests/real_document_tester.py
 ```
 
-### **Production Mode**
+## Performance Optimization
+
+### Database Optimization
+- Connection pooling with AsyncPG
+- Prepared statements for frequent queries
+- Composite indexes for search performance
+- HNSW indexes for vector similarity
+
+### AI Model Optimization
+- GPU memory management
+- Batch processing for efficiency
+- Model result caching
+- Async processing pipeline
+
+### Storage Optimization
+- File deduplication using SHA256 hashing
+- Compressed storage for text content
+- Lazy loading for large documents
+- Efficient image processing
+
+## Monitoring and Debugging
+
+### Health Monitoring
+The `/health` endpoint provides comprehensive system status:
+- Database connectivity
+- AI model availability  
+- Processing statistics
+- Performance metrics
+
+### Logging
+Structured logging with multiple levels:
+- **INFO**: General processing information
+- **DEBUG**: Detailed processing steps
+- **ERROR**: Error conditions and exceptions
+- **WARNING**: Non-critical issues
+
+### Debug Mode
+Enable debug logging:
+```env
+DEBUG=true
+LOG_LEVEL=DEBUG
+```
+
+## Deployment
+
+### Local Development
 ```bash
-# Using Docker
-docker build -f Dockerfile -t krai-backend .
-docker run -p 8001:8001 krai-backend
-
-# Or directly
-python production_main.py
+# Start with local services
+python3 production_main.py
 ```
 
-### **Supabase Integration**
+### Docker Deployment
+```dockerfile
+FROM python:3.12-slim
+WORKDIR /app
+COPY . .
+RUN pip install -r requirements.txt
+EXPOSE 8001
+CMD ["python3", "production_main.py"]
+```
+
+### Production Deployment
+- Environment-based configuration
+- Database connection pooling
+- Load balancing support
+- Health check endpoints
+- Graceful shutdown handling
+
+## Security Considerations
+
+### Data Protection
+- Input validation for all endpoints
+- SQL injection prevention
+- File upload security
+- Secure storage configuration
+
+### Access Control
+- API authentication (configurable)
+- Row Level Security in database
+- Private storage buckets
+- Environment variable protection
+
+## Troubleshooting
+
+### Common Issues
+
+**Database Connection Failed**
 ```bash
-# Start local Supabase
-supabase start
-
-# Run Supabase API
-python supabase_main.py
+# Check PostgreSQL connectivity
+psql -h $POSTGRES_HOST -p $POSTGRES_PORT -U $POSTGRES_USER -d $POSTGRES_DB
 ```
 
-## 🧪 **Testing**
-
-### **Unit Tests**
+**AI Models Not Available**
 ```bash
-cd backend
-python -m pytest tests/
+# Check Ollama status
+curl http://localhost:11434/api/tags
+
+# Pull missing models
+ollama pull llama3.2:3b
+ollama pull llava:7b
+ollama pull embeddinggemma
 ```
 
-### **Integration Tests**
+**API Not Responding**
 ```bash
-# Test production system
-python test_production_system.py
+# Check process
+ps aux | grep production_main.py
 
-# Test Supabase integration
-python test_supabase_system.py
+# Check logs
+tail -f logs/krai.log
+
+# Check port availability
+lsof -i :8001
 ```
 
-### **API Testing**
-```bash
-# Test API endpoints
-curl -X POST http://localhost:8001/api/production/documents/upload \
-  -F "file=@test_documents/HP_E778_SM.pdf"
+### Debug Logging
+Enable comprehensive debugging:
+```env
+DEBUG=true
+LOG_LEVEL=DEBUG
+DEBUG_CHUNKING=true
+DEBUG_CLASSIFICATION=true
 ```
 
-## 📊 **Performance**
+## Contributing
 
-### **Optimization Features**
-- **Async Processing**: Non-blocking I/O operations
-- **GPU Acceleration**: Apple M1 Pro MPS support
-- **Connection Pooling**: Database connection optimization
-- **Caching**: Redis-based caching for embeddings
-- **Batch Processing**: Efficient batch operations
+### Code Style
+- Follow PEP 8 conventions
+- Use type hints throughout
+- Comprehensive docstrings
+- Async/await for I/O operations
 
-### **Performance Metrics**
-- **Document Processing**: 2-3 seconds per document
-- **Embedding Generation**: 100ms per chunk
-- **Image Analysis**: 500ms per image
-- **Database Queries**: < 50ms average
+### Testing
+- Add tests for new features
+- Maintain test coverage above 80%
+- Test with real documents
+- Performance regression testing
 
-## 🔒 **Security**
+### Documentation
+- Update API documentation for new endpoints
+- Document configuration changes
+- Update deployment guides
+- Maintain changelog
 
-### **Authentication**
-- **API Keys**: Secure API key management
-- **Row Level Security**: Database-level access control
-- **Audit Logging**: Comprehensive operation logging
+## Support
 
-### **Data Protection**
-- **Encryption**: Data encryption at rest and in transit
-- **Access Control**: Role-based permissions
-- **Privacy**: Personal data redaction with Presidio
-
-## 📈 **Monitoring**
-
-### **Logging**
-- **Application Logs**: `backend/logs/`
-- **Database Logs**: PostgreSQL query logging
-- **Performance Metrics**: Processing time tracking
-
-### **Health Checks**
-- **API Health**: `/health` endpoint
-- **Database Health**: Connection status
-- **AI Models**: Ollama model availability
-
-## 🐛 **Debugging**
-
-### **Common Issues**
-1. **Database Connection**: Check PostgreSQL is running
-2. **Ollama Models**: Ensure models are available
-3. **Supabase**: Verify local instance is running
-4. **File Permissions**: Check document access
-
-### **Debug Mode**
-```bash
-# Enable debug logging
-export DEBUG=true
-export LOG_LEVEL=DEBUG
-
-# Run with verbose output
-python production_main.py --debug
-```
-
-## 📚 **API Documentation**
-
-### **Endpoints**
-- **POST** `/api/production/documents/upload` - Upload document
-- **GET** `/api/production/documents` - List documents
-- **GET** `/api/production/documents/{id}` - Get document details
-- **POST** `/api/production/documents/{id}/process` - Process document
-- **GET** `/health` - Health check
-
-### **Request/Response Examples**
-```bash
-# Upload document
-curl -X POST http://localhost:8001/api/production/documents/upload \
-  -F "file=@document.pdf" \
-  -F "metadata={\"manufacturer\":\"HP\"}"
-
-# Response
-{
-  "document_id": "uuid",
-  "status": "processing",
-  "message": "Document uploaded successfully"
-}
-```
-
-## 🔄 **Deployment**
-
-### **Docker Deployment**
-```bash
-# Build image
-docker build -f Dockerfile -t krai-backend .
-
-# Run container
-docker run -p 8001:8001 \
-  -e POSTGRES_HOST=localhost \
-  -e POSTGRES_PORT=5432 \
-  krai-backend
-```
-
-### **Production Deployment**
-```bash
-# Using Docker Compose
-docker-compose -f test/docker/docker-compose.production.yml up -d
-
-# Or manual deployment
-python production_main.py
-```
-
----
-
-**Backend** - High-performance AI-powered document processing
+For backend-specific issues:
+1. Check application logs
+2. Verify configuration settings
+3. Test individual components
+4. Run diagnostic health checks
+5. Contact development team with detailed error information

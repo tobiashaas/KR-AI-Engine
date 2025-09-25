@@ -1,11 +1,17 @@
-# Test Suite - KRAI Engine
+# KRAI Engine - Testing Environment
 
-This directory contains all test files, scripts, and configurations for the KRAI Engine project.
+**Comprehensive Testing Infrastructure for KRAI Engine**
+
+This directory contains all testing infrastructure, test scripts, configurations, and test data for the KRAI Engine project.
 
 ## 📁 **Directory Structure**
 
 ```
 test/
+├── backend-tests/              # Backend-specific test suite
+│   ├── *.py                   # Python test scripts
+│   ├── analysis_reports/     # Test result reports
+│   └── test_documents/       # Backend test data
 ├── docker/                     # Docker configurations
 │   ├── docker-compose.*.yml   # Various Docker Compose setups
 │   └── Dockerfile.*           # Different Dockerfile variants

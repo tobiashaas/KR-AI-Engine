@@ -1,224 +1,123 @@
-# KRAI Engine - AI-Powered Document Processing System
+# KRAI Engine
 
-## 🚀 **Overview**
+**Knowledge Retrieval and Analysis Intelligence Engine**
 
-KRAI Engine is a comprehensive AI-powered document processing system designed for technical service environments, specifically optimized for printer manufacturers. The system provides intelligent document classification, content extraction, and AI-powered analysis using state-of-the-art machine learning models.
+Eine KI-gestützte Dokumentenverarbeitungsplattform für technische Service-Umgebungen mit Fokus auf Drucker- und Kopierer-Hersteller.
 
-## ✨ **Key Features**
+## Überblick
 
-- **🤖 Multi-Model AI Integration**: LLM (Llama3.2), Embedding (EmbeddingGemma), Vision (LLaVA)
-- **📄 Intelligent Document Processing**: PDF text extraction, image OCR, content analysis
-- **🔍 Advanced Classification**: Hybrid filename + content-based document categorization
-- **🧠 Smart Chunking**: Contextual chunking optimized for technical documents
-- **📊 Vector Search**: Semantic search using 768D embeddings
-- **🖼️ Image Analysis**: Computer vision for defect detection and diagram analysis
-- **⚡ High Performance**: GPU/NPU acceleration with Apple Metal Performance Shaders
-- **🗄️ Scalable Database**: PostgreSQL with pgvector for vector operations
-- **☁️ Cloud Storage**: Supabase integration for document and image storage
+KRAI Engine ist eine moderne, skalierbare Lösung zur intelligenten Verarbeitung und Analyse technischer Dokumentation. Das System kombiniert fortschrittliche KI-Technologien mit einer robusten Backend-Architektur für die automatisierte Extraktion, Klassifizierung und Suche in technischen Handbüchern, Service-Dokumentationen und Fehlerbehebungsanleitungen.
 
-## 🏗️ **Architecture**
+### Kernfunktionen
 
-### **Backend (Python FastAPI)**
-- **Production API**: `backend/production_main.py`
-- **Document Processor**: `backend/production_document_processor.py`
-- **Configuration**: JSON-based patterns for error codes, chunking, versions
-- **Database**: PostgreSQL with optimized schema (16 tables)
-- **Storage**: Supabase for documents and images
+- **Intelligente Dokumentklassifizierung** - Automatische Erkennung von Dokumenttyp, Hersteller, Modell und Version
+- **Fortgeschrittene Textverarbeitung** - Extraktion von Fehlercodes, Teilenummern und technischen Spezifikationen
+- **KI-basierte Bildanalyse** - Erkennung und Analyse von Diagrammen, Schaltplänen und technischen Illustrationen
+- **Vektorbasierte Suche** - Semantische Suche mit Embedding-Technologie
+- **Multi-Hersteller-Support** - Spezialisierte Verarbeitung für HP, Konica Minolta, Lexmark, UTAX
+- **RESTful API** - Vollständige API-Abdeckung für Integration und Automatisierung
 
-### **Database Schema**
-- **krai_core**: Documents, manufacturers, products
-- **krai_intelligence**: Chunks, embeddings, search cache
-- **krai_content**: Images, metadata, analysis results
-- **krai_config**: Patterns, settings, configurations
-- **krai_system**: Performance, monitoring, statistics
+## Architektur
 
-### **AI/ML Stack**
-- **Ollama**: Local AI models (Llama3.2, EmbeddingGemma, LLaVA)
-- **Embeddings**: 768D vectors for semantic search
-- **Vision AI**: Defect detection, diagram analysis
-- **GPU Acceleration**: Apple M1 Pro (MPS) support
+### Backend-Stack
+- **Framework**: FastAPI (Python 3.12)
+- **Database**: PostgreSQL mit pgvector Extension
+- **Storage**: Supabase Storage
+- **AI/ML**: Ollama (Llama 3.2, LLaVA, EmbeddingGemma)
+- **Async Processing**: AsyncPG, AsyncIO
 
-## 🚀 **Quick Start**
+### KI-Komponenten
+- **LLM**: Llama 3.2:3b für Textanalyse und Chat
+- **Vision**: LLaVA:7b für Bildanalyse und OCR
+- **Embeddings**: EmbeddingGemma für semantische Vektorisierung
+- **Device Support**: Apple MPS, NVIDIA CUDA, CPU Fallback
 
-### **Prerequisites**
+### Database Schema
+- **krai_core**: Hersteller, Produkte, Dokumente
+- **krai_intelligence**: Chunks, Embeddings, KI-Metadaten
+- **krai_content**: Bilder, Medien, OCR-Ergebnisse
+- **krai_config**: Systemkonfiguration und Patterns
+- **krai_system**: Logging, Monitoring, Performance
+
+## Quick Start
+
+### Prerequisites
+- Docker und Docker Compose
 - Python 3.12+
-- Docker & Docker Compose
-- Ollama (for AI models)
-- Supabase (local or cloud)
+- PostgreSQL 15+
+- Ollama mit AI-Modellen
 
-### **Installation**
+### Installation
 
-1. **Clone Repository**
+#### Option 1: Complete Docker Stack (Empfohlen)
 ```bash
-git clone https://github.com/your-username/KR-AI-Engine.git
-cd KR-AI-Engine
+# 1. Repository klonen
+git clone https://github.com/your-org/krai-engine.git
+cd krai-engine
+
+# 2. Environment konfigurieren 
+cp .env.template .env
+# .env nach Bedarf anpassen
+
+# 3. Complete Stack starten
+./start_krai_stack.sh
+
+# 4. Stack stoppen
+./stop_krai_stack.sh
 ```
 
-2. **Setup Environment**
+#### Option 2: Einzelne Services
 ```bash
-cd backend
-pip install -r requirements.txt
+# Nur lokale API mit externen Services
+./start_krai_api.sh
 ```
 
-3. **Configure Database**
-```bash
-# Local Supabase
-supabase start
+**Services verfügbar:**
+- 🚀 **KRAI API**: `http://localhost:8001`
+- 💬 **Chat Interface**: `http://localhost:8080` 
+- 🗄️ **Supabase Studio**: `http://localhost:54323`
+- 🤖 **Ollama API**: `http://localhost:11434`
 
-# Or use existing PostgreSQL
-export POSTGRES_HOST=localhost
-export POSTGRES_PORT=5432
-export POSTGRES_DB=krai_engine
-export POSTGRES_USER=postgres
-export POSTGRES_PASSWORD=your_password
-```
+## 📚 Dokumentation
 
-4. **Setup AI Models**
-```bash
-# Install Ollama models
-ollama pull llama3.2:3b
-ollama pull embeddinggemma
-ollama pull llava:7b
-```
+**Vollständige Dokumentation** ist im [`/documentation`](./documentation/) Verzeichnis verfügbar:
 
-5. **Run Database Migrations**
-```bash
-# Execute schema migrations
-psql -h localhost -U postgres -d krai_engine -f database_migrations/OPTIMIZED_SCHEMA/00_schema_architecture.sql
-# ... (run all migration files in order)
-```
+- **[📖 Documentation Overview](./documentation/README.md)** - Übersicht aller Dokumentation
+- **[🚀 Deployment Guide](./documentation/DEPLOYMENT_GUIDE.md)** - Deployment-Szenarien und Konfiguration  
+- **[📡 API Documentation](./documentation/API_DOCUMENTATION.md)** - Vollständige API-Referenz
+- **[⚙️ Environment Configuration](./documentation/ENV_CONFIGURATION.md)** - Single Source of Truth Setup
+- **[🔧 Project Structure](./documentation/PROJECT_STRUCTURE.md)** - Architektur und Verzeichnisstruktur
+- **[📝 Chunking Configuration](./documentation/CHUNKING_CONFIGURATION.md)** - Text-Chunking Strategien
+- **[📚 Wiki Structure](./documentation/WIKI_STRUCTURE.md)** - Wiki-Empfehlungen für komplexe Projekte
 
-6. **Start Production API**
-```bash
-cd backend
-python production_main.py
-```
+## Support
 
-## 📁 **Project Structure**
+### Unterstützte Formate
+- **Dokumente**: PDF, DOCX
+- **Bilder**: JPEG, PNG, GIF
+- **Maximale Dateigröße**: 500MB
 
-```
-KR-AI-Engine/
-├── backend/                    # Main application
-│   ├── production_main.py      # Production API server
-│   ├── production_document_processor.py  # Core processing logic
-│   ├── config/                 # Configuration files
-│   │   ├── production_config.py
-│   │   ├── supabase_config.py
-│   │   └── *.json              # Pattern configurations
-│   ├── api/                    # API endpoints
-│   └── tests/                  # Unit tests
-├── database_migrations/        # Database schema
-│   └── OPTIMIZED_SCHEMA/       # Production schema
-├── test/                       # Test files and scripts
-│   ├── docker/                 # Docker configurations
-│   ├── scripts/                # Test scripts
-│   └── documents/              # Test documents
-├── dashboard/                  # Filament dashboard
-└── supabase/                   # Supabase configuration
-```
+### Unterstützte Hersteller
+- HP (LaserJet, OfficeJet, PageWide)
+- Konica Minolta (bizhub Serie)
+- Lexmark (CX, CS, MX Serie)  
+- UTAX (alle Modelle)
 
-## 🔧 **Configuration**
+## Projekt-Komplexität & Wiki-Empfehlung
 
-### **Environment Variables**
-```bash
-# Database
-POSTGRES_HOST=localhost
-POSTGRES_PORT=5432
-POSTGRES_DB=krai_engine
-POSTGRES_USER=postgres
-POSTGRES_PASSWORD=your_password
+Das KRAI Engine Projekt hat erhebliche Komplexität erreicht:
+- **15+ Dokumentationsdateien** in `/documentation`
+- **Multi-layered Architektur** (Backend, AI, Database, Storage)
+- **Verschiedene Deployment-Szenarien**
+- **Komplexe Konfigurationssysteme**
+- **Umfangreiche API-Oberflächen**
 
-# Supabase
-SUPABASE_URL=http://localhost:54321
-SUPABASE_ANON_KEY=your_anon_key
-SUPABASE_SERVICE_ROLE_KEY=your_service_key
+**📖 Wiki-Empfehlung:** Für bessere Navigation und Wartung empfehlen wir die Einrichtung eines GitHub Wiki. Details siehe [Wiki Structure Guide](./documentation/WIKI_STRUCTURE.md).
 
-# Ollama
-OLLAMA_BASE_URL=http://localhost:11434
-```
+## Lizenz
 
-### **JSON Configuration Files**
-- `error_code_patterns.json`: Manufacturer-specific error code patterns
-- `chunk_settings.json`: Document chunking strategies
-- `version_patterns.json`: Version extraction patterns
-- `model_placeholder_patterns.json`: Model placeholder expansion
+Proprietäre Software - Alle Rechte vorbehalten.
 
-## 🧪 **Testing**
+## Kontakt
 
-### **Test Documents**
-Test documents are located in `test/documents/` and include:
-- HP Service Manuals
-- Konica Minolta Documentation
-- Lexmark Technical Guides
-- Various PDF formats for testing
-
-### **Run Tests**
-```bash
-cd backend
-python -m pytest tests/
-```
-
-## 📊 **Performance**
-
-- **Processing Speed**: ~2-3 seconds per document
-- **Embedding Generation**: 768D vectors in ~100ms
-- **Image Processing**: GPU-accelerated with MPS
-- **Database**: Optimized with indexes and materialized views
-- **Storage**: Deduplication with SHA256 hashing
-
-## 🔒 **Security**
-
-- **Row Level Security (RLS)** enabled
-- **Role-based access control**
-- **Audit logging** for all operations
-- **Secure storage** with private buckets
-
-## 🚀 **Deployment**
-
-### **Production Deployment**
-```bash
-# Using Docker Compose
-docker-compose -f test/docker/docker-compose.production.yml up -d
-
-# Or manual deployment
-python backend/production_main.py
-```
-
-### **Supabase Integration**
-```bash
-# Local Supabase
-supabase start
-
-# Cloud Supabase
-# Configure environment variables for cloud instance
-```
-
-## 📈 **Monitoring**
-
-- **Database Statistics**: Query performance and usage
-- **Processing Metrics**: Document processing times
-- **Storage Usage**: File storage and deduplication stats
-- **AI Model Performance**: Embedding and vision processing
-
-## 🤝 **Contributing**
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests
-5. Submit a pull request
-
-## 📄 **License**
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🆘 **Support**
-
-For support and questions:
-- Create an issue on GitHub
-- Check the documentation in `docs/`
-- Review the test examples in `test/`
-
----
-
-**KRAI Engine** - Intelligent Document Processing for Technical Service Environments
+Für Support und weitere Informationen kontaktieren Sie unser Entwicklungsteam.

@@ -5,6 +5,7 @@ Optimized for Apple M1 Pro with MPS and NVIDIA CUDA support
 
 import asyncio
 import logging
+import os
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
@@ -12,6 +13,16 @@ from fastapi.responses import JSONResponse
 from pathlib import Path
 from typing import Dict, Any, Optional
 import json
+from dotenv import load_dotenv
+
+# Load environment variables from ROOT .env file (Single Source of Truth)
+root_env_path = Path(__file__).parent.parent / '.env'
+print(f"🔧 Loading environment from: {root_env_path}")
+if root_env_path.exists():
+    load_dotenv(root_env_path)
+    print("✅ Environment loaded successfully")
+else:
+    print(f"❌ .env file not found at {root_env_path}")
 
 from production_document_processor import ProductionDocumentProcessor
 from config.production_config import config
@@ -57,9 +68,10 @@ app = FastAPI(
 )
 
 # Add CORS middleware
+allowed_origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000,http://localhost:8001,http://127.0.0.1:54323").split(",")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=allowed_origins if not os.getenv("DEBUG", "false").lower() == "true" else ["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -371,8 +383,8 @@ if __name__ == "__main__":
     # Run the application
     uvicorn.run(
         "production_main:app",
-        host="0.0.0.0",
-        port=8001,
+        host=os.getenv("KRAI_API_HOST", "0.0.0.0"),
+        port=int(os.getenv("KRAI_API_PORT", 8001)),
         reload=False,
-        log_level="info"
+        log_level=os.getenv("LOG_LEVEL", "info").lower()
     )

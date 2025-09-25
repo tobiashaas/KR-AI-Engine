@@ -1,0 +1,246 @@
+# KRAI Engine - Complete Production Stack
+# Single Source of Truth für alle Services
+
+version: '3.8'
+
+services:
+  # ===========================================
+  # KRAI ENGINE API - MAIN APPLICATION
+  # ===========================================
+  krai-api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "${KRAI_API_PORT:-8001}:8001"
+    environment:
+      # Database Configuration
+      - POSTGRES_HOST=supabase-db
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      
+      # Supabase Configuration
+      - SUPABASE_URL=http://supabase-kong:8000
+      - SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0
+      - SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwgnWNReilDMblYTn_I0
+      
+      # Ollama Configuration
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - OLLAMA_LLM_MODEL=${OLLAMA_LLM_MODEL:-llama3.2:3b}
+      - OLLAMA_VISION_MODEL=${OLLAMA_VISION_MODEL:-llava:7b}
+      - OLLAMA_EMBEDDING_MODEL=${OLLAMA_EMBEDDING_MODEL:-embeddinggemma}
+      
+      # Performance Configuration
+      - ML_DEVICE=${ML_DEVICE:-cpu}
+      - ML_BATCH_SIZE=${ML_BATCH_SIZE:-16}
+      - ML_CONCURRENT_DOCUMENTS=${ML_CONCURRENT_DOCUMENTS:-2}
+    depends_on:
+      supabase-db:
+        condition: service_healthy
+      ollama:
+        condition: service_healthy
+      supabase-kong:
+        condition: service_started
+    volumes:
+      - krai_logs:/app/logs
+      - krai_uploads:/app/uploads
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ===========================================
+  # OLLAMA - AI MODELS
+  # ===========================================
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # ===========================================
+  # SUPABASE DATABASE
+  # ===========================================
+  supabase-db:
+    image: public.ecr.aws/supabase/postgres:17.6.1.002
+    ports:
+      - "54322:5432"
+    environment:
+      POSTGRES_HOST: /var/run/postgresql
+      POSTGRES_PORT: 5432
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --lc-collate=C --lc-ctype=C"
+    volumes:
+      - supabase_db_data:/var/lib/postgresql/data
+      - ./database_migrations/init-supabase.sql:/docker-entrypoint-initdb.d/01-init.sql
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ===========================================
+  # SUPABASE STORAGE
+  # ===========================================
+  supabase-storage:
+    image: public.ecr.aws/supabase/storage-api:v1.11.0
+    depends_on:
+      supabase-db:
+        condition: service_healthy
+    environment:
+      ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0
+      SERVICE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwgnWNReilDMblYTn_I0
+      POSTGREST_URL: http://supabase-rest:3000
+      PGRST_JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
+      DATABASE_URL: postgres://postgres:postgres@supabase-db:5432/postgres
+      FILE_SIZE_LIMIT: 52428800
+      STORAGE_BACKEND: file
+      FILE_STORAGE_BACKEND_PATH: /var/lib/storage
+      TENANT_ID: stub
+      REGION: stub
+      GLOBAL_S3_BUCKET: stub
+    volumes:
+      - supabase_storage_data:/var/lib/storage
+    restart: unless-stopped
+
+  # ===========================================
+  # SUPABASE REST API
+  # ===========================================
+  supabase-rest:
+    image: public.ecr.aws/supabase/postgrest:v12.0.1
+    depends_on:
+      supabase-db:
+        condition: service_healthy
+    environment:
+      PGRST_DB_URI: postgres://postgres:postgres@supabase-db:5432/postgres
+      PGRST_DB_SCHEMAS: public,storage,graphql_public
+      PGRST_DB_ANON_ROLE: anon
+      PGRST_JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
+      PGRST_DB_USE_LEGACY_GUCS: "false"
+      PGRST_APP_SETTINGS_JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
+      PGRST_APP_SETTINGS_JWT_EXP: 3600
+    restart: unless-stopped
+
+  # ===========================================
+  # SUPABASE AUTH
+  # ===========================================
+  supabase-auth:
+    image: public.ecr.aws/supabase/gotrue:v2.158.1
+    depends_on:
+      supabase-db:
+        condition: service_healthy
+    environment:
+      GOTRUE_API_HOST: 0.0.0.0
+      GOTRUE_API_PORT: 9999
+      API_EXTERNAL_URL: http://127.0.0.1:54321
+      GOTRUE_DB_DRIVER: postgres
+      GOTRUE_DB_DATABASE_URL: postgres://postgres:postgres@supabase-db:5432/postgres
+      GOTRUE_SITE_URL: http://127.0.0.1:3000
+      GOTRUE_URI_ALLOW_LIST: "*"
+      GOTRUE_DISABLE_SIGNUP: "false"
+      GOTRUE_JWT_ADMIN_ROLES: service_role
+      GOTRUE_JWT_AUD: authenticated
+      GOTRUE_JWT_DEFAULT_GROUP_NAME: authenticated
+      GOTRUE_JWT_EXP: 3600
+      GOTRUE_JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
+    restart: unless-stopped
+
+  # ===========================================
+  # SUPABASE KONG (API GATEWAY)
+  # ===========================================
+  supabase-kong:
+    image: public.ecr.aws/supabase/kong:2.8.1.0
+    ports:
+      - "54321:8000"  # Supabase API Gateway
+      - "54323:8001"  # Kong Admin (Supabase Studio)
+    depends_on:
+      supabase-auth:
+        condition: service_started
+      supabase-rest:
+        condition: service_started  
+      supabase-storage:
+        condition: service_started
+    environment:
+      KONG_DATABASE: "off"
+      KONG_DECLARATIVE_CONFIG: /var/lib/kong/kong.yml
+      KONG_DNS_ORDER: LAST,A,CNAME
+      KONG_PLUGINS: request-transformer,cors,key-auth,acl,basic-auth
+      KONG_NGINX_PROXY_PROXY_BUFFER_SIZE: 160k
+      KONG_NGINX_PROXY_PROXY_BUFFERS: 64 160k
+    volumes:
+      - ./supabase/kong.yml:/var/lib/kong/kong.yml:ro
+    restart: unless-stopped
+
+  # ===========================================
+  # OPEN WEBUI - CHAT INTERFACE
+  # ===========================================
+  openwebui:
+    image: open-webui/open-webui:main
+    ports:
+      - "8080:8080"
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - WEBUI_SECRET_KEY=${WEBUI_SECRET_KEY:-znlrNH6TuqL7HKrX}
+      - WEBUI_NAME=KRAI Engine Chat
+    volumes:
+      - openwebui_data:/app/backend/data
+    depends_on:
+      - ollama
+    restart: unless-stopped
+
+  # ===========================================
+  # REDIS - CACHING & SESSION STORAGE
+  # ===========================================
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+# ===========================================
+# VOLUMES
+# ===========================================
+volumes:
+  # KRAI Engine Data
+  krai_logs:
+  krai_uploads:
+  
+  # Supabase Data
+  supabase_db_data:
+  supabase_storage_data:
+  
+  # AI Models & Cache
+  ollama_data:
+  openwebui_data:
+  redis_data:
+
+# ===========================================
+# NETWORKS
+# ===========================================
+networks:
+  default:
+    name: krai-engine
+    driver: bridge
