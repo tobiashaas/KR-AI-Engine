@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.so
+*.pyc
+*.pyo
 .Python
 build/
 develop-eggs/
@@ -38,7 +40,7 @@ venv.bak/
 *.swo
 *~
 
-# OS
+# OS Files
 .DS_Store
 .DS_Store?
 ._*
@@ -47,9 +49,13 @@ venv.bak/
 ehthumbs.db
 Thumbs.db
 
-# Logs
+# Logs und Cache
 *.log
 logs/
+backend/logs/
+backend/__pycache__/
+cache/
+.cache/
 
 # Database
 *.db
@@ -61,6 +67,7 @@ logs/
 .env.development.local
 .env.test.local
 .env.production.local
+.env.php
 
 # Supabase
 .supabase/
@@ -74,7 +81,7 @@ docker-compose.override.yml
 temp/
 tmp/
 
-# Node.js (for any frontend dependencies)
+# Node.js (für Frontend Dependencies)
 node_modules/
 npm-debug.log*
 yarn-debug.log*
@@ -83,16 +90,19 @@ yarn-error.log*
 # PHP (Laravel/Filament)
 vendor/
 composer.lock
-.env.php
 
-# Uploads and user content
+# Uploads und User Content
 uploads/
+backend/uploads/
 storage/
 public/storage/
 
-# Cache
-cache/
-.cache/
+# Test Documents und große Dateien (LOKAL BEHALTEN)
+test/documents/
+backend/tests/test_documents/
+*.pdf
+*.docx
+*.txt
 
 # Backup files
 *.bak
@@ -117,9 +127,6 @@ coverage.xml
 celerybeat-schedule
 celerybeat.pid
 
-# SageMath parsed files
-*.sage.py
-
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -133,7 +140,4 @@ celerybeat.pid
 # mypy
 .mypy_cache/
 .dmypy.json
-dmypy.json# Große PDF-Dateien
-*.pdf
-test/documents/*.pdf
-*.docx
+dmypy.json
