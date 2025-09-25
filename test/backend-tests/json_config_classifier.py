@@ -28,8 +28,8 @@ class JSONConfigClassifier:
         if config_path:
             self.config_dir = Path(config_path)
         else:
-            # Default to config directory relative to this file
-            self.config_dir = Path(__file__).parent.parent / "config"
+            # Default to backend config directory
+            self.config_dir = Path(__file__).parent.parent.parent / "backend" / "config"
         self.error_patterns = self._load_error_patterns()
         self.part_patterns = self._load_part_patterns()
         self.chunk_settings = self._load_chunk_settings()

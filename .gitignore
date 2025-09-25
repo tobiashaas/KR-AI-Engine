@@ -1,3 +1,7 @@
+# Backup folders (temporary - can be deleted)  
+database_migrations/_BACKUP_*
+**/DELETE_LATER/
+
 # Python
 __pycache__/
 *.py[cod]

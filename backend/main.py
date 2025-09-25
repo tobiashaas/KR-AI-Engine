@@ -60,7 +60,7 @@ async def lifespan(app: FastAPI):
 
 # Create FastAPI app
 app = FastAPI(
-    title="KRAI Engine",
+    title="KR-AI-Engine",
     description="AI-powered document processing system for technical service environments",
     version="1.0.0",
     lifespan=lifespan
@@ -89,7 +89,7 @@ async def health_check():
     """Health check endpoint"""
     return {
         "status": "healthy",
-        "service": "KRAI Engine",
+        "service": "KR-AI-Engine",
         "version": "1.0.0",
         "database": "connected" if db_manager else "disconnected"
     }
@@ -116,7 +116,7 @@ async def root():
 async def openwebui_info():
     """Open WebUI integration information"""
     return {
-        "name": "KRAI Engine",
+        "name": "KR-AI-Engine",
         "description": "AI-powered document processing for technical service environments",
         "version": "1.0.0",
         "capabilities": [

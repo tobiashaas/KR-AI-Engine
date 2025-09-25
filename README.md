@@ -1,4 +1,4 @@
-# KRAI Engine
+# KR-AI-Engine
 
 **Knowledge Retrieval and Analysis Intelligence Engine**
 
@@ -6,7 +6,7 @@ Eine KI-gestützte Dokumentenverarbeitungsplattform für technische Service-Umge
 
 ## Überblick
 
-KRAI Engine ist eine moderne, skalierbare Lösung zur intelligenten Verarbeitung und Analyse technischer Dokumentation. Das System kombiniert fortschrittliche KI-Technologien mit einer robusten Backend-Architektur für die automatisierte Extraktion, Klassifizierung und Suche in technischen Handbüchern, Service-Dokumentationen und Fehlerbehebungsanleitungen.
+KR-AI-Engine ist eine moderne, skalierbare Lösung zur intelligenten Verarbeitung und Analyse technischer Dokumentation. Das System kombiniert fortschrittliche KI-Technologien mit einer robusten Backend-Architektur für die automatisierte Extraktion, Klassifizierung und Suche in technischen Handbüchern, Service-Dokumentationen und Fehlerbehebungsanleitungen.
 
 ### Kernfunktionen
 
@@ -14,7 +14,7 @@ KRAI Engine ist eine moderne, skalierbare Lösung zur intelligenten Verarbeitung
 - **Fortgeschrittene Textverarbeitung** - Extraktion von Fehlercodes, Teilenummern und technischen Spezifikationen
 - **KI-basierte Bildanalyse** - Erkennung und Analyse von Diagrammen, Schaltplänen und technischen Illustrationen
 - **Vektorbasierte Suche** - Semantische Suche mit Embedding-Technologie
-- **Multi-Hersteller-Support** - Spezialisierte Verarbeitung für HP, Konica Minolta, Lexmark, UTAX
+- **Multi-Hersteller-Support** - Spezialisierte Verarbeitung für HP, Konica Minolta, Lexmark, Xerox, FujiFilm, UTAX und vielen mehr.
 - **RESTful API** - Vollständige API-Abdeckung für Integration und Automatisierung
 
 ## Architektur
@@ -52,8 +52,8 @@ KRAI Engine ist eine moderne, skalierbare Lösung zur intelligenten Verarbeitung
 #### Option 1: Complete Docker Stack (Empfohlen)
 ```bash
 # 1. Repository klonen
-git clone https://github.com/your-org/krai-engine.git
-cd krai-engine
+git clone https://github.com/tobiashaas/KR-AI-Engine.git
+cd kr-ai-engine
 
 # 2. Environment konfigurieren 
 cp .env.template .env
@@ -73,7 +73,7 @@ cp .env.template .env
 ```
 
 **Services verfügbar:**
-- 🚀 **KRAI API**: `http://localhost:8001`
+- 🚀 **KR-AI API**: `http://localhost:8001`
 - 💬 **Chat Interface**: `http://localhost:8080` 
 - 🗄️ **Supabase Studio**: `http://localhost:54323`
 - 🤖 **Ollama API**: `http://localhost:11434`
@@ -97,15 +97,9 @@ cp .env.template .env
 - **Bilder**: JPEG, PNG, GIF
 - **Maximale Dateigröße**: 500MB
 
-### Unterstützte Hersteller
-- HP (LaserJet, OfficeJet, PageWide)
-- Konica Minolta (bizhub Serie)
-- Lexmark (CX, CS, MX Serie)  
-- UTAX (alle Modelle)
-
 ## Projekt-Komplexität & Wiki-Empfehlung
 
-Das KRAI Engine Projekt hat erhebliche Komplexität erreicht:
+Das KR-AI-Engine Projekt hat erhebliche Komplexität erreicht:
 - **15+ Dokumentationsdateien** in `/documentation`
 - **Multi-layered Architektur** (Backend, AI, Database, Storage)
 - **Verschiedene Deployment-Szenarien**

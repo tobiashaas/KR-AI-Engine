@@ -1,5 +1,5 @@
 """
-Production Main Application for KRAI Engine
+Production Main Application for KR-AI-Engine
 Optimized for Apple M1 Pro with MPS and NVIDIA CUDA support
 """
 
@@ -9,7 +9,8 @@ import os
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from pathlib import Path
 from typing import Dict, Any, Optional
 import json
@@ -26,6 +27,7 @@ else:
 
 from production_document_processor import ProductionDocumentProcessor
 from config.production_config import config
+from processing_status_manager import status_manager
 
 # Configure logging
 logging.basicConfig(
@@ -43,29 +45,32 @@ async def lifespan(app: FastAPI):
     global processor
     
     # Startup
-    logger.info("🚀 Starting KRAI Engine Production API...")
+    logger.info("🚀 Starting KR-AI-Engine Production API...")
     
     try:
         processor = ProductionDocumentProcessor()
         await processor.initialize()
-        logger.info("✅ KRAI Engine Production API initialized successfully")
+        logger.info("✅ KR-AI-Engine Production API initialized successfully")
         yield
     except Exception as e:
-        logger.error(f"❌ Failed to initialize KRAI Engine: {e}")
+        logger.error(f"❌ Failed to initialize KR-AI-Engine: {e}")
         raise
     finally:
         # Shutdown
         if processor:
             await processor.close()
-        logger.info("✅ KRAI Engine Production API shutdown complete")
+        logger.info("✅ KR-AI-Engine Production API shutdown complete")
 
 # Create FastAPI app
 app = FastAPI(
-    title="KRAI Engine Production API",
+    title="KR-AI-Engine Production API",
     description="AI-powered document processing with GPU acceleration",
     version="2.0.0",
     lifespan=lifespan
 )
+
+# Mount static files for status monitor
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Add CORS middleware
 allowed_origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000,http://localhost:8001,http://127.0.0.1:54323").split(",")
@@ -81,7 +86,7 @@ app.add_middleware(
 async def root():
     """Root endpoint"""
     return {
-        "message": "KRAI Engine Production API",
+        "message": "KR-AI-Engine Production API",
         "version": "2.0.0",
         "status": "running",
         "gpu_support": True
@@ -97,7 +102,7 @@ async def health_check():
         stats = await processor.get_processing_stats()
         return {
             "status": "healthy",
-            "service": "KRAI Engine Production",
+            "service": "KR-AI-Engine Production",
             "version": "2.0.0",
             "gpu_device": config.device_config["device"],
             "device_name": config.device_config["device_name"],
@@ -118,6 +123,44 @@ async def get_config():
         "performance_config": config.performance_config,
         "ollama_config": config.get_ollama_config()
     }
+
+@app.post("/api/production/error-images/upload")
+async def upload_error_image(
+    file: UploadFile = File(...),
+    description: Optional[str] = Form(None),
+    manufacturer: Optional[str] = Form(None),
+    product_model: Optional[str] = Form(None),
+    technician_id: Optional[str] = Form(None)
+):
+    """Upload error/defect images for AI/ML training (DSGVO compliant)"""
+    try:
+        # Validate file type
+        if not file.filename.lower().endswith(('.jpg', '.jpeg', '.png', '.gif', '.webp')):
+            raise HTTPException(status_code=400, detail="Only image files are supported")
+        
+        # Read file content
+        file_content = await file.read()
+        
+        logger.info(f"🚨 Processing error image upload: {file.filename}")
+        
+        # TODO: Implement DSGVO anonymization and storage
+        # This would include:
+        # 1. AI-based anonymization (blur faces, remove personal data)
+        # 2. Store in krai-error-images bucket
+        # 3. Log for ML training purposes
+        
+        return {
+            "message": "Error image upload endpoint ready",
+            "filename": file.filename,
+            "size": len(file_content),
+            "note": "DSGVO anonymization and AI/ML storage to be implemented"
+        }
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"❌ Error image upload failed: {e}")
+        raise HTTPException(status_code=500, detail=f"Upload failed: {e}")
 
 @app.post("/api/production/documents/upload")
 async def upload_document(
@@ -174,6 +217,55 @@ async def get_processing_stats():
     except Exception as e:
         logger.error(f"❌ Failed to get stats: {e}")
         raise HTTPException(status_code=500, detail=f"Failed to get stats: {e}")
+
+@app.get("/api/production/processing/status")
+async def get_all_processing_status():
+    """Get all active processing statuses"""
+    try:
+        active_processes = await status_manager.get_all_active_processes()
+        processing_summary = await status_manager.get_processing_summary()
+        
+        return {
+            "active_processes": active_processes,
+            "summary": processing_summary
+        }
+    except Exception as e:
+        logger.error(f"❌ Failed to get processing status: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to get processing status: {e}")
+
+@app.get("/api/production/processing/status/{process_id}")
+async def get_processing_status(process_id: str):
+    """Get status for a specific process"""
+    try:
+        status = await status_manager.get_process_status(process_id)
+        if not status:
+            raise HTTPException(status_code=404, detail="Process not found")
+        
+        return status
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"❌ Failed to get process status: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to get process status: {e}")
+
+@app.get("/api/production/processing/summary")
+async def get_processing_summary():
+    """Get a summary of processing activities"""
+    try:
+        summary = await status_manager.get_processing_summary()
+        return summary
+    except Exception as e:
+        logger.error(f"❌ Failed to get processing summary: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to get processing summary: {e}")
+
+@app.get("/status", response_class=HTMLResponse)
+async def status_monitor():
+    """Status monitoring page"""
+    try:
+        with open("static/status_monitor.html", "r", encoding="utf-8") as f:
+            return HTMLResponse(content=f.read())
+    except Exception as e:
+        return HTMLResponse(content=f"<h1>Error loading status monitor: {e}</h1>", status_code=500)
 
 @app.get("/api/production/models/status")
 async def get_models_status():
@@ -236,7 +328,7 @@ async def chat_with_documents(
             context = "Document context will be added here"
         
         # Prepare chat prompt
-        system_prompt = """You are KRAI, an AI assistant specialized in printer and technical document analysis. 
+        system_prompt = """You are KR-AI, an AI assistant specialized in printer and technical document analysis. 
         You help users with troubleshooting, error codes, part numbers, and technical specifications.
         Always provide accurate, helpful information based on the provided context."""
         

@@ -15,8 +15,8 @@ class IntelligentModelExtractor:
         if config_path:
             self.config_dir = Path(config_path)
         else:
-            # Default to config directory relative to this file
-            self.config_dir = Path(__file__).parent.parent / "config"
+            # Default to backend config directory
+            self.config_dir = Path(__file__).parent.parent.parent / "backend" / "config"
         self.placeholder_config = self._load_placeholder_config()
         self.known_models_db = self._load_known_models()
     

@@ -15,8 +15,8 @@ class JSONVersionExtractor:
         if config_path:
             self.config_dir = Path(config_path)
         else:
-            # Default to config directory relative to this file
-            self.config_dir = Path(__file__).parent.parent / "config"
+            # Default to backend config directory
+            self.config_dir = Path(__file__).parent.parent.parent / "backend" / "config"
         self.version_config = self._load_version_config()
         self.patterns = self._compile_patterns()
     

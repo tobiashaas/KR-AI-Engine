@@ -20,13 +20,23 @@ import io
 
 from config.production_config import config
 from config.supabase_config import SupabaseConfig, SupabaseStorage
-from tests.json_config_classifier import JSONConfigClassifier
-from tests.json_version_extractor import JSONVersionExtractor
-from tests.intelligent_model_extractor import IntelligentModelExtractor
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent / "test" / "backend-tests"))
+
+from json_config_classifier import JSONConfigClassifier
+from json_version_extractor import JSONVersionExtractor
+from intelligent_model_extractor import IntelligentModelExtractor
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# Import status monitoring
+from processing_status_manager import (
+    status_manager, ProcessingStage, ProcessingStatus,
+    create_processing_status, update_processing_status
+)
 
 class ProductionDocumentProcessor:
     """Production-optimized document processor with GPU acceleration"""
@@ -183,33 +193,57 @@ class ProductionDocumentProcessor:
         start_time = datetime.now()
         document_id = None
         
+        # Create processing status
+        process_id = await create_processing_status(file_path.name, len(file_content))
+        
         try:
-            logger.info(f"🚀 Starting production processing for: {file_path.name}")
+            logger.info(f"🚀 Starting production processing for: {file_path.name} (Status ID: {process_id})")
             self.stats["documents_processed"] += 1
             
-            # 1. Upload document to Supabase storage
-            storage_result = await self.supabase_storage.upload_document(file_path, file_content)
-            if not storage_result:
-                raise Exception("Failed to upload document to Supabase storage")
+            # 1. Process document in-memory (NO STORAGE)
+            await update_processing_status(process_id, ProcessingStage.UPLOAD, "Processing document in-memory (zero storage cost)...")
+            # OPTIMIZED: No file storage, only process and extract data
+            storage_result = {
+                'url': f"processed://in-memory/{file_path.name}",  # Virtual URL for tracking
+                'hash': self._calculate_file_hash(file_content),
+                'size': len(file_content),
+                'storage_cost': 0.0  # ZERO storage cost!
+            }
             
+            await status_manager.complete_stage(process_id, ProcessingStage.UPLOAD)
             logger.info(f"✅ Document uploaded: {storage_result['url']}")
             
             # 2. Extract content from PDF
+            await update_processing_status(process_id, ProcessingStage.EXTRACT_CONTENT, "Extracting text and images from PDF...")
             extraction_result = await self._extract_content_with_gpu(file_content)
+            await status_manager.complete_stage(process_id, ProcessingStage.EXTRACT_CONTENT)
             
             # 3. Process images with Vision AI
-            image_results = await self._process_images_with_vision(
-                extraction_result["images"], 
-                file_content
-            )
+            if extraction_result.get("images"):
+                await update_processing_status(process_id, ProcessingStage.PROCESS_IMAGES, 
+                                             f"Processing {len(extraction_result['images'])} images with Vision AI...",
+                                             0, len(extraction_result["images"]))
+                image_results = await self._process_images_with_vision(
+                    extraction_result["images"], 
+                    file_content,
+                    document_id=None,  # Will be set later
+                    process_id=process_id
+                )
+                await status_manager.complete_stage(process_id, ProcessingStage.PROCESS_IMAGES)
+            else:
+                await status_manager.complete_stage(process_id, ProcessingStage.PROCESS_IMAGES)
+                image_results = {"images": []}
             
             # 4. Classify document
+            await update_processing_status(process_id, ProcessingStage.CLASSIFY_DOCUMENT, "Analyzing document type and manufacturer...")
             classification_result = self._classify_document(
                 file_path.name, 
                 extraction_result["text"]
             )
+            await status_manager.complete_stage(process_id, ProcessingStage.CLASSIFY_DOCUMENT)
             
             # 5. Extract metadata
+            await update_processing_status(process_id, ProcessingStage.EXTRACT_METADATA, "Extracting version and model information...")
             version_result = self.version_extractor.extract_version(
                 extraction_result["text"], 
                 classification_result["manufacturer"]
@@ -220,26 +254,40 @@ class ProductionDocumentProcessor:
                 classification_result["manufacturer"],
                 classification_result.get("series", "unknown")
             )
+            await status_manager.complete_stage(process_id, ProcessingStage.EXTRACT_METADATA)
             
             # 6. Store document in database
+            await update_processing_status(process_id, ProcessingStage.STORE_DOCUMENT, "Storing document metadata in database...")
             document_id = await self._store_document_in_db(
                 file_path, file_content, storage_result, extraction_result,
                 classification_result, version_result, model_result, image_results
             )
+            await status_manager.complete_stage(process_id, ProcessingStage.STORE_DOCUMENT)
             
             # 7. Process chunks with GPU acceleration
+            await update_processing_status(process_id, ProcessingStage.PROCESS_CHUNKS, "Creating intelligent text chunks...")
             chunk_result = await self._process_chunks_with_gpu(
                 document_id, extraction_result["text"], classification_result
             )
             self.stats["chunks_created"] += len(chunk_result["chunks"])
+            await status_manager.complete_stage(process_id, ProcessingStage.PROCESS_CHUNKS)
             
             # 8. Generate embeddings with GPU
+            num_chunks = len(chunk_result.get("chunks", []))
+            await update_processing_status(process_id, ProcessingStage.GENERATE_EMBEDDINGS, 
+                                         f"Generating embeddings for {num_chunks} chunks...", 
+                                         0, num_chunks)
             embedding_result = await self._generate_embeddings_with_gpu(
                 document_id, chunk_result["chunks"]
             )
             self.stats["embeddings_generated"] += len(embedding_result["embeddings"])
+            await status_manager.complete_stage(process_id, ProcessingStage.GENERATE_EMBEDDINGS)
             
+            # Finalize processing
+            await update_processing_status(process_id, ProcessingStage.FINALIZE, "Completing processing...")
             processing_time = (datetime.now() - start_time).total_seconds()
+            await status_manager.complete_stage(process_id, ProcessingStage.FINALIZE)
+            await status_manager.complete_process(process_id, document_id)
             
             logger.info(f"✅ Document {document_id} processed in {processing_time:.2f}s")
             
@@ -266,11 +314,22 @@ class ProductionDocumentProcessor:
             logger.error(f"❌ Production document processing failed: {e}")
             self.stats["errors"] += 1
             
+            # Fail current stage if it exists
+            try:
+                if 'process_id' in locals():
+                    current_status = await status_manager.get_process_status(process_id)
+                    if current_status and current_status.get('current_stage'):
+                        current_stage = ProcessingStage(current_status['current_stage'])
+                        await status_manager.fail_stage(process_id, current_stage, str(e))
+            except Exception:
+                pass  # Don't let status update errors break error handling
+            
             return {
                 "status": "error",
                 "document_id": str(document_id) if document_id else None,
                 "error": str(e),
-                "processing_time": (datetime.now() - start_time).total_seconds()
+                "processing_time": (datetime.now() - start_time).total_seconds(),
+                "process_id": process_id if 'process_id' in locals() else None
             }
     
     async def _extract_content_with_gpu(self, file_content: bytes) -> Dict[str, Any]:
@@ -347,7 +406,7 @@ class ProductionDocumentProcessor:
             logger.warning(f"⚠️ Failed to extract images from page {page_num}: {e}")
             return []
     
-    async def _process_images_with_vision(self, images: List, file_content: bytes, document_id: str = None) -> List[Dict]:
+    async def _process_images_with_vision(self, images: List, file_content: bytes, document_id: str = None, process_id: str = None) -> List[Dict]:
         """Process images with Vision AI model"""
         if not images:
             return []
@@ -361,6 +420,12 @@ class ProductionDocumentProcessor:
             async with httpx.AsyncClient() as client:
                 for i, image_data in enumerate(images):
                     try:
+                        # Update progress
+                        if process_id:
+                            await status_manager.update_stage_progress(
+                                process_id, ProcessingStage.PROCESS_IMAGES, 
+                                i, f"Processing image {i+1}/{len(images)} with Vision AI..."
+                            )
                         # Convert image to base64
                         import base64
                         image_b64 = base64.b64encode(image_data).decode('utf-8')
@@ -594,6 +659,9 @@ class ProductionDocumentProcessor:
                         embedding_ids.append(embedding_id)
                         logger.info(f"✅ Stored embedding {i+1} with ID: {embedding_id}")
                         
+                        # Update progress if we have access to process_id
+                        # Note: This would need to be passed through the call chain
+                        
                     except Exception as db_error:
                         logger.error(f"❌ Database error for embedding {i+1}: {db_error}")
                         logger.error(f"❌ Chunk ID: {chunk['id']} (type: {type(chunk['id'])})")
@@ -659,32 +727,38 @@ class ProductionDocumentProcessor:
             
             document_id = str(uuid.uuid4())
             
-            # Prepare document data
-            document_data = {
-                "id": document_id,
-                "file_name": file_path.name,
-                "document_type": classification_result.get("document_type", "unknown"),
-                "manufacturer": classification_result.get("manufacturer", "unknown"),
-                "version": version_result.get("version", ""),
-                "models": json.dumps(model_result.get("models", [])),
+            # Prepare document data (SCHEMA CORRECTED)
+            metadata = {
+                "models": model_result.get("models", []),
                 "pages": extraction_result["pages"],
-                "storage_url": storage_result["url"],
-                "storage_path": storage_result["url"],
-                "size_bytes": len(file_content),
-                "processing_status": "completed",
-                "created_at": datetime.now(),
-                "updated_at": datetime.now()
+                "extraction_method": "PyPDF2",
+                "classification_confidence": classification_result.get("confidence", 0.0),
+                "version_info": version_result,
+                "processing_timestamp": datetime.now().isoformat()
             }
             
-            # Insert into database
+            # Insert into database with correct schema
             async with self.db_pool.acquire() as conn:
                 await conn.execute("""
                     INSERT INTO krai_core.documents 
-                    (id, file_name, document_type, manufacturer, version, models, 
-                     pages, storage_url, storage_path, size_bytes, processing_status, 
+                    (id, title, document_type, version, language, file_path, 
+                     file_size, file_hash, storage_url, metadata, processing_status, 
                      created_at, updated_at)
                     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
-                """, *document_data.values())
+                """, 
+                document_id, 
+                file_path.name,
+                classification_result.get("document_type", "unknown"), 
+                version_result.get("version", ""),
+                "en",  # Default language
+                storage_result["url"],
+                len(file_content),
+                storage_result["hash"],
+                storage_result["url"],
+                json.dumps(metadata),
+                "completed",
+                datetime.now(),
+                datetime.now())
             
             logger.info(f"✅ Document stored in database: {document_id}")
             return document_id
