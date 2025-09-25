@@ -1,0 +1,494 @@
+{
+  "test_timestamp": "2025-09-24T20:09:01.254931",
+  "summary": {
+    "total_tests": 2,
+    "successful_tests": 2,
+    "success_rate": "100.0%"
+  },
+  "lexmark_analysis": {
+    "total_error_codes_extracted": 46,
+    "error_code_categories": {
+      "fuser": 15,
+      "paper_jam": 10,
+      "imaging": 5,
+      "toner": 5,
+      "waste_toner": 4,
+      "cooling": 4,
+      "laser": 3
+    },
+    "pattern_validation_success": 100.0,
+    "unique_error_codes": [
+      "200.04",
+      "88.00",
+      "121.45",
+      "84.00",
+      "200.03",
+      "121.54",
+      "300.00",
+      "92.00",
+      "500.00",
+      "121.00"
+    ],
+    "format_validation": {
+      "xxx_xx_format": 46,
+      "invalid_formats": 0
+    }
+  },
+  "detailed_results": {
+    "lexmark_corrected_test": {
+      "filename": "lexmark_corrected_test.pdf",
+      "classification": {
+        "document_type": "cpmd_database",
+        "document_type_confidence": 0.3,
+        "manufacturer": "lexmark",
+        "manufacturer_confidence": 0.9,
+        "series": "unknown",
+        "series_confidence": 0.0,
+        "models": [
+          "X825",
+          "CX825",
+          "500",
+          "860",
+          "X860",
+          "CX860",
+          "121",
+          "200",
+          "825",
+          "300"
+        ],
+        "version": "121.54",
+        "version_confidence": 0.8
+      },
+      "extraction": {
+        "model_numbers": [
+          "X825",
+          "CX825",
+          "860",
+          "X860",
+          "CX860",
+          "825"
+        ],
+        "error_codes": [
+          {
+            "code": "121.54",
+            "description": "Fuser secondary thermistor temperature is out of range",
+            "category": "fuser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "121.00",
+            "description": "Fuser has not reached required temperature during warm-up",
+            "category": "fuser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "121.45",
+            "description": "Service fuser error",
+            "category": "fuser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "200.03",
+            "description": "Paper jam in universal feeder",
+            "category": "paper_jam",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "200.04",
+            "description": "Paper jam in tray 1",
+            "category": "paper_jam",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "84.00",
+            "description": "Imaging unit low capacity warning",
+            "category": "imaging",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "88.00",
+            "description": "Toner cartridge low warning",
+            "category": "toner",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "92.00",
+            "description": "Waste toner container full",
+            "category": "waste_toner",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "300.00",
+            "description": "Fan failure",
+            "category": "cooling",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "500.00",
+            "description": "Laser unit failure",
+            "category": "laser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "121.54",
+            "description": "Fuser secondary thermistor temperature is out of range",
+            "category": "fuser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "121.00",
+            "description": "Fuser has not reached required temperature during warm-up",
+            "category": "fuser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "121.45",
+            "description": "Service fuser error",
+            "category": "fuser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "200.03",
+            "description": "Paper jam in universal feeder",
+            "category": "paper_jam",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "200.04",
+            "description": "Paper jam in tray 1",
+            "category": "paper_jam",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "84.00",
+            "description": "Imaging unit low capacity warning",
+            "category": "imaging",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "88.00",
+            "description": "Toner cartridge low warning",
+            "category": "toner",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "92.00",
+            "description": "Waste toner container full",
+            "category": "waste_toner",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "300.00",
+            "description": "Fan failure",
+            "category": "cooling",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "500.00",
+            "description": "Laser unit failure",
+            "category": "laser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "121.54",
+            "description": "Fuser secondary thermistor temperature is out of range",
+            "category": "fuser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "121.00",
+            "description": "Fuser has not reached required temperature during warm-up",
+            "category": "fuser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "121.45",
+            "description": "Service fuser error",
+            "category": "fuser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "200.03",
+            "description": "Paper jam in universal feeder",
+            "category": "paper_jam",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "200.04",
+            "description": "Paper jam in tray 1",
+            "category": "paper_jam",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "84.00",
+            "description": "Imaging unit low capacity warning",
+            "category": "imaging",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "88.00",
+            "description": "Toner cartridge low warning",
+            "category": "toner",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "92.00",
+            "description": "Waste toner container full",
+            "category": "waste_toner",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "300.00",
+            "description": "Fan failure",
+            "category": "cooling",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "500.00",
+            "description": "Laser unit failure",
+            "category": "laser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "121.54",
+            "description": "Fuser secondary thermistor temperature is out of range",
+            "category": "fuser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "200.03",
+            "description": "Paper jam in universal feeder",
+            "category": "paper_jam",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "84.00",
+            "description": "Imaging unit low capacity warning",
+            "category": "imaging",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "88.00",
+            "description": "Toner cartridge low warning",
+            "category": "toner",
+            "manufacturer": "lexmark"
+          }
+        ],
+        "part_numbers": [],
+        "series_info": {
+          "detected_series": "CX Series",
+          "confidence": 0.9,
+          "series_models": [],
+          "description": "Color multifunction printer series"
+        },
+        "technical_info": {
+          "has_diagrams": false,
+          "has_procedures": false,
+          "has_specifications": false,
+          "has_troubleshooting": true,
+          "word_count": 105,
+          "page_indicators": 0
+        }
+      },
+      "chunking": {
+        "recommended_strategy": "contextual_chunking",
+        "chunk_size": 600,
+        "chunk_overlap": 80,
+        "settings": {
+          "preferred_strategy": "contextual_chunking",
+          "chunk_size": 600,
+          "chunk_overlap": 80,
+          "preserve_error_codes": true,
+          "preserve_solutions": true,
+          "preserve_procedures": true
+        }
+      },
+      "analysis": {
+        "filename_analysis": {
+          "manufacturer": "lexmark",
+          "manufacturer_confidence": 0.9,
+          "document_type": "unknown",
+          "document_type_confidence": 0.0,
+          "models": [],
+          "version": "",
+          "confidence": 0.45
+        },
+        "content_analysis": {
+          "manufacturer": "hp",
+          "manufacturer_confidence": 1.0,
+          "document_type": "cpmd_database",
+          "document_type_confidence": 0.3,
+          "models": [
+            "X825",
+            "CX825",
+            "500",
+            "860",
+            "X860",
+            "CX860",
+            "121",
+            "200",
+            "825",
+            "300"
+          ],
+          "version": "121.54",
+          "confidence": 0.65
+        },
+        "hybrid_confidence": 0.7260000000000001,
+        "analysis_timestamp": "2025-09-24T20:09:01.247423"
+      }
+    },
+    "lexmark_mixed_test": {
+      "filename": "lexmark_mixed_test.pdf",
+      "classification": {
+        "document_type": "cpmd_database",
+        "document_type_confidence": 0.04,
+        "manufacturer": "lexmark",
+        "manufacturer_confidence": 0.9,
+        "series": "unknown",
+        "series_confidence": 0.0,
+        "models": [
+          "CX825",
+          "825",
+          "X825"
+        ],
+        "version": "121.54",
+        "version_confidence": 0.8
+      },
+      "extraction": {
+        "model_numbers": [
+          "CX825",
+          "825",
+          "X825"
+        ],
+        "error_codes": [
+          {
+            "code": "121.54",
+            "description": "Fuser secondary thermistor temperature is out of range",
+            "category": "fuser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "200.03",
+            "description": "Paper jam in universal feeder",
+            "category": "paper_jam",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "121.54",
+            "description": "Fuser secondary thermistor temperature is out of range",
+            "category": "fuser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "200.03",
+            "description": "Paper jam in universal feeder",
+            "category": "paper_jam",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "84.00",
+            "description": "Imaging unit low capacity warning",
+            "category": "imaging",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "88.00",
+            "description": "Toner cartridge low warning",
+            "category": "toner",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "121.00",
+            "description": "Fuser has not reached required temperature during warm-up",
+            "category": "fuser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "121.45",
+            "description": "Service fuser error",
+            "category": "fuser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "92.00",
+            "description": "Waste toner container full",
+            "category": "waste_toner",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "300.00",
+            "description": "Fan failure",
+            "category": "cooling",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "121.54",
+            "description": "Fuser secondary thermistor temperature is out of range",
+            "category": "fuser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "200.03",
+            "description": "Paper jam in universal feeder",
+            "category": "paper_jam",
+            "manufacturer": "lexmark"
+          }
+        ],
+        "part_numbers": [],
+        "series_info": {
+          "detected_series": "CX Series",
+          "confidence": 0.9,
+          "series_models": [],
+          "description": "Color multifunction printer series"
+        },
+        "technical_info": {
+          "has_diagrams": false,
+          "has_procedures": false,
+          "has_specifications": false,
+          "has_troubleshooting": true,
+          "word_count": 32,
+          "page_indicators": 0
+        }
+      },
+      "chunking": {
+        "recommended_strategy": "contextual_chunking",
+        "chunk_size": 600,
+        "chunk_overlap": 80,
+        "settings": {
+          "preferred_strategy": "contextual_chunking",
+          "chunk_size": 600,
+          "chunk_overlap": 80,
+          "preserve_error_codes": true,
+          "preserve_solutions": true,
+          "preserve_procedures": true
+        }
+      },
+      "analysis": {
+        "filename_analysis": {
+          "manufacturer": "lexmark",
+          "manufacturer_confidence": 0.9,
+          "document_type": "unknown",
+          "document_type_confidence": 0.0,
+          "models": [],
+          "version": "",
+          "confidence": 0.45
+        },
+        "content_analysis": {
+          "manufacturer": "lexmark",
+          "manufacturer_confidence": 0.32,
+          "document_type": "cpmd_database",
+          "document_type_confidence": 0.04,
+          "models": [
+            "CX825",
+            "825",
+            "X825"
+          ],
+          "version": "121.54",
+          "confidence": 0.18
+        },
+        "hybrid_confidence": 0.6255700000000003,
+        "analysis_timestamp": "2025-09-24T20:09:01.254162"
+      }
+    }
+  }
+}

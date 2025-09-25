@@ -1,0 +1,215 @@
+{
+  "file_info": {
+    "filename": "sample_manual.txt",
+    "size_mb": 0.00370025634765625,
+    "extension": ".txt",
+    "created_at": "2025-09-24T21:05:11.948306"
+  },
+  "text_analysis": {
+    "total_characters": 3878,
+    "total_words": 525,
+    "total_sentences": 47,
+    "total_paragraphs": 41
+  },
+  "structure_analysis": {
+    "paragraph_count": 41,
+    "sentence_count": 47,
+    "average_sentence_length": 11.170212765957446,
+    "max_sentence_length": 134,
+    "heading_count": 1,
+    "headings": [
+      "HP LaserJet Pro 4000 Series Service Manual"
+    ],
+    "common_words": [
+      [
+        "paper",
+        13
+      ],
+      [
+        "assembly",
+        13
+      ],
+      [
+        "fuser",
+        12
+      ],
+      [
+        "remove",
+        9
+      ],
+      [
+        "chapter",
+        8
+      ],
+      [
+        "check",
+        8
+      ],
+      [
+        "service",
+        7
+      ],
+      [
+        "1",
+        7
+      ],
+      [
+        "2",
+        7
+      ],
+      [
+        "3",
+        7
+      ],
+      [
+        "feed",
+        7
+      ],
+      [
+        "4",
+        7
+      ],
+      [
+        "5",
+        7
+      ],
+      [
+        "for",
+        6
+      ],
+      [
+        "power",
+        6
+      ],
+      [
+        "verify",
+        6
+      ],
+      [
+        "firmware",
+        6
+      ],
+      [
+        "hp",
+        5
+      ],
+      [
+        "disconnect",
+        5
+      ],
+      [
+        "toner",
+        5
+      ]
+    ],
+    "technical_terms": [
+      [
+        "service",
+        7
+      ],
+      [
+        "chapter",
+        8
+      ],
+      [
+        "power",
+        6
+      ],
+      [
+        "check",
+        8
+      ],
+      [
+        "paper",
+        13
+      ],
+      [
+        "verify",
+        6
+      ],
+      [
+        "fuser",
+        12
+      ],
+      [
+        "assembly",
+        13
+      ],
+      [
+        "remove",
+        9
+      ],
+      [
+        "firmware",
+        6
+      ]
+    ],
+    "text_density": 12.804878048780488
+  },
+  "chunking_results": {
+    "simple_word_chunking": {
+      "chunk_count": 1,
+      "average_chunk_size": 525.0,
+      "min_chunk_size": 525,
+      "max_chunk_size": 525,
+      "chunk_size_distribution": {
+        "small_chunks": 0,
+        "medium_chunks": 1,
+        "large_chunks": 0
+      }
+    },
+    "sentence_based": {
+      "chunk_count": 1,
+      "average_chunk_size": 525.0,
+      "min_chunk_size": 525,
+      "max_chunk_size": 525,
+      "chunk_size_distribution": {
+        "small_chunks": 0,
+        "medium_chunks": 1,
+        "large_chunks": 0
+      }
+    },
+    "paragraph_based": {
+      "chunk_count": 1,
+      "average_chunk_size": 525.0,
+      "min_chunk_size": 525,
+      "max_chunk_size": 525,
+      "chunk_size_distribution": {
+        "small_chunks": 0,
+        "medium_chunks": 1,
+        "large_chunks": 0
+      }
+    },
+    "structure_based": {
+      "chunk_count": 61,
+      "average_chunk_size": 8.60655737704918,
+      "min_chunk_size": 1,
+      "max_chunk_size": 60,
+      "chunk_size_distribution": {
+        "small_chunks": 61,
+        "medium_chunks": 0,
+        "large_chunks": 0
+      }
+    }
+  },
+  "document_type": {
+    "detected_type": "service_manual",
+    "confidence": 0.5833333333333334,
+    "all_scores": {
+      "service_manual": 7,
+      "parts_catalog": 1,
+      "technical_bulletin": 3,
+      "cpmd_database": 1
+    }
+  },
+  "recommendations": {
+    "best_strategy": "simple_word_chunking",
+    "optimal_chunk_size": 1000,
+    "reasoning": [
+      "Strategy 'simple_word_chunking' provides optimal chunk distribution",
+      "Average chunk size: 525 words",
+      "Total chunks: 1"
+    ]
+  },
+  "analysis_timestamp": "2025-09-24T19:08:36.027790"
+}

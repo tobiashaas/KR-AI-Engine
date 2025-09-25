@@ -1,0 +1,201 @@
+{
+  "model_placeholder_patterns": {
+    "description": "Patterns for handling model placeholders and wildcards in technical documentation",
+    "placeholder_types": {
+      "numeric_wildcards": {
+        "name": "Numeric Wildcards",
+        "description": "Patterns where numbers are replaced with 'x' or similar",
+        "examples": [
+          {
+            "placeholder": "Cxx0i",
+            "pattern": "C\\d{3}0i",
+            "actual_models": ["C451i", "C550i", "C650i"],
+            "manufacturer": "konica_minolta",
+            "series": "i-series"
+          },
+          {
+            "placeholder": "Cxx1i", 
+            "pattern": "C\\d{3}1i",
+            "actual_models": ["C451i", "C551i", "C651i"],
+            "manufacturer": "konica_minolta",
+            "series": "i-series"
+          },
+          {
+            "placeholder": "Cxxx",
+            "pattern": "C\\d{3}",
+            "actual_models": ["C450", "C550", "C650"],
+            "manufacturer": "konica_minolta",
+            "series": "c-series"
+          }
+        ]
+      },
+      "letter_wildcards": {
+        "name": "Letter Wildcards", 
+        "description": "Patterns where letters are replaced with 'x' or similar",
+        "examples": [
+          {
+            "placeholder": "HP LaserJet Pro xxx",
+            "pattern": "HP LaserJet Pro \\w+",
+            "actual_models": ["HP LaserJet Pro 400", "HP LaserJet Pro 500"],
+            "manufacturer": "hp",
+            "series": "laserjet_pro"
+          },
+          {
+            "placeholder": "Lexmark CSxxx",
+            "pattern": "Lexmark CS\\d+",
+            "actual_models": ["Lexmark CS725", "Lexmark CS820"],
+            "manufacturer": "lexmark",
+            "series": "cs_series"
+          }
+        ]
+      },
+      "range_patterns": {
+        "name": "Range Patterns",
+        "description": "Patterns indicating ranges of models",
+        "examples": [
+          {
+            "placeholder": "C450i-C650i",
+            "pattern": "C(\\d{3})i-C(\\d{3})i",
+            "actual_models": ["C450i", "C500i", "C550i", "C600i", "C650i"],
+            "manufacturer": "konica_minolta",
+            "series": "i-series"
+          },
+          {
+            "placeholder": "HP 400-600 Series",
+            "pattern": "HP (\\d{3})-(\\d{3}) Series",
+            "actual_models": ["HP 400", "HP 500", "HP 600"],
+            "manufacturer": "hp",
+            "series": "laserjet"
+          }
+        ]
+      },
+      "series_placeholders": {
+        "name": "Series Placeholders",
+        "description": "Patterns indicating entire series",
+        "examples": [
+          {
+            "placeholder": "i-series (bizhub Cxx0i/Cxx1i)",
+            "pattern": "i-series \\(bizhub (C\\d{3}0i|C\\d{3}1i)\\)",
+            "actual_models": ["C450i", "C451i", "C550i", "C551i", "C650i", "C651i"],
+            "manufacturer": "konica_minolta",
+            "series": "i-series"
+          },
+          {
+            "placeholder": "DeskJet 2000 Series",
+            "pattern": "DeskJet 2000 Series",
+            "actual_models": ["DeskJet 2130", "DeskJet 2132", "DeskJet 2134"],
+            "manufacturer": "hp",
+            "series": "deskjet_2000"
+          }
+        ]
+      }
+    },
+    "manufacturer_specific": {
+      "konica_minolta": {
+        "name": "Konica Minolta Placeholder Patterns",
+        "description": "Konica Minolta specific placeholder handling",
+        "common_patterns": [
+          {
+            "placeholder": "Cxx0i",
+            "meaning": "All C-series models ending with 0i",
+            "regex": "C\\d{3}0i",
+            "examples": ["C450i", "C550i", "C650i", "C750i"],
+            "series": "i-series"
+          },
+          {
+            "placeholder": "Cxx1i", 
+            "meaning": "All C-series models ending with 1i",
+            "regex": "C\\d{3}1i",
+            "examples": ["C451i", "C551i", "C651i", "C751i"],
+            "series": "i-series"
+          },
+          {
+            "placeholder": "bizhub Cxxx",
+            "meaning": "All bizhub C-series models",
+            "regex": "bizhub C\\d{3}",
+            "examples": ["bizhub C450", "bizhub C550", "bizhub C650"],
+            "series": "c-series"
+          }
+        ]
+      },
+      "hp": {
+        "name": "HP Placeholder Patterns",
+        "description": "HP specific placeholder handling",
+        "common_patterns": [
+          {
+            "placeholder": "LaserJet Pro xxx",
+            "meaning": "All LaserJet Pro models",
+            "regex": "LaserJet Pro \\d+",
+            "examples": ["LaserJet Pro 400", "LaserJet Pro 500"],
+            "series": "laserjet_pro"
+          }
+        ]
+      },
+      "lexmark": {
+        "name": "Lexmark Placeholder Patterns", 
+        "description": "Lexmark specific placeholder handling",
+        "common_patterns": [
+          {
+            "placeholder": "CSxxx",
+            "meaning": "All CS-series models",
+            "regex": "CS\\d+",
+            "examples": ["CS725", "CS820", "CS925"],
+            "series": "cs_series"
+          }
+        ]
+      }
+    },
+    "resolution_strategies": {
+      "exact_match": {
+        "name": "Exact Match",
+        "description": "Try to match exact model numbers first",
+        "priority": 1,
+        "use_case": "When specific models are mentioned"
+      },
+      "placeholder_expansion": {
+        "name": "Placeholder Expansion", 
+        "description": "Expand placeholders to actual model ranges",
+        "priority": 2,
+        "use_case": "When placeholders like Cxx0i are used"
+      },
+      "series_inference": {
+        "name": "Series Inference",
+        "description": "Infer models from series information",
+        "priority": 3,
+        "use_case": "When only series is mentioned"
+      },
+      "database_lookup": {
+        "name": "Database Lookup",
+        "description": "Look up actual models from database",
+        "priority": 4,
+        "use_case": "When placeholders need to be resolved to actual models"
+      }
+    },
+    "processing_rules": {
+      "placeholder_detection": {
+        "rules": [
+          "Look for 'x' characters in model numbers",
+          "Check for range indicators (C450i-C650i)",
+          "Identify series placeholders",
+          "Match against known placeholder patterns"
+        ]
+      },
+      "model_expansion": {
+        "rules": [
+          "Expand placeholders to actual model ranges",
+          "Validate expanded models against known models",
+          "Store both placeholder and expanded models",
+          "Maintain relationship between placeholder and actual models"
+        ]
+      },
+      "fallback_strategies": {
+        "rules": [
+          "If exact models found, use them",
+          "If placeholders found, expand them",
+          "If series found, infer models",
+          "If nothing found, mark as unknown"
+        ]
+      }
+    }
+  }
+}

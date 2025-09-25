@@ -1,0 +1,253 @@
+{
+  "file_info": {
+    "filename": "HP_X580_SM.txt",
+    "size_mb": 1.3389177322387695,
+    "extension": ".txt",
+    "created_at": "2025-09-24T21:11:24.542464"
+  },
+  "text_analysis": {
+    "total_characters": 1400813,
+    "total_words": 213256,
+    "total_sentences": 15150,
+    "total_paragraphs": 1362
+  },
+  "structure_analysis": {
+    "paragraph_count": 1362,
+    "sentence_count": 15150,
+    "average_sentence_length": 14.230231023102311,
+    "max_sentence_length": 3802,
+    "heading_count": 0,
+    "headings": [],
+    "common_words": [
+      [
+        "the",
+        17208
+      ],
+      [
+        "to",
+        4812
+      ],
+      [
+        "and",
+        4725
+      ],
+      [
+        "1",
+        3989
+      ],
+      [
+        "remove",
+        3637
+      ],
+      [
+        "2",
+        3584
+      ],
+      [
+        "3",
+        2782
+      ],
+      [
+        "printer",
+        2670
+      ],
+      [
+        "of",
+        2654
+      ],
+      [
+        "assembly",
+        2523
+      ],
+      [
+        "page",
+        2417
+      ],
+      [
+        "5",
+        2373
+      ],
+      [
+        "a",
+        2016
+      ],
+      [
+        "callout",
+        1981
+      ],
+      [
+        "on",
+        1872
+      ],
+      [
+        "or",
+        1829
+      ],
+      [
+        "cover",
+        1813
+      ],
+      [
+        "part",
+        1724
+      ],
+      [
+        "replacement",
+        1614
+      ],
+      [
+        "4",
+        1608
+      ]
+    ],
+    "technical_terms": [
+      [
+        "color",
+        134
+      ],
+      [
+        "laserjet",
+        129
+      ],
+      [
+        "enterprise",
+        31
+      ],
+      [
+        "service",
+        918
+      ],
+      [
+        "manual",
+        59
+      ],
+      [
+        "support",
+        192
+      ],
+      [
+        "guide",
+        78
+      ],
+      [
+        "provides",
+        32
+      ],
+      [
+        "theory",
+        80
+      ],
+      [
+        "operation",
+        113
+      ],
+      [
+        "troubleshooting",
+        165
+      ],
+      [
+        "repair",
+        34
+      ],
+      [
+        "information",
+        509
+      ],
+      [
+        "legal",
+        8
+      ],
+      [
+        "development",
+        11
+      ],
+      [
+        "reproduction",
+        6
+      ],
+      [
+        "without",
+        20
+      ],
+      [
+        "prior",
+        149
+      ],
+      [
+        "under",
+        25
+      ],
+      [
+        "herein",
+        6
+      ]
+    ],
+    "text_density": 156.57562408223203
+  },
+  "chunking_results": {
+    "simple_word_chunking": {
+      "chunk_count": 267,
+      "average_chunk_size": 997.9625468164794,
+      "min_chunk_size": 456,
+      "max_chunk_size": 1000,
+      "chunk_size_distribution": {
+        "small_chunks": 1,
+        "medium_chunks": 266,
+        "large_chunks": 0
+      }
+    },
+    "sentence_based": {
+      "chunk_count": 217,
+      "average_chunk_size": 993.4930875576036,
+      "min_chunk_size": 192,
+      "max_chunk_size": 3802,
+      "chunk_size_distribution": {
+        "small_chunks": 2,
+        "medium_chunks": 213,
+        "large_chunks": 2
+      }
+    },
+    "paragraph_based": {
+      "chunk_count": 240,
+      "average_chunk_size": 888.5666666666667,
+      "min_chunk_size": 233,
+      "max_chunk_size": 1301,
+      "chunk_size_distribution": {
+        "small_chunks": 2,
+        "medium_chunks": 238,
+        "large_chunks": 0
+      }
+    },
+    "structure_based": {
+      "chunk_count": 1530,
+      "average_chunk_size": 139.38300653594771,
+      "min_chunk_size": 6,
+      "max_chunk_size": 9345,
+      "chunk_size_distribution": {
+        "small_chunks": 1488,
+        "medium_chunks": 39,
+        "large_chunks": 3
+      }
+    }
+  },
+  "document_type": {
+    "detected_type": "service_manual",
+    "confidence": 0.4444444444444444,
+    "all_scores": {
+      "service_manual": 8,
+      "parts_catalog": 3,
+      "technical_bulletin": 5,
+      "cpmd_database": 2
+    }
+  },
+  "recommendations": {
+    "best_strategy": "simple_word_chunking",
+    "optimal_chunk_size": 1000,
+    "reasoning": [
+      "Strategy 'simple_word_chunking' provides optimal chunk distribution",
+      "Average chunk size: 998 words",
+      "Total chunks: 267"
+    ]
+  },
+  "analysis_timestamp": "2025-09-24T19:11:39.196826"
+}

@@ -1,0 +1,530 @@
+{
+  "test_timestamp": "2025-09-24T19:28:30.529000",
+  "summary": {
+    "total_documents_tested": 8,
+    "successful_tests": 8,
+    "success_rate": "100.0%"
+  },
+  "accuracy_analysis": {
+    "manufacturer_accuracy": "100.0%",
+    "document_type_accuracy": "62.5%",
+    "average_content_confidence": 0.141
+  },
+  "content_analysis": {
+    "unique_model_numbers": 22,
+    "unique_error_codes": 13,
+    "unique_part_numbers": 17,
+    "total_model_numbers": 24,
+    "total_error_codes": 17,
+    "total_part_numbers": 21
+  },
+  "detailed_results": {
+    "HP_E786_SM.pdf": {
+      "filename": "HP_E786_SM.pdf",
+      "content_based": {
+        "document_type": "parts_catalog",
+        "document_type_confidence": 0.18,
+        "manufacturer": "hp",
+        "manufacturer_confidence": 1.0,
+        "model_numbers": [
+          "HP",
+          "PR322",
+          "rljE786m"
+        ],
+        "error_codes": [
+          "78635",
+          "78625",
+          "786",
+          "78630"
+        ],
+        "part_numbers": [
+          "from",
+          "and",
+          "for",
+          "to",
+          "14",
+          "in"
+        ],
+        "version_info": "",
+        "content_analysis": {
+          "total_words": 761,
+          "total_characters": 5014,
+          "has_technical_content": true,
+          "has_parts_info": true,
+          "has_error_codes": false,
+          "has_diagrams": true,
+          "has_procedures": true
+        },
+        "classification_metadata": {
+          "analysis_timestamp": "2025-09-24T19:28:29.585066",
+          "filename_hint": "HP_E786_SM.pdf",
+          "analysis_method": "content_based"
+        },
+        "type_scores": {
+          "service_manual": 1.6,
+          "parts_catalog": 1.8,
+          "cpmd_database": 0.0,
+          "technical_bulletin": 0.0,
+          "user_manual": 0.0
+        },
+        "manufacturer_scores": {
+          "hp": 9.5,
+          "konica_minolta": 1.0,
+          "lexmark": 0.0,
+          "utax": 0.0,
+          "canon": 0.0,
+          "epson": 0.0
+        }
+      },
+      "filename_based": {
+        "manufacturer": "hp",
+        "document_type": "service_manual",
+        "confidence": 1.0,
+        "method": "filename_based"
+      },
+      "comparison": {
+        "manufacturer_match": true,
+        "document_type_match": false,
+        "content_confidence": 0.18,
+        "filename_confidence": 1.0
+      }
+    },
+    "Lexmark_CX825_CX860_XC8155_XC8160.pdf": {
+      "filename": "Lexmark_CX825_CX860_XC8155_XC8160.pdf",
+      "content_based": {
+        "document_type": "service_manual",
+        "document_type_confidence": 0.14,
+        "manufacturer": "lexmark",
+        "manufacturer_confidence": 1.0,
+        "model_numbers": [
+          "XC8160",
+          "CX825",
+          "CX860",
+          "XC8155",
+          "configurations",
+          "XC8163"
+        ],
+        "error_codes": [],
+        "part_numbers": [
+          "XC8160",
+          "XC8163",
+          "XC8155"
+        ],
+        "version_info": "",
+        "content_analysis": {
+          "total_words": 755,
+          "total_characters": 12782,
+          "has_technical_content": true,
+          "has_parts_info": false,
+          "has_error_codes": false,
+          "has_diagrams": false,
+          "has_procedures": false
+        },
+        "classification_metadata": {
+          "analysis_timestamp": "2025-09-24T19:28:29.770230",
+          "filename_hint": "Lexmark_CX825_CX860_XC8155_XC8160.pdf",
+          "analysis_method": "content_based"
+        },
+        "type_scores": {
+          "service_manual": 1.4000000000000001,
+          "parts_catalog": 0.0,
+          "cpmd_database": 0.0,
+          "technical_bulletin": 0.0,
+          "user_manual": 0.0
+        },
+        "manufacturer_scores": {
+          "hp": 0.3,
+          "konica_minolta": 3.0,
+          "lexmark": 10.8,
+          "utax": 0.0,
+          "canon": 0.0,
+          "epson": 0.0
+        }
+      },
+      "filename_based": {
+        "manufacturer": "lexmark",
+        "document_type": "unknown",
+        "confidence": 1.0,
+        "method": "filename_based"
+      },
+      "comparison": {
+        "manufacturer_match": true,
+        "document_type_match": false,
+        "content_confidence": 0.14,
+        "filename_confidence": 1.0
+      }
+    },
+    "HP_E786_CPMD.pdf": {
+      "filename": "HP_E786_CPMD.pdf",
+      "content_based": {
+        "document_type": "cpmd_database",
+        "document_type_confidence": 0.08,
+        "manufacturer": "hp",
+        "manufacturer_confidence": 1.0,
+        "model_numbers": [
+          "HP",
+          "rljE786m"
+        ],
+        "error_codes": [
+          "78625",
+          "78630",
+          "7",
+          "78635",
+          "1",
+          "786"
+        ],
+        "part_numbers": [],
+        "version_info": "",
+        "content_analysis": {
+          "total_words": 512,
+          "total_characters": 21338,
+          "has_technical_content": true,
+          "has_parts_info": false,
+          "has_error_codes": true,
+          "has_diagrams": false,
+          "has_procedures": false
+        },
+        "classification_metadata": {
+          "analysis_timestamp": "2025-09-24T19:28:29.847948",
+          "filename_hint": "HP_E786_CPMD.pdf",
+          "analysis_method": "content_based"
+        },
+        "type_scores": {
+          "service_manual": 0.4,
+          "parts_catalog": 0.0,
+          "cpmd_database": 0.8,
+          "technical_bulletin": 0.0,
+          "user_manual": 0.16000000000000003
+        },
+        "manufacturer_scores": {
+          "hp": 7.9,
+          "konica_minolta": 0.0,
+          "lexmark": 0.0,
+          "utax": 0.0,
+          "canon": 0.0,
+          "epson": 0.0
+        }
+      },
+      "filename_based": {
+        "manufacturer": "hp",
+        "document_type": "cpmd_database",
+        "confidence": 1.0,
+        "method": "filename_based"
+      },
+      "comparison": {
+        "manufacturer_match": true,
+        "document_type_match": true,
+        "content_confidence": 0.08,
+        "filename_confidence": 1.0
+      }
+    },
+    "KM_4750i_4050i_4751i_4051i_SM.pdf": {
+      "filename": "KM_4750i_4050i_4751i_4051i_SM.pdf",
+      "content_based": {
+        "document_type": "service_manual",
+        "document_type_confidence": 0.2,
+        "manufacturer": "konica_minolta",
+        "manufacturer_confidence": 1.0,
+        "model_numbers": [],
+        "error_codes": [],
+        "part_numbers": [],
+        "version_info": "2.3",
+        "content_analysis": {
+          "total_words": 1322,
+          "total_characters": 42739,
+          "has_technical_content": true,
+          "has_parts_info": true,
+          "has_error_codes": false,
+          "has_diagrams": true,
+          "has_procedures": true
+        },
+        "classification_metadata": {
+          "analysis_timestamp": "2025-09-24T19:28:29.950328",
+          "filename_hint": "KM_4750i_4050i_4751i_4051i_SM.pdf",
+          "analysis_method": "content_based"
+        },
+        "type_scores": {
+          "service_manual": 2.0,
+          "parts_catalog": 0.1,
+          "cpmd_database": 0.0,
+          "technical_bulletin": 0.0,
+          "user_manual": 0.0
+        },
+        "manufacturer_scores": {
+          "hp": 0.0,
+          "konica_minolta": 40.2,
+          "lexmark": 0.5,
+          "utax": 0.0,
+          "canon": 0.0,
+          "epson": 0.0
+        }
+      },
+      "filename_based": {
+        "manufacturer": "konica_minolta",
+        "document_type": "service_manual",
+        "confidence": 1.0,
+        "method": "filename_based"
+      },
+      "comparison": {
+        "manufacturer_match": true,
+        "document_type_match": true,
+        "content_confidence": 0.2,
+        "filename_confidence": 1.0
+      }
+    },
+    "KM_C658_C558_C458_C368_C308_C258_SM_EN.pdf": {
+      "filename": "KM_C658_C558_C458_C368_C308_C258_SM_EN.pdf",
+      "content_based": {
+        "document_type": "service_manual",
+        "document_type_confidence": 0.06000000000000001,
+        "manufacturer": "konica_minolta",
+        "manufacturer_confidence": 1.0,
+        "model_numbers": [],
+        "error_codes": [],
+        "part_numbers": [],
+        "version_info": "4.2",
+        "content_analysis": {
+          "total_words": 977,
+          "total_characters": 45536,
+          "has_technical_content": true,
+          "has_parts_info": false,
+          "has_error_codes": false,
+          "has_diagrams": false,
+          "has_procedures": true
+        },
+        "classification_metadata": {
+          "analysis_timestamp": "2025-09-24T19:28:30.282322",
+          "filename_hint": "KM_C658_C558_C458_C368_C308_C258_SM_EN.pdf",
+          "analysis_method": "content_based"
+        },
+        "type_scores": {
+          "service_manual": 0.6000000000000001,
+          "parts_catalog": 0.0,
+          "cpmd_database": 0.0,
+          "technical_bulletin": 0.0,
+          "user_manual": 0.0
+        },
+        "manufacturer_scores": {
+          "hp": 0.0,
+          "konica_minolta": 12.7,
+          "lexmark": 0.0,
+          "utax": 0.0,
+          "canon": 0.0,
+          "epson": 0.0
+        }
+      },
+      "filename_based": {
+        "manufacturer": "konica_minolta",
+        "document_type": "service_manual",
+        "confidence": 1.0,
+        "method": "filename_based"
+      },
+      "comparison": {
+        "manufacturer_match": true,
+        "document_type_match": true,
+        "content_confidence": 0.06000000000000001,
+        "filename_confidence": 1.0
+      }
+    },
+    "HP_X580_SM.pdf": {
+      "filename": "HP_X580_SM.pdf",
+      "content_based": {
+        "document_type": "service_manual",
+        "document_type_confidence": 0.23000000000000004,
+        "manufacturer": "hp",
+        "manufacturer_confidence": 1.0,
+        "model_numbers": [
+          "rljX57945M",
+          "orlj5800M",
+          "orlj5700",
+          "rljX557"
+        ],
+        "error_codes": [],
+        "part_numbers": [
+          "rljX57945M",
+          "orlj5700",
+          "and",
+          "for",
+          "RK3-1509-000CN",
+          "orlj5800M",
+          "in"
+        ],
+        "version_info": "",
+        "content_analysis": {
+          "total_words": 748,
+          "total_characters": 4974,
+          "has_technical_content": true,
+          "has_parts_info": true,
+          "has_error_codes": false,
+          "has_diagrams": true,
+          "has_procedures": true
+        },
+        "classification_metadata": {
+          "analysis_timestamp": "2025-09-24T19:28:30.398730",
+          "filename_hint": "HP_X580_SM.pdf",
+          "analysis_method": "content_based"
+        },
+        "type_scores": {
+          "service_manual": 2.3000000000000003,
+          "parts_catalog": 1.6,
+          "cpmd_database": 0.0,
+          "technical_bulletin": 0.0,
+          "user_manual": 0.0
+        },
+        "manufacturer_scores": {
+          "hp": 13.0,
+          "konica_minolta": 0.0,
+          "lexmark": 0.0,
+          "utax": 0.0,
+          "canon": 0.0,
+          "epson": 0.0
+        }
+      },
+      "filename_based": {
+        "manufacturer": "hp",
+        "document_type": "service_manual",
+        "confidence": 1.0,
+        "method": "filename_based"
+      },
+      "comparison": {
+        "manufacturer_match": true,
+        "document_type_match": true,
+        "content_confidence": 0.23000000000000004,
+        "filename_confidence": 1.0
+      }
+    },
+    "HP_E776_Troubleshooting.pdf": {
+      "filename": "HP_E776_Troubleshooting.pdf",
+      "content_based": {
+        "document_type": "service_manual",
+        "document_type_confidence": 0.01,
+        "manufacturer": "hp",
+        "manufacturer_confidence": 1.0,
+        "model_numbers": [],
+        "error_codes": [
+          "77650",
+          "77660",
+          "75160"
+        ],
+        "part_numbers": [],
+        "version_info": "",
+        "content_analysis": {
+          "total_words": 307,
+          "total_characters": 2432,
+          "has_technical_content": true,
+          "has_parts_info": false,
+          "has_error_codes": false,
+          "has_diagrams": false,
+          "has_procedures": true
+        },
+        "classification_metadata": {
+          "analysis_timestamp": "2025-09-24T19:28:30.433695",
+          "filename_hint": "HP_E776_Troubleshooting.pdf",
+          "analysis_method": "content_based"
+        },
+        "type_scores": {
+          "service_manual": 0.1,
+          "parts_catalog": 0.0,
+          "cpmd_database": 0.0,
+          "technical_bulletin": 0.0,
+          "user_manual": 0.08000000000000002
+        },
+        "manufacturer_scores": {
+          "hp": 10.5,
+          "konica_minolta": 2.5,
+          "lexmark": 0.0,
+          "utax": 0.0,
+          "canon": 0.0,
+          "epson": 0.0
+        }
+      },
+      "filename_based": {
+        "manufacturer": "hp",
+        "document_type": "technical_bulletin",
+        "confidence": 1.0,
+        "method": "filename_based"
+      },
+      "comparison": {
+        "manufacturer_match": true,
+        "document_type_match": false,
+        "content_confidence": 0.01,
+        "filename_confidence": 1.0
+      }
+    },
+    "HP_E52645_SM.pdf": {
+      "filename": "HP_E52645_SM.pdf",
+      "content_based": {
+        "document_type": "service_manual",
+        "document_type_confidence": 0.23000000000000004,
+        "manufacturer": "hp",
+        "manufacturer_confidence": 1.0,
+        "model_numbers": [
+          "ljE50145",
+          "ljM527m",
+          "ljE52645m",
+          "ljE50045",
+          "ljE52545m",
+          "ljM506",
+          "ljM528m",
+          "ljM507",
+          "ljM501"
+        ],
+        "error_codes": [
+          "50145",
+          "52545",
+          "52645",
+          "50045"
+        ],
+        "part_numbers": [
+          "ljE50145",
+          "ljE52645m",
+          "ljE50045",
+          "ljE52545m",
+          "in"
+        ],
+        "version_info": "",
+        "content_analysis": {
+          "total_words": 561,
+          "total_characters": 3976,
+          "has_technical_content": true,
+          "has_parts_info": true,
+          "has_error_codes": false,
+          "has_diagrams": true,
+          "has_procedures": true
+        },
+        "classification_metadata": {
+          "analysis_timestamp": "2025-09-24T19:28:30.526191",
+          "filename_hint": "HP_E52645_SM.pdf",
+          "analysis_method": "content_based"
+        },
+        "type_scores": {
+          "service_manual": 2.3000000000000003,
+          "parts_catalog": 0.4,
+          "cpmd_database": 0.0,
+          "technical_bulletin": 0.0,
+          "user_manual": 0.0
+        },
+        "manufacturer_scores": {
+          "hp": 17.9,
+          "konica_minolta": 0.0,
+          "lexmark": 0.0,
+          "utax": 0.0,
+          "canon": 0.0,
+          "epson": 0.0
+        }
+      },
+      "filename_based": {
+        "manufacturer": "hp",
+        "document_type": "service_manual",
+        "confidence": 1.0,
+        "method": "filename_based"
+      },
+      "comparison": {
+        "manufacturer_match": true,
+        "document_type_match": true,
+        "content_confidence": 0.23000000000000004,
+        "filename_confidence": 1.0
+      }
+    }
+  }
+}

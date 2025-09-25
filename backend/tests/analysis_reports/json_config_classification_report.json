@@ -1,0 +1,941 @@
+{
+  "test_timestamp": "2025-09-24T19:53:46.708670",
+  "summary": {
+    "total_documents_tested": 6,
+    "successful_tests": 6,
+    "success_rate": "100.0%"
+  },
+  "json_config_analysis": {
+    "manufacturers": {
+      "hp": 3,
+      "lexmark": 1,
+      "konica_minolta": 2
+    },
+    "document_types": {
+      "service_manual": 5,
+      "cpmd_database": 1
+    },
+    "series_detection": {
+      "unknown": 3,
+      "CX Series": 1,
+      "BizHub": 2
+    },
+    "error_code_analysis": {
+      "total_error_codes": 0,
+      "unique_error_codes": [],
+      "manufacturer_specific": {},
+      "categories": {}
+    },
+    "part_number_analysis": {
+      "total_part_numbers": 7,
+      "unique_part_numbers": [
+        "XC8160",
+        "RK3-1509-000",
+        "XC8155",
+        "XC8163"
+      ],
+      "manufacturer_specific": {
+        "lexmark": [
+          {
+            "part_number": "XC8155",
+            "description": "Unknown part",
+            "category": "unknown",
+            "models": []
+          },
+          {
+            "part_number": "XC8160",
+            "description": "Unknown part",
+            "category": "unknown",
+            "models": []
+          },
+          {
+            "part_number": "XC8163",
+            "description": "Unknown part",
+            "category": "unknown",
+            "models": []
+          }
+        ],
+        "hp": [
+          {
+            "part_number": "RK3-1509-000",
+            "description": "Unknown part",
+            "category": "unknown",
+            "models": []
+          }
+        ]
+      },
+      "categories": {
+        "unknown": 7
+      }
+    },
+    "chunking_strategies": {
+      "contextual_chunking": 6
+    },
+    "confidence_scores": {
+      "manufacturer": [
+        0.9,
+        0.9,
+        0.9,
+        0.9,
+        0.9,
+        0.9
+      ],
+      "document_type": [
+        0.8,
+        0.06000000000000001,
+        0.8,
+        0.8,
+        0.8,
+        0.8
+      ],
+      "series": [
+        0.0,
+        0.9,
+        0.0,
+        0.9,
+        0.9,
+        0.0
+      ],
+      "hybrid": [
+        1.0,
+        0.6388800000000002,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "manufacturer_average": 0.9,
+      "document_type_average": 0.677,
+      "series_average": 0.45,
+      "hybrid_average": 0.94
+    }
+  },
+  "detailed_results": {
+    "HP_E786_SM.pdf": {
+      "filename": "HP_E786_SM.pdf",
+      "classification": {
+        "document_type": "service_manual",
+        "document_type_confidence": 0.8,
+        "manufacturer": "hp",
+        "manufacturer_confidence": 0.9,
+        "series": "unknown",
+        "series_confidence": 0.0,
+        "models": [
+          "E78625",
+          "E78635",
+          "E786",
+          "3066",
+          "786MFP",
+          "E786M",
+          "78625",
+          "786",
+          "144",
+          "1311",
+          "RLJE786M",
+          "78635",
+          "2976",
+          "78630",
+          "E78630",
+          "COLORLJE786M",
+          "1304",
+          "2984",
+          "MANAGED",
+          "LASERJET"
+        ],
+        "version": "11",
+        "version_confidence": 0.8
+      },
+      "extraction": {
+        "model_numbers": [
+          "E78625",
+          "E78635",
+          "E786",
+          "3066",
+          "786MFP",
+          "E786M",
+          "78625",
+          "144",
+          "786",
+          "1311",
+          "RLJE786M",
+          "78635",
+          "2976",
+          "78630",
+          "E78630",
+          "COLORLJE786M",
+          "1304",
+          "2984",
+          "MANAGED",
+          "LASERJET"
+        ],
+        "error_codes": [],
+        "part_numbers": [],
+        "series_info": {
+          "detected_series": "unknown",
+          "confidence": 0.0,
+          "series_models": [],
+          "description": ""
+        },
+        "technical_info": {
+          "has_diagrams": true,
+          "has_procedures": true,
+          "has_specifications": true,
+          "has_troubleshooting": true,
+          "word_count": 447,
+          "page_indicators": 9
+        }
+      },
+      "chunking": {
+        "recommended_strategy": "contextual_chunking",
+        "chunk_size": 1200,
+        "chunk_overlap": 150,
+        "settings": {
+          "preferred_strategy": "contextual_chunking",
+          "chunk_size": 1200,
+          "chunk_overlap": 150,
+          "preserve_structure": true,
+          "preserve_procedures": true,
+          "preserve_error_codes": true,
+          "preserve_part_numbers": true
+        }
+      },
+      "analysis": {
+        "filename_analysis": {
+          "manufacturer": "hp",
+          "manufacturer_confidence": 0.9,
+          "document_type": "service_manual",
+          "document_type_confidence": 0.8,
+          "models": [
+            "E786"
+          ],
+          "version": "",
+          "confidence": 0.8500000000000001
+        },
+        "content_analysis": {
+          "manufacturer": "hp",
+          "manufacturer_confidence": 1.0,
+          "document_type": "service_manual",
+          "document_type_confidence": 0.08,
+          "models": [
+            "E78625",
+            "E78635",
+            "E786",
+            "3066",
+            "786MFP",
+            "E786M",
+            "78625",
+            "144",
+            "786",
+            "1311",
+            "RLJE786M",
+            "78635",
+            "2976",
+            "78630",
+            "E78630",
+            "COLORLJE786M",
+            "1304",
+            "2984",
+            "MANAGED",
+            "LASERJET"
+          ],
+          "version": "11",
+          "confidence": 0.54
+        },
+        "hybrid_confidence": 1.0,
+        "analysis_timestamp": "2025-09-24T19:53:45.918224"
+      }
+    },
+    "Lexmark_CX825_CX860_XC8155_XC8160.pdf": {
+      "filename": "Lexmark_CX825_CX860_XC8155_XC8160.pdf",
+      "classification": {
+        "document_type": "service_manual",
+        "document_type_confidence": 0.06000000000000001,
+        "manufacturer": "lexmark",
+        "manufacturer_confidence": 0.9,
+        "series": "unknown",
+        "series_confidence": 0.0,
+        "models": [
+          "C8160",
+          "XC8155",
+          "X825",
+          "CX825",
+          "8155",
+          "XC8163",
+          "XC8160",
+          "8163",
+          "X860",
+          "C8163",
+          "8160",
+          "860",
+          "LOGO",
+          "INTERNATIONAL",
+          "CX860",
+          "C8155",
+          "AND",
+          "825"
+        ],
+        "version": "4",
+        "version_confidence": 0.8
+      },
+      "extraction": {
+        "model_numbers": [
+          "C8160",
+          "C8155",
+          "XC8155",
+          "X825",
+          "CX825",
+          "8155",
+          "XC8163",
+          "8163",
+          "X860",
+          "C8163",
+          "8160",
+          "860",
+          "LOGO",
+          "INTERNATIONAL",
+          "CX860",
+          "XC8160",
+          "AND",
+          "825"
+        ],
+        "error_codes": [],
+        "part_numbers": [
+          {
+            "part_number": "XC8155",
+            "description": "Unknown part",
+            "category": "unknown",
+            "models": [],
+            "manufacturer": "lexmark"
+          },
+          {
+            "part_number": "XC8160",
+            "description": "Unknown part",
+            "category": "unknown",
+            "models": [],
+            "manufacturer": "lexmark"
+          },
+          {
+            "part_number": "XC8163",
+            "description": "Unknown part",
+            "category": "unknown",
+            "models": [],
+            "manufacturer": "lexmark"
+          },
+          {
+            "part_number": "XC8155",
+            "description": "Unknown part",
+            "category": "unknown",
+            "models": [],
+            "manufacturer": "lexmark"
+          },
+          {
+            "part_number": "XC8160",
+            "description": "Unknown part",
+            "category": "unknown",
+            "models": [],
+            "manufacturer": "lexmark"
+          },
+          {
+            "part_number": "XC8163",
+            "description": "Unknown part",
+            "category": "unknown",
+            "models": [],
+            "manufacturer": "lexmark"
+          }
+        ],
+        "series_info": {
+          "detected_series": "CX Series",
+          "confidence": 0.9,
+          "series_models": [],
+          "description": "Color multifunction printer series"
+        },
+        "technical_info": {
+          "has_diagrams": false,
+          "has_procedures": false,
+          "has_specifications": true,
+          "has_troubleshooting": false,
+          "word_count": 502,
+          "page_indicators": 0
+        }
+      },
+      "chunking": {
+        "recommended_strategy": "contextual_chunking",
+        "chunk_size": 1200,
+        "chunk_overlap": 150,
+        "settings": {
+          "preferred_strategy": "contextual_chunking",
+          "chunk_size": 1200,
+          "chunk_overlap": 150,
+          "preserve_structure": true,
+          "preserve_procedures": true,
+          "preserve_error_codes": true,
+          "preserve_part_numbers": true
+        }
+      },
+      "analysis": {
+        "filename_analysis": {
+          "manufacturer": "lexmark",
+          "manufacturer_confidence": 0.9,
+          "document_type": "unknown",
+          "document_type_confidence": 0.0,
+          "models": [
+            "C8160",
+            "C8155",
+            "XC8155",
+            "X825",
+            "CX825",
+            "X860",
+            "CX860",
+            "XC8160"
+          ],
+          "version": "",
+          "confidence": 0.45
+        },
+        "content_analysis": {
+          "manufacturer": "lexmark",
+          "manufacturer_confidence": 1.0,
+          "document_type": "service_manual",
+          "document_type_confidence": 0.06000000000000001,
+          "models": [
+            "C8160",
+            "C8155",
+            "XC8155",
+            "X825",
+            "CX825",
+            "8155",
+            "XC8163",
+            "8163",
+            "X860",
+            "C8163",
+            "8160",
+            "860",
+            "LOGO",
+            "INTERNATIONAL",
+            "CX860",
+            "XC8160",
+            "AND",
+            "825"
+          ],
+          "version": "4",
+          "confidence": 0.53
+        },
+        "hybrid_confidence": 0.6388800000000002,
+        "analysis_timestamp": "2025-09-24T19:53:46.091121"
+      }
+    },
+    "HP_E786_CPMD.pdf": {
+      "filename": "HP_E786_CPMD.pdf",
+      "classification": {
+        "document_type": "cpmd_database",
+        "document_type_confidence": 0.8,
+        "manufacturer": "hp",
+        "manufacturer_confidence": 0.9,
+        "series": "unknown",
+        "series_confidence": 0.0,
+        "models": [
+          "E78625",
+          "E78635",
+          "RLJE786M",
+          "786MFP",
+          "E786M",
+          "E786",
+          "MANAGED",
+          "78635",
+          "78630",
+          "E78630",
+          "COLORLJE786M",
+          "78625",
+          "786",
+          "LASERJET"
+        ],
+        "version": "12",
+        "version_confidence": 0.8
+      },
+      "extraction": {
+        "model_numbers": [
+          "E78625",
+          "E78635",
+          "RLJE786M",
+          "786MFP",
+          "E786M",
+          "E786",
+          "MANAGED",
+          "78635",
+          "78630",
+          "E78630",
+          "COLORLJE786M",
+          "78625",
+          "786",
+          "LASERJET"
+        ],
+        "error_codes": [],
+        "part_numbers": [],
+        "series_info": {
+          "detected_series": "unknown",
+          "confidence": 0.0,
+          "series_models": [],
+          "description": ""
+        },
+        "technical_info": {
+          "has_diagrams": false,
+          "has_procedures": false,
+          "has_specifications": false,
+          "has_troubleshooting": true,
+          "word_count": 417,
+          "page_indicators": 0
+        }
+      },
+      "chunking": {
+        "recommended_strategy": "contextual_chunking",
+        "chunk_size": 600,
+        "chunk_overlap": 80,
+        "settings": {
+          "preferred_strategy": "contextual_chunking",
+          "chunk_size": 600,
+          "chunk_overlap": 80,
+          "preserve_error_codes": true,
+          "preserve_solutions": true,
+          "preserve_procedures": true
+        }
+      },
+      "analysis": {
+        "filename_analysis": {
+          "manufacturer": "hp",
+          "manufacturer_confidence": 0.9,
+          "document_type": "cpmd_database",
+          "document_type_confidence": 0.8,
+          "models": [
+            "E786"
+          ],
+          "version": "",
+          "confidence": 0.8500000000000001
+        },
+        "content_analysis": {
+          "manufacturer": "hp",
+          "manufacturer_confidence": 1.0,
+          "document_type": "cpmd_database",
+          "document_type_confidence": 0.08,
+          "models": [
+            "E78625",
+            "E78635",
+            "RLJE786M",
+            "786MFP",
+            "E786M",
+            "E786",
+            "MANAGED",
+            "78635",
+            "78630",
+            "E78630",
+            "COLORLJE786M",
+            "78625",
+            "786",
+            "LASERJET"
+          ],
+          "version": "12",
+          "confidence": 0.54
+        },
+        "hybrid_confidence": 1.0,
+        "analysis_timestamp": "2025-09-24T19:53:46.159286"
+      }
+    },
+    "KM_4750i_4050i_4751i_4051i_SM.pdf": {
+      "filename": "KM_4750i_4050i_4751i_4051i_SM.pdf",
+      "classification": {
+        "document_type": "service_manual",
+        "document_type_confidence": 0.8,
+        "manufacturer": "konica_minolta",
+        "manufacturer_confidence": 0.9,
+        "series": "unknown",
+        "series_confidence": 0.0,
+        "models": [
+          "4750I"
+        ],
+        "version": "................................................................................................................................",
+        "version_confidence": 0.8
+      },
+      "extraction": {
+        "model_numbers": [
+          "4750I"
+        ],
+        "error_codes": [],
+        "part_numbers": [],
+        "series_info": {
+          "detected_series": "BizHub",
+          "confidence": 0.9,
+          "series_models": [],
+          "description": "Business multifunction printer series"
+        },
+        "technical_info": {
+          "has_diagrams": true,
+          "has_procedures": true,
+          "has_specifications": true,
+          "has_troubleshooting": false,
+          "word_count": 1016,
+          "page_indicators": 0
+        }
+      },
+      "chunking": {
+        "recommended_strategy": "contextual_chunking",
+        "chunk_size": 1200,
+        "chunk_overlap": 150,
+        "settings": {
+          "preferred_strategy": "contextual_chunking",
+          "chunk_size": 1200,
+          "chunk_overlap": 150,
+          "preserve_structure": true,
+          "preserve_procedures": true,
+          "preserve_error_codes": true,
+          "preserve_part_numbers": true
+        }
+      },
+      "analysis": {
+        "filename_analysis": {
+          "manufacturer": "konica_minolta",
+          "manufacturer_confidence": 0.9,
+          "document_type": "service_manual",
+          "document_type_confidence": 0.8,
+          "models": [],
+          "version": "",
+          "confidence": 0.8500000000000001
+        },
+        "content_analysis": {
+          "manufacturer": "konica_minolta",
+          "manufacturer_confidence": 1.0,
+          "document_type": "service_manual",
+          "document_type_confidence": 0.19000000000000003,
+          "models": [
+            "4750I"
+          ],
+          "version": "................................................................................................................................",
+          "confidence": 0.595
+        },
+        "hybrid_confidence": 1.0,
+        "analysis_timestamp": "2025-09-24T19:53:46.249224"
+      }
+    },
+    "KM_C658_C558_C458_C368_C308_C258_SM_EN.pdf": {
+      "filename": "KM_C658_C558_C458_C368_C308_C258_SM_EN.pdf",
+      "classification": {
+        "document_type": "service_manual",
+        "document_type_confidence": 0.8,
+        "manufacturer": "konica_minolta",
+        "manufacturer_confidence": 0.9,
+        "series": "unknown",
+        "series_confidence": 0.0,
+        "models": [
+          "C368",
+          "308",
+          "368",
+          "537SD",
+          "C308",
+          "C658",
+          "558",
+          "458",
+          "536SD",
+          "658",
+          "258",
+          "C558",
+          "C458",
+          "C258",
+          "534SD"
+        ],
+        "version": "4.2",
+        "version_confidence": 0.8
+      },
+      "extraction": {
+        "model_numbers": [
+          "C368",
+          "308",
+          "368",
+          "537SD",
+          "C308",
+          "C658",
+          "558",
+          "458",
+          "536SD",
+          "534SD",
+          "258",
+          "C558",
+          "C458",
+          "C258",
+          "658"
+        ],
+        "error_codes": [],
+        "part_numbers": [],
+        "series_info": {
+          "detected_series": "BizHub",
+          "confidence": 0.9,
+          "series_models": [],
+          "description": "Business multifunction printer series"
+        },
+        "technical_info": {
+          "has_diagrams": false,
+          "has_procedures": false,
+          "has_specifications": true,
+          "has_troubleshooting": false,
+          "word_count": 744,
+          "page_indicators": 0
+        }
+      },
+      "chunking": {
+        "recommended_strategy": "contextual_chunking",
+        "chunk_size": 1200,
+        "chunk_overlap": 150,
+        "settings": {
+          "preferred_strategy": "contextual_chunking",
+          "chunk_size": 1200,
+          "chunk_overlap": 150,
+          "preserve_structure": true,
+          "preserve_procedures": true,
+          "preserve_error_codes": true,
+          "preserve_part_numbers": true
+        }
+      },
+      "analysis": {
+        "filename_analysis": {
+          "manufacturer": "konica_minolta",
+          "manufacturer_confidence": 0.9,
+          "document_type": "service_manual",
+          "document_type_confidence": 0.8,
+          "models": [
+            "C368",
+            "C308",
+            "C658",
+            "C558",
+            "C458",
+            "C258"
+          ],
+          "version": "",
+          "confidence": 0.8500000000000001
+        },
+        "content_analysis": {
+          "manufacturer": "konica_minolta",
+          "manufacturer_confidence": 1.0,
+          "document_type": "service_manual",
+          "document_type_confidence": 0.06000000000000001,
+          "models": [
+            "C368",
+            "308",
+            "368",
+            "537SD",
+            "C308",
+            "C658",
+            "558",
+            "458",
+            "536SD",
+            "534SD",
+            "258",
+            "C558",
+            "C458",
+            "C258",
+            "658"
+          ],
+          "version": "4.2",
+          "confidence": 0.53
+        },
+        "hybrid_confidence": 1.0,
+        "analysis_timestamp": "2025-09-24T19:53:46.587493"
+      }
+    },
+    "HP_X580_SM.pdf": {
+      "filename": "HP_X580_SM.pdf",
+      "classification": {
+        "document_type": "service_manual",
+        "document_type_confidence": 0.8,
+        "manufacturer": "hp",
+        "manufacturer_confidence": 0.9,
+        "series": "unknown",
+        "series_confidence": 0.0,
+        "models": [
+          "COLORLJ5700",
+          "X57945",
+          "579",
+          "X557",
+          "COLORLJX557",
+          "ENTERPRISE",
+          "COLORLJ5800M",
+          "ORLJ5700",
+          "677",
+          "1250",
+          "X580",
+          "5800MFP",
+          "X55745",
+          "J5800M",
+          "57945MFP",
+          "5800",
+          "COLORLJX57945M",
+          "55745",
+          "RLJX557",
+          "556",
+          "X58045",
+          "612",
+          "227",
+          "MFP",
+          "RLJX57945M",
+          "X677",
+          "J5700",
+          "58045",
+          "X57945M",
+          "5700",
+          "000CN",
+          "57945",
+          "552",
+          "X579",
+          "654",
+          "557",
+          "X654",
+          "1266",
+          "LASERJET",
+          "ORLJ5800M"
+        ],
+        "version": "14",
+        "version_confidence": 0.8
+      },
+      "extraction": {
+        "model_numbers": [
+          "COLORLJ5700",
+          "X57945",
+          "579",
+          "X557",
+          "COLORLJX557",
+          "ENTERPRISE",
+          "COLORLJ5800M",
+          "ORLJ5700",
+          "677",
+          "1250",
+          "5800MFP",
+          "X55745",
+          "J5800M",
+          "57945MFP",
+          "5800",
+          "COLORLJX57945M",
+          "55745",
+          "RLJX557",
+          "1266",
+          "556",
+          "X58045",
+          "227",
+          "MFP",
+          "RLJX57945M",
+          "X677",
+          "J5700",
+          "58045",
+          "X57945M",
+          "5700",
+          "000CN",
+          "57945",
+          "552",
+          "X579",
+          "654",
+          "557",
+          "X654",
+          "612",
+          "LASERJET",
+          "ORLJ5800M"
+        ],
+        "error_codes": [],
+        "part_numbers": [
+          {
+            "part_number": "RK3-1509-000",
+            "description": "Unknown part",
+            "category": "unknown",
+            "models": [],
+            "manufacturer": "hp"
+          }
+        ],
+        "series_info": {
+          "detected_series": "unknown",
+          "confidence": 0.0,
+          "series_models": [],
+          "description": ""
+        },
+        "technical_info": {
+          "has_diagrams": true,
+          "has_procedures": true,
+          "has_specifications": false,
+          "has_troubleshooting": true,
+          "word_count": 436,
+          "page_indicators": 8
+        }
+      },
+      "chunking": {
+        "recommended_strategy": "contextual_chunking",
+        "chunk_size": 1200,
+        "chunk_overlap": 150,
+        "settings": {
+          "preferred_strategy": "contextual_chunking",
+          "chunk_size": 1200,
+          "chunk_overlap": 150,
+          "preserve_structure": true,
+          "preserve_procedures": true,
+          "preserve_error_codes": true,
+          "preserve_part_numbers": true
+        }
+      },
+      "analysis": {
+        "filename_analysis": {
+          "manufacturer": "hp",
+          "manufacturer_confidence": 0.9,
+          "document_type": "service_manual",
+          "document_type_confidence": 0.8,
+          "models": [
+            "X580"
+          ],
+          "version": "",
+          "confidence": 0.8500000000000001
+        },
+        "content_analysis": {
+          "manufacturer": "hp",
+          "manufacturer_confidence": 1.0,
+          "document_type": "service_manual",
+          "document_type_confidence": 0.11000000000000001,
+          "models": [
+            "COLORLJ5700",
+            "X57945",
+            "579",
+            "X557",
+            "COLORLJX557",
+            "ENTERPRISE",
+            "COLORLJ5800M",
+            "ORLJ5700",
+            "677",
+            "1250",
+            "5800MFP",
+            "X55745",
+            "J5800M",
+            "57945MFP",
+            "5800",
+            "COLORLJX57945M",
+            "55745",
+            "RLJX557",
+            "1266",
+            "556",
+            "X58045",
+            "227",
+            "MFP",
+            "RLJX57945M",
+            "X677",
+            "J5700",
+            "58045",
+            "X57945M",
+            "5700",
+            "000CN",
+            "57945",
+            "552",
+            "X579",
+            "654",
+            "557",
+            "X654",
+            "612",
+            "LASERJET",
+            "ORLJ5800M"
+          ],
+          "version": "14",
+          "confidence": 0.555
+        },
+        "hybrid_confidence": 1.0,
+        "analysis_timestamp": "2025-09-24T19:53:46.704651"
+      }
+    }
+  }
+}

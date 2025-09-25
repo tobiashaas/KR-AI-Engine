@@ -1,0 +1,1426 @@
+{
+  "test_timestamp": "2025-09-24T19:18:26.158957",
+  "total_documents_tested": 5,
+  "document_type_analysis": {
+    "service_manual": [
+      {
+        "document": "HP_LaserJet_4000_Service_Manual.txt",
+        "words": 911,
+        "best_strategy": "sentence_based",
+        "chunk_count": 1,
+        "avg_chunk_size": 934.0
+      },
+      {
+        "document": "Canon_imageRUNNER_4000i_Service_Manual.txt",
+        "words": 522,
+        "best_strategy": "simple_word_chunking",
+        "chunk_count": 1,
+        "avg_chunk_size": 522.0
+      }
+    ],
+    "parts_catalog": [
+      {
+        "document": "HP_LaserJet_4000_Parts_Catalog.txt",
+        "words": 890,
+        "best_strategy": "sentence_based",
+        "chunk_count": 1,
+        "avg_chunk_size": 938.0
+      }
+    ],
+    "cpmd_database": [
+      {
+        "document": "HP_X580_CPMD_Database.txt",
+        "words": 1065,
+        "best_strategy": "simple_word_chunking",
+        "chunk_count": 2,
+        "avg_chunk_size": 632.5
+      }
+    ],
+    "technical_bulletin": [
+      {
+        "document": "HP_TB_2024_001_Technical_Bulletin.txt",
+        "words": 662,
+        "best_strategy": "simple_word_chunking",
+        "chunk_count": 1,
+        "avg_chunk_size": 662.0
+      }
+    ]
+  },
+  "strategy_analysis": {
+    "sentence_based": [
+      {
+        "document": "HP_LaserJet_4000_Service_Manual.txt",
+        "doc_type": "service_manual",
+        "words": 911
+      },
+      {
+        "document": "HP_LaserJet_4000_Parts_Catalog.txt",
+        "doc_type": "parts_catalog",
+        "words": 890
+      }
+    ],
+    "simple_word_chunking": [
+      {
+        "document": "HP_X580_CPMD_Database.txt",
+        "doc_type": "cpmd_database",
+        "words": 1065
+      },
+      {
+        "document": "HP_TB_2024_001_Technical_Bulletin.txt",
+        "doc_type": "technical_bulletin",
+        "words": 662
+      },
+      {
+        "document": "Canon_imageRUNNER_4000i_Service_Manual.txt",
+        "doc_type": "service_manual",
+        "words": 522
+      }
+    ]
+  },
+  "recommendations": {
+    "document_type_strategies": {
+      "service_manual": {
+        "recommended_strategy": "sentence_based",
+        "average_chunk_size": 728,
+        "average_chunk_count": 1,
+        "document_count": 2
+      },
+      "parts_catalog": {
+        "recommended_strategy": "sentence_based",
+        "average_chunk_size": 938,
+        "average_chunk_count": 1,
+        "document_count": 1
+      },
+      "cpmd_database": {
+        "recommended_strategy": "simple_word_chunking",
+        "average_chunk_size": 632,
+        "average_chunk_count": 2,
+        "document_count": 1
+      },
+      "technical_bulletin": {
+        "recommended_strategy": "simple_word_chunking",
+        "average_chunk_size": 662,
+        "average_chunk_count": 1,
+        "document_count": 1
+      }
+    },
+    "optimal_chunk_sizes": {
+      "service_manual": {
+        "min_recommended": 582,
+        "max_recommended": 873,
+        "target_size": 728
+      },
+      "parts_catalog": {
+        "min_recommended": 750,
+        "max_recommended": 1125,
+        "target_size": 938
+      },
+      "cpmd_database": {
+        "min_recommended": 506,
+        "max_recommended": 759,
+        "target_size": 632
+      },
+      "technical_bulletin": {
+        "min_recommended": 529,
+        "max_recommended": 794,
+        "target_size": 662
+      }
+    },
+    "performance_insights": {
+      "total_documents_tested": 5,
+      "successful_tests": 5,
+      "success_rate": "100.0%",
+      "most_effective_strategy": "simple_word_chunking",
+      "average_document_size": 810.0
+    },
+    "production_config": {
+      "service_manual": {
+        "strategy": "sentence_based",
+        "chunk_size": 728,
+        "overlap": 100
+      },
+      "parts_catalog": {
+        "strategy": "sentence_based",
+        "chunk_size": 938,
+        "overlap": 50
+      },
+      "cpmd_database": {
+        "strategy": "simple_word_chunking",
+        "chunk_size": 632,
+        "overlap": 75
+      },
+      "technical_bulletin": {
+        "strategy": "simple_word_chunking",
+        "chunk_size": 662,
+        "overlap": 50
+      }
+    }
+  },
+  "individual_results": {
+    "HP_LaserJet_4000_Service_Manual.txt": {
+      "file_info": {
+        "filename": "HP_LaserJet_4000_Service_Manual.txt",
+        "size_mb": 0.006054878234863281,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:18:26.149564"
+      },
+      "text_analysis": {
+        "total_characters": 6344,
+        "total_words": 911,
+        "total_sentences": 101,
+        "total_paragraphs": 54
+      },
+      "structure_analysis": {
+        "paragraph_count": 54,
+        "sentence_count": 101,
+        "average_sentence_length": 9.247524752475247,
+        "max_sentence_length": 71,
+        "heading_count": 16,
+        "headings": [
+          "TABLE OF CONTENTS",
+          "2.1 Regular Maintenance Schedule",
+          "2.2 Preventive Maintenance Procedures",
+          "3.1 Common Error Codes",
+          "3.2 Print Quality Issues",
+          "4.1 Major Components",
+          "4.2 Replacement Procedures",
+          "5.1 General Specifications",
+          "5.2 Power Requirements",
+          "5.3 Environmental Conditions"
+        ],
+        "common_words": [
+          [
+            "2",
+            26
+          ],
+          [
+            "1",
+            25
+          ],
+          [
+            "assembly",
+            25
+          ],
+          [
+            "fuser",
+            21
+          ],
+          [
+            "paper",
+            17
+          ],
+          [
+            "3",
+            17
+          ],
+          [
+            "remove",
+            16
+          ],
+          [
+            "4",
+            16
+          ],
+          [
+            "check",
+            13
+          ],
+          [
+            "roller",
+            13
+          ],
+          [
+            "5",
+            13
+          ],
+          [
+            "6",
+            13
+          ],
+          [
+            "print",
+            12
+          ],
+          [
+            "transfer",
+            11
+          ],
+          [
+            "maintenance",
+            9
+          ],
+          [
+            "power",
+            9
+          ],
+          [
+            "verify",
+            9
+          ],
+          [
+            "clean",
+            9
+          ],
+          [
+            "screws",
+            9
+          ],
+          [
+            "8",
+            9
+          ]
+        ],
+        "technical_terms": [
+          [
+            "service",
+            8
+          ],
+          [
+            "chapter",
+            8
+          ],
+          [
+            "laser",
+            6
+          ],
+          [
+            "maintenance",
+            9
+          ],
+          [
+            "procedures",
+            6
+          ],
+          [
+            "disconnect",
+            7
+          ],
+          [
+            "power",
+            9
+          ],
+          [
+            "check",
+            13
+          ],
+          [
+            "paper",
+            17
+          ],
+          [
+            "verify",
+            9
+          ],
+          [
+            "toner",
+            7
+          ],
+          [
+            "clean",
+            9
+          ],
+          [
+            "fuser",
+            21
+          ],
+          [
+            "assembly",
+            25
+          ],
+          [
+            "transfer",
+            11
+          ],
+          [
+            "roller",
+            13
+          ],
+          [
+            "replace",
+            6
+          ],
+          [
+            "printer",
+            7
+          ],
+          [
+            "remove",
+            16
+          ],
+          [
+            "error",
+            8
+          ]
+        ],
+        "text_density": 16.87037037037037
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 2,
+          "average_chunk_size": 511.0,
+          "min_chunk_size": 111,
+          "max_chunk_size": 911,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 1,
+          "average_chunk_size": 934.0,
+          "min_chunk_size": 934,
+          "max_chunk_size": 934,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 1,
+          "average_chunk_size": 911.0,
+          "min_chunk_size": 911,
+          "max_chunk_size": 911,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 98,
+          "average_chunk_size": 9.295918367346939,
+          "min_chunk_size": 1,
+          "max_chunk_size": 87,
+          "chunk_size_distribution": {
+            "small_chunks": 98,
+            "medium_chunks": 0,
+            "large_chunks": 0
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "service_manual",
+        "confidence": 0.7333333333333333,
+        "all_scores": {
+          "service_manual": 11,
+          "parts_catalog": 0,
+          "technical_bulletin": 3,
+          "cpmd_database": 1
+        }
+      },
+      "recommendations": {
+        "best_strategy": "sentence_based",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'sentence_based' provides optimal chunk distribution",
+          "Average chunk size: 934 words",
+          "Total chunks: 1"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:18:26.152404"
+    },
+    "HP_LaserJet_4000_Parts_Catalog.txt": {
+      "file_info": {
+        "filename": "HP_LaserJet_4000_Parts_Catalog.txt",
+        "size_mb": 0.0065517425537109375,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:18:26.149732"
+      },
+      "text_analysis": {
+        "total_characters": 6869,
+        "total_words": 890,
+        "total_sentences": 56,
+        "total_paragraphs": 62
+      },
+      "structure_analysis": {
+        "paragraph_count": 62,
+        "sentence_count": 56,
+        "average_sentence_length": 16.75,
+        "max_sentence_length": 44,
+        "heading_count": 16,
+        "headings": [
+          "1.1 FUSER ASSEMBLIES",
+          "1.2 TRANSFER ASSEMBLIES",
+          "1.3 LASER SCANNER ASSEMBLIES",
+          "2.1 FEED ROLLERS",
+          "2.2 PAPER GUIDES",
+          "3.1 CONTROLLER BOARDS",
+          "3.2 SENSORS",
+          "4.1 MOTORS",
+          "4.2 GEARS AND BELTS",
+          "5.1 TONER CARTRIDGES"
+        ],
+        "common_words": [
+          [
+            "part",
+            34
+          ],
+          [
+            "4000",
+            33
+          ],
+          [
+            "number",
+            33
+          ],
+          [
+            "c4127",
+            32
+          ],
+          [
+            "description",
+            32
+          ],
+          [
+            "price",
+            32
+          ],
+          [
+            "availability",
+            32
+          ],
+          [
+            "compatibility",
+            32
+          ],
+          [
+            "notes",
+            32
+          ],
+          [
+            "stock",
+            31
+          ],
+          [
+            "in",
+            30
+          ],
+          [
+            "all",
+            29
+          ],
+          [
+            "00",
+            29
+          ],
+          [
+            "series",
+            28
+          ],
+          [
+            "models",
+            27
+          ],
+          [
+            "1",
+            15
+          ],
+          [
+            "2",
+            12
+          ],
+          [
+            "paper",
+            12
+          ],
+          [
+            "hp",
+            11
+          ],
+          [
+            "parts",
+            11
+          ]
+        ],
+        "technical_terms": [
+          [
+            "laserjet",
+            7
+          ],
+          [
+            "series",
+            28
+          ],
+          [
+            "parts",
+            11
+          ],
+          [
+            "chapter",
+            7
+          ],
+          [
+            "fuser",
+            11
+          ],
+          [
+            "number",
+            33
+          ],
+          [
+            "description",
+            32
+          ],
+          [
+            "assembly",
+            10
+          ],
+          [
+            "complete",
+            7
+          ],
+          [
+            "price",
+            32
+          ],
+          [
+            "availability",
+            32
+          ],
+          [
+            "stock",
+            31
+          ],
+          [
+            "compatibility",
+            32
+          ],
+          [
+            "notes",
+            32
+          ],
+          [
+            "models",
+            27
+          ],
+          [
+            "sensor",
+            7
+          ],
+          [
+            "roller",
+            8
+          ],
+          [
+            "laser",
+            6
+          ],
+          [
+            "scanner",
+            7
+          ],
+          [
+            "motor",
+            9
+          ]
+        ],
+        "text_density": 14.35483870967742
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 2,
+          "average_chunk_size": 490.0,
+          "min_chunk_size": 90,
+          "max_chunk_size": 890,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 1,
+          "average_chunk_size": 938.0,
+          "min_chunk_size": 938,
+          "max_chunk_size": 938,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 1,
+          "average_chunk_size": 890.0,
+          "min_chunk_size": 890,
+          "max_chunk_size": 890,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 8,
+          "average_chunk_size": 111.25,
+          "min_chunk_size": 3,
+          "max_chunk_size": 817,
+          "chunk_size_distribution": {
+            "small_chunks": 7,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "parts_catalog",
+        "confidence": 0.6,
+        "all_scores": {
+          "service_manual": 2,
+          "parts_catalog": 6,
+          "technical_bulletin": 1,
+          "cpmd_database": 1
+        }
+      },
+      "recommendations": {
+        "best_strategy": "sentence_based",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'sentence_based' provides optimal chunk distribution",
+          "Average chunk size: 938 words",
+          "Total chunks: 1"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:18:26.154829"
+    },
+    "HP_X580_CPMD_Database.txt": {
+      "file_info": {
+        "filename": "HP_X580_CPMD_Database.txt",
+        "size_mb": 0.0069522857666015625,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:18:26.149872"
+      },
+      "text_analysis": {
+        "total_characters": 7289,
+        "total_words": 1065,
+        "total_sentences": 144,
+        "total_paragraphs": 64
+      },
+      "structure_analysis": {
+        "paragraph_count": 64,
+        "sentence_count": 144,
+        "average_sentence_length": 7.659722222222222,
+        "max_sentence_length": 88,
+        "heading_count": 16,
+        "headings": [
+          "1.1 SYSTEM ERROR CODES",
+          "1.2 PRINT QUALITY ERROR CODES",
+          "2.1 FUSER ASSEMBLY PARTS",
+          "2.2 TRANSFER SYSTEM PARTS",
+          "2.3 LASER SCANNER PARTS",
+          "3.1 PREVENTIVE MAINTENANCE SCHEDULE",
+          "3.2 DETAILED MAINTENANCE PROCEDURES",
+          "4.1 PRINT QUALITY DIAGNOSTICS",
+          "4.2 ELECTRICAL DIAGNOSTICS",
+          "5.1 LASER CALIBRATION"
+        ],
+        "common_words": [
+          [
+            "2",
+            35
+          ],
+          [
+            "1",
+            35
+          ],
+          [
+            "check",
+            27
+          ],
+          [
+            "3",
+            26
+          ],
+          [
+            "4",
+            22
+          ],
+          [
+            "5",
+            22
+          ],
+          [
+            "fuser",
+            21
+          ],
+          [
+            "paper",
+            20
+          ],
+          [
+            "verify",
+            19
+          ],
+          [
+            "print",
+            19
+          ],
+          [
+            "error",
+            17
+          ],
+          [
+            "clean",
+            15
+          ],
+          [
+            "test",
+            15
+          ],
+          [
+            "quality",
+            15
+          ],
+          [
+            "maintenance",
+            14
+          ],
+          [
+            "c4127",
+            14
+          ],
+          [
+            "000",
+            11
+          ],
+          [
+            "pages",
+            11
+          ],
+          [
+            "hp",
+            10
+          ],
+          [
+            "x580",
+            10
+          ]
+        ],
+        "technical_terms": [
+          [
+            "parts",
+            8
+          ],
+          [
+            "maintenance",
+            14
+          ],
+          [
+            "error",
+            17
+          ],
+          [
+            "procedures",
+            8
+          ],
+          [
+            "printer",
+            6
+          ],
+          [
+            "series",
+            6
+          ],
+          [
+            "chapter",
+            7
+          ],
+          [
+            "description",
+            7
+          ],
+          [
+            "paper",
+            20
+          ],
+          [
+            "steps",
+            7
+          ],
+          [
+            "check",
+            27
+          ],
+          [
+            "verify",
+            19
+          ],
+          [
+            "alignment",
+            6
+          ],
+          [
+            "clean",
+            15
+          ],
+          [
+            "print",
+            19
+          ],
+          [
+            "fuser",
+            21
+          ],
+          [
+            "replace",
+            9
+          ],
+          [
+            "assembly",
+            9
+          ],
+          [
+            "toner",
+            6
+          ],
+          [
+            "level",
+            6
+          ]
+        ],
+        "text_density": 16.640625
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 2,
+          "average_chunk_size": 632.5,
+          "min_chunk_size": 265,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 2,
+          "average_chunk_size": 551.5,
+          "min_chunk_size": 134,
+          "max_chunk_size": 969,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 2,
+          "average_chunk_size": 532.5,
+          "min_chunk_size": 85,
+          "max_chunk_size": 980,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 140,
+          "average_chunk_size": 7.607142857142857,
+          "min_chunk_size": 2,
+          "max_chunk_size": 60,
+          "chunk_size_distribution": {
+            "small_chunks": 140,
+            "medium_chunks": 0,
+            "large_chunks": 0
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "cpmd_database",
+        "confidence": 0.4666666666666667,
+        "all_scores": {
+          "service_manual": 6,
+          "parts_catalog": 1,
+          "technical_bulletin": 1,
+          "cpmd_database": 7
+        }
+      },
+      "recommendations": {
+        "best_strategy": "simple_word_chunking",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'simple_word_chunking' provides optimal chunk distribution",
+          "Average chunk size: 632 words",
+          "Total chunks: 2"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:18:26.156606"
+    },
+    "HP_TB_2024_001_Technical_Bulletin.txt": {
+      "file_info": {
+        "filename": "HP_TB_2024_001_Technical_Bulletin.txt",
+        "size_mb": 0.0046482086181640625,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:18:26.150008"
+      },
+      "text_analysis": {
+        "total_characters": 4873,
+        "total_words": 662,
+        "total_sentences": 79,
+        "total_paragraphs": 40
+      },
+      "structure_analysis": {
+        "paragraph_count": 40,
+        "sentence_count": 79,
+        "average_sentence_length": 8.556962025316455,
+        "max_sentence_length": 79,
+        "heading_count": 0,
+        "headings": [],
+        "common_words": [
+          [
+            "hp",
+            18
+          ],
+          [
+            "fuser",
+            16
+          ],
+          [
+            "1",
+            16
+          ],
+          [
+            "2",
+            13
+          ],
+          [
+            "4",
+            12
+          ],
+          [
+            "3",
+            11
+          ],
+          [
+            "5",
+            10
+          ],
+          [
+            "service",
+            10
+          ],
+          [
+            "quality",
+            9
+          ],
+          [
+            "for",
+            8
+          ],
+          [
+            "parts",
+            8
+          ],
+          [
+            "assembly",
+            7
+          ],
+          [
+            "warranty",
+            7
+          ],
+          [
+            "bulletin",
+            6
+          ],
+          [
+            "number",
+            6
+          ],
+          [
+            "2024",
+            6
+          ],
+          [
+            "field",
+            6
+          ],
+          [
+            "manufacturing",
+            6
+          ],
+          [
+            "check",
+            6
+          ],
+          [
+            "days",
+            6
+          ]
+        ],
+        "technical_terms": [
+          [
+            "bulletin",
+            6
+          ],
+          [
+            "number",
+            6
+          ],
+          [
+            "fuser",
+            16
+          ],
+          [
+            "assembly",
+            7
+          ],
+          [
+            "field",
+            6
+          ],
+          [
+            "manufacturing",
+            6
+          ],
+          [
+            "quality",
+            9
+          ],
+          [
+            "check",
+            6
+          ],
+          [
+            "service",
+            10
+          ],
+          [
+            "parts",
+            8
+          ],
+          [
+            "warranty",
+            7
+          ],
+          [
+            "contact",
+            6
+          ]
+        ],
+        "text_density": 16.55
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 1,
+          "average_chunk_size": 662.0,
+          "min_chunk_size": 662,
+          "max_chunk_size": 662,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 1,
+          "average_chunk_size": 676.0,
+          "min_chunk_size": 676,
+          "max_chunk_size": 676,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 1,
+          "average_chunk_size": 662.0,
+          "min_chunk_size": 662,
+          "max_chunk_size": 662,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 84,
+          "average_chunk_size": 7.880952380952381,
+          "min_chunk_size": 1,
+          "max_chunk_size": 44,
+          "chunk_size_distribution": {
+            "small_chunks": 84,
+            "medium_chunks": 0,
+            "large_chunks": 0
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "technical_bulletin",
+        "confidence": 0.6153846153846154,
+        "all_scores": {
+          "service_manual": 2,
+          "parts_catalog": 2,
+          "technical_bulletin": 8,
+          "cpmd_database": 1
+        }
+      },
+      "recommendations": {
+        "best_strategy": "simple_word_chunking",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'simple_word_chunking' provides optimal chunk distribution",
+          "Average chunk size: 662 words",
+          "Total chunks: 1"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:18:26.157775"
+    },
+    "Canon_imageRUNNER_4000i_Service_Manual.txt": {
+      "file_info": {
+        "filename": "Canon_imageRUNNER_4000i_Service_Manual.txt",
+        "size_mb": 0.003452301025390625,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:18:26.150129"
+      },
+      "text_analysis": {
+        "total_characters": 3619,
+        "total_words": 522,
+        "total_sentences": 57,
+        "total_paragraphs": 43
+      },
+      "structure_analysis": {
+        "paragraph_count": 43,
+        "sentence_count": 57,
+        "average_sentence_length": 9.508771929824562,
+        "max_sentence_length": 54,
+        "heading_count": 15,
+        "headings": [
+          "1.1 Model Specifications",
+          "1.2 Safety Information",
+          "2.1 Daily Maintenance",
+          "2.2 Weekly Maintenance",
+          "2.3 Monthly Maintenance",
+          "3.1 Error Codes",
+          "3.2 Print Quality Issues",
+          "4.1 Fuser Assembly",
+          "4.2 Transfer Roller",
+          "4.3 Laser Scanner"
+        ],
+        "common_words": [
+          [
+            "2",
+            21
+          ],
+          [
+            "1",
+            20
+          ],
+          [
+            "check",
+            14
+          ],
+          [
+            "3",
+            14
+          ],
+          [
+            "fuser",
+            12
+          ],
+          [
+            "print",
+            11
+          ],
+          [
+            "paper",
+            10
+          ],
+          [
+            "service",
+            9
+          ],
+          [
+            "verify",
+            9
+          ],
+          [
+            "4",
+            9
+          ],
+          [
+            "clean",
+            8
+          ],
+          [
+            "canon",
+            7
+          ],
+          [
+            "imagerunner",
+            7
+          ],
+          [
+            "quality",
+            7
+          ],
+          [
+            "chapter",
+            6
+          ],
+          [
+            "toner",
+            6
+          ],
+          [
+            "roller",
+            6
+          ],
+          [
+            "error",
+            6
+          ],
+          [
+            "description",
+            6
+          ],
+          [
+            "assembly",
+            6
+          ]
+        ],
+        "technical_terms": [
+          [
+            "canon",
+            7
+          ],
+          [
+            "imagerunner",
+            7
+          ],
+          [
+            "service",
+            9
+          ],
+          [
+            "chapter",
+            6
+          ],
+          [
+            "print",
+            11
+          ],
+          [
+            "paper",
+            10
+          ],
+          [
+            "check",
+            14
+          ],
+          [
+            "verify",
+            9
+          ],
+          [
+            "toner",
+            6
+          ],
+          [
+            "clean",
+            8
+          ],
+          [
+            "fuser",
+            12
+          ],
+          [
+            "quality",
+            7
+          ],
+          [
+            "roller",
+            6
+          ],
+          [
+            "error",
+            6
+          ],
+          [
+            "description",
+            6
+          ],
+          [
+            "assembly",
+            6
+          ],
+          [
+            "procedure",
+            6
+          ]
+        ],
+        "text_density": 12.13953488372093
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 1,
+          "average_chunk_size": 522.0,
+          "min_chunk_size": 522,
+          "max_chunk_size": 522,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 1,
+          "average_chunk_size": 542.0,
+          "min_chunk_size": 542,
+          "max_chunk_size": 542,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 1,
+          "average_chunk_size": 522.0,
+          "min_chunk_size": 522,
+          "max_chunk_size": 522,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 55,
+          "average_chunk_size": 9.49090909090909,
+          "min_chunk_size": 1,
+          "max_chunk_size": 39,
+          "chunk_size_distribution": {
+            "small_chunks": 55,
+            "medium_chunks": 0,
+            "large_chunks": 0
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "service_manual",
+        "confidence": 0.75,
+        "all_scores": {
+          "service_manual": 9,
+          "parts_catalog": 2,
+          "technical_bulletin": 1,
+          "cpmd_database": 0
+        }
+      },
+      "recommendations": {
+        "best_strategy": "simple_word_chunking",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'simple_word_chunking' provides optimal chunk distribution",
+          "Average chunk size: 522 words",
+          "Total chunks: 1"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:18:26.158778"
+    }
+  }
+}

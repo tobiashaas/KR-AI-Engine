@@ -1,0 +1,1116 @@
+{
+  "test_timestamp": "2025-09-24T20:03:07.771531",
+  "summary": {
+    "total_tests": 7,
+    "successful_tests": 7,
+    "success_rate": "100.0%"
+  },
+  "error_code_analysis": {
+    "total_error_codes_extracted": 48,
+    "manufacturer_specific_codes": {
+      "hp": 10,
+      "konica_minolta": 18,
+      "lexmark": 10,
+      "utax": 10
+    },
+    "error_code_categories": {
+      "paper_jam": 12,
+      "fuser": 6,
+      "cooling": 6,
+      "toner": 2,
+      "drum": 2,
+      "memory": 2,
+      "laser": 6,
+      "system": 2,
+      "exposure": 4,
+      "image_processing": 2,
+      "scanner": 4
+    },
+    "validation_success_rate": 100.0,
+    "pattern_effectiveness": {
+      "hp_xx_xx_xx_pattern": true,
+      "konica_minolta_c_pattern": true,
+      "konica_minolta_j_pattern": true,
+      "lexmark_xxx_pattern": true,
+      "utax_xxxxx_pattern": true
+    }
+  },
+  "detailed_results": {
+    "hp_test": {
+      "filename": "hp_test_test.pdf",
+      "classification": {
+        "document_type": "cpmd_database",
+        "document_type_confidence": 0.15,
+        "manufacturer": "hp",
+        "manufacturer_confidence": 0.9,
+        "series": "unknown",
+        "series_confidence": 0.0,
+        "models": [
+          "PRO",
+          "E786",
+          "786"
+        ],
+        "version": "13.20.01",
+        "version_confidence": 0.8
+      },
+      "extraction": {
+        "model_numbers": [
+          "PRO",
+          "E786",
+          "786"
+        ],
+        "error_codes": [
+          {
+            "code": "13.20.01",
+            "description": "Paper jam in duplex unit",
+            "category": "paper_jam",
+            "manufacturer": "hp"
+          },
+          {
+            "code": "41.03.01",
+            "description": "Fuser assembly failure",
+            "category": "fuser",
+            "manufacturer": "hp"
+          },
+          {
+            "code": "50.01.01",
+            "description": "Fan 1 failure",
+            "category": "cooling",
+            "manufacturer": "hp"
+          },
+          {
+            "code": "56.01.01",
+            "description": "Toner cartridge error",
+            "category": "toner",
+            "manufacturer": "hp"
+          },
+          {
+            "code": "57.01.01",
+            "description": "Drum unit error",
+            "category": "drum",
+            "manufacturer": "hp"
+          },
+          {
+            "code": "13.20.01",
+            "description": "Paper jam in duplex unit",
+            "category": "paper_jam",
+            "manufacturer": "hp"
+          },
+          {
+            "code": "41.03.01",
+            "description": "Fuser assembly failure",
+            "category": "fuser",
+            "manufacturer": "hp"
+          },
+          {
+            "code": "50.01.01",
+            "description": "Fan 1 failure",
+            "category": "cooling",
+            "manufacturer": "hp"
+          },
+          {
+            "code": "56.01.01",
+            "description": "Toner cartridge error",
+            "category": "toner",
+            "manufacturer": "hp"
+          },
+          {
+            "code": "57.01.01",
+            "description": "Drum unit error",
+            "category": "drum",
+            "manufacturer": "hp"
+          }
+        ],
+        "part_numbers": [],
+        "series_info": {
+          "detected_series": "LaserJet Pro",
+          "confidence": 0.9,
+          "series_models": [],
+          "description": "Professional laser printer series"
+        },
+        "technical_info": {
+          "has_diagrams": false,
+          "has_procedures": false,
+          "has_specifications": false,
+          "has_troubleshooting": true,
+          "word_count": 59,
+          "page_indicators": 0
+        }
+      },
+      "chunking": {
+        "recommended_strategy": "contextual_chunking",
+        "chunk_size": 600,
+        "chunk_overlap": 80,
+        "settings": {
+          "preferred_strategy": "contextual_chunking",
+          "chunk_size": 600,
+          "chunk_overlap": 80,
+          "preserve_error_codes": true,
+          "preserve_solutions": true,
+          "preserve_procedures": true
+        }
+      },
+      "analysis": {
+        "filename_analysis": {
+          "manufacturer": "hp",
+          "manufacturer_confidence": 0.9,
+          "document_type": "unknown",
+          "document_type_confidence": 0.0,
+          "models": [],
+          "version": "",
+          "confidence": 0.45
+        },
+        "content_analysis": {
+          "manufacturer": "hp",
+          "manufacturer_confidence": 0.82,
+          "document_type": "cpmd_database",
+          "document_type_confidence": 0.15,
+          "models": [
+            "PRO",
+            "E786",
+            "786"
+          ],
+          "version": "13.20.01",
+          "confidence": 0.485
+        },
+        "hybrid_confidence": 0.6987750000000003,
+        "analysis_timestamp": "2025-09-24T20:03:07.454518"
+      }
+    },
+    "konica_minolta_test": {
+      "filename": "konica_minolta_test_test.pdf",
+      "classification": {
+        "document_type": "cpmd_database",
+        "document_type_confidence": 0.27,
+        "manufacturer": "konica_minolta",
+        "manufacturer_confidence": 1.0,
+        "series": "unknown",
+        "series_confidence": 0.0,
+        "models": [
+          "C1401",
+          "1200",
+          "C1200",
+          "C658",
+          "C1300",
+          "1401",
+          "1300",
+          "658",
+          "C9401",
+          "9401"
+        ],
+        "version": "11.01",
+        "version_confidence": 0.8
+      },
+      "extraction": {
+        "model_numbers": [
+          "C658",
+          "C1200",
+          "9401",
+          "C1300",
+          "1401",
+          "1300",
+          "658",
+          "C9401",
+          "C1401",
+          "1200"
+        ],
+        "error_codes": [
+          {
+            "code": "C1200",
+            "description": "System memory problem",
+            "category": "memory",
+            "manufacturer": "konica_minolta"
+          },
+          {
+            "code": "C1300",
+            "description": "Polygon motor (laser motor)",
+            "category": "laser",
+            "manufacturer": "konica_minolta"
+          },
+          {
+            "code": "C1401",
+            "description": "IR main program timeout",
+            "category": "system",
+            "manufacturer": "konica_minolta"
+          },
+          {
+            "code": "C9401",
+            "description": "Exposure LED illumination error",
+            "category": "exposure",
+            "manufacturer": "konica_minolta"
+          },
+          {
+            "code": "C1200",
+            "description": "System memory problem",
+            "category": "memory",
+            "manufacturer": "konica_minolta"
+          },
+          {
+            "code": "C1300",
+            "description": "Polygon motor (laser motor)",
+            "category": "laser",
+            "manufacturer": "konica_minolta"
+          },
+          {
+            "code": "C1401",
+            "description": "IR main program timeout",
+            "category": "system",
+            "manufacturer": "konica_minolta"
+          },
+          {
+            "code": "C9401",
+            "description": "Exposure LED illumination error",
+            "category": "exposure",
+            "manufacturer": "konica_minolta"
+          },
+          {
+            "code": "J11-01",
+            "description": "Paper jam in input tray 1",
+            "category": "paper_jam",
+            "manufacturer": "konica_minolta"
+          },
+          {
+            "code": "J11-02",
+            "description": "Paper transport delay from tray 1",
+            "category": "paper_jam",
+            "manufacturer": "konica_minolta"
+          },
+          {
+            "code": "J11-01",
+            "description": "Paper jam in input tray 1",
+            "category": "paper_jam",
+            "manufacturer": "konica_minolta"
+          },
+          {
+            "code": "J11-02",
+            "description": "Paper transport delay from tray 1",
+            "category": "paper_jam",
+            "manufacturer": "konica_minolta"
+          },
+          {
+            "code": "11.01",
+            "description": "Paper jam in input tray 1",
+            "category": "paper_jam",
+            "manufacturer": "konica_minolta"
+          },
+          {
+            "code": "11.01",
+            "description": "Paper jam in input tray 1",
+            "category": "paper_jam",
+            "manufacturer": "konica_minolta"
+          },
+          {
+            "code": "E46-01",
+            "description": "Image control board problem",
+            "category": "image_processing",
+            "manufacturer": "konica_minolta"
+          },
+          {
+            "code": "E46-02",
+            "description": "Exposure lamp problem",
+            "category": "exposure",
+            "manufacturer": "konica_minolta"
+          },
+          {
+            "code": "E46-01",
+            "description": "Image control board problem",
+            "category": "image_processing",
+            "manufacturer": "konica_minolta"
+          },
+          {
+            "code": "E46-02",
+            "description": "Exposure lamp problem",
+            "category": "exposure",
+            "manufacturer": "konica_minolta"
+          }
+        ],
+        "part_numbers": [],
+        "series_info": {
+          "detected_series": "BizHub",
+          "confidence": 0.9,
+          "series_models": [],
+          "description": "Business multifunction printer series"
+        },
+        "technical_info": {
+          "has_diagrams": false,
+          "has_procedures": false,
+          "has_specifications": false,
+          "has_troubleshooting": true,
+          "word_count": 90,
+          "page_indicators": 0
+        }
+      },
+      "chunking": {
+        "recommended_strategy": "contextual_chunking",
+        "chunk_size": 600,
+        "chunk_overlap": 80,
+        "settings": {
+          "preferred_strategy": "contextual_chunking",
+          "chunk_size": 600,
+          "chunk_overlap": 80,
+          "preserve_error_codes": true,
+          "preserve_solutions": true,
+          "preserve_procedures": true
+        }
+      },
+      "analysis": {
+        "filename_analysis": {
+          "manufacturer": "unknown",
+          "manufacturer_confidence": 0.0,
+          "document_type": "unknown",
+          "document_type_confidence": 0.0,
+          "models": [],
+          "version": "",
+          "confidence": 0.0
+        },
+        "content_analysis": {
+          "manufacturer": "konica_minolta",
+          "manufacturer_confidence": 1.0,
+          "document_type": "cpmd_database",
+          "document_type_confidence": 0.27,
+          "models": [
+            "C658",
+            "C1200",
+            "9401",
+            "C1300",
+            "1401",
+            "1300",
+            "658",
+            "C9401",
+            "C1401",
+            "1200"
+          ],
+          "version": "11.01",
+          "confidence": 0.635
+        },
+        "hybrid_confidence": 0.7683500000000002,
+        "analysis_timestamp": "2025-09-24T20:03:07.460392"
+      }
+    },
+    "lexmark_test": {
+      "filename": "lexmark_test_test.pdf",
+      "classification": {
+        "document_type": "cpmd_database",
+        "document_type_confidence": 0.15,
+        "manufacturer": "lexmark",
+        "manufacturer_confidence": 0.9,
+        "series": "unknown",
+        "series_confidence": 0.0,
+        "models": [
+          "X825",
+          "600",
+          "500",
+          "825",
+          "300",
+          "200",
+          "100",
+          "CX825"
+        ],
+        "version": "",
+        "version_confidence": 0.0
+      },
+      "extraction": {
+        "model_numbers": [
+          "825",
+          "X825",
+          "CX825"
+        ],
+        "error_codes": [
+          {
+            "code": "100",
+            "description": "Paper jam in input tray",
+            "category": "paper_jam",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "200",
+            "description": "Fuser unit error",
+            "category": "fuser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "300",
+            "description": "Fan failure",
+            "category": "cooling",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "500",
+            "description": "Laser unit failure",
+            "category": "laser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "600",
+            "description": "Scanner initialization error",
+            "category": "scanner",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "100",
+            "description": "Paper jam in input tray",
+            "category": "paper_jam",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "200",
+            "description": "Fuser unit error",
+            "category": "fuser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "300",
+            "description": "Fan failure",
+            "category": "cooling",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "500",
+            "description": "Laser unit failure",
+            "category": "laser",
+            "manufacturer": "lexmark"
+          },
+          {
+            "code": "600",
+            "description": "Scanner initialization error",
+            "category": "scanner",
+            "manufacturer": "lexmark"
+          }
+        ],
+        "part_numbers": [],
+        "series_info": {
+          "detected_series": "CX Series",
+          "confidence": 0.9,
+          "series_models": [],
+          "description": "Color multifunction printer series"
+        },
+        "technical_info": {
+          "has_diagrams": false,
+          "has_procedures": false,
+          "has_specifications": false,
+          "has_troubleshooting": true,
+          "word_count": 52,
+          "page_indicators": 0
+        }
+      },
+      "chunking": {
+        "recommended_strategy": "contextual_chunking",
+        "chunk_size": 600,
+        "chunk_overlap": 80,
+        "settings": {
+          "preferred_strategy": "contextual_chunking",
+          "chunk_size": 600,
+          "chunk_overlap": 80,
+          "preserve_error_codes": true,
+          "preserve_solutions": true,
+          "preserve_procedures": true
+        }
+      },
+      "analysis": {
+        "filename_analysis": {
+          "manufacturer": "lexmark",
+          "manufacturer_confidence": 0.9,
+          "document_type": "unknown",
+          "document_type_confidence": 0.0,
+          "models": [],
+          "version": "",
+          "confidence": 0.45
+        },
+        "content_analysis": {
+          "manufacturer": "hp",
+          "manufacturer_confidence": 0.6,
+          "document_type": "cpmd_database",
+          "document_type_confidence": 0.15,
+          "models": [
+            "X825",
+            "600",
+            "500",
+            "300",
+            "825",
+            "200",
+            "100",
+            "CX825"
+          ],
+          "version": "",
+          "confidence": 0.375
+        },
+        "hybrid_confidence": 0.5775000000000001,
+        "analysis_timestamp": "2025-09-24T20:03:07.461930"
+      }
+    },
+    "utax_test": {
+      "filename": "utax_test_test.pdf",
+      "classification": {
+        "document_type": "cpmd_database",
+        "document_type_confidence": 0.15,
+        "manufacturer": "utax",
+        "manufacturer_confidence": 0.9,
+        "series": "unknown",
+        "series_confidence": 0.0,
+        "models": [
+          "02001",
+          "01095",
+          "2508",
+          "05001",
+          "03001",
+          "06001",
+          "2508CI"
+        ],
+        "version": "",
+        "version_confidence": 0.0
+      },
+      "extraction": {
+        "model_numbers": [
+          "2508CI"
+        ],
+        "error_codes": [
+          {
+            "code": "01095",
+            "description": "Paper jam in input tray",
+            "category": "paper_jam",
+            "manufacturer": "utax"
+          },
+          {
+            "code": "02001",
+            "description": "Fuser unit error",
+            "category": "fuser",
+            "manufacturer": "utax"
+          },
+          {
+            "code": "03001",
+            "description": "Fan failure",
+            "category": "cooling",
+            "manufacturer": "utax"
+          },
+          {
+            "code": "05001",
+            "description": "Laser unit failure",
+            "category": "laser",
+            "manufacturer": "utax"
+          },
+          {
+            "code": "06001",
+            "description": "Scanner initialization error",
+            "category": "scanner",
+            "manufacturer": "utax"
+          },
+          {
+            "code": "01095",
+            "description": "Paper jam in input tray",
+            "category": "paper_jam",
+            "manufacturer": "utax"
+          },
+          {
+            "code": "02001",
+            "description": "Fuser unit error",
+            "category": "fuser",
+            "manufacturer": "utax"
+          },
+          {
+            "code": "03001",
+            "description": "Fan failure",
+            "category": "cooling",
+            "manufacturer": "utax"
+          },
+          {
+            "code": "05001",
+            "description": "Laser unit failure",
+            "category": "laser",
+            "manufacturer": "utax"
+          },
+          {
+            "code": "06001",
+            "description": "Scanner initialization error",
+            "category": "scanner",
+            "manufacturer": "utax"
+          }
+        ],
+        "part_numbers": [],
+        "series_info": {
+          "detected_series": "Ci Series",
+          "confidence": 0.9,
+          "series_models": [],
+          "description": "Color imaging printer series"
+        },
+        "technical_info": {
+          "has_diagrams": false,
+          "has_procedures": false,
+          "has_specifications": false,
+          "has_troubleshooting": true,
+          "word_count": 52,
+          "page_indicators": 0
+        }
+      },
+      "chunking": {
+        "recommended_strategy": "contextual_chunking",
+        "chunk_size": 600,
+        "chunk_overlap": 80,
+        "settings": {
+          "preferred_strategy": "contextual_chunking",
+          "chunk_size": 600,
+          "chunk_overlap": 80,
+          "preserve_error_codes": true,
+          "preserve_solutions": true,
+          "preserve_procedures": true
+        }
+      },
+      "analysis": {
+        "filename_analysis": {
+          "manufacturer": "utax",
+          "manufacturer_confidence": 0.9,
+          "document_type": "unknown",
+          "document_type_confidence": 0.0,
+          "models": [],
+          "version": "",
+          "confidence": 0.45
+        },
+        "content_analysis": {
+          "manufacturer": "hp",
+          "manufacturer_confidence": 0.6,
+          "document_type": "cpmd_database",
+          "document_type_confidence": 0.15,
+          "models": [
+            "02001",
+            "01095",
+            "2508",
+            "05001",
+            "03001",
+            "06001",
+            "2508CI"
+          ],
+          "version": "",
+          "confidence": 0.375
+        },
+        "hybrid_confidence": 0.5775000000000001,
+        "analysis_timestamp": "2025-09-24T20:03:07.462649"
+      }
+    },
+    "real_HP_E786_SM.pdf": {
+      "filename": "HP_E786_SM.pdf",
+      "classification": {
+        "document_type": "service_manual",
+        "document_type_confidence": 0.8,
+        "manufacturer": "hp",
+        "manufacturer_confidence": 0.9,
+        "series": "unknown",
+        "series_confidence": 0.0,
+        "models": [
+          "3066",
+          "LASERJET",
+          "78625",
+          "78630",
+          "COLORLJE786M",
+          "E78630",
+          "786",
+          "1311",
+          "E78625",
+          "E786M",
+          "E78635",
+          "2984",
+          "1304",
+          "144",
+          "E786",
+          "2976",
+          "78635",
+          "RLJE786M",
+          "MANAGED",
+          "786MFP"
+        ],
+        "version": "11",
+        "version_confidence": 0.8
+      },
+      "extraction": {
+        "model_numbers": [
+          "3066",
+          "LASERJET",
+          "78625",
+          "78630",
+          "COLORLJE786M",
+          "E78630",
+          "786",
+          "1311",
+          "E78625",
+          "E786M",
+          "E78635",
+          "2984",
+          "1304",
+          "144",
+          "E786",
+          "2976",
+          "78635",
+          "RLJE786M",
+          "MANAGED",
+          "786MFP"
+        ],
+        "error_codes": [],
+        "part_numbers": [],
+        "series_info": {
+          "detected_series": "unknown",
+          "confidence": 0.0,
+          "series_models": [],
+          "description": ""
+        },
+        "technical_info": {
+          "has_diagrams": true,
+          "has_procedures": true,
+          "has_specifications": true,
+          "has_troubleshooting": true,
+          "word_count": 447,
+          "page_indicators": 9
+        }
+      },
+      "chunking": {
+        "recommended_strategy": "contextual_chunking",
+        "chunk_size": 1200,
+        "chunk_overlap": 150,
+        "settings": {
+          "preferred_strategy": "contextual_chunking",
+          "chunk_size": 1200,
+          "chunk_overlap": 150,
+          "preserve_structure": true,
+          "preserve_procedures": true,
+          "preserve_error_codes": true,
+          "preserve_part_numbers": true
+        }
+      },
+      "analysis": {
+        "filename_analysis": {
+          "manufacturer": "hp",
+          "manufacturer_confidence": 0.9,
+          "document_type": "service_manual",
+          "document_type_confidence": 0.8,
+          "models": [
+            "E786"
+          ],
+          "version": "",
+          "confidence": 0.8500000000000001
+        },
+        "content_analysis": {
+          "manufacturer": "hp",
+          "manufacturer_confidence": 1.0,
+          "document_type": "service_manual",
+          "document_type_confidence": 0.08,
+          "models": [
+            "3066",
+            "LASERJET",
+            "78625",
+            "78630",
+            "COLORLJE786M",
+            "E78630",
+            "786",
+            "1311",
+            "E78625",
+            "E786M",
+            "E78635",
+            "2984",
+            "1304",
+            "144",
+            "E786",
+            "2976",
+            "78635",
+            "RLJE786M",
+            "MANAGED",
+            "786MFP"
+          ],
+          "version": "11",
+          "confidence": 0.54
+        },
+        "hybrid_confidence": 1.0,
+        "analysis_timestamp": "2025-09-24T20:03:07.612999"
+      }
+    },
+    "real_Lexmark_CX825_CX860_XC8155_XC8160.pdf": {
+      "filename": "Lexmark_CX825_CX860_XC8155_XC8160.pdf",
+      "classification": {
+        "document_type": "service_manual",
+        "document_type_confidence": 0.06000000000000001,
+        "manufacturer": "lexmark",
+        "manufacturer_confidence": 0.9,
+        "series": "unknown",
+        "series_confidence": 0.0,
+        "models": [
+          "C8163",
+          "8155",
+          "XC8160",
+          "X860",
+          "INTERNATIONAL",
+          "8163",
+          "AND",
+          "XC8155",
+          "X825",
+          "860",
+          "C8155",
+          "825",
+          "XC8163",
+          "C8160",
+          "CX860",
+          "LOGO",
+          "8160",
+          "CX825"
+        ],
+        "version": "4",
+        "version_confidence": 0.8
+      },
+      "extraction": {
+        "model_numbers": [
+          "C8163",
+          "XC8160",
+          "INTERNATIONAL",
+          "8163",
+          "AND",
+          "CX860",
+          "XC8155",
+          "X825",
+          "X860",
+          "860",
+          "C8155",
+          "825",
+          "XC8163",
+          "C8160",
+          "8155",
+          "LOGO",
+          "8160",
+          "CX825"
+        ],
+        "error_codes": [],
+        "part_numbers": [
+          {
+            "part_number": "XC8155",
+            "description": "Unknown part",
+            "category": "unknown",
+            "models": [],
+            "manufacturer": "lexmark"
+          },
+          {
+            "part_number": "XC8160",
+            "description": "Unknown part",
+            "category": "unknown",
+            "models": [],
+            "manufacturer": "lexmark"
+          },
+          {
+            "part_number": "XC8163",
+            "description": "Unknown part",
+            "category": "unknown",
+            "models": [],
+            "manufacturer": "lexmark"
+          },
+          {
+            "part_number": "XC8155",
+            "description": "Unknown part",
+            "category": "unknown",
+            "models": [],
+            "manufacturer": "lexmark"
+          },
+          {
+            "part_number": "XC8160",
+            "description": "Unknown part",
+            "category": "unknown",
+            "models": [],
+            "manufacturer": "lexmark"
+          },
+          {
+            "part_number": "XC8163",
+            "description": "Unknown part",
+            "category": "unknown",
+            "models": [],
+            "manufacturer": "lexmark"
+          }
+        ],
+        "series_info": {
+          "detected_series": "CX Series",
+          "confidence": 0.9,
+          "series_models": [],
+          "description": "Color multifunction printer series"
+        },
+        "technical_info": {
+          "has_diagrams": false,
+          "has_procedures": false,
+          "has_specifications": true,
+          "has_troubleshooting": false,
+          "word_count": 502,
+          "page_indicators": 0
+        }
+      },
+      "chunking": {
+        "recommended_strategy": "contextual_chunking",
+        "chunk_size": 1200,
+        "chunk_overlap": 150,
+        "settings": {
+          "preferred_strategy": "contextual_chunking",
+          "chunk_size": 1200,
+          "chunk_overlap": 150,
+          "preserve_structure": true,
+          "preserve_procedures": true,
+          "preserve_error_codes": true,
+          "preserve_part_numbers": true
+        }
+      },
+      "analysis": {
+        "filename_analysis": {
+          "manufacturer": "lexmark",
+          "manufacturer_confidence": 0.9,
+          "document_type": "unknown",
+          "document_type_confidence": 0.0,
+          "models": [
+            "XC8160",
+            "X860",
+            "CX825",
+            "XC8155",
+            "X825",
+            "C8155",
+            "C8160",
+            "CX860"
+          ],
+          "version": "",
+          "confidence": 0.45
+        },
+        "content_analysis": {
+          "manufacturer": "lexmark",
+          "manufacturer_confidence": 1.0,
+          "document_type": "service_manual",
+          "document_type_confidence": 0.06000000000000001,
+          "models": [
+            "C8163",
+            "XC8160",
+            "INTERNATIONAL",
+            "8163",
+            "AND",
+            "CX860",
+            "XC8155",
+            "X825",
+            "X860",
+            "860",
+            "C8155",
+            "825",
+            "XC8163",
+            "C8160",
+            "8155",
+            "LOGO",
+            "8160",
+            "CX825"
+          ],
+          "version": "4",
+          "confidence": 0.53
+        },
+        "hybrid_confidence": 0.6388800000000002,
+        "analysis_timestamp": "2025-09-24T20:03:07.715869"
+      }
+    },
+    "real_HP_E786_CPMD.pdf": {
+      "filename": "HP_E786_CPMD.pdf",
+      "classification": {
+        "document_type": "cpmd_database",
+        "document_type_confidence": 0.8,
+        "manufacturer": "hp",
+        "manufacturer_confidence": 0.9,
+        "series": "unknown",
+        "series_confidence": 0.0,
+        "models": [
+          "786",
+          "E78635",
+          "78635",
+          "LASERJET",
+          "RLJE786M",
+          "786MFP",
+          "78625",
+          "78630",
+          "E78625",
+          "COLORLJE786M",
+          "E78630",
+          "MANAGED",
+          "E786",
+          "E786M"
+        ],
+        "version": "12",
+        "version_confidence": 0.8
+      },
+      "extraction": {
+        "model_numbers": [
+          "786",
+          "E78635",
+          "78635",
+          "LASERJET",
+          "RLJE786M",
+          "78625",
+          "78630",
+          "E78625",
+          "COLORLJE786M",
+          "E786M",
+          "E78630",
+          "MANAGED",
+          "E786",
+          "786MFP"
+        ],
+        "error_codes": [],
+        "part_numbers": [],
+        "series_info": {
+          "detected_series": "unknown",
+          "confidence": 0.0,
+          "series_models": [],
+          "description": ""
+        },
+        "technical_info": {
+          "has_diagrams": false,
+          "has_procedures": false,
+          "has_specifications": false,
+          "has_troubleshooting": true,
+          "word_count": 417,
+          "page_indicators": 0
+        }
+      },
+      "chunking": {
+        "recommended_strategy": "contextual_chunking",
+        "chunk_size": 600,
+        "chunk_overlap": 80,
+        "settings": {
+          "preferred_strategy": "contextual_chunking",
+          "chunk_size": 600,
+          "chunk_overlap": 80,
+          "preserve_error_codes": true,
+          "preserve_solutions": true,
+          "preserve_procedures": true
+        }
+      },
+      "analysis": {
+        "filename_analysis": {
+          "manufacturer": "hp",
+          "manufacturer_confidence": 0.9,
+          "document_type": "cpmd_database",
+          "document_type_confidence": 0.8,
+          "models": [
+            "E786"
+          ],
+          "version": "",
+          "confidence": 0.8500000000000001
+        },
+        "content_analysis": {
+          "manufacturer": "hp",
+          "manufacturer_confidence": 1.0,
+          "document_type": "cpmd_database",
+          "document_type_confidence": 0.08,
+          "models": [
+            "786",
+            "E78635",
+            "78635",
+            "LASERJET",
+            "RLJE786M",
+            "78625",
+            "78630",
+            "E78625",
+            "COLORLJE786M",
+            "E786M",
+            "E78630",
+            "MANAGED",
+            "E786",
+            "786MFP"
+          ],
+          "version": "12",
+          "confidence": 0.54
+        },
+        "hybrid_confidence": 1.0,
+        "analysis_timestamp": "2025-09-24T20:03:07.762260"
+      }
+    }
+  }
+}

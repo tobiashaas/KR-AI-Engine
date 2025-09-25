@@ -1,0 +1,239 @@
+{
+  "version_patterns": {
+    "description": "Version extraction patterns for different document types and manufacturers",
+    "patterns": {
+      "edition_patterns": {
+        "name": "Edition Patterns",
+        "description": "Patterns for edition-based versioning",
+        "patterns": [
+          {
+            "pattern": "edition\\s+([0-9]+(?:\\.[0-9]+)?)\\s*,?\\s*([0-9]+/[0-9]{4})",
+            "description": "Edition 3, 5/2024",
+            "example": "Edition 3, 5/2024",
+            "output_format": "{edition}, {date}",
+            "priority": 1
+          },
+          {
+            "pattern": "edition\\s+([0-9]+(?:\\.[0-9]+)?)",
+            "description": "Edition 4.0",
+            "example": "Edition 4.0",
+            "output_format": "{edition}",
+            "priority": 2
+          }
+        ]
+      },
+      "date_patterns": {
+        "name": "Date Patterns",
+        "description": "Patterns for date-based versioning",
+        "patterns": [
+          {
+            "pattern": "([0-9]{4}/[0-9]{2}/[0-9]{2})",
+            "description": "Full date format: 2024/12/25",
+            "example": "2024/12/25",
+            "output_format": "{date}",
+            "priority": 1
+          },
+          {
+            "pattern": "([0-9]{2}/[0-9]{4})",
+            "description": "Month/Year format: 5/2024",
+            "example": "5/2024",
+            "output_format": "{date}",
+            "priority": 2
+          },
+          {
+            "pattern": "([a-z]+\\s+[0-9]{4})",
+            "description": "Month Year format: November 2024",
+            "example": "November 2024",
+            "output_format": "{month_year}",
+            "priority": 3
+          },
+          {
+            "pattern": "([0-9]{4}\\.[0-9]{2}\\.[0-9]{2})",
+            "description": "Dot-separated date: 2024.01.15",
+            "example": "2024.01.15",
+            "output_format": "{date}",
+            "priority": 4
+          }
+        ]
+      },
+      "firmware_patterns": {
+        "name": "Firmware Patterns",
+        "description": "Patterns for firmware and function versions",
+        "patterns": [
+          {
+            "pattern": "fw\\s+([0-9\\.]+)",
+            "description": "Firmware version: FW 4.2",
+            "example": "FW 4.2",
+            "output_format": "FW {version}",
+            "priority": 1
+          },
+          {
+            "pattern": "firmware\\s+([0-9\\.]+)",
+            "description": "Firmware version: Firmware 4.2",
+            "example": "Firmware 4.2",
+            "output_format": "Firmware {version}",
+            "priority": 2
+          },
+          {
+            "pattern": "function\\s+version\\s+([0-9\\.]+)",
+            "description": "Function version: Function Version 4.2",
+            "example": "Function Version 4.2",
+            "output_format": "Function Version {version}",
+            "priority": 3
+          }
+        ]
+      },
+      "standard_patterns": {
+        "name": "Standard Version Patterns",
+        "description": "Standard version numbering patterns",
+        "patterns": [
+          {
+            "pattern": "version\\s+([0-9\\.]+)",
+            "description": "Version: Version 1.0",
+            "example": "Version 1.0",
+            "output_format": "Version {version}",
+            "priority": 1
+          },
+          {
+            "pattern": "ver\\s+([0-9\\.]+)",
+            "description": "Version: Ver 1.0",
+            "example": "Ver 1.0",
+            "output_format": "Ver {version}",
+            "priority": 2
+          },
+          {
+            "pattern": "v\\s*([0-9\\.]+)",
+            "description": "Version: v1.0 or V 1.0",
+            "example": "v1.0",
+            "output_format": "v{version}",
+            "priority": 3
+          },
+          {
+            "pattern": "rev\\s+([0-9\\.]+)",
+            "description": "Revision: Rev 1.0",
+            "example": "Rev 1.0",
+            "output_format": "Rev {version}",
+            "priority": 4
+          },
+          {
+            "pattern": "revision\\s+([0-9\\.]+)",
+            "description": "Revision: Revision 1.0",
+            "example": "Revision 1.0",
+            "output_format": "Revision {version}",
+            "priority": 5
+          }
+        ]
+      },
+      "numeric_patterns": {
+        "name": "Numeric Version Patterns",
+        "description": "Pure numeric version patterns",
+        "patterns": [
+          {
+            "pattern": "([0-9]+\\.[0-9]+(?:\\.[0-9]+)?)",
+            "description": "Standard version: 1.0.0",
+            "example": "1.0.0",
+            "output_format": "{version}",
+            "priority": 1
+          },
+          {
+            "pattern": "([0-9]+\\.[0-9]+[A-Z]?)",
+            "description": "Version with letter: 1.0a",
+            "example": "1.0a",
+            "output_format": "{version}",
+            "priority": 2
+          },
+          {
+            "pattern": "([A-Z]\\d+\\.\\d+)",
+            "description": "Letter prefix version: A1.0",
+            "example": "A1.0",
+            "output_format": "{version}",
+            "priority": 3
+          }
+        ]
+      }
+    },
+    "manufacturer_specific": {
+      "hp": {
+        "name": "HP Version Patterns",
+        "description": "HP-specific version patterns",
+        "preferred_patterns": ["edition_patterns", "date_patterns"],
+        "examples": [
+          {
+            "document_type": "service_manual",
+            "version_format": "Edition 3, 5/2024",
+            "pattern_category": "edition_patterns"
+          },
+          {
+            "document_type": "cpmd_database",
+            "version_format": "Edition 4.0, 04/2025",
+            "pattern_category": "edition_patterns"
+          }
+        ]
+      },
+      "lexmark": {
+        "name": "Lexmark Version Patterns",
+        "description": "Lexmark-specific version patterns",
+        "preferred_patterns": ["date_patterns"],
+        "examples": [
+          {
+            "document_type": "service_manual",
+            "version_format": "November 2024",
+            "pattern_category": "date_patterns"
+          }
+        ]
+      },
+      "konica_minolta": {
+        "name": "Konica Minolta Version Patterns",
+        "description": "Konica Minolta-specific version patterns",
+        "preferred_patterns": ["date_patterns", "firmware_patterns"],
+        "examples": [
+          {
+            "document_type": "service_manual",
+            "version_format": "2024/12/25",
+            "pattern_category": "date_patterns"
+          },
+          {
+            "document_type": "service_manual",
+            "version_format": "FW 4.2",
+            "pattern_category": "firmware_patterns"
+          }
+        ]
+      },
+      "utax": {
+        "name": "UTAX Version Patterns",
+        "description": "UTAX-specific version patterns",
+        "preferred_patterns": ["standard_patterns", "date_patterns"],
+        "examples": [
+          {
+            "document_type": "service_manual",
+            "version_format": "Version 1.0",
+            "pattern_category": "standard_patterns"
+          }
+        ]
+      }
+    },
+    "extraction_settings": {
+      "case_sensitive": false,
+      "search_order": [
+        "edition_patterns",
+        "date_patterns", 
+        "firmware_patterns",
+        "standard_patterns",
+        "numeric_patterns"
+      ],
+      "max_matches": 1,
+      "prefer_first_match": true,
+      "combine_matches": false
+    },
+    "validation": {
+      "min_version_length": 1,
+      "max_version_length": 50,
+      "allowed_characters": "0-9a-zA-Z.,/\\-\\s",
+      "forbidden_patterns": [
+        "copyright",
+        "\\d{4}\\s+[a-z]+\\s+development",
+        "all rights reserved"
+      ]
+    }
+  }
+}

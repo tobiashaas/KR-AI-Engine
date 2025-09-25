@@ -1,0 +1,152 @@
+{
+  "chunk_settings": {
+    "default_strategy": "contextual_chunking",
+    "strategies": {
+      "simple_word_chunking": {
+        "name": "Simple Word Chunking",
+        "description": "Basic word-based chunking with fixed size",
+        "chunk_size": 1000,
+        "chunk_overlap": 100,
+        "min_chunk_size": 100,
+        "max_chunk_size": 2000,
+        "enabled": true,
+        "priority": 1
+      },
+      "sentence_based_chunking": {
+        "name": "Sentence-Based Chunking",
+        "description": "Chunking based on sentence boundaries",
+        "chunk_size": 800,
+        "chunk_overlap": 80,
+        "min_chunk_size": 50,
+        "max_chunk_size": 1500,
+        "enabled": true,
+        "priority": 2
+      },
+      "paragraph_based_chunking": {
+        "name": "Paragraph-Based Chunking",
+        "description": "Chunking based on paragraph boundaries",
+        "chunk_size": 1200,
+        "chunk_overlap": 120,
+        "min_chunk_size": 200,
+        "max_chunk_size": 2500,
+        "enabled": true,
+        "priority": 3
+      },
+      "contextual_chunking": {
+        "name": "Contextual Chunking",
+        "description": "Intelligent chunking based on document structure and content",
+        "chunk_size": 1000,
+        "chunk_overlap": 150,
+        "min_chunk_size": 200,
+        "max_chunk_size": 2000,
+        "enabled": true,
+        "priority": 4,
+        "context_rules": {
+          "preserve_sections": true,
+          "preserve_chapters": true,
+          "preserve_procedures": true,
+          "preserve_error_codes": true,
+          "preserve_part_numbers": true
+        }
+      },
+      "structure_based_chunking": {
+        "name": "Structure-Based Chunking",
+        "description": "Chunking based on document structure (chapters, sections, etc.)",
+        "chunk_size": 1500,
+        "chunk_overlap": 200,
+        "min_chunk_size": 300,
+        "max_chunk_size": 3000,
+        "enabled": true,
+        "priority": 5,
+        "structure_rules": {
+          "chapter_boundaries": true,
+          "section_boundaries": true,
+          "procedure_boundaries": true,
+          "error_code_boundaries": true,
+          "part_number_boundaries": true
+        }
+      }
+    },
+    "document_type_specific": {
+      "service_manual": {
+        "preferred_strategy": "contextual_chunking",
+        "chunk_size": 1200,
+        "chunk_overlap": 150,
+        "preserve_structure": true,
+        "preserve_procedures": true,
+        "preserve_error_codes": true,
+        "preserve_part_numbers": true
+      },
+      "parts_catalog": {
+        "preferred_strategy": "structure_based_chunking",
+        "chunk_size": 800,
+        "chunk_overlap": 100,
+        "preserve_structure": true,
+        "preserve_part_numbers": true,
+        "preserve_descriptions": true
+      },
+      "cpmd_database": {
+        "preferred_strategy": "contextual_chunking",
+        "chunk_size": 600,
+        "chunk_overlap": 80,
+        "preserve_error_codes": true,
+        "preserve_solutions": true,
+        "preserve_procedures": true
+      },
+      "technical_bulletin": {
+        "preferred_strategy": "paragraph_based_chunking",
+        "chunk_size": 1000,
+        "chunk_overlap": 120,
+        "preserve_structure": true,
+        "preserve_procedures": true,
+        "preserve_error_codes": true
+      }
+    },
+    "manufacturer_specific": {
+      "hp": {
+        "chunk_size_multiplier": 1.0,
+        "preferred_strategy": "contextual_chunking",
+        "special_rules": {
+          "preserve_cpmd_structure": true,
+          "preserve_error_code_context": true,
+          "preserve_part_number_context": true
+        }
+      },
+      "konica_minolta": {
+        "chunk_size_multiplier": 1.1,
+        "preferred_strategy": "contextual_chunking",
+        "special_rules": {
+          "preserve_bizhub_structure": true,
+          "preserve_error_code_context": true,
+          "preserve_part_number_context": true
+        }
+      },
+      "lexmark": {
+        "chunk_size_multiplier": 1.0,
+        "preferred_strategy": "contextual_chunking",
+        "special_rules": {
+          "preserve_cx_structure": true,
+          "preserve_error_code_context": true,
+          "preserve_part_number_context": true
+        }
+      },
+      "utax": {
+        "chunk_size_multiplier": 1.0,
+        "preferred_strategy": "contextual_chunking",
+        "special_rules": {
+          "preserve_utax_structure": true,
+          "preserve_error_code_context": true,
+          "preserve_part_number_context": true
+        }
+      }
+    },
+    "advanced_settings": {
+      "preserve_context": true,
+      "preserve_metadata": true,
+      "preserve_relationships": true,
+      "smart_boundaries": true,
+      "adaptive_sizing": true,
+      "quality_threshold": 0.8
+    }
+  }
+}

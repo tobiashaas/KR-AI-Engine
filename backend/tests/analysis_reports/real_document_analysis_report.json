@@ -1,0 +1,5142 @@
+{
+  "test_timestamp": "2025-09-24T19:21:40.829107",
+  "total_documents_tested": 20,
+  "document_categories": {
+    "HP": {
+      "service_manuals": 12,
+      "cpmd": 12,
+      "troubleshooting": 1,
+      "technical_bulletins": 0
+    },
+    "Konica_Minolta": {
+      "service_manuals": 8,
+      "parts_catalogs": 8
+    },
+    "Lexmark": {
+      "service_manuals": 5,
+      "parts_catalogs": 2
+    },
+    "UTAX": {
+      "service_manuals": 8,
+      "parts_catalogs": 9
+    },
+    "Technical_Info": {
+      "bulletins": 1
+    }
+  },
+  "manufacturer_analysis": {
+    "HP": {
+      "total_documents": 7,
+      "strategies": {
+        "sentence_based": 3,
+        "simple_word_chunking": 4
+      },
+      "types": {
+        "service_manual": 4,
+        "cpmd_database": 3
+      },
+      "avg_words": 1452.857142857143
+    },
+    "Konica_Minolta": {
+      "total_documents": 6,
+      "strategies": {
+        "sentence_based": 2,
+        "paragraph_based": 1,
+        "simple_word_chunking": 2,
+        "structure_based": 1
+      },
+      "types": {
+        "service_manual": 6
+      },
+      "avg_words": 2403.0
+    },
+    "Lexmark": {
+      "total_documents": 5,
+      "strategies": {
+        "simple_word_chunking": 1,
+        "sentence_based": 4
+      },
+      "types": {
+        "service_manual": 5
+      },
+      "avg_words": 2051.4
+    },
+    "UTAX": {
+      "total_documents": 2,
+      "strategies": {
+        "simple_word_chunking": 1,
+        "paragraph_based": 1
+      },
+      "types": {
+        "service_manual": 2
+      },
+      "avg_words": 2439.0
+    }
+  },
+  "type_analysis": {
+    "service_manuals": {
+      "total_documents": 11,
+      "strategies": {
+        "sentence_based": 6,
+        "simple_word_chunking": 3,
+        "paragraph_based": 2
+      },
+      "avg_words": 2211.909090909091,
+      "manufacturers": [
+        "Lexmark",
+        "UTAX",
+        "Konica_Minolta",
+        "HP"
+      ]
+    },
+    "cpmd": {
+      "total_documents": 3,
+      "strategies": {
+        "simple_word_chunking": 3
+      },
+      "avg_words": 1458.6666666666667,
+      "manufacturers": [
+        "HP"
+      ]
+    },
+    "troubleshooting": {
+      "total_documents": 1,
+      "strategies": {
+        "sentence_based": 1
+      },
+      "avg_words": 1054.0,
+      "manufacturers": [
+        "HP"
+      ]
+    },
+    "parts_catalogs": {
+      "total_documents": 5,
+      "strategies": {
+        "simple_word_chunking": 2,
+        "structure_based": 1,
+        "sentence_based": 2
+      },
+      "avg_words": 1992.4,
+      "manufacturers": [
+        "Lexmark",
+        "Konica_Minolta"
+      ]
+    }
+  },
+  "recommendations": {
+    "manufacturer_strategies": {
+      "HP": {
+        "recommended_strategy": "simple_word_chunking",
+        "strategy_distribution": {
+          "sentence_based": 3,
+          "simple_word_chunking": 4
+        },
+        "document_count": 7,
+        "avg_words": 1453,
+        "supported_types": [
+          "service_manual",
+          "cpmd_database"
+        ]
+      },
+      "Konica_Minolta": {
+        "recommended_strategy": "sentence_based",
+        "strategy_distribution": {
+          "sentence_based": 2,
+          "paragraph_based": 1,
+          "simple_word_chunking": 2,
+          "structure_based": 1
+        },
+        "document_count": 6,
+        "avg_words": 2403,
+        "supported_types": [
+          "service_manual"
+        ]
+      },
+      "Lexmark": {
+        "recommended_strategy": "sentence_based",
+        "strategy_distribution": {
+          "simple_word_chunking": 1,
+          "sentence_based": 4
+        },
+        "document_count": 5,
+        "avg_words": 2051,
+        "supported_types": [
+          "service_manual"
+        ]
+      },
+      "UTAX": {
+        "recommended_strategy": "simple_word_chunking",
+        "strategy_distribution": {
+          "simple_word_chunking": 1,
+          "paragraph_based": 1
+        },
+        "document_count": 2,
+        "avg_words": 2439,
+        "supported_types": [
+          "service_manual"
+        ]
+      }
+    },
+    "type_strategies": {
+      "service_manuals": {
+        "recommended_strategy": "sentence_based",
+        "strategy_distribution": {
+          "sentence_based": 6,
+          "simple_word_chunking": 3,
+          "paragraph_based": 2
+        },
+        "document_count": 11,
+        "avg_words": 2212,
+        "manufacturers": [
+          "Lexmark",
+          "UTAX",
+          "Konica_Minolta",
+          "HP"
+        ]
+      },
+      "cpmd": {
+        "recommended_strategy": "simple_word_chunking",
+        "strategy_distribution": {
+          "simple_word_chunking": 3
+        },
+        "document_count": 3,
+        "avg_words": 1459,
+        "manufacturers": [
+          "HP"
+        ]
+      },
+      "troubleshooting": {
+        "recommended_strategy": "sentence_based",
+        "strategy_distribution": {
+          "sentence_based": 1
+        },
+        "document_count": 1,
+        "avg_words": 1054,
+        "manufacturers": [
+          "HP"
+        ]
+      },
+      "parts_catalogs": {
+        "recommended_strategy": "simple_word_chunking",
+        "strategy_distribution": {
+          "simple_word_chunking": 2,
+          "structure_based": 1,
+          "sentence_based": 2
+        },
+        "document_count": 5,
+        "avg_words": 1992,
+        "manufacturers": [
+          "Lexmark",
+          "Konica_Minolta"
+        ]
+      }
+    },
+    "production_config": {
+      "hp_service_manuals": {
+        "strategy": "sentence_based",
+        "chunk_size": 1000,
+        "overlap": 100
+      },
+      "hp_cpmd": {
+        "strategy": "simple_word_chunking",
+        "chunk_size": 800,
+        "overlap": 75
+      },
+      "konica_minolta_service_manuals": {
+        "strategy": "sentence_based",
+        "chunk_size": 1000,
+        "overlap": 100
+      },
+      "lexmark_service_manuals": {
+        "strategy": "sentence_based",
+        "chunk_size": 1000,
+        "overlap": 100
+      },
+      "utax_service_manuals": {
+        "strategy": "sentence_based",
+        "chunk_size": 1000,
+        "overlap": 100
+      },
+      "parts_catalogs": {
+        "strategy": "structure_based",
+        "chunk_size": 800,
+        "overlap": 50
+      },
+      "technical_bulletins": {
+        "strategy": "paragraph_based",
+        "chunk_size": 700,
+        "overlap": 50
+      }
+    },
+    "insights": {
+      "total_documents_available": 66,
+      "total_documents_tested": 20,
+      "success_rate": "100.0%",
+      "manufacturers_tested": 4,
+      "document_types_tested": 4,
+      "most_common_strategy": "sentence_based"
+    }
+  },
+  "individual_results": {
+    "HP_service_manuals_HP_E786_SM": {
+      "file_info": {
+        "filename": "temp_HP_E786_SM.txt",
+        "size_mb": 0.03385448455810547,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:21:33.952312"
+      },
+      "text_analysis": {
+        "total_characters": 35480,
+        "total_words": 1636,
+        "total_sentences": 222,
+        "total_paragraphs": 10
+      },
+      "structure_analysis": {
+        "paragraph_count": 10,
+        "sentence_count": 222,
+        "average_sentence_length": 8.0,
+        "max_sentence_length": 89,
+        "heading_count": 0,
+        "headings": [],
+        "common_words": [
+          [
+            "unit",
+            44
+          ],
+          [
+            "and",
+            39
+          ],
+          [
+            "the",
+            27
+          ],
+          [
+            "per",
+            25
+          ],
+          [
+            "updated",
+            24
+          ],
+          [
+            "hppk",
+            24
+          ],
+          [
+            "to",
+            23
+          ],
+          [
+            "on",
+            23
+          ],
+          [
+            "page",
+            22
+          ],
+          [
+            "2",
+            22
+          ],
+          [
+            "operation",
+            18
+          ],
+          [
+            "1",
+            18
+          ],
+          [
+            "overview",
+            18
+          ],
+          [
+            "pr",
+            18
+          ],
+          [
+            "for",
+            17
+          ],
+          [
+            "of",
+            16
+          ],
+          [
+            "pca",
+            16
+          ],
+          [
+            "specifications",
+            16
+          ],
+          [
+            "in",
+            15
+          ],
+          [
+            "added",
+            15
+          ]
+        ],
+        "technical_terms": [
+          [
+            "service",
+            6
+          ],
+          [
+            "color",
+            10
+          ],
+          [
+            "theory",
+            13
+          ],
+          [
+            "operation",
+            18
+          ],
+          [
+            "information",
+            10
+          ],
+          [
+            "herein",
+            6
+          ],
+          [
+            "revision",
+            14
+          ],
+          [
+            "table",
+            8
+          ],
+          [
+            "number",
+            9
+          ],
+          [
+            "added",
+            15
+          ],
+          [
+            "diagrams",
+            7
+          ],
+          [
+            "finisher",
+            10
+          ],
+          [
+            "parts",
+            9
+          ],
+          [
+            "sensor",
+            10
+          ],
+          [
+            "updated",
+            24
+          ],
+          [
+            "numbers",
+            7
+          ],
+          [
+            "keyboard",
+            7
+          ],
+          [
+            "remove",
+            6
+          ],
+          [
+            "specifications",
+            16
+          ],
+          [
+            "optional",
+            8
+          ]
+        ],
+        "text_density": 163.6
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 3,
+          "average_chunk_size": 624.0,
+          "min_chunk_size": 36,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 2,
+          "average_chunk_size": 888.0,
+          "min_chunk_size": 783,
+          "max_chunk_size": 993,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 2,
+          "average_chunk_size": 818.0,
+          "min_chunk_size": 761,
+          "max_chunk_size": 875,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 4,
+          "average_chunk_size": 409.0,
+          "min_chunk_size": 245,
+          "max_chunk_size": 657,
+          "chunk_size_distribution": {
+            "small_chunks": 3,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "service_manual",
+        "confidence": 0.5,
+        "all_scores": {
+          "service_manual": 6,
+          "parts_catalog": 1,
+          "technical_bulletin": 4,
+          "cpmd_database": 1
+        }
+      },
+      "recommendations": {
+        "best_strategy": "sentence_based",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'sentence_based' provides optimal chunk distribution",
+          "Average chunk size: 888 words",
+          "Total chunks: 2"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:21:33.957387",
+      "original_file": "../test_documents/HP_E786_SM.pdf",
+      "manufacturer": "HP",
+      "document_type_category": "service_manuals"
+    },
+    "HP_service_manuals_HP_X580_SM": {
+      "file_info": {
+        "filename": "temp_HP_X580_SM.txt",
+        "size_mb": 0.01612091064453125,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:21:34.062646"
+      },
+      "text_analysis": {
+        "total_characters": 16853,
+        "total_words": 1693,
+        "total_sentences": 140,
+        "total_paragraphs": 10
+      },
+      "structure_analysis": {
+        "paragraph_count": 10,
+        "sentence_count": 140,
+        "average_sentence_length": 12.428571428571429,
+        "max_sentence_length": 86,
+        "heading_count": 0,
+        "headings": [],
+        "common_words": [
+          [
+            "and",
+            62
+          ],
+          [
+            "the",
+            54
+          ],
+          [
+            "on",
+            41
+          ],
+          [
+            "page",
+            41
+          ],
+          [
+            "to",
+            40
+          ],
+          [
+            "for",
+            30
+          ],
+          [
+            "hp",
+            28
+          ],
+          [
+            "printer",
+            28
+          ],
+          [
+            "in",
+            25
+          ],
+          [
+            "models",
+            25
+          ],
+          [
+            "wise",
+            24
+          ],
+          [
+            "information",
+            22
+          ],
+          [
+            "of",
+            21
+          ],
+          [
+            "part",
+            21
+          ],
+          [
+            "see",
+            21
+          ],
+          [
+            "updated",
+            21
+          ],
+          [
+            "4",
+            19
+          ],
+          [
+            "service",
+            15
+          ],
+          [
+            "number",
+            15
+          ],
+          [
+            "support",
+            14
+          ]
+        ],
+        "technical_terms": [
+          [
+            "color",
+            6
+          ],
+          [
+            "laserjet",
+            6
+          ],
+          [
+            "service",
+            15
+          ],
+          [
+            "manual",
+            7
+          ],
+          [
+            "support",
+            14
+          ],
+          [
+            "information",
+            22
+          ],
+          [
+            "herein",
+            6
+          ],
+          [
+            "services",
+            6
+          ],
+          [
+            "additional",
+            8
+          ],
+          [
+            "technical",
+            13
+          ],
+          [
+            "revision",
+            14
+          ],
+          [
+            "document",
+            8
+          ],
+          [
+            "table",
+            7
+          ],
+          [
+            "number",
+            15
+          ],
+          [
+            "added",
+            8
+          ],
+          [
+            "removal",
+            14
+          ],
+          [
+            "replacement",
+            14
+          ],
+          [
+            "numbers",
+            7
+          ],
+          [
+            "updated",
+            21
+          ],
+          [
+            "assembly",
+            12
+          ]
+        ],
+        "text_density": 169.3
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 3,
+          "average_chunk_size": 662.0,
+          "min_chunk_size": 93,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 2,
+          "average_chunk_size": 870.0,
+          "min_chunk_size": 754,
+          "max_chunk_size": 986,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 2,
+          "average_chunk_size": 846.5,
+          "min_chunk_size": 748,
+          "max_chunk_size": 945,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 6,
+          "average_chunk_size": 282.1666666666667,
+          "min_chunk_size": 124,
+          "max_chunk_size": 669,
+          "chunk_size_distribution": {
+            "small_chunks": 5,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "service_manual",
+        "confidence": 0.36363636363636365,
+        "all_scores": {
+          "service_manual": 4,
+          "parts_catalog": 1,
+          "technical_bulletin": 4,
+          "cpmd_database": 2
+        }
+      },
+      "recommendations": {
+        "best_strategy": "sentence_based",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'sentence_based' provides optimal chunk distribution",
+          "Average chunk size: 870 words",
+          "Total chunks: 2"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:21:34.065901",
+      "original_file": "../test_documents/HP_X580_SM.pdf",
+      "manufacturer": "HP",
+      "document_type_category": "service_manuals"
+    },
+    "HP_service_manuals_HP_E52645_SM": {
+      "file_info": {
+        "filename": "temp_HP_E52645_SM.txt",
+        "size_mb": 0.023267745971679688,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:21:34.163395"
+      },
+      "text_analysis": {
+        "total_characters": 24307,
+        "total_words": 1411,
+        "total_sentences": 130,
+        "total_paragraphs": 10
+      },
+      "structure_analysis": {
+        "paragraph_count": 10,
+        "sentence_count": 130,
+        "average_sentence_length": 11.523076923076923,
+        "max_sentence_length": 324,
+        "heading_count": 0,
+        "headings": [],
+        "common_words": [
+          [
+            "page",
+            58
+          ],
+          [
+            "on",
+            57
+          ],
+          [
+            "see",
+            48
+          ],
+          [
+            "and",
+            42
+          ],
+          [
+            "revision",
+            31
+          ],
+          [
+            "hp",
+            30
+          ],
+          [
+            "m501",
+            30
+          ],
+          [
+            "the",
+            21
+          ],
+          [
+            "except",
+            20
+          ],
+          [
+            "all",
+            20
+          ],
+          [
+            "4",
+            16
+          ],
+          [
+            "laserjet",
+            14
+          ],
+          [
+            "3",
+            14
+          ],
+          [
+            "manual",
+            13
+          ],
+          [
+            "of",
+            12
+          ],
+          [
+            "removal",
+            12
+          ],
+          [
+            "replacement",
+            12
+          ],
+          [
+            "control",
+            12
+          ],
+          [
+            "for",
+            11
+          ],
+          [
+            "updated",
+            11
+          ]
+        ],
+        "technical_terms": [
+          [
+            "manual",
+            13
+          ],
+          [
+            "laserjet",
+            14
+          ],
+          [
+            "support",
+            10
+          ],
+          [
+            "enterprise",
+            6
+          ],
+          [
+            "repair",
+            10
+          ],
+          [
+            "except",
+            20
+          ],
+          [
+            "herein",
+            6
+          ],
+          [
+            "revision",
+            31
+          ],
+          [
+            "history",
+            9
+          ],
+          [
+            "number",
+            9
+          ],
+          [
+            "notes",
+            7
+          ],
+          [
+            "updated",
+            11
+          ],
+          [
+            "paper",
+            6
+          ],
+          [
+            "removal",
+            12
+          ],
+          [
+            "replacement",
+            12
+          ],
+          [
+            "parts",
+            10
+          ],
+          [
+            "diagrams",
+            10
+          ],
+          [
+            "internal",
+            7
+          ],
+          [
+            "assemblies",
+            6
+          ],
+          [
+            "added",
+            10
+          ]
+        ],
+        "text_density": 141.1
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 2,
+          "average_chunk_size": 805.5,
+          "min_chunk_size": 611,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 2,
+          "average_chunk_size": 749.0,
+          "min_chunk_size": 737,
+          "max_chunk_size": 761,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 2,
+          "average_chunk_size": 705.5,
+          "min_chunk_size": 663,
+          "max_chunk_size": 748,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 8,
+          "average_chunk_size": 176.375,
+          "min_chunk_size": 11,
+          "max_chunk_size": 678,
+          "chunk_size_distribution": {
+            "small_chunks": 7,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "service_manual",
+        "confidence": 0.5454545454545454,
+        "all_scores": {
+          "service_manual": 6,
+          "parts_catalog": 1,
+          "technical_bulletin": 3,
+          "cpmd_database": 1
+        }
+      },
+      "recommendations": {
+        "best_strategy": "simple_word_chunking",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'simple_word_chunking' provides optimal chunk distribution",
+          "Average chunk size: 806 words",
+          "Total chunks: 2"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:21:34.167011",
+      "original_file": "../test_documents/HP_E52645_SM.pdf",
+      "manufacturer": "HP",
+      "document_type_category": "service_manuals"
+    },
+    "HP_cpmd_HP_E786_CPMD": {
+      "file_info": {
+        "filename": "temp_HP_E786_CPMD.txt",
+        "size_mb": 0.06848335266113281,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:21:34.278198"
+      },
+      "text_analysis": {
+        "total_characters": 71777,
+        "total_words": 1432,
+        "total_sentences": 1136,
+        "total_paragraphs": 10
+      },
+      "structure_analysis": {
+        "paragraph_count": 10,
+        "sentence_count": 1136,
+        "average_sentence_length": 2.108274647887324,
+        "max_sentence_length": 40,
+        "heading_count": 0,
+        "headings": [],
+        "common_words": [
+          [
+            "13",
+            92
+          ],
+          [
+            "error",
+            83
+          ],
+          [
+            "00",
+            45
+          ],
+          [
+            "59",
+            42
+          ],
+          [
+            "60",
+            41
+          ],
+          [
+            "32",
+            40
+          ],
+          [
+            "03",
+            39
+          ],
+          [
+            "10",
+            38
+          ],
+          [
+            "44",
+            37
+          ],
+          [
+            "event",
+            37
+          ],
+          [
+            "errors",
+            35
+          ],
+          [
+            "1c",
+            35
+          ],
+          [
+            "01",
+            34
+          ],
+          [
+            "message",
+            33
+          ],
+          [
+            "messages",
+            30
+          ],
+          [
+            "log",
+            30
+          ],
+          [
+            "yz",
+            29
+          ],
+          [
+            "only",
+            27
+          ],
+          [
+            "wx",
+            27
+          ],
+          [
+            "multifunction",
+            26
+          ]
+        ],
+        "technical_terms": [
+          [
+            "laserjet",
+            6
+          ],
+          [
+            "messages",
+            30
+          ],
+          [
+            "message",
+            33
+          ],
+          [
+            "error",
+            83
+          ],
+          [
+            "errors",
+            35
+          ],
+          [
+            "supply",
+            8
+          ],
+          [
+            "sheet",
+            7
+          ],
+          [
+            "event",
+            37
+          ],
+          [
+            "continue",
+            7
+          ],
+          [
+            "touch",
+            6
+          ],
+          [
+            "multifunction",
+            26
+          ],
+          [
+            "product",
+            26
+          ],
+          [
+            "motor",
+            8
+          ]
+        ],
+        "text_density": 143.2
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 2,
+          "average_chunk_size": 816.0,
+          "min_chunk_size": 632,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 3,
+          "average_chunk_size": 798.3333333333334,
+          "min_chunk_size": 395,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 2,
+          "average_chunk_size": 716.0,
+          "min_chunk_size": 624,
+          "max_chunk_size": 808,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 1,
+          "average_chunk_size": 1432.0,
+          "min_chunk_size": 1432,
+          "max_chunk_size": 1432,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "cpmd_database",
+        "confidence": 0.5555555555555556,
+        "all_scores": {
+          "service_manual": 2,
+          "parts_catalog": 0,
+          "technical_bulletin": 2,
+          "cpmd_database": 5
+        }
+      },
+      "recommendations": {
+        "best_strategy": "simple_word_chunking",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'simple_word_chunking' provides optimal chunk distribution",
+          "Average chunk size: 816 words",
+          "Total chunks: 2"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:21:34.284838",
+      "original_file": "../test_documents/HP_E786_CPMD.pdf",
+      "manufacturer": "HP",
+      "document_type_category": "cpmd"
+    },
+    "HP_cpmd_HP_E50045_E50145_E52545_CPMD": {
+      "file_info": {
+        "filename": "temp_HP_E50045_E50145_E52545_CPMD.txt",
+        "size_mb": 0.0687093734741211,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:21:34.375137"
+      },
+      "text_analysis": {
+        "total_characters": 72007,
+        "total_words": 1446,
+        "total_sentences": 1042,
+        "total_paragraphs": 10
+      },
+      "structure_analysis": {
+        "paragraph_count": 10,
+        "sentence_count": 1042,
+        "average_sentence_length": 2.218809980806142,
+        "max_sentence_length": 71,
+        "heading_count": 0,
+        "headings": [],
+        "common_words": [
+          [
+            "error",
+            89
+          ],
+          [
+            "00",
+            87
+          ],
+          [
+            "03",
+            54
+          ],
+          [
+            "xx",
+            52
+          ],
+          [
+            "32",
+            40
+          ],
+          [
+            "yz",
+            37
+          ],
+          [
+            "41",
+            37
+          ],
+          [
+            "errors",
+            35
+          ],
+          [
+            "messages",
+            35
+          ],
+          [
+            "13",
+            34
+          ],
+          [
+            "1c",
+            34
+          ],
+          [
+            "01",
+            32
+          ],
+          [
+            "99",
+            32
+          ],
+          [
+            "10",
+            25
+          ],
+          [
+            "to",
+            24
+          ],
+          [
+            "33",
+            22
+          ],
+          [
+            "30",
+            22
+          ],
+          [
+            "02",
+            20
+          ],
+          [
+            "hp",
+            19
+          ],
+          [
+            "in",
+            18
+          ]
+        ],
+        "technical_terms": [
+          [
+            "control",
+            6
+          ],
+          [
+            "panel",
+            6
+          ],
+          [
+            "message",
+            10
+          ],
+          [
+            "document",
+            9
+          ],
+          [
+            "support",
+            9
+          ],
+          [
+            "laserjet",
+            6
+          ],
+          [
+            "error",
+            89
+          ],
+          [
+            "errors",
+            35
+          ],
+          [
+            "messages",
+            35
+          ],
+          [
+            "supply",
+            8
+          ],
+          [
+            "fuser",
+            10
+          ],
+          [
+            "upgrade",
+            18
+          ],
+          [
+            "scanner",
+            12
+          ],
+          [
+            "failure",
+            9
+          ],
+          [
+            "continue",
+            18
+          ],
+          [
+            "event",
+            12
+          ],
+          [
+            "touch",
+            6
+          ],
+          [
+            "performed",
+            11
+          ]
+        ],
+        "text_density": 144.6
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 2,
+          "average_chunk_size": 823.0,
+          "min_chunk_size": 646,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 3,
+          "average_chunk_size": 770.6666666666666,
+          "min_chunk_size": 316,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 2,
+          "average_chunk_size": 723.0,
+          "min_chunk_size": 527,
+          "max_chunk_size": 919,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 1,
+          "average_chunk_size": 1446.0,
+          "min_chunk_size": 1446,
+          "max_chunk_size": 1446,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "cpmd_database",
+        "confidence": 0.5555555555555556,
+        "all_scores": {
+          "service_manual": 2,
+          "parts_catalog": 0,
+          "technical_bulletin": 2,
+          "cpmd_database": 5
+        }
+      },
+      "recommendations": {
+        "best_strategy": "simple_word_chunking",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'simple_word_chunking' provides optimal chunk distribution",
+          "Average chunk size: 823 words",
+          "Total chunks: 2"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:21:34.382220",
+      "original_file": "../test_documents/HP_E50045_E50145_E52545_CPMD.pdf",
+      "manufacturer": "HP",
+      "document_type_category": "cpmd"
+    },
+    "HP_cpmd_HP_E778_CPMD": {
+      "file_info": {
+        "filename": "temp_HP_E778_CPMD.txt",
+        "size_mb": 0.06849956512451172,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:21:34.490138"
+      },
+      "text_analysis": {
+        "total_characters": 71793,
+        "total_words": 1498,
+        "total_sentences": 1139,
+        "total_paragraphs": 10
+      },
+      "structure_analysis": {
+        "paragraph_count": 10,
+        "sentence_count": 1139,
+        "average_sentence_length": 2.1071115013169446,
+        "max_sentence_length": 51,
+        "heading_count": 0,
+        "headings": [],
+        "common_words": [
+          [
+            "error",
+            83
+          ],
+          [
+            "13",
+            82
+          ],
+          [
+            "00",
+            69
+          ],
+          [
+            "10",
+            42
+          ],
+          [
+            "63",
+            42
+          ],
+          [
+            "32",
+            41
+          ],
+          [
+            "event",
+            37
+          ],
+          [
+            "44",
+            36
+          ],
+          [
+            "1c",
+            35
+          ],
+          [
+            "message",
+            34
+          ],
+          [
+            "yz",
+            33
+          ],
+          [
+            "01",
+            33
+          ],
+          [
+            "messages",
+            30
+          ],
+          [
+            "wx",
+            30
+          ],
+          [
+            "60",
+            30
+          ],
+          [
+            "log",
+            30
+          ],
+          [
+            "errors",
+            28
+          ],
+          [
+            "only",
+            27
+          ],
+          [
+            "or",
+            26
+          ],
+          [
+            "multifunction",
+            26
+          ]
+        ],
+        "technical_terms": [
+          [
+            "message",
+            34
+          ],
+          [
+            "error",
+            83
+          ],
+          [
+            "errors",
+            28
+          ],
+          [
+            "messages",
+            30
+          ],
+          [
+            "fuser",
+            9
+          ],
+          [
+            "right",
+            7
+          ],
+          [
+            "motor",
+            8
+          ],
+          [
+            "event",
+            37
+          ],
+          [
+            "continue",
+            7
+          ],
+          [
+            "touch",
+            6
+          ],
+          [
+            "multifunction",
+            26
+          ],
+          [
+            "product",
+            26
+          ]
+        ],
+        "text_density": 149.8
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 2,
+          "average_chunk_size": 849.0,
+          "min_chunk_size": 698,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 3,
+          "average_chunk_size": 800.0,
+          "min_chunk_size": 402,
+          "max_chunk_size": 999,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 2,
+          "average_chunk_size": 749.0,
+          "min_chunk_size": 578,
+          "max_chunk_size": 920,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 1,
+          "average_chunk_size": 1498.0,
+          "min_chunk_size": 1498,
+          "max_chunk_size": 1498,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "cpmd_database",
+        "confidence": 0.5,
+        "all_scores": {
+          "service_manual": 3,
+          "parts_catalog": 0,
+          "technical_bulletin": 2,
+          "cpmd_database": 5
+        }
+      },
+      "recommendations": {
+        "best_strategy": "simple_word_chunking",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'simple_word_chunking' provides optimal chunk distribution",
+          "Average chunk size: 849 words",
+          "Total chunks: 2"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:21:34.496787",
+      "original_file": "../test_documents/HP_E778_CPMD.pdf",
+      "manufacturer": "HP",
+      "document_type_category": "cpmd"
+    },
+    "HP_troubleshooting_HP_E776_Troubleshooting": {
+      "file_info": {
+        "filename": "temp_HP_E776_Troubleshooting.txt",
+        "size_mb": 0.022979736328125,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:21:34.551615"
+      },
+      "text_analysis": {
+        "total_characters": 24067,
+        "total_words": 1054,
+        "total_sentences": 178,
+        "total_paragraphs": 10
+      },
+      "structure_analysis": {
+        "paragraph_count": 10,
+        "sentence_count": 178,
+        "average_sentence_length": 5.320224719101123,
+        "max_sentence_length": 41,
+        "heading_count": 0,
+        "headings": [],
+        "common_words": [
+          [
+            "the",
+            25
+          ],
+          [
+            "and",
+            23
+          ],
+          [
+            "hp",
+            20
+          ],
+          [
+            "printer",
+            18
+          ],
+          [
+            "system",
+            13
+          ],
+          [
+            "or",
+            11
+          ],
+          [
+            "com",
+            11
+          ],
+          [
+            "print",
+            11
+          ],
+          [
+            "problems",
+            11
+          ],
+          [
+            "wise",
+            10
+          ],
+          [
+            "https",
+            10
+          ],
+          [
+            "solve",
+            10
+          ],
+          [
+            "to",
+            9
+          ],
+          [
+            "of",
+            9
+          ],
+          [
+            "support",
+            9
+          ],
+          [
+            "home",
+            9
+          ],
+          [
+            "fax",
+            9
+          ],
+          [
+            "mfp",
+            8
+          ],
+          [
+            "enww",
+            8
+          ],
+          [
+            "operation",
+            8
+          ]
+        ],
+        "technical_terms": [
+          [
+            "troubleshooting",
+            7
+          ],
+          [
+            "printer",
+            18
+          ],
+          [
+            "https",
+            10
+          ],
+          [
+            "support",
+            9
+          ],
+          [
+            "operation",
+            8
+          ],
+          [
+            "system",
+            13
+          ],
+          [
+            "control",
+            7
+          ],
+          [
+            "print",
+            11
+          ],
+          [
+            "paper",
+            6
+          ],
+          [
+            "sensors",
+            6
+          ],
+          [
+            "document",
+            7
+          ],
+          [
+            "feeder",
+            6
+          ],
+          [
+            "solve",
+            10
+          ],
+          [
+            "problems",
+            11
+          ]
+        ],
+        "text_density": 105.4
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 2,
+          "average_chunk_size": 627.0,
+          "min_chunk_size": 254,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 1,
+          "average_chunk_size": 947.0,
+          "min_chunk_size": 947,
+          "max_chunk_size": 947,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 2,
+          "average_chunk_size": 527.0,
+          "min_chunk_size": 105,
+          "max_chunk_size": 949,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 2,
+          "average_chunk_size": 527.0,
+          "min_chunk_size": 173,
+          "max_chunk_size": 881,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "service_manual",
+        "confidence": 0.42857142857142855,
+        "all_scores": {
+          "service_manual": 3,
+          "parts_catalog": 0,
+          "technical_bulletin": 3,
+          "cpmd_database": 1
+        }
+      },
+      "recommendations": {
+        "best_strategy": "sentence_based",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'sentence_based' provides optimal chunk distribution",
+          "Average chunk size: 947 words",
+          "Total chunks: 1"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:21:34.554935",
+      "original_file": "../test_documents/HP_E776_Troubleshooting.pdf",
+      "manufacturer": "HP",
+      "document_type_category": "troubleshooting"
+    },
+    "Konica_Minolta_service_manuals_KM_4750i_4050i_4751i_4051i_SM": {
+      "file_info": {
+        "filename": "temp_KM_4750i_4050i_4751i_4051i_SM.txt",
+        "size_mb": 0.09737968444824219,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:21:34.694128"
+      },
+      "text_analysis": {
+        "total_characters": 102108,
+        "total_words": 2908,
+        "total_sentences": 1487,
+        "total_paragraphs": 10
+      },
+      "structure_analysis": {
+        "paragraph_count": 10,
+        "sentence_count": 1487,
+        "average_sentence_length": 2.475453934095494,
+        "max_sentence_length": 13,
+        "heading_count": 0,
+        "headings": [],
+        "common_words": [
+          [
+            "i",
+            235
+          ],
+          [
+            "1",
+            229
+          ],
+          [
+            "3",
+            182
+          ],
+          [
+            "2",
+            168
+          ],
+          [
+            "4",
+            163
+          ],
+          [
+            "5",
+            154
+          ],
+          [
+            "6",
+            116
+          ],
+          [
+            "f",
+            114
+          ],
+          [
+            "10",
+            111
+          ],
+          [
+            "h",
+            105
+          ],
+          [
+            "8",
+            75
+          ],
+          [
+            "7",
+            68
+          ],
+          [
+            "pf",
+            60
+          ],
+          [
+            "11",
+            56
+          ],
+          [
+            "12",
+            52
+          ],
+          [
+            "sw",
+            51
+          ],
+          [
+            "no",
+            49
+          ],
+          [
+            "13",
+            48
+          ],
+          [
+            "9",
+            47
+          ],
+          [
+            "settings",
+            47
+          ]
+        ],
+        "technical_terms": [
+          [
+            "service",
+            10
+          ],
+          [
+            "manual",
+            12
+          ],
+          [
+            "function",
+            11
+          ],
+          [
+            "safety",
+            6
+          ],
+          [
+            "warning",
+            10
+          ],
+          [
+            "items",
+            7
+          ],
+          [
+            "power",
+            6
+          ],
+          [
+            "laser",
+            6
+          ],
+          [
+            "machine",
+            12
+          ],
+          [
+            "outline",
+            10
+          ],
+          [
+            "bizhub",
+            9
+          ],
+          [
+            "paper",
+            22
+          ],
+          [
+            "print",
+            7
+          ],
+          [
+            "system",
+            8
+          ],
+          [
+            "control",
+            7
+          ],
+          [
+            "image",
+            12
+          ],
+          [
+            "information",
+            6
+          ],
+          [
+            "setting",
+            38
+          ],
+          [
+            "maintenance",
+            8
+          ],
+          [
+            "replacing",
+            14
+          ]
+        ],
+        "text_density": 290.8
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 4,
+          "average_chunk_size": 877.0,
+          "min_chunk_size": 508,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 4,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 4,
+          "average_chunk_size": 920.25,
+          "min_chunk_size": 683,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 4,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 4,
+          "average_chunk_size": 727.0,
+          "min_chunk_size": 308,
+          "max_chunk_size": 994,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 3,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 59,
+          "average_chunk_size": 49.28813559322034,
+          "min_chunk_size": 2,
+          "max_chunk_size": 372,
+          "chunk_size_distribution": {
+            "small_chunks": 59,
+            "medium_chunks": 0,
+            "large_chunks": 0
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "service_manual",
+        "confidence": 0.6,
+        "all_scores": {
+          "service_manual": 6,
+          "parts_catalog": 1,
+          "technical_bulletin": 3,
+          "cpmd_database": 0
+        }
+      },
+      "recommendations": {
+        "best_strategy": "sentence_based",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'sentence_based' provides optimal chunk distribution",
+          "Average chunk size: 920 words",
+          "Total chunks: 4"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:21:34.702353",
+      "original_file": "../test_documents/KM_4750i_4050i_4751i_4051i_SM.pdf",
+      "manufacturer": "Konica_Minolta",
+      "document_type_category": "service_manuals"
+    },
+    "Konica_Minolta_service_manuals_KM_C658_C558_C458_C368_C308_C258_SM_EN": {
+      "file_info": {
+        "filename": "temp_KM_C658_C558_C458_C368_C308_C258_SM_EN.txt",
+        "size_mb": 0.0952615737915039,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:21:35.076810"
+      },
+      "text_analysis": {
+        "total_characters": 99887,
+        "total_words": 2803,
+        "total_sentences": 1352,
+        "total_paragraphs": 10
+      },
+      "structure_analysis": {
+        "paragraph_count": 10,
+        "sentence_count": 1352,
+        "average_sentence_length": 2.7048816568047336,
+        "max_sentence_length": 15,
+        "heading_count": 0,
+        "headings": [],
+        "common_words": [
+          [
+            "1",
+            277
+          ],
+          [
+            "f",
+            259
+          ],
+          [
+            "2",
+            226
+          ],
+          [
+            "c",
+            211
+          ],
+          [
+            "3",
+            201
+          ],
+          [
+            "4",
+            128
+          ],
+          [
+            "the",
+            106
+          ],
+          [
+            "5",
+            93
+          ],
+          [
+            "fs",
+            71
+          ],
+          [
+            "roller",
+            70
+          ],
+          [
+            "7",
+            66
+          ],
+          [
+            "8",
+            61
+          ],
+          [
+            "of",
+            58
+          ],
+          [
+            "6",
+            57
+          ],
+          [
+            "section",
+            57
+          ],
+          [
+            "replacing",
+            54
+          ],
+          [
+            "cleaning",
+            50
+          ],
+          [
+            "bizhub",
+            47
+          ],
+          [
+            "10",
+            42
+          ],
+          [
+            "paper",
+            41
+          ]
+        ],
+        "technical_terms": [
+          [
+            "service",
+            7
+          ],
+          [
+            "manual",
+            7
+          ],
+          [
+            "function",
+            25
+          ],
+          [
+            "safety",
+            6
+          ],
+          [
+            "warning",
+            6
+          ],
+          [
+            "items",
+            7
+          ],
+          [
+            "laser",
+            6
+          ],
+          [
+            "machine",
+            26
+          ],
+          [
+            "specifications",
+            8
+          ],
+          [
+            "bizhub",
+            47
+          ],
+          [
+            "paper",
+            41
+          ],
+          [
+            "specification",
+            24
+          ],
+          [
+            "operating",
+            24
+          ],
+          [
+            "environment",
+            24
+          ],
+          [
+            "functions",
+            6
+          ],
+          [
+            "document",
+            10
+          ],
+          [
+            "original",
+            9
+          ],
+          [
+            "offset",
+            7
+          ],
+          [
+            "process",
+            7
+          ],
+          [
+            "group",
+            6
+          ]
+        ],
+        "text_density": 280.3
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 4,
+          "average_chunk_size": 850.75,
+          "min_chunk_size": 403,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 3,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 4,
+          "average_chunk_size": 914.25,
+          "min_chunk_size": 657,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 4,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 3,
+          "average_chunk_size": 934.3333333333334,
+          "min_chunk_size": 835,
+          "max_chunk_size": 991,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 3,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 74,
+          "average_chunk_size": 37.87837837837838,
+          "min_chunk_size": 3,
+          "max_chunk_size": 209,
+          "chunk_size_distribution": {
+            "small_chunks": 74,
+            "medium_chunks": 0,
+            "large_chunks": 0
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "service_manual",
+        "confidence": 0.625,
+        "all_scores": {
+          "service_manual": 5,
+          "parts_catalog": 1,
+          "technical_bulletin": 2,
+          "cpmd_database": 0
+        }
+      },
+      "recommendations": {
+        "best_strategy": "sentence_based",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'sentence_based' provides optimal chunk distribution",
+          "Average chunk size: 914 words",
+          "Total chunks: 4"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:21:35.084577",
+      "original_file": "../test_documents/KM_C658_C558_C458_C368_C308_C258_SM_EN.pdf",
+      "manufacturer": "Konica_Minolta",
+      "document_type_category": "service_manuals"
+    },
+    "Konica_Minolta_service_manuals_KM_C759_C659_FW4.1_SM": {
+      "file_info": {
+        "filename": "temp_KM_C759_C659_FW4.1_SM.txt",
+        "size_mb": 0.09790229797363281,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:21:35.450028"
+      },
+      "text_analysis": {
+        "total_characters": 102656,
+        "total_words": 3237,
+        "total_sentences": 1578,
+        "total_paragraphs": 10
+      },
+      "structure_analysis": {
+        "paragraph_count": 10,
+        "sentence_count": 1578,
+        "average_sentence_length": 2.7661596958174903,
+        "max_sentence_length": 19,
+        "heading_count": 0,
+        "headings": [],
+        "common_words": [
+          [
+            "1",
+            369
+          ],
+          [
+            "f",
+            298
+          ],
+          [
+            "5",
+            293
+          ],
+          [
+            "3",
+            208
+          ],
+          [
+            "2",
+            197
+          ],
+          [
+            "4",
+            195
+          ],
+          [
+            "e",
+            146
+          ],
+          [
+            "fs",
+            135
+          ],
+          [
+            "6",
+            108
+          ],
+          [
+            "c",
+            99
+          ],
+          [
+            "motor",
+            82
+          ],
+          [
+            "roller",
+            77
+          ],
+          [
+            "tray",
+            73
+          ],
+          [
+            "7",
+            69
+          ],
+          [
+            "537sd",
+            66
+          ],
+          [
+            "the",
+            60
+          ],
+          [
+            "8",
+            56
+          ],
+          [
+            "10",
+            55
+          ],
+          [
+            "11",
+            52
+          ],
+          [
+            "9",
+            50
+          ]
+        ],
+        "technical_terms": [
+          [
+            "service",
+            6
+          ],
+          [
+            "manual",
+            11
+          ],
+          [
+            "function",
+            12
+          ],
+          [
+            "safety",
+            6
+          ],
+          [
+            "warning",
+            9
+          ],
+          [
+            "items",
+            7
+          ],
+          [
+            "power",
+            9
+          ],
+          [
+            "supply",
+            10
+          ],
+          [
+            "laser",
+            6
+          ],
+          [
+            "machine",
+            14
+          ],
+          [
+            "paper",
+            42
+          ],
+          [
+            "operating",
+            12
+          ],
+          [
+            "environment",
+            11
+          ],
+          [
+            "document",
+            29
+          ],
+          [
+            "feeder",
+            27
+          ],
+          [
+            "specification",
+            10
+          ],
+          [
+            "section",
+            19
+          ],
+          [
+            "control",
+            15
+          ],
+          [
+            "parts",
+            7
+          ],
+          [
+            "cleaning",
+            25
+          ]
+        ],
+        "text_density": 323.7
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 5,
+          "average_chunk_size": 774.8,
+          "min_chunk_size": 37,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 4,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 5,
+          "average_chunk_size": 873.0,
+          "min_chunk_size": 370,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 4,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 4,
+          "average_chunk_size": 809.25,
+          "min_chunk_size": 746,
+          "max_chunk_size": 860,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 4,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 34,
+          "average_chunk_size": 95.20588235294117,
+          "min_chunk_size": 3,
+          "max_chunk_size": 835,
+          "chunk_size_distribution": {
+            "small_chunks": 33,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "service_manual",
+        "confidence": 0.5555555555555556,
+        "all_scores": {
+          "service_manual": 5,
+          "parts_catalog": 1,
+          "technical_bulletin": 2,
+          "cpmd_database": 1
+        }
+      },
+      "recommendations": {
+        "best_strategy": "paragraph_based",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'paragraph_based' provides optimal chunk distribution",
+          "Average chunk size: 809 words",
+          "Total chunks: 4"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:21:35.458561",
+      "original_file": "../test_documents/KM_C759_C659_FW4.1_SM.pdf",
+      "manufacturer": "Konica_Minolta",
+      "document_type_category": "service_manuals"
+    },
+    "Konica_Minolta_parts_catalogs_KM_C250i": {
+      "file_info": {
+        "filename": "temp_KM_C250i.txt",
+        "size_mb": 0.015682220458984375,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:21:35.600628"
+      },
+      "text_analysis": {
+        "total_characters": 15148,
+        "total_words": 2155,
+        "total_sentences": 49,
+        "total_paragraphs": 10
+      },
+      "structure_analysis": {
+        "paragraph_count": 10,
+        "sentence_count": 49,
+        "average_sentence_length": 44.04081632653061,
+        "max_sentence_length": 207,
+        "heading_count": 0,
+        "headings": [],
+        "common_words": [
+          [
+            "7",
+            64
+          ],
+          [
+            "17",
+            52
+          ],
+          [
+            "9",
+            51
+          ],
+          [
+            "3",
+            50
+          ],
+          [
+            "6",
+            47
+          ],
+          [
+            "2",
+            44
+          ],
+          [
+            "8",
+            43
+          ],
+          [
+            "13",
+            42
+          ],
+          [
+            "1",
+            41
+          ],
+          [
+            "5",
+            41
+          ],
+          [
+            "4",
+            37
+          ],
+          [
+            "15",
+            37
+          ],
+          [
+            "19",
+            37
+          ],
+          [
+            "no",
+            36
+          ],
+          [
+            "21",
+            36
+          ],
+          [
+            "23",
+            34
+          ],
+          [
+            "parts",
+            33
+          ],
+          [
+            "10",
+            30
+          ],
+          [
+            "29",
+            29
+          ],
+          [
+            "bizhub",
+            28
+          ]
+        ],
+        "technical_terms": [
+          [
+            "parts",
+            33
+          ],
+          [
+            "manual",
+            7
+          ],
+          [
+            "bizhub",
+            28
+          ],
+          [
+            "feeder",
+            6
+          ],
+          [
+            "paper",
+            6
+          ],
+          [
+            "other",
+            8
+          ],
+          [
+            "option",
+            8
+          ],
+          [
+            "section",
+            18
+          ]
+        ],
+        "text_density": 215.5
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 3,
+          "average_chunk_size": 851.6666666666666,
+          "min_chunk_size": 555,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 3,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 3,
+          "average_chunk_size": 719.3333333333334,
+          "min_chunk_size": 337,
+          "max_chunk_size": 930,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 3,
+          "average_chunk_size": 718.3333333333334,
+          "min_chunk_size": 425,
+          "max_chunk_size": 879,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 1,
+          "average_chunk_size": 2155.0,
+          "min_chunk_size": 2155,
+          "max_chunk_size": 2155,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 0,
+            "large_chunks": 1
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "service_manual",
+        "confidence": 0.5,
+        "all_scores": {
+          "service_manual": 2,
+          "parts_catalog": 1,
+          "technical_bulletin": 1,
+          "cpmd_database": 0
+        }
+      },
+      "recommendations": {
+        "best_strategy": "simple_word_chunking",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'simple_word_chunking' provides optimal chunk distribution",
+          "Average chunk size: 852 words",
+          "Total chunks: 3"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:21:35.606258",
+      "original_file": "../test_documents/Ersatzteilkataloge/KM_C250i.pdf",
+      "manufacturer": "Konica_Minolta",
+      "document_type_category": "parts_catalogs"
+    },
+    "Konica_Minolta_parts_catalogs_KM_C650i": {
+      "file_info": {
+        "filename": "temp_KM_C650i.txt",
+        "size_mb": 0.015241622924804688,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:21:35.759601"
+      },
+      "text_analysis": {
+        "total_characters": 14744,
+        "total_words": 2081,
+        "total_sentences": 47,
+        "total_paragraphs": 10
+      },
+      "structure_analysis": {
+        "paragraph_count": 10,
+        "sentence_count": 47,
+        "average_sentence_length": 44.319148936170215,
+        "max_sentence_length": 211,
+        "heading_count": 0,
+        "headings": [],
+        "common_words": [
+          [
+            "7",
+            63
+          ],
+          [
+            "17",
+            51
+          ],
+          [
+            "3",
+            50
+          ],
+          [
+            "9",
+            50
+          ],
+          [
+            "13",
+            44
+          ],
+          [
+            "5",
+            42
+          ],
+          [
+            "4",
+            40
+          ],
+          [
+            "8",
+            39
+          ],
+          [
+            "6",
+            38
+          ],
+          [
+            "no",
+            35
+          ],
+          [
+            "11",
+            34
+          ],
+          [
+            "10",
+            34
+          ],
+          [
+            "parts",
+            33
+          ],
+          [
+            "1",
+            33
+          ],
+          [
+            "2",
+            33
+          ],
+          [
+            "15",
+            28
+          ],
+          [
+            "14",
+            27
+          ],
+          [
+            "16",
+            27
+          ],
+          [
+            "19",
+            26
+          ],
+          [
+            "75",
+            26
+          ]
+        ],
+        "technical_terms": [
+          [
+            "parts",
+            33
+          ],
+          [
+            "manual",
+            7
+          ],
+          [
+            "bizhub",
+            10
+          ],
+          [
+            "paper",
+            8
+          ],
+          [
+            "feeder",
+            7
+          ],
+          [
+            "other",
+            6
+          ],
+          [
+            "option",
+            6
+          ],
+          [
+            "section",
+            19
+          ]
+        ],
+        "text_density": 208.1
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 3,
+          "average_chunk_size": 827.0,
+          "min_chunk_size": 481,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 3,
+          "average_chunk_size": 694.3333333333334,
+          "min_chunk_size": 169,
+          "max_chunk_size": 984,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 3,
+          "average_chunk_size": 693.6666666666666,
+          "min_chunk_size": 423,
+          "max_chunk_size": 847,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 1,
+          "average_chunk_size": 2081.0,
+          "min_chunk_size": 2081,
+          "max_chunk_size": 2081,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 0,
+            "large_chunks": 1
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "service_manual",
+        "confidence": 0.6666666666666666,
+        "all_scores": {
+          "service_manual": 2,
+          "parts_catalog": 1,
+          "technical_bulletin": 0,
+          "cpmd_database": 0
+        }
+      },
+      "recommendations": {
+        "best_strategy": "simple_word_chunking",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'simple_word_chunking' provides optimal chunk distribution",
+          "Average chunk size: 827 words",
+          "Total chunks: 3"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:21:35.764870",
+      "original_file": "../test_documents/Ersatzteilkataloge/KM_C650i.pdf",
+      "manufacturer": "Konica_Minolta",
+      "document_type_category": "parts_catalogs"
+    },
+    "Konica_Minolta_parts_catalogs_KM_DF-632": {
+      "file_info": {
+        "filename": "temp_KM_DF-632.txt",
+        "size_mb": 0.008545875549316406,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:21:35.806581"
+      },
+      "text_analysis": {
+        "total_characters": 7663,
+        "total_words": 1234,
+        "total_sentences": 34,
+        "total_paragraphs": 10
+      },
+      "structure_analysis": {
+        "paragraph_count": 10,
+        "sentence_count": 34,
+        "average_sentence_length": 36.35294117647059,
+        "max_sentence_length": 162,
+        "heading_count": 0,
+        "headings": [],
+        "common_words": [
+          [
+            "1",
+            58
+          ],
+          [
+            "7",
+            43
+          ],
+          [
+            "12",
+            43
+          ],
+          [
+            "11",
+            42
+          ],
+          [
+            "3",
+            41
+          ],
+          [
+            "6",
+            41
+          ],
+          [
+            "2",
+            40
+          ],
+          [
+            "9",
+            36
+          ],
+          [
+            "parts",
+            34
+          ],
+          [
+            "5",
+            33
+          ],
+          [
+            "14",
+            32
+          ],
+          [
+            "10",
+            31
+          ],
+          [
+            "4",
+            26
+          ],
+          [
+            "8",
+            26
+          ],
+          [
+            "13",
+            22
+          ],
+          [
+            "c",
+            20
+          ],
+          [
+            "no",
+            19
+          ],
+          [
+            "15",
+            17
+          ],
+          [
+            "the",
+            14
+          ],
+          [
+            "page",
+            11
+          ]
+        ],
+        "technical_terms": [
+          [
+            "parts",
+            34
+          ],
+          [
+            "manual",
+            7
+          ]
+        ],
+        "text_density": 123.4
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 2,
+          "average_chunk_size": 717.0,
+          "min_chunk_size": 434,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 2,
+          "average_chunk_size": 618.0,
+          "min_chunk_size": 279,
+          "max_chunk_size": 957,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 2,
+          "average_chunk_size": 617.0,
+          "min_chunk_size": 237,
+          "max_chunk_size": 997,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 1,
+          "average_chunk_size": 1234.0,
+          "min_chunk_size": 1234,
+          "max_chunk_size": 1234,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 1,
+            "large_chunks": 0
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "service_manual",
+        "confidence": 0.5,
+        "all_scores": {
+          "service_manual": 3,
+          "parts_catalog": 1,
+          "technical_bulletin": 1,
+          "cpmd_database": 1
+        }
+      },
+      "recommendations": {
+        "best_strategy": "structure_based",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'structure_based' provides optimal chunk distribution",
+          "Average chunk size: 1234 words",
+          "Total chunks: 1"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:21:35.809617",
+      "original_file": "../test_documents/Ersatzteilkataloge/KM_DF-632.pdf",
+      "manufacturer": "Konica_Minolta",
+      "document_type_category": "parts_catalogs"
+    },
+    "Lexmark_service_manuals_Lexmark_MS621_MS622_M3250_SM": {
+      "file_info": {
+        "filename": "temp_Lexmark_MS621_MS622_M3250_SM.txt",
+        "size_mb": 0.03960132598876953,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:21:36.259959"
+      },
+      "text_analysis": {
+        "total_characters": 41324,
+        "total_words": 2089,
+        "total_sentences": 359,
+        "total_paragraphs": 10
+      },
+      "structure_analysis": {
+        "paragraph_count": 10,
+        "sentence_count": 359,
+        "average_sentence_length": 5.835654596100278,
+        "max_sentence_length": 49,
+        "heading_count": 0,
+        "headings": [],
+        "common_words": [
+          [
+            "check",
+            70
+          ],
+          [
+            "service",
+            63
+          ],
+          [
+            "removal",
+            52
+          ],
+          [
+            "the",
+            45
+          ],
+          [
+            "and",
+            31
+          ],
+          [
+            "sensor",
+            31
+          ],
+          [
+            "or",
+            27
+          ],
+          [
+            "jam",
+            27
+          ],
+          [
+            "printer",
+            24
+          ],
+          [
+            "paper",
+            23
+          ],
+          [
+            "messages",
+            23
+          ],
+          [
+            "error",
+            23
+          ],
+          [
+            "to",
+            22
+          ],
+          [
+            "tray",
+            20
+          ],
+          [
+            "edge",
+            17
+          ],
+          [
+            "of",
+            14
+          ],
+          [
+            "errors",
+            14
+          ],
+          [
+            "information",
+            13
+          ],
+          [
+            "at",
+            13
+          ],
+          [
+            "not",
+            12
+          ]
+        ],
+        "technical_terms": [
+          [
+            "service",
+            63
+          ],
+          [
+            "manual",
+            8
+          ],
+          [
+            "lexmark",
+            10
+          ],
+          [
+            "product",
+            6
+          ],
+          [
+            "information",
+            13
+          ],
+          [
+            "implied",
+            6
+          ],
+          [
+            "errors",
+            14
+          ],
+          [
+            "printer",
+            24
+          ],
+          [
+            "paper",
+            23
+          ],
+          [
+            "check",
+            70
+          ],
+          [
+            "using",
+            6
+          ],
+          [
+            "print",
+            10
+          ],
+          [
+            "toner",
+            8
+          ],
+          [
+            "messages",
+            23
+          ],
+          [
+            "sensor",
+            31
+          ],
+          [
+            "input",
+            11
+          ],
+          [
+            "leading",
+            6
+          ],
+          [
+            "trailing",
+            7
+          ],
+          [
+            "optional",
+            10
+          ],
+          [
+            "fuser",
+            6
+          ]
+        ],
+        "text_density": 208.9
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 3,
+          "average_chunk_size": 829.6666666666666,
+          "min_chunk_size": 489,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 3,
+          "average_chunk_size": 698.3333333333334,
+          "min_chunk_size": 98,
+          "max_chunk_size": 999,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 3,
+          "average_chunk_size": 696.3333333333334,
+          "min_chunk_size": 180,
+          "max_chunk_size": 978,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 4,
+          "average_chunk_size": 522.25,
+          "min_chunk_size": 3,
+          "max_chunk_size": 2059,
+          "chunk_size_distribution": {
+            "small_chunks": 3,
+            "medium_chunks": 0,
+            "large_chunks": 1
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "service_manual",
+        "confidence": 0.5714285714285714,
+        "all_scores": {
+          "service_manual": 4,
+          "parts_catalog": 1,
+          "technical_bulletin": 2,
+          "cpmd_database": 0
+        }
+      },
+      "recommendations": {
+        "best_strategy": "simple_word_chunking",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'simple_word_chunking' provides optimal chunk distribution",
+          "Average chunk size: 830 words",
+          "Total chunks: 3"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:21:36.265050",
+      "original_file": "../test_documents/Lexmark_MS621_MS622_M3250_SM.pdf",
+      "manufacturer": "Lexmark",
+      "document_type_category": "service_manuals"
+    },
+    "Lexmark_service_manuals_Lexmark_MB2770_MX72x_MX82x_XM53xx_XM73xx_SM": {
+      "file_info": {
+        "filename": "temp_Lexmark_MB2770_MX72x_MX82x_XM53xx_XM73xx_SM.txt",
+        "size_mb": 0.021500587463378906,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:21:37.756105"
+      },
+      "text_analysis": {
+        "total_characters": 22154,
+        "total_words": 1710,
+        "total_sentences": 179,
+        "total_paragraphs": 10
+      },
+      "structure_analysis": {
+        "paragraph_count": 10,
+        "sentence_count": 179,
+        "average_sentence_length": 9.223463687150838,
+        "max_sentence_length": 101,
+        "heading_count": 0,
+        "headings": [],
+        "common_words": [
+          [
+            "and",
+            34
+          ],
+          [
+            "lexmark",
+            31
+          ],
+          [
+            "the",
+            30
+          ],
+          [
+            "printer",
+            22
+          ],
+          [
+            "1",
+            22
+          ],
+          [
+            "de",
+            22
+          ],
+          [
+            "i",
+            20
+          ],
+          [
+            "a",
+            19
+          ],
+          [
+            "of",
+            18
+          ],
+          [
+            "laser",
+            17
+          ],
+          [
+            "2",
+            16
+          ],
+          [
+            "or",
+            16
+          ],
+          [
+            "to",
+            15
+          ],
+          [
+            "tray",
+            15
+          ],
+          [
+            "staple",
+            15
+          ],
+          [
+            "finisher",
+            15
+          ],
+          [
+            "optional",
+            14
+          ],
+          [
+            "sheet",
+            14
+          ],
+          [
+            "service",
+            13
+          ],
+          [
+            "in",
+            13
+          ]
+        ],
+        "technical_terms": [
+          [
+            "service",
+            13
+          ],
+          [
+            "manual",
+            6
+          ],
+          [
+            "lexmark",
+            31
+          ],
+          [
+            "product",
+            8
+          ],
+          [
+            "information",
+            12
+          ],
+          [
+            "products",
+            6
+          ],
+          [
+            "operation",
+            11
+          ],
+          [
+            "printer",
+            22
+          ],
+          [
+            "conventions",
+            6
+          ],
+          [
+            "laser",
+            17
+          ],
+          [
+            "optional",
+            14
+          ],
+          [
+            "removals",
+            12
+          ],
+          [
+            "flatbed",
+            7
+          ],
+          [
+            "sheet",
+            14
+          ],
+          [
+            "staple",
+            15
+          ],
+          [
+            "finisher",
+            15
+          ],
+          [
+            "offset",
+            6
+          ],
+          [
+            "stacker",
+            6
+          ],
+          [
+            "mailbox",
+            6
+          ],
+          [
+            "punch",
+            8
+          ]
+        ],
+        "text_density": 171.0
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 3,
+          "average_chunk_size": 673.3333333333334,
+          "min_chunk_size": 110,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 2,
+          "average_chunk_size": 825.5,
+          "min_chunk_size": 654,
+          "max_chunk_size": 997,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 2,
+          "average_chunk_size": 855.0,
+          "min_chunk_size": 803,
+          "max_chunk_size": 907,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 5,
+          "average_chunk_size": 342.0,
+          "min_chunk_size": 4,
+          "max_chunk_size": 1601,
+          "chunk_size_distribution": {
+            "small_chunks": 4,
+            "medium_chunks": 0,
+            "large_chunks": 1
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "service_manual",
+        "confidence": 0.625,
+        "all_scores": {
+          "service_manual": 5,
+          "parts_catalog": 1,
+          "technical_bulletin": 2,
+          "cpmd_database": 0
+        }
+      },
+      "recommendations": {
+        "best_strategy": "sentence_based",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'sentence_based' provides optimal chunk distribution",
+          "Average chunk size: 826 words",
+          "Total chunks: 2"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:21:37.760224",
+      "original_file": "../test_documents/Lexmark_MB2770_MX72x_MX82x_XM53xx_XM73xx_SM.pdf",
+      "manufacturer": "Lexmark",
+      "document_type_category": "service_manuals"
+    },
+    "Lexmark_service_manuals_Lexmark_CS73x_C43x_SM": {
+      "file_info": {
+        "filename": "temp_Lexmark_CS73x_C43x_SM.txt",
+        "size_mb": 0.01941680908203125,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:21:38.638160"
+      },
+      "text_analysis": {
+        "total_characters": 20056,
+        "total_words": 1966,
+        "total_sentences": 163,
+        "total_paragraphs": 10
+      },
+      "structure_analysis": {
+        "paragraph_count": 10,
+        "sentence_count": 163,
+        "average_sentence_length": 11.957055214723926,
+        "max_sentence_length": 48,
+        "heading_count": 0,
+        "headings": [],
+        "common_words": [
+          [
+            "the",
+            60
+          ],
+          [
+            "de",
+            55
+          ],
+          [
+            "of",
+            39
+          ],
+          [
+            "a",
+            32
+          ],
+          [
+            "and",
+            30
+          ],
+          [
+            "or",
+            29
+          ],
+          [
+            "to",
+            26
+          ],
+          [
+            "printer",
+            26
+          ],
+          [
+            "product",
+            21
+          ],
+          [
+            "is",
+            21
+          ],
+          [
+            "in",
+            20
+          ],
+          [
+            "d",
+            19
+          ],
+          [
+            "not",
+            18
+          ],
+          [
+            "this",
+            18
+          ],
+          [
+            "caution",
+            17
+          ],
+          [
+            "information",
+            16
+          ],
+          [
+            "la",
+            15
+          ],
+          [
+            "et",
+            15
+          ],
+          [
+            "risque",
+            15
+          ],
+          [
+            "service",
+            13
+          ]
+        ],
+        "technical_terms": [
+          [
+            "service",
+            13
+          ],
+          [
+            "lexmark",
+            12
+          ],
+          [
+            "product",
+            21
+          ],
+          [
+            "information",
+            16
+          ],
+          [
+            "implied",
+            6
+          ],
+          [
+            "products",
+            6
+          ],
+          [
+            "printer",
+            26
+          ],
+          [
+            "notices",
+            6
+          ],
+          [
+            "conventions",
+            8
+          ],
+          [
+            "safety",
+            10
+          ],
+          [
+            "laser",
+            10
+          ],
+          [
+            "removals",
+            7
+          ],
+          [
+            "maintenance",
+            8
+          ],
+          [
+            "electrical",
+            6
+          ],
+          [
+            "power",
+            8
+          ],
+          [
+            "caution",
+            17
+          ],
+          [
+            "indicates",
+            6
+          ],
+          [
+            "potential",
+            8
+          ],
+          [
+            "injury",
+            10
+          ],
+          [
+            "shock",
+            6
+          ]
+        ],
+        "text_density": 196.6
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 3,
+          "average_chunk_size": 788.6666666666666,
+          "min_chunk_size": 366,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 2,
+          "average_chunk_size": 974.5,
+          "min_chunk_size": 962,
+          "max_chunk_size": 987,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 3,
+          "average_chunk_size": 655.3333333333334,
+          "min_chunk_size": 320,
+          "max_chunk_size": 959,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 5,
+          "average_chunk_size": 393.2,
+          "min_chunk_size": 3,
+          "max_chunk_size": 1059,
+          "chunk_size_distribution": {
+            "small_chunks": 3,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "service_manual",
+        "confidence": 0.6666666666666666,
+        "all_scores": {
+          "service_manual": 6,
+          "parts_catalog": 1,
+          "technical_bulletin": 2,
+          "cpmd_database": 0
+        }
+      },
+      "recommendations": {
+        "best_strategy": "sentence_based",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'sentence_based' provides optimal chunk distribution",
+          "Average chunk size: 974 words",
+          "Total chunks: 2"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:21:38.641736",
+      "original_file": "../test_documents/Lexmark_CS73x_C43x_SM.pdf",
+      "manufacturer": "Lexmark",
+      "document_type_category": "service_manuals"
+    },
+    "Lexmark_parts_catalogs_Lexmark_CX825_CX860_XC8155_XC8160": {
+      "file_info": {
+        "filename": "temp_Lexmark_CX825_CX860_XC8155_XC8160.txt",
+        "size_mb": 0.04273223876953125,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:21:38.857600"
+      },
+      "text_analysis": {
+        "total_characters": 44338,
+        "total_words": 2582,
+        "total_sentences": 381,
+        "total_paragraphs": 10
+      },
+      "structure_analysis": {
+        "paragraph_count": 10,
+        "sentence_count": 381,
+        "average_sentence_length": 6.939632545931759,
+        "max_sentence_length": 48,
+        "heading_count": 0,
+        "headings": [],
+        "common_words": [
+          [
+            "check",
+            192
+          ],
+          [
+            "service",
+            176
+          ],
+          [
+            "paper",
+            133
+          ],
+          [
+            "jam",
+            97
+          ],
+          [
+            "sensor",
+            83
+          ],
+          [
+            "to",
+            52
+          ],
+          [
+            "failed",
+            42
+          ],
+          [
+            "messages",
+            40
+          ],
+          [
+            "tray",
+            35
+          ],
+          [
+            "the",
+            34
+          ],
+          [
+            "jams",
+            29
+          ],
+          [
+            "or",
+            26
+          ],
+          [
+            "in",
+            24
+          ],
+          [
+            "pass",
+            23
+          ],
+          [
+            "through",
+            23
+          ],
+          [
+            "adf",
+            22
+          ],
+          [
+            "failure",
+            21
+          ],
+          [
+            "motor",
+            20
+          ],
+          [
+            "too",
+            19
+          ],
+          [
+            "early",
+            19
+          ]
+        ],
+        "technical_terms": [
+          [
+            "service",
+            176
+          ],
+          [
+            "manual",
+            8
+          ],
+          [
+            "lexmark",
+            7
+          ],
+          [
+            "product",
+            6
+          ],
+          [
+            "information",
+            6
+          ],
+          [
+            "errors",
+            12
+          ],
+          [
+            "printer",
+            11
+          ],
+          [
+            "laser",
+            6
+          ],
+          [
+            "mshpf",
+            10
+          ],
+          [
+            "paper",
+            133
+          ],
+          [
+            "supported",
+            6
+          ],
+          [
+            "using",
+            11
+          ],
+          [
+            "check",
+            192
+          ],
+          [
+            "print",
+            8
+          ],
+          [
+            "finisher",
+            11
+          ],
+          [
+            "staple",
+            15
+          ],
+          [
+            "messages",
+            40
+          ],
+          [
+            "sensor",
+            83
+          ],
+          [
+            "input",
+            13
+          ],
+          [
+            "arrived",
+            9
+          ]
+        ],
+        "text_density": 258.2
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 4,
+          "average_chunk_size": 791.0,
+          "min_chunk_size": 182,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 3,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 3,
+          "average_chunk_size": 881.3333333333334,
+          "min_chunk_size": 646,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 3,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 3,
+          "average_chunk_size": 860.6666666666666,
+          "min_chunk_size": 755,
+          "max_chunk_size": 993,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 3,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 4,
+          "average_chunk_size": 645.5,
+          "min_chunk_size": 3,
+          "max_chunk_size": 2556,
+          "chunk_size_distribution": {
+            "small_chunks": 3,
+            "medium_chunks": 0,
+            "large_chunks": 1
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "service_manual",
+        "confidence": 0.7142857142857143,
+        "all_scores": {
+          "service_manual": 5,
+          "parts_catalog": 0,
+          "technical_bulletin": 1,
+          "cpmd_database": 1
+        }
+      },
+      "recommendations": {
+        "best_strategy": "sentence_based",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'sentence_based' provides optimal chunk distribution",
+          "Average chunk size: 881 words",
+          "Total chunks: 3"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:21:38.862877",
+      "original_file": "../test_documents/Lexmark_CX825_CX860_XC8155_XC8160.pdf",
+      "manufacturer": "Lexmark",
+      "document_type_category": "parts_catalogs"
+    },
+    "Lexmark_parts_catalogs_Lexmark_XC43xx_CX73x": {
+      "file_info": {
+        "filename": "temp_Lexmark_XC43xx_CX73x.txt",
+        "size_mb": 0.0193939208984375,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:21:39.915919"
+      },
+      "text_analysis": {
+        "total_characters": 20171,
+        "total_words": 1910,
+        "total_sentences": 167,
+        "total_paragraphs": 10
+      },
+      "structure_analysis": {
+        "paragraph_count": 10,
+        "sentence_count": 167,
+        "average_sentence_length": 11.323353293413174,
+        "max_sentence_length": 48,
+        "heading_count": 0,
+        "headings": [],
+        "common_words": [
+          [
+            "the",
+            57
+          ],
+          [
+            "de",
+            57
+          ],
+          [
+            "of",
+            34
+          ],
+          [
+            "and",
+            33
+          ],
+          [
+            "a",
+            29
+          ],
+          [
+            "or",
+            25
+          ],
+          [
+            "printer",
+            25
+          ],
+          [
+            "to",
+            23
+          ],
+          [
+            "product",
+            20
+          ],
+          [
+            "is",
+            19
+          ],
+          [
+            "in",
+            18
+          ],
+          [
+            "d",
+            18
+          ],
+          [
+            "information",
+            16
+          ],
+          [
+            "caution",
+            16
+          ],
+          [
+            "la",
+            16
+          ],
+          [
+            "this",
+            15
+          ],
+          [
+            "service",
+            13
+          ],
+          [
+            "not",
+            13
+          ],
+          [
+            "et",
+            13
+          ],
+          [
+            "risque",
+            13
+          ]
+        ],
+        "technical_terms": [
+          [
+            "service",
+            13
+          ],
+          [
+            "lexmark",
+            12
+          ],
+          [
+            "product",
+            20
+          ],
+          [
+            "information",
+            16
+          ],
+          [
+            "products",
+            6
+          ],
+          [
+            "printer",
+            25
+          ],
+          [
+            "notices",
+            6
+          ],
+          [
+            "conventions",
+            8
+          ],
+          [
+            "safety",
+            10
+          ],
+          [
+            "laser",
+            10
+          ],
+          [
+            "removals",
+            8
+          ],
+          [
+            "maintenance",
+            8
+          ],
+          [
+            "electrical",
+            6
+          ],
+          [
+            "power",
+            8
+          ],
+          [
+            "caution",
+            16
+          ],
+          [
+            "indicates",
+            6
+          ],
+          [
+            "potential",
+            7
+          ],
+          [
+            "injury",
+            9
+          ],
+          [
+            "shock",
+            6
+          ],
+          [
+            "lithium",
+            7
+          ]
+        ],
+        "text_density": 191.0
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 3,
+          "average_chunk_size": 770.0,
+          "min_chunk_size": 310,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 2,
+          "average_chunk_size": 945.5,
+          "min_chunk_size": 892,
+          "max_chunk_size": 999,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 2,
+          "average_chunk_size": 955.0,
+          "min_chunk_size": 918,
+          "max_chunk_size": 992,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 5,
+          "average_chunk_size": 382.0,
+          "min_chunk_size": 3,
+          "max_chunk_size": 1044,
+          "chunk_size_distribution": {
+            "small_chunks": 3,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "service_manual",
+        "confidence": 0.6666666666666666,
+        "all_scores": {
+          "service_manual": 6,
+          "parts_catalog": 1,
+          "technical_bulletin": 2,
+          "cpmd_database": 0
+        }
+      },
+      "recommendations": {
+        "best_strategy": "sentence_based",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'sentence_based' provides optimal chunk distribution",
+          "Average chunk size: 946 words",
+          "Total chunks: 2"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:21:39.919901",
+      "original_file": "../test_documents/Lexmark_XC43xx_CX73x.pdf",
+      "manufacturer": "Lexmark",
+      "document_type_category": "parts_catalogs"
+    },
+    "UTAX_service_manuals_UTAX_2508ci_3508ci_SM": {
+      "file_info": {
+        "filename": "temp_UTAX_2508ci_3508ci_SM.txt",
+        "size_mb": 0.015246391296386719,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:21:40.301306"
+      },
+      "text_analysis": {
+        "total_characters": 15908,
+        "total_words": 2392,
+        "total_sentences": 92,
+        "total_paragraphs": 10
+      },
+      "structure_analysis": {
+        "paragraph_count": 10,
+        "sentence_count": 92,
+        "average_sentence_length": 26.08695652173913,
+        "max_sentence_length": 515,
+        "heading_count": 0,
+        "headings": [],
+        "common_words": [
+          [
+            "the",
+            162
+          ],
+          [
+            "page",
+            135
+          ],
+          [
+            "correction",
+            108
+          ],
+          [
+            "7",
+            96
+          ],
+          [
+            "contents",
+            75
+          ],
+          [
+            "change",
+            55
+          ],
+          [
+            "to",
+            37
+          ],
+          [
+            "step",
+            37
+          ],
+          [
+            "4",
+            37
+          ],
+          [
+            "6",
+            35
+          ],
+          [
+            "of",
+            33
+          ],
+          [
+            "2",
+            30
+          ],
+          [
+            "or",
+            28
+          ],
+          [
+            "1",
+            25
+          ],
+          [
+            "and",
+            25
+          ],
+          [
+            "for",
+            22
+          ],
+          [
+            "add",
+            21
+          ],
+          [
+            "addition",
+            20
+          ],
+          [
+            "delete",
+            18
+          ],
+          [
+            "print",
+            16
+          ]
+        ],
+        "technical_terms": [
+          [
+            "service",
+            8
+          ],
+          [
+            "manual",
+            6
+          ],
+          [
+            "confidential",
+            8
+          ],
+          [
+            "caution",
+            8
+          ],
+          [
+            "check",
+            8
+          ],
+          [
+            "attention",
+            7
+          ],
+          [
+            "print",
+            16
+          ],
+          [
+            "revision",
+            6
+          ],
+          [
+            "revised",
+            6
+          ],
+          [
+            "contents",
+            75
+          ],
+          [
+            "delete",
+            18
+          ],
+          [
+            "correction",
+            108
+          ],
+          [
+            "engine",
+            6
+          ],
+          [
+            "change",
+            55
+          ],
+          [
+            "related",
+            6
+          ],
+          [
+            "addition",
+            20
+          ],
+          [
+            "steps",
+            7
+          ],
+          [
+            "correct",
+            8
+          ],
+          [
+            "maintenance",
+            6
+          ],
+          [
+            "adding",
+            6
+          ]
+        ],
+        "text_density": 239.2
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 3,
+          "average_chunk_size": 930.6666666666666,
+          "min_chunk_size": 792,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 3,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 3,
+          "average_chunk_size": 800.0,
+          "min_chunk_size": 535,
+          "max_chunk_size": 994,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 3,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 3,
+          "average_chunk_size": 797.3333333333334,
+          "min_chunk_size": 760,
+          "max_chunk_size": 847,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 3,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 4,
+          "average_chunk_size": 598.0,
+          "min_chunk_size": 73,
+          "max_chunk_size": 1743,
+          "chunk_size_distribution": {
+            "small_chunks": 3,
+            "medium_chunks": 0,
+            "large_chunks": 1
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "service_manual",
+        "confidence": 0.75,
+        "all_scores": {
+          "service_manual": 6,
+          "parts_catalog": 0,
+          "technical_bulletin": 2,
+          "cpmd_database": 0
+        }
+      },
+      "recommendations": {
+        "best_strategy": "simple_word_chunking",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'simple_word_chunking' provides optimal chunk distribution",
+          "Average chunk size: 931 words",
+          "Total chunks: 3"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:21:40.305053",
+      "original_file": "../test_documents/UTAX_2508ci_3508ci_SM.pdf",
+      "manufacturer": "UTAX",
+      "document_type_category": "service_manuals"
+    },
+    "UTAX_service_manuals_UTAX_5058i_6058i_7058i_SM": {
+      "file_info": {
+        "filename": "temp_UTAX_5058i_6058i_7058i_SM.txt",
+        "size_mb": 0.016463279724121094,
+        "extension": ".txt",
+        "created_at": "2025-09-24T21:21:40.824520"
+      },
+      "text_analysis": {
+        "total_characters": 17139,
+        "total_words": 2486,
+        "total_sentences": 111,
+        "total_paragraphs": 10
+      },
+      "structure_analysis": {
+        "paragraph_count": 10,
+        "sentence_count": 111,
+        "average_sentence_length": 22.52252252252252,
+        "max_sentence_length": 810,
+        "heading_count": 0,
+        "headings": [],
+        "common_words": [
+          [
+            "the",
+            118
+          ],
+          [
+            "correction",
+            82
+          ],
+          [
+            "to",
+            46
+          ],
+          [
+            "and",
+            45
+          ],
+          [
+            "parts",
+            42
+          ],
+          [
+            "4",
+            39
+          ],
+          [
+            "of",
+            38
+          ],
+          [
+            "or",
+            36
+          ],
+          [
+            "6",
+            30
+          ],
+          [
+            "7",
+            30
+          ],
+          [
+            "number",
+            27
+          ],
+          [
+            "addition",
+            25
+          ],
+          [
+            "df",
+            22
+          ],
+          [
+            "for",
+            20
+          ],
+          [
+            "1",
+            20
+          ],
+          [
+            "a",
+            20
+          ],
+          [
+            "pwb",
+            19
+          ],
+          [
+            "name",
+            19
+          ],
+          [
+            "add",
+            18
+          ],
+          [
+            "9",
+            17
+          ]
+        ],
+        "technical_terms": [
+          [
+            "service",
+            8
+          ],
+          [
+            "contents",
+            15
+          ],
+          [
+            "correction",
+            82
+          ],
+          [
+            "delete",
+            16
+          ],
+          [
+            "description",
+            10
+          ],
+          [
+            "addition",
+            25
+          ],
+          [
+            "parts",
+            42
+          ],
+          [
+            "number",
+            27
+          ],
+          [
+            "connector",
+            7
+          ],
+          [
+            "installation",
+            6
+          ],
+          [
+            "procedure",
+            6
+          ],
+          [
+            "power",
+            11
+          ],
+          [
+            "toner",
+            7
+          ],
+          [
+            "other",
+            9
+          ],
+          [
+            "section",
+            15
+          ],
+          [
+            "primary",
+            6
+          ],
+          [
+            "transfer",
+            10
+          ],
+          [
+            "correct",
+            14
+          ],
+          [
+            "convey",
+            10
+          ],
+          [
+            "sensors",
+            6
+          ]
+        ],
+        "text_density": 248.6
+      },
+      "chunking_results": {
+        "simple_word_chunking": {
+          "chunk_count": 4,
+          "average_chunk_size": 743.0,
+          "min_chunk_size": 86,
+          "max_chunk_size": 1000,
+          "chunk_size_distribution": {
+            "small_chunks": 1,
+            "medium_chunks": 3,
+            "large_chunks": 0
+          }
+        },
+        "sentence_based": {
+          "chunk_count": 3,
+          "average_chunk_size": 833.3333333333334,
+          "min_chunk_size": 562,
+          "max_chunk_size": 995,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 3,
+            "large_chunks": 0
+          }
+        },
+        "paragraph_based": {
+          "chunk_count": 3,
+          "average_chunk_size": 828.6666666666666,
+          "min_chunk_size": 683,
+          "max_chunk_size": 998,
+          "chunk_size_distribution": {
+            "small_chunks": 0,
+            "medium_chunks": 3,
+            "large_chunks": 0
+          }
+        },
+        "structure_based": {
+          "chunk_count": 8,
+          "average_chunk_size": 310.75,
+          "min_chunk_size": 22,
+          "max_chunk_size": 952,
+          "chunk_size_distribution": {
+            "small_chunks": 6,
+            "medium_chunks": 2,
+            "large_chunks": 0
+          }
+        }
+      },
+      "document_type": {
+        "detected_type": "service_manual",
+        "confidence": 0.6,
+        "all_scores": {
+          "service_manual": 6,
+          "parts_catalog": 2,
+          "technical_bulletin": 2,
+          "cpmd_database": 0
+        }
+      },
+      "recommendations": {
+        "best_strategy": "paragraph_based",
+        "optimal_chunk_size": 1000,
+        "reasoning": [
+          "Strategy 'paragraph_based' provides optimal chunk distribution",
+          "Average chunk size: 829 words",
+          "Total chunks: 3"
+        ]
+      },
+      "analysis_timestamp": "2025-09-24T19:21:40.828698",
+      "original_file": "../test_documents/UTAX_5058i_6058i_7058i_SM.pdf",
+      "manufacturer": "UTAX",
+      "document_type_category": "service_manuals"
+    }
+  }
+}

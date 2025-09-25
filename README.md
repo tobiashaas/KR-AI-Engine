@@ -1,370 +1,224 @@
-# 🎯 KRAI Engine - Knowledge Retrieval AI System
+# KRAI Engine - AI-Powered Document Processing System
 
-**Enterprise-Grade Multi-Manufacturer Service Documentation Processing Platform**
+## 🚀 **Overview**
 
-[![Database](https://img.shields.io/badge/Database-Supabase%20PostgreSQL-blue)](https://supabase.com/)
-[![Backend](https://img.shields.io/badge/Backend-Python%20FastAPI-green)](https://fastapi.tiangolo.com/)
-[![Frontend](https://img.shields.io/badge/Frontend-Laravel%20Filament-red)](https://filamentphp.com/)
-[![AI](https://img.shields.io/badge/AI-Vector%20Search%20%2B%20LLM-purple)](https://github.com/tobiashaas/KR-AI-Engine)
-[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)](https://github.com/tobiashaas/KR-AI-Engine)
+KRAI Engine is a comprehensive AI-powered document processing system designed for technical service environments, specifically optimized for printer manufacturers. The system provides intelligent document classification, content extraction, and AI-powered analysis using state-of-the-art machine learning models.
 
-## 🚀 Overview
+## ✨ **Key Features**
 
-KRAI Engine is a production-ready AI-powered document processing system designed for technical service environments across **all major printer manufacturers** (HP, Canon, Epson, Brother, Xerox, etc.). It provides intelligent service manual analysis, error code extraction, parts catalog processing, and **image-based print quality defect analysis** for comprehensive service support.
+- **🤖 Multi-Model AI Integration**: LLM (Llama3.2), Embedding (EmbeddingGemma), Vision (LLaVA)
+- **📄 Intelligent Document Processing**: PDF text extraction, image OCR, content analysis
+- **🔍 Advanced Classification**: Hybrid filename + content-based document categorization
+- **🧠 Smart Chunking**: Contextual chunking optimized for technical documents
+- **📊 Vector Search**: Semantic search using 768D embeddings
+- **🖼️ Image Analysis**: Computer vision for defect detection and diagram analysis
+- **⚡ High Performance**: GPU/NPU acceleration with Apple Metal Performance Shaders
+- **🗄️ Scalable Database**: PostgreSQL with pgvector for vector operations
+- **☁️ Cloud Storage**: Supabase integration for document and image storage
 
-### ✨ Key Features
+## 🏗️ **Architecture**
 
-- **🏭 Multi-Manufacturer Support** - HP, Canon, Epson, Brother, Xerox and more
-- **📖 Universal Document Processing** - Service manuals, parts catalogs, CPMD databases
-- **🔍 Vector Similarity Search** - pgvector-powered semantic search across all documentation
-- **🖼️ Print Quality Analysis** - AI-powered defect detection from technician photos
-- **⚙️ Option Validation** - Complex equipment configuration validation
-- **📊 Performance Optimized** - Sub-150ms query performance with specialized indexes
-- **🔄 Real-time Processing** - Async document ingestion and processing pipeline
-- **🎯 Manufacturer-Agnostic** - Universal error code and parts lookup system
-- **📈 Enterprise Scale** - Optimized for 10,000+ documents and multi-brand service workflows
+### **Backend (Python FastAPI)**
+- **Production API**: `backend/production_main.py`
+- **Document Processor**: `backend/production_document_processor.py`
+- **Configuration**: JSON-based patterns for error codes, chunking, versions
+- **Database**: PostgreSQL with optimized schema (16 tables)
+- **Storage**: Supabase for documents and images
 
-## 📊 Architecture
+### **Database Schema**
+- **krai_core**: Documents, manufacturers, products
+- **krai_intelligence**: Chunks, embeddings, search cache
+- **krai_content**: Images, metadata, analysis results
+- **krai_config**: Patterns, settings, configurations
+- **krai_system**: Performance, monitoring, statistics
 
-```
-┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-│   Frontend      │    │    Backend       │    │   Database      │
-│   (Laravel)     │◄──►│   (FastAPI)      │◄──►│ (PostgreSQL)    │
-│ - Upload UI     │    │ - PDF Parser     │    │ - Vector Storage│
-│ - Search UI     │    │ - Image Analysis │    │ - 16 Tables     │
-│ - Admin Panel   │    │ - Error Codes    │    │ - Multi-Mfg     │
-│ - Photo Upload  │    │ - Print Quality  │    │ - Optimized     │
-└─────────────────┘    └──────────────────┘    └─────────────────┘
-```
+### **AI/ML Stack**
+- **Ollama**: Local AI models (Llama3.2, EmbeddingGemma, LLaVA)
+- **Embeddings**: 768D vectors for semantic search
+- **Vision AI**: Defect detection, diagram analysis
+- **GPU Acceleration**: Apple M1 Pro (MPS) support
 
-## 🗃️ Database Schema (20+ Tables across 5 Schemas)
+## 🚀 **Quick Start**
 
-### **🏗️ KRAI_CORE** - Core Business Data
-- **`manufacturers`** - All printer manufacturers (HP, Canon, Epson, Brother, etc.)
-- **`products`** - Product hierarchy across all brands (Series → Model → Options)
-- **`documents`** - Service manuals, parts catalogs, CPMD databases (HP), technical bulletins, user manuals
-- **`document_relationships`** - Intelligent document pairing and cross-references
+### **Prerequisites**
+- Python 3.12+
+- Docker & Docker Compose
+- Ollama (for AI models)
+- Supabase (local or cloud)
 
-### **🧠 KRAI_INTELLIGENCE** - AI & Intelligence
-- **`chunks`** - Semantic text chunks with embeddings for universal search
-- **`embeddings`** - Vector embeddings (768D) with HNSW indexing
-- **`error_codes`** - Error codes from all manufacturers with solutions
-- **`search_analytics`** - Search performance tracking and optimization
+### **Installation**
 
-### **🎥 KRAI_CONTENT** - Content & Media
-- **`images`** - Technical images, schematics, diagrams
-- **`instructional_videos`** - Video tutorials and repair guides
-- **`print_defects`** - AI-analyzed print quality issues
-- **`defect_patterns`** - Training data for defect classification
-
-### **⚙️ KRAI_CONFIG** - Configuration & Rules
-- **`product_compatibility`** - Option compatibility matrix
-- **`option_groups`** - Option group rules (exclusive/required)
-- **`competitive_features`** - Feature definitions
-- **`product_features`** - Product feature values
-
-### **🔧 KRAI_SYSTEM** - System Operations
-- **`processing_queue`** - Background processing jobs
-- **`performance_metrics`** - System performance monitoring
-- **`audit_log`** - Audit trail and compliance
-- **`system_health`** - Health monitoring and alerts
-
-### Advanced Business Logic Tables
-
-- **`product_compatibility`** - Equipment option validation across manufacturers
-- **`option_groups`** - Mutual exclusion groups and installation rules
-- **`competitive_features`** - Cross-manufacturer feature comparison framework
-- **`product_features`** - Detailed technical specifications and capabilities
-
-### Image Analysis & Print Quality Tables
-
-- **`print_defects`** - Image-based defect analysis and pattern recognition
-- **`defect_patterns`** - AI training data for print quality assessment
-- **`quality_metrics`** - Print quality standards and thresholds
-- **`technician_uploads`** - Photo uploads with AI analysis results
-
-### Additional System Tables
-
-- **`performance_metrics`** - Query performance tracking
-- **`search_logs`** - User search analytics across all manufacturers
-- **`processing_jobs`** - Document and image processing queue
-- **`user_sessions`** - Technician session management
-- **`api_rate_limits`** - API usage tracking
-- **`system_health`** - Real-time system monitoring
-
-### 🚀 Performance Features
-
-- **Sub-150ms** average query performance (tested in production)
-- **Specialized HP indexes** for error code and model lookups
-- **GIN indexes** for full-text search across service manuals
-- **HNSW indexes** for vector similarity search (ready for embeddings)
-- **Optimized JOINs** for CPMD + Manual pairing queries
-
-## 🏁 Quick Start
-
-### 1. Database Setup (8-Step Migration System)
-
+1. **Clone Repository**
 ```bash
-# Clone repository
-git clone https://github.com/tobiashaas/KR-AI-Engine.git
+git clone https://github.com/your-username/KR-AI-Engine.git
 cd KR-AI-Engine
-
-# Setup environment
-cp .env.example .env
-# Edit .env with your database credentials
-
-# Run 8-step migration (automated & tested)
-cd database_migrations/STEP_BY_STEP
-psql -h <host> -U postgres -d <database> -f 01_core_schema_extensions.sql
-psql -h <host> -U postgres -d <database> -f 02_performance_intelligence.sql
-psql -h <host> -U postgres -d <database> -f 03_management_relationships.sql
-psql -h <host> -U postgres -d <database> -f 04_analytics_competitive.sql
-psql -h <host> -U postgres -d <database> -f 05_functions_triggers.sql
-psql -h <host> -U postgres -d <database> -f 06_security_rls_policies.sql
-psql -h <host> -U postgres -d <database> -f 07_sample_data_validation.sql
-psql -h <host> -U postgres -d <database> -f 08_print_quality_analysis.sql
 ```
 
-### 2. Backend Setup
-
+2. **Setup Environment**
 ```bash
 cd backend
-python -m venv .venv
-source .venv/bin/activate  # Linux/Mac
-# .\\.venv\\Scripts\\activate  # Windows
 pip install -r requirements.txt
-
-# Start Multi-Manufacturer Processing API
-uvicorn app:app --reload --port 8001
 ```
 
-### 3. Frontend Setup
-
+3. **Configure Database**
 ```bash
-cd dashboard
-composer install
-npm install && npm run build
+# Local Supabase
+supabase start
 
-# Setup Laravel for Service Interface
-cp .env.example .env
-php artisan key:generate
-php artisan serve --port 8002
+# Or use existing PostgreSQL
+export POSTGRES_HOST=localhost
+export POSTGRES_PORT=5432
+export POSTGRES_DB=krai_engine
+export POSTGRES_USER=postgres
+export POSTGRES_PASSWORD=your_password
 ```
 
-## 📈 Performance Benchmarks (Production Environment)
-
-| Operation | Performance | Status | Description |
-|-----------|-------------|--------|-------------|
-| **Error Code Lookup** | <145ms avg | ✅ Excellent | Multi-manufacturer error resolution |
-| **Product Hierarchy** | <125ms avg | ✅ Excellent | Cross-brand product navigation |
-| **Document Search** | <83ms avg | 🚀 Outstanding | Universal semantic search |
-| **Image Analysis** | <2s avg | ✅ Very Good | Print defect detection |
-| **Option Validation** | <200ms avg | ✅ Good | Complex configuration rules |
-
-## 🧠 Multi-Manufacturer AI Capabilities
-
-### Universal Document Processing
-
-- **PDF Processing** - Service manuals and parts catalogs from all manufacturers
-- **Error Code Extraction** - Pattern recognition for HP, Canon, Epson, Brother formats
-- **Solution Mapping** - Step-by-step troubleshooting procedures
-- **Parts Integration** - Automatic part number extraction and cross-referencing
-
-### Intelligent Document Analysis
-
-- **Auto-Pairing** - Intelligent service manual + parts catalog relationships
-- **Semantic Chunking** - Context-aware text segmentation for all documentation
-- **Cross-Reference** - Automatic error code to manual section mapping
-- **Multi-format Support** - PDF, XML, images, and structured text processing
-
-### 🖼️ Print Quality Defect Analysis (NEW!)
-
-- **AI Image Recognition** - Automated print defect detection from technician photos
-- **Defect Classification** - Banding, streaking, color issues, registration problems
-- **Solution Recommendation** - AI-powered repair suggestions based on defect patterns
-- **Training Dataset** - Continuously improving with technician feedback
-- **Visual Documentation** - Before/after photo tracking for service history
-
-### Universal Equipment Validation
-
-- **Option Compatibility** - Configuration validation across all manufacturer systems
-- **Dependency Checking** - Required option validation for complex equipment
-- **Conflict Detection** - Mutual exclusion validation across product lines
-- **Installation Guidance** - Correct installation sequence recommendations
-
-### Advanced Search & Retrieval
-
-- **Universal Error Code Search** - Fuzzy matching across all manufacturer formats
-- **Contextual Ranking** - Manufacturer-agnostic relevance scoring
-- **Multi-document Search** - Search across manuals + catalogs + defect database
-- **Technician-Optimized Results** - Service workflow optimization for all brands
-
-## 🔧 Development
-
-### Project Structure
-
-```text
-KRAI-Engine/
-├── 📁 backend/                    # Python FastAPI HP processing engine
-├── 📁 dashboard/                  # Laravel Filament HP service interface  
-├── 📁 database_migrations/        # 7-step migration system
-│   └── 📁 STEP_BY_STEP/          # Sequential SQL migration files
-├── 📁 database_export/           # Legacy database files
-├── 📁 docker/                    # Container configuration
-├── 📁 instructions/              # HP-specific documentation
-│   ├── document_version_form_examples.md
-│   └── VERSION_MANAGEMENT.md
-├── 📁 scripts/                   # Database testing and utilities
-├── 📁 ollama/                    # Local LLM configuration
-├── .env                          # Environment configuration
-├── .env.example                  # Environment template
-├── COMPLETE_DATABASE_DOCUMENTATION.md  # Full DB reference
-└── LLM_INSTRUCTIONS.md          # AI system instructions
-```
-
-## Environment Variables
-
+4. **Setup AI Models**
 ```bash
-# Database Configuration
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-SUPABASE_ANON_KEY=your-anon-key
-
-# Storage Configuration (S3/R2/Local)
-STORAGE_PROVIDER=supabase  # supabase|s3|r2|local
-STORAGE_BUCKET=krai-documents
-AWS_ACCESS_KEY_ID=your-aws-key  # for S3/R2
-AWS_SECRET_ACCESS_KEY=your-aws-secret
-R2_ACCOUNT_ID=your-r2-account  # for Cloudflare R2
-
-# AI Configuration  
-EMBEDDING_MODEL=text-embedding-3-small
-EMBEDDING_DIMENSIONS=1536
-MAX_CHUNK_SIZE=1000
-SIMILARITY_THRESHOLD=0.7
-
-# Multi-Manufacturer Settings
-SUPPORTED_MANUFACTURERS=HP,Canon,Epson,Brother,Xerox
-ERROR_CODE_NORMALIZATION=true
-UNIVERSAL_PARTS_LOOKUP=true
-IMAGE_ANALYSIS_ENABLED=true
-
-# Print Quality Analysis
-DEFECT_MODEL=mobilenet_v2
-CONFIDENCE_THRESHOLD=0.85
-MAX_IMAGE_SIZE=10MB
-SUPPORTED_FORMATS=jpg,png,jpeg
-
-# Application
-BACKEND_URL=http://localhost:8001
-FRONTEND_URL=http://localhost:8002
-API_RATE_LIMIT=1000/hour
-DEBUG=true
+# Install Ollama models
+ollama pull llama3.2:3b
+ollama pull embeddinggemma
+ollama pull llava:7b
 ```
 
-## 📊 Production Status
+5. **Run Database Migrations**
+```bash
+# Execute schema migrations
+psql -h localhost -U postgres -d krai_engine -f database_migrations/OPTIMIZED_SCHEMA/00_schema_architecture.sql
+# ... (run all migration files in order)
+```
 
-### Database (PostgreSQL with Extensions) ✅
+6. **Start Production API**
+```bash
+cd backend
+python production_main.py
+```
 
-- ✅ **20+ Table Schema Deployed** - All multi-manufacturer tables created and tested
-- ✅ **Print Quality Analysis** - AI-powered defect detection tables ready
-- ✅ **Indexes Optimized** - Sub-150ms query performance validated  
-- ✅ **Vector Extensions** - pgvector enabled for semantic search
-- ✅ **RLS Security** - Row-level security policies implemented
-- ✅ **Sample Data** - Multi-manufacturer test dataset loaded
-- ✅ **Function Library** - Universal search, validation, and analysis functions
+## 📁 **Project Structure**
 
-### Backend (FastAPI) 🔄
+```
+KR-AI-Engine/
+├── backend/                    # Main application
+│   ├── production_main.py      # Production API server
+│   ├── production_document_processor.py  # Core processing logic
+│   ├── config/                 # Configuration files
+│   │   ├── production_config.py
+│   │   ├── supabase_config.py
+│   │   └── *.json              # Pattern configurations
+│   ├── api/                    # API endpoints
+│   └── tests/                  # Unit tests
+├── database_migrations/        # Database schema
+│   └── OPTIMIZED_SCHEMA/       # Production schema
+├── test/                       # Test files and scripts
+│   ├── docker/                 # Docker configurations
+│   ├── scripts/                # Test scripts
+│   └── documents/              # Test documents
+├── dashboard/                  # Filament dashboard
+└── supabase/                   # Supabase configuration
+```
 
-- 🔄 **API Endpoints** - Document upload, multi-manufacturer processing, search, validation
-- 🔄 **Universal Parser** - PDF processing with manufacturer-specific error code extraction
-- 🔄 **Vector Search** - Similarity queries with cross-manufacturer ranking
-- 🔄 **Image Analysis** - Print defect detection from technician photos
-- 🔄 **Option Validator** - Universal equipment configuration checking
-- 📋 **Authentication** - JWT-based security integration
+## 🔧 **Configuration**
 
-### Frontend (Laravel) 📋
+### **Environment Variables**
+```bash
+# Database
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
+POSTGRES_DB=krai_engine
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=your_password
 
-- 📋 **Universal Service Interface** - Filament-based technician dashboard for all brands
-- 📋 **Document Upload** - Multi-format processing (PDF, XML, images)
-- 📋 **Advanced Search** - Error code + semantic search across all manufacturers
-- 📋 **Photo Analysis** - Print defect upload and AI analysis interface
-- 📋 **Configuration Tool** - Visual option validation for all equipment types
-- 📋 **Analytics Dashboard** - Real-time service metrics across all brands
+# Supabase
+SUPABASE_URL=http://localhost:54321
+SUPABASE_ANON_KEY=your_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_key
 
-## 🛠️ Tech Stack
+# Ollama
+OLLAMA_BASE_URL=http://localhost:11434
+```
 
-### Backend
+### **JSON Configuration Files**
+- `error_code_patterns.json`: Manufacturer-specific error code patterns
+- `chunk_settings.json`: Document chunking strategies
+- `version_patterns.json`: Version extraction patterns
+- `model_placeholder_patterns.json`: Model placeholder expansion
 
-- **FastAPI** - High-performance Python web framework
-- **PostgreSQL** - Primary database with pgvector extension
-- **Celery** - Distributed task processing
-- **OpenAI/Transformers** - AI model integration
-- **Supabase** - Database hosting and real-time features
+## 🧪 **Testing**
 
-### Frontend
+### **Test Documents**
+Test documents are located in `test/documents/` and include:
+- HP Service Manuals
+- Konica Minolta Documentation
+- Lexmark Technical Guides
+- Various PDF formats for testing
 
-- **Laravel 10** - PHP web application framework
-- **Filament 3** - Modern admin panel builder
-- **Tailwind CSS** - Utility-first CSS framework
-- **Alpine.js** - Minimal JavaScript framework
+### **Run Tests**
+```bash
+cd backend
+python -m pytest tests/
+```
 
-### AI & Search
+## 📊 **Performance**
 
-- **pgvector** - Vector similarity search in PostgreSQL
-- **sentence-transformers** - Text embedding models
-- **HNSW** - Hierarchical navigable small world graphs
-- **OpenAI API** - Large language model integration
+- **Processing Speed**: ~2-3 seconds per document
+- **Embedding Generation**: 768D vectors in ~100ms
+- **Image Processing**: GPU-accelerated with MPS
+- **Database**: Optimized with indexes and materialized views
+- **Storage**: Deduplication with SHA256 hashing
 
-## 📚 Documentation
+## 🔒 **Security**
 
-- [**Complete Database Documentation**](COMPLETE_DATABASE_DOCUMENTATION.md) - Full 16-table schema reference
-- [**Step-by-Step Migration Guide**](database_migrations/STEP_BY_STEP/) - 7-step database setup
-- [**LLM Instructions**](LLM_INSTRUCTIONS.md) - AI system configuration and HP-specific logic
-- [**Version Management**](instructions/VERSION_MANAGEMENT.md) - HP document versioning strategy
-- [**API Documentation**](backend/docs/api.md) - FastAPI endpoint reference
-- [**Performance Testing Results**](scripts/database-testing/) - Database optimization validation
+- **Row Level Security (RLS)** enabled
+- **Role-based access control**
+- **Audit logging** for all operations
+- **Secure storage** with private buckets
 
-## 🤝 Contributing
+## 🚀 **Deployment**
+
+### **Production Deployment**
+```bash
+# Using Docker Compose
+docker-compose -f test/docker/docker-compose.production.yml up -d
+
+# Or manual deployment
+python backend/production_main.py
+```
+
+### **Supabase Integration**
+```bash
+# Local Supabase
+supabase start
+
+# Cloud Supabase
+# Configure environment variables for cloud instance
+```
+
+## 📈 **Monitoring**
+
+- **Database Statistics**: Query performance and usage
+- **Processing Metrics**: Document processing times
+- **Storage Usage**: File storage and deduplication stats
+- **AI Model Performance**: Embedding and vision processing
+
+## 🤝 **Contributing**
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/HPFeature`)
-3. Commit your changes (`git commit -m 'Add HP-specific feature'`)
-4. Push to the branch (`git push origin feature/HPFeature`)
-5. Open a Pull Request
+2. Create a feature branch
+3. Make your changes
+4. Add tests
+5. Submit a pull request
 
-## 📄 License
+## 📄 **License**
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🎯 Roadmap
+## 🆘 **Support**
 
-### Phase 1: Core Multi-Manufacturer Platform ✅
-
-- [x] Universal database schema (16 tables) supporting all manufacturers
-- [x] Multi-format document processing pipeline (PDF, XML, images)
-- [x] Service manual processing with manufacturer-specific error extraction
-- [x] Universal option validation system
-- [x] Vector search with cross-manufacturer ranking
-
-### Phase 2: Advanced AI Intelligence 🔄
-
-- [ ] Enhanced error pattern recognition across all manufacturer product lines
-- [ ] Advanced print defect analysis with computer vision
-- [ ] Automated parts ordering integration for all brands
-- [ ] Real-time technician collaboration features
-- [ ] IoT device integration for predictive maintenance
-
-### Phase 3: Enterprise Multi-Brand Features 📋
-
-- [ ] Multi-tenant architecture for service organizations
-- [ ] Advanced cross-manufacturer service analytics dashboard  
-- [ ] API integration with manufacturer service center systems
-- [ ] Enterprise SSO with manufacturer authentication systems
-- [ ] White-label solutions for service partners
+For support and questions:
+- Create an issue on GitHub
+- Check the documentation in `docs/`
+- Review the test examples in `test/`
 
 ---
 
-Built with ❤️ for technical service teams worldwide
-
-![KRAI Engine](https://img.shields.io/badge/KRAI%20Engine-Multi--Manufacturer%20Ready-success?style=for-the-badge)
+**KRAI Engine** - Intelligent Document Processing for Technical Service Environments

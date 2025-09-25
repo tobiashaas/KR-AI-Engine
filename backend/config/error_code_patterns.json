@@ -1,0 +1,1112 @@
+{
+  "error_code_patterns": {
+    "hp": {
+      "name": "HP Error Codes",
+      "description": "Hewlett Packard error code patterns and examples",
+      "format": "XX.XX.XX or XX.XX",
+      "patterns": [
+        "error\\s+code\\s+(\\d{2}\\.\\d{2}\\.\\d{2})",
+        "error\\s+(\\d{2}\\.\\d{2}\\.\\d{2})",
+        "code\\s+(\\d{2}\\.\\d{2}\\.\\d{2})",
+        "(\\d{2}\\.\\d{2}\\.\\d{2})\\s+error",
+        "error\\s+(\\d{2}\\.\\d{2})",
+        "(\\d{2}\\.\\d{2})\\s+error"
+      ],
+      "validation_regex": "^\\d{2}\\.\\d{2}(?:\\.\\d{2})?$",
+      "examples": [
+        {
+          "code": "13.20.01",
+          "description": "Paper jam in duplex unit",
+          "category": "paper_jam"
+        },
+        {
+          "code": "13.20.02",
+          "description": "Paper jam in tray 1",
+          "category": "paper_jam"
+        },
+        {
+          "code": "13.20.03",
+          "description": "Paper jam in tray 2",
+          "category": "paper_jam"
+        },
+        {
+          "code": "13.20.04",
+          "description": "Paper jam in tray 3",
+          "category": "paper_jam"
+        },
+        {
+          "code": "13.20.05",
+          "description": "Paper jam in output bin",
+          "category": "paper_jam"
+        },
+        {
+          "code": "13.20.06",
+          "description": "Paper jam in bypass tray",
+          "category": "paper_jam"
+        },
+        {
+          "code": "41.03.01",
+          "description": "Fuser assembly failure",
+          "category": "fuser"
+        },
+        {
+          "code": "41.03.02",
+          "description": "Fuser temperature error",
+          "category": "fuser"
+        },
+        {
+          "code": "41.03.03",
+          "description": "Fuser thermistor failure",
+          "category": "fuser"
+        },
+        {
+          "code": "41.03.04",
+          "description": "Fuser heating element failure",
+          "category": "fuser"
+        },
+        {
+          "code": "50.01.01",
+          "description": "Fan 1 failure",
+          "category": "cooling"
+        },
+        {
+          "code": "50.01.02",
+          "description": "Fan 2 failure",
+          "category": "cooling"
+        },
+        {
+          "code": "50.01.03",
+          "description": "Fan 3 failure",
+          "category": "cooling"
+        },
+        {
+          "code": "50.01.04",
+          "description": "Cooling system failure",
+          "category": "cooling"
+        },
+        {
+          "code": "51.00.01",
+          "description": "Main motor failure",
+          "category": "motor"
+        },
+        {
+          "code": "51.00.02",
+          "description": "Scanner motor failure",
+          "category": "motor"
+        },
+        {
+          "code": "51.00.03",
+          "description": "Drum motor failure",
+          "category": "motor"
+        },
+        {
+          "code": "51.00.04",
+          "description": "Paper feed motor failure",
+          "category": "motor"
+        },
+        {
+          "code": "52.01.01",
+          "description": "Laser unit failure",
+          "category": "laser"
+        },
+        {
+          "code": "52.01.02",
+          "description": "Laser beam detect error",
+          "category": "laser"
+        },
+        {
+          "code": "52.01.03",
+          "description": "Laser scanner motor failure",
+          "category": "laser"
+        },
+        {
+          "code": "52.01.04",
+          "description": "Laser synchronization error",
+          "category": "laser"
+        },
+        {
+          "code": "53.00.01",
+          "description": "Scanner initialization error",
+          "category": "scanner"
+        },
+        {
+          "code": "53.00.02",
+          "description": "Scanner motor error",
+          "category": "scanner"
+        },
+        {
+          "code": "53.00.03",
+          "description": "Scanner calibration error",
+          "category": "scanner"
+        },
+        {
+          "code": "54.00.01",
+          "description": "ADF (Automatic Document Feeder) jam",
+          "category": "adf"
+        },
+        {
+          "code": "54.00.02",
+          "description": "ADF motor failure",
+          "category": "adf"
+        },
+        {
+          "code": "54.00.03",
+          "description": "ADF sensor failure",
+          "category": "adf"
+        },
+        {
+          "code": "55.00.01",
+          "description": "Duplex unit jam",
+          "category": "duplex"
+        },
+        {
+          "code": "55.00.02",
+          "description": "Duplex unit motor failure",
+          "category": "duplex"
+        },
+        {
+          "code": "55.00.03",
+          "description": "Duplex sensor failure",
+          "category": "duplex"
+        },
+        {
+          "code": "56.01.01",
+          "description": "Toner cartridge error",
+          "category": "toner"
+        },
+        {
+          "code": "56.01.02",
+          "description": "Toner low warning",
+          "category": "toner"
+        },
+        {
+          "code": "56.01.03",
+          "description": "Toner empty error",
+          "category": "toner"
+        },
+        {
+          "code": "57.01.01",
+          "description": "Drum unit error",
+          "category": "drum"
+        },
+        {
+          "code": "57.01.02",
+          "description": "Drum life warning",
+          "category": "drum"
+        },
+        {
+          "code": "57.01.03",
+          "description": "Drum replacement required",
+          "category": "drum"
+        }
+      ],
+      "categories": {
+        "paper_jam": "Paper handling and jam errors",
+        "fuser": "Fuser assembly and temperature errors",
+        "cooling": "Fan and cooling system errors",
+        "motor": "Motor and mechanical errors",
+        "laser": "Laser unit and beam errors",
+        "scanner": "Scanner and imaging errors",
+        "adf": "Automatic Document Feeder errors",
+        "duplex": "Duplex printing errors"
+      }
+    },
+    "konica_minolta": {
+      "name": "Konica Minolta Error Codes",
+      "description": "Konica Minolta error code patterns and examples",
+      "format": "C####, J##-##, ##.##, E##-##",
+      "patterns": [
+        "error\\s+code\\s+([CJ]\\d{4,5})",
+        "error\\s+([CJ]\\d{4,5})",
+        "code\\s+([CJ]\\d{4,5})",
+        "([CJ]\\d{4,5})\\s+error",
+        "error\\s+code\\s+([CJ]\\d{2}-\\d{2})",
+        "error\\s+([CJ]\\d{2}-\\d{2})",
+        "code\\s+([CJ]\\d{2}-\\d{2})",
+        "([CJ]\\d{2}-\\d{2})\\s+error",
+        "error\\s+code\\s+(\\d{2}\\.\\d{2})",
+        "error\\s+(\\d{2}\\.\\d{2})",
+        "code\\s+(\\d{2}\\.\\d{2})",
+        "(\\d{2}\\.\\d{2})\\s+error",
+        "error\\s+code\\s+(E\\d{2}-\\d{2})",
+        "error\\s+(E\\d{2}-\\d{2})",
+        "code\\s+(E\\d{2}-\\d{2})",
+        "(E\\d{2}-\\d{2})\\s+error"
+      ],
+      "validation_regex": "^[CJ]\\d{4,5}$|^[CJ]\\d{2}-\\d{2}$|^\\d{2}\\.\\d{2}$|^E\\d{2}-\\d{2}$",
+      "examples": [
+        {
+          "code": "C1200",
+          "description": "System memory problem",
+          "category": "memory"
+        },
+        {
+          "code": "C12CX",
+          "description": "Hard disk problem",
+          "category": "storage"
+        },
+        {
+          "code": "C1300",
+          "description": "Polygon motor (laser motor)",
+          "category": "laser"
+        },
+        {
+          "code": "C1330",
+          "description": "VD signal low",
+          "category": "laser"
+        },
+        {
+          "code": "C13F0",
+          "description": "SOS sensor (laser problem), HYSYNC detection error",
+          "category": "laser"
+        },
+        {
+          "code": "C1401",
+          "description": "IR main program timeout",
+          "category": "system"
+        },
+        {
+          "code": "C14A3",
+          "description": "Exposure lamp problem",
+          "category": "exposure"
+        },
+        {
+          "code": "C18XX",
+          "description": "SCSI problem",
+          "category": "interface"
+        },
+        {
+          "code": "C6F01",
+          "description": "Scanner sequence error 1",
+          "category": "scanner"
+        },
+        {
+          "code": "C8101",
+          "description": "Pre-reading pressure mechanism problem (with DF-629 or DF-704 installed)",
+          "category": "adf"
+        },
+        {
+          "code": "C9401",
+          "description": "Exposure LED illumination error",
+          "category": "exposure"
+        },
+        {
+          "code": "C9402",
+          "description": "Exposure LED illuminates abnormally",
+          "category": "exposure"
+        },
+        {
+          "code": "C9403",
+          "description": "CIS LED illumination error (with DF-704 installed)",
+          "category": "scanner"
+        },
+        {
+          "code": "C9404",
+          "description": "CIS LED illuminates abnormally (with DF-704 installed)",
+          "category": "scanner"
+        },
+        {
+          "code": "J11-01",
+          "description": "Paper jam in input tray 1",
+          "category": "paper_jam"
+        },
+        {
+          "code": "J11-02",
+          "description": "Paper transport delay from tray 1",
+          "category": "paper_jam"
+        },
+        {
+          "code": "J11-40",
+          "description": "Image write start signal remains deactivated for specified time after signal output",
+          "category": "image_processing"
+        },
+        {
+          "code": "11.01",
+          "description": "Paper jam in input tray 1",
+          "category": "paper_jam"
+        },
+        {
+          "code": "11.02",
+          "description": "Paper jam in input tray 2",
+          "category": "paper_jam"
+        },
+        {
+          "code": "11.03",
+          "description": "Paper jam in bypass tray",
+          "category": "paper_jam"
+        },
+        {
+          "code": "E46-01",
+          "description": "Image control board problem",
+          "category": "image_processing"
+        },
+        {
+          "code": "E46-02",
+          "description": "Exposure lamp problem",
+          "category": "exposure"
+        },
+        {
+          "code": "E46-34",
+          "description": "Exposure lamp problem (specific model)",
+          "category": "exposure"
+        }
+      ],
+      "categories": {
+        "memory": "System memory and storage errors",
+        "storage": "Hard disk and storage device errors",
+        "laser": "Laser unit and beam errors",
+        "system": "System and main program errors",
+        "exposure": "Exposure lamp and LED errors",
+        "interface": "SCSI and interface errors",
+        "scanner": "Scanner and CIS errors",
+        "adf": "Automatic Document Feeder errors",
+        "paper_jam": "Paper handling and jam errors",
+        "image_processing": "Image control and processing errors"
+      }
+    },
+    "lexmark": {
+      "name": "Lexmark Error Codes",
+      "description": "Lexmark error code patterns and examples",
+      "format": "XXX.XX or XX.XX (2-3 digits, dot, two digits)",
+      "patterns": [
+        "error\\s+code\\s+(\\d{2,3}\\.\\d{2})",
+        "error\\s+(\\d{2,3}\\.\\d{2})",
+        "code\\s+(\\d{2,3}\\.\\d{2})",
+        "(\\d{2,3}\\.\\d{2})\\s+error",
+        "\\b(\\d{2,3}\\.\\d{2})\\b"
+      ],
+      "validation_regex": "^\\d{2,3}\\.\\d{2}$",
+      "examples": [
+        {
+          "code": "121.00",
+          "description": "Fuser has not reached required temperature during warm-up",
+          "category": "fuser"
+        },
+        {
+          "code": "121.54",
+          "description": "Fuser secondary thermistor temperature is out of range",
+          "category": "fuser"
+        },
+        {
+          "code": "121.45",
+          "description": "Service fuser error",
+          "category": "fuser"
+        },
+        {
+          "code": "200.03",
+          "description": "Paper jam in universal feeder",
+          "category": "paper_jam"
+        },
+        {
+          "code": "200.04",
+          "description": "Paper jam in tray 1",
+          "category": "paper_jam"
+        },
+        {
+          "code": "200.05",
+          "description": "Paper jam in tray 2",
+          "category": "paper_jam"
+        },
+        {
+          "code": "200.06",
+          "description": "Paper jam in bypass tray",
+          "category": "paper_jam"
+        },
+        {
+          "code": "200.07",
+          "description": "Paper jam in output bin",
+          "category": "paper_jam"
+        },
+        {
+          "code": "84.00",
+          "description": "Imaging unit low capacity warning",
+          "category": "imaging"
+        },
+        {
+          "code": "88.00",
+          "description": "Toner cartridge low warning",
+          "category": "toner"
+        },
+        {
+          "code": "88.01",
+          "description": "Toner cartridge empty",
+          "category": "toner"
+        },
+        {
+          "code": "92.00",
+          "description": "Waste toner container full",
+          "category": "waste_toner"
+        },
+        {
+          "code": "92.01",
+          "description": "Waste toner container near full",
+          "category": "waste_toner"
+        },
+        {
+          "code": "100.00",
+          "description": "Paper jam in input tray",
+          "category": "paper_jam"
+        },
+        {
+          "code": "101.00",
+          "description": "Paper jam in output bin",
+          "category": "paper_jam"
+        },
+        {
+          "code": "102.00",
+          "description": "Paper jam in duplex unit",
+          "category": "paper_jam"
+        },
+        {
+          "code": "300.00",
+          "description": "Fan failure",
+          "category": "cooling"
+        },
+        {
+          "code": "301.00",
+          "description": "Cooling system error",
+          "category": "cooling"
+        },
+        {
+          "code": "400.00",
+          "description": "Main motor failure",
+          "category": "motor"
+        },
+        {
+          "code": "401.00",
+          "description": "Scanner motor failure",
+          "category": "motor"
+        },
+        {
+          "code": "500.00",
+          "description": "Laser unit failure",
+          "category": "laser"
+        },
+        {
+          "code": "501.00",
+          "description": "Laser beam detect error",
+          "category": "laser"
+        },
+        {
+          "code": "600.00",
+          "description": "Scanner initialization error",
+          "category": "scanner"
+        },
+        {
+          "code": "601.00",
+          "description": "Scanner motor error",
+          "category": "scanner"
+        },
+        {
+          "code": "700.00",
+          "description": "ADF jam",
+          "category": "adf"
+        },
+        {
+          "code": "701.00",
+          "description": "ADF motor failure",
+          "category": "adf"
+        },
+        {
+          "code": "800.00",
+          "description": "Duplex unit jam",
+          "category": "duplex"
+        },
+        {
+          "code": "801.00",
+          "description": "Duplex unit motor failure",
+          "category": "duplex"
+        }
+      ],
+      "categories": {
+        "fuser": "Fuser assembly and temperature errors",
+        "paper_jam": "Paper handling and jam errors",
+        "imaging": "Imaging unit and drum errors",
+        "toner": "Toner cartridge errors",
+        "waste_toner": "Waste toner container errors",
+        "cooling": "Fan and cooling system errors",
+        "motor": "Motor and mechanical errors",
+        "laser": "Laser unit and beam errors",
+        "scanner": "Scanner and imaging errors",
+        "adf": "Automatic Document Feeder errors",
+        "duplex": "Duplex printing errors"
+      }
+    },
+    "utax": {
+      "name": "UTAX Error Codes",
+      "description": "UTAX error code patterns and examples",
+      "format": "XXXXX",
+      "patterns": [
+        "error\\s+code\\s+(\\d{5})",
+        "error\\s+(\\d{5})",
+        "code\\s+(\\d{5})",
+        "(\\d{5})\\s+error"
+      ],
+      "validation_regex": "^\\d{5}$",
+      "examples": [
+        {
+          "code": "01095",
+          "description": "Paper jam in input tray",
+          "category": "paper_jam"
+        },
+        {
+          "code": "01096",
+          "description": "Paper jam in output bin",
+          "category": "paper_jam"
+        },
+        {
+          "code": "01097",
+          "description": "Paper jam in duplex unit",
+          "category": "paper_jam"
+        },
+        {
+          "code": "02001",
+          "description": "Fuser unit error",
+          "category": "fuser"
+        },
+        {
+          "code": "02002",
+          "description": "Fuser temperature error",
+          "category": "fuser"
+        },
+        {
+          "code": "02003",
+          "description": "Fuser thermistor failure",
+          "category": "fuser"
+        },
+        {
+          "code": "03001",
+          "description": "Fan failure",
+          "category": "cooling"
+        },
+        {
+          "code": "03002",
+          "description": "Cooling system error",
+          "category": "cooling"
+        },
+        {
+          "code": "04001",
+          "description": "Main motor failure",
+          "category": "motor"
+        },
+        {
+          "code": "04002",
+          "description": "Scanner motor failure",
+          "category": "motor"
+        },
+        {
+          "code": "05001",
+          "description": "Laser unit failure",
+          "category": "laser"
+        },
+        {
+          "code": "05002",
+          "description": "Laser beam detect error",
+          "category": "laser"
+        },
+        {
+          "code": "06001",
+          "description": "Scanner initialization error",
+          "category": "scanner"
+        },
+        {
+          "code": "06002",
+          "description": "Scanner motor error",
+          "category": "scanner"
+        },
+        {
+          "code": "07001",
+          "description": "ADF jam",
+          "category": "adf"
+        },
+        {
+          "code": "07002",
+          "description": "ADF motor failure",
+          "category": "adf"
+        },
+        {
+          "code": "08001",
+          "description": "Duplex unit jam",
+          "category": "duplex"
+        },
+        {
+          "code": "08002",
+          "description": "Duplex unit motor failure",
+          "category": "duplex"
+        }
+      ],
+      "categories": {
+        "paper_jam": "Paper handling and jam errors",
+        "fuser": "Fuser assembly and temperature errors",
+        "cooling": "Fan and cooling system errors",
+        "motor": "Motor and mechanical errors",
+        "laser": "Laser unit and beam errors",
+        "scanner": "Scanner and imaging errors",
+        "adf": "Automatic Document Feeder errors",
+        "duplex": "Duplex printing errors"
+      }
+    }
+  },
+  "part_number_patterns": {
+    "hp": {
+      "name": "HP Part Numbers",
+      "description": "Hewlett Packard part number patterns and examples",
+      "format": "CXXXX-XXXXX or similar",
+      "patterns": [
+        "part\\s+number[:\\s]+([A-Z0-9\\-]{6,12})",
+        "pn[:\\s]+([A-Z0-9\\-]{6,12})",
+        "([A-Z]{2,4}\\d{4,8}[A-Z]?)",
+        "([A-Z]\\d{6,10})"
+      ],
+      "validation_regex": "^[A-Z0-9\\-]{6,12}$",
+      "examples": [
+        {
+          "part_number": "C4127-60001",
+          "description": "Fuser Assembly",
+          "category": "fuser",
+          "models": ["E786", "E786M", "E78625", "E78630", "E78635"]
+        },
+        {
+          "part_number": "C4127-60002",
+          "description": "Fuser Assembly (Alternative)",
+          "category": "fuser",
+          "models": ["E786", "E786M"]
+        },
+        {
+          "part_number": "C4127-60003",
+          "description": "Fuser Assembly (High Volume)",
+          "category": "fuser",
+          "models": ["E78635"]
+        },
+        {
+          "part_number": "C4127-60004",
+          "description": "Fuser Assembly (Color)",
+          "category": "fuser",
+          "models": ["E786M"]
+        },
+        {
+          "part_number": "C4127-60005",
+          "description": "Fuser Assembly (Monochrome)",
+          "category": "fuser",
+          "models": ["E786", "E78625", "E78630"]
+        },
+        {
+          "part_number": "C4127-60006",
+          "description": "Fuser Assembly (Duplex)",
+          "category": "fuser",
+          "models": ["E78635"]
+        },
+        {
+          "part_number": "C4127-60007",
+          "description": "Fuser Assembly (Single Pass)",
+          "category": "fuser",
+          "models": ["E786", "E78625"]
+        },
+        {
+          "part_number": "C4127-60008",
+          "description": "Fuser Assembly (Double Pass)",
+          "category": "fuser",
+          "models": ["E78630", "E78635"]
+        },
+        {
+          "part_number": "C4127-60009",
+          "description": "Fuser Assembly (High Speed)",
+          "category": "fuser",
+          "models": ["E78635"]
+        },
+        {
+          "part_number": "C4127-60010",
+          "description": "Fuser Assembly (Standard Speed)",
+          "category": "fuser",
+          "models": ["E786", "E78625", "E78630"]
+        },
+        {
+          "part_number": "C4127-60011",
+          "description": "Fuser Assembly (Low Speed)",
+          "category": "fuser",
+          "models": ["E786"]
+        },
+        {
+          "part_number": "C4127-60012",
+          "description": "Fuser Assembly (Medium Speed)",
+          "category": "fuser",
+          "models": ["E78625", "E78630"]
+        },
+        {
+          "part_number": "C4127-60013",
+          "description": "Fuser Assembly (High Speed)",
+          "category": "fuser",
+          "models": ["E78635"]
+        },
+        {
+          "part_number": "C4127-60014",
+          "description": "Fuser Assembly (Ultra High Speed)",
+          "category": "fuser",
+          "models": ["E78635"]
+        },
+        {
+          "part_number": "C4127-60015",
+          "description": "Fuser Assembly (Production)",
+          "category": "fuser",
+          "models": ["E78635"]
+        }
+      ],
+      "categories": {
+        "fuser": "Fuser assembly and related components",
+        "drum": "Drum unit and related components",
+        "toner": "Toner cartridge and related components",
+        "paper": "Paper handling and related components",
+        "motor": "Motor and mechanical components",
+        "laser": "Laser unit and related components",
+        "scanner": "Scanner and imaging components",
+        "adf": "Automatic Document Feeder components",
+        "duplex": "Duplex printing components"
+      }
+    },
+    "konica_minolta": {
+      "name": "Konica Minolta Part Numbers",
+      "description": "Konica Minolta part number patterns and examples",
+      "format": "A0XX-XXXX or similar",
+      "patterns": [
+        "part\\s+number[:\\s]+([A-Z0-9\\-]{6,12})",
+        "pn[:\\s]+([A-Z0-9\\-]{6,12})",
+        "([A-Z]{2,4}\\d{4,8}[A-Z]?)",
+        "([A-Z]\\d{6,10})"
+      ],
+      "validation_regex": "^[A-Z0-9\\-]{6,12}$",
+      "examples": [
+        {
+          "part_number": "A0XX-XXXX",
+          "description": "Fuser Assembly",
+          "category": "fuser",
+          "models": ["C658", "C558", "C458", "C368", "C308", "C258"]
+        },
+        {
+          "part_number": "A0XX-XXXX",
+          "description": "Fuser Assembly (Alternative)",
+          "category": "fuser",
+          "models": ["C658", "C558"]
+        },
+        {
+          "part_number": "A0XX-XXXX",
+          "description": "Fuser Assembly (High Volume)",
+          "category": "fuser",
+          "models": ["C658"]
+        },
+        {
+          "part_number": "A0XX-XXXX",
+          "description": "Fuser Assembly (Color)",
+          "category": "fuser",
+          "models": ["C658", "C558", "C458"]
+        },
+        {
+          "part_number": "A0XX-XXXX",
+          "description": "Fuser Assembly (Monochrome)",
+          "category": "fuser",
+          "models": ["C368", "C308", "C258"]
+        },
+        {
+          "part_number": "A0XX-XXXX",
+          "description": "Fuser Assembly (Duplex)",
+          "category": "fuser",
+          "models": ["C658", "C558"]
+        },
+        {
+          "part_number": "A0XX-XXXX",
+          "description": "Fuser Assembly (Single Pass)",
+          "category": "fuser",
+          "models": ["C368", "C308", "C258"]
+        },
+        {
+          "part_number": "A0XX-XXXX",
+          "description": "Fuser Assembly (Double Pass)",
+          "category": "fuser",
+          "models": ["C658", "C558", "C458"]
+        },
+        {
+          "part_number": "A0XX-XXXX",
+          "description": "Fuser Assembly (High Speed)",
+          "category": "fuser",
+          "models": ["C658"]
+        },
+        {
+          "part_number": "A0XX-XXXX",
+          "description": "Fuser Assembly (Standard Speed)",
+          "category": "fuser",
+          "models": ["C558", "C458", "C368"]
+        },
+        {
+          "part_number": "A0XX-XXXX",
+          "description": "Fuser Assembly (Low Speed)",
+          "category": "fuser",
+          "models": ["C308", "C258"]
+        },
+        {
+          "part_number": "A0XX-XXXX",
+          "description": "Fuser Assembly (Medium Speed)",
+          "category": "fuser",
+          "models": ["C368", "C458"]
+        },
+        {
+          "part_number": "A0XX-XXXX",
+          "description": "Fuser Assembly (High Speed)",
+          "category": "fuser",
+          "models": ["C558", "C658"]
+        },
+        {
+          "part_number": "A0XX-XXXX",
+          "description": "Fuser Assembly (Ultra High Speed)",
+          "category": "fuser",
+          "models": ["C658"]
+        },
+        {
+          "part_number": "A0XX-XXXX",
+          "description": "Fuser Assembly (Production)",
+          "category": "fuser",
+          "models": ["C658"]
+        }
+      ],
+      "categories": {
+        "fuser": "Fuser assembly and related components",
+        "drum": "Drum unit and related components",
+        "toner": "Toner cartridge and related components",
+        "paper": "Paper handling and related components",
+        "motor": "Motor and mechanical components",
+        "laser": "Laser unit and related components",
+        "scanner": "Scanner and imaging components",
+        "adf": "Automatic Document Feeder components",
+        "duplex": "Duplex printing components"
+      }
+    },
+    "lexmark": {
+      "name": "Lexmark Part Numbers",
+      "description": "Lexmark part number patterns and examples",
+      "format": "40X-XXXX or similar",
+      "patterns": [
+        "part\\s+number[:\\s]+([A-Z0-9\\-]{6,12})",
+        "pn[:\\s]+([A-Z0-9\\-]{6,12})",
+        "([A-Z]{2,4}\\d{4,8}[A-Z]?)",
+        "([A-Z]\\d{6,10})"
+      ],
+      "validation_regex": "^[A-Z0-9\\-]{6,12}$",
+      "examples": [
+        {
+          "part_number": "40X-XXXX",
+          "description": "Fuser Assembly",
+          "category": "fuser",
+          "models": ["CX825", "CX860", "XC8155", "XC8160", "XC8163"]
+        },
+        {
+          "part_number": "40X-XXXX",
+          "description": "Fuser Assembly (Alternative)",
+          "category": "fuser",
+          "models": ["CX825", "CX860"]
+        },
+        {
+          "part_number": "40X-XXXX",
+          "description": "Fuser Assembly (High Volume)",
+          "category": "fuser",
+          "models": ["XC8163"]
+        },
+        {
+          "part_number": "40X-XXXX",
+          "description": "Fuser Assembly (Color)",
+          "category": "fuser",
+          "models": ["CX825", "CX860", "XC8155", "XC8160", "XC8163"]
+        },
+        {
+          "part_number": "40X-XXXX",
+          "description": "Fuser Assembly (Monochrome)",
+          "category": "fuser",
+          "models": ["CX825", "CX860"]
+        },
+        {
+          "part_number": "40X-XXXX",
+          "description": "Fuser Assembly (Duplex)",
+          "category": "fuser",
+          "models": ["XC8155", "XC8160", "XC8163"]
+        },
+        {
+          "part_number": "40X-XXXX",
+          "description": "Fuser Assembly (Single Pass)",
+          "category": "fuser",
+          "models": ["CX825", "CX860"]
+        },
+        {
+          "part_number": "40X-XXXX",
+          "description": "Fuser Assembly (Double Pass)",
+          "category": "fuser",
+          "models": ["XC8155", "XC8160", "XC8163"]
+        },
+        {
+          "part_number": "40X-XXXX",
+          "description": "Fuser Assembly (High Speed)",
+          "category": "fuser",
+          "models": ["XC8163"]
+        },
+        {
+          "part_number": "40X-XXXX",
+          "description": "Fuser Assembly (Standard Speed)",
+          "category": "fuser",
+          "models": ["XC8155", "XC8160"]
+        },
+        {
+          "part_number": "40X-XXXX",
+          "description": "Fuser Assembly (Low Speed)",
+          "category": "fuser",
+          "models": ["CX825", "CX860"]
+        },
+        {
+          "part_number": "40X-XXXX",
+          "description": "Fuser Assembly (Medium Speed)",
+          "category": "fuser",
+          "models": ["XC8155", "XC8160"]
+        },
+        {
+          "part_number": "40X-XXXX",
+          "description": "Fuser Assembly (High Speed)",
+          "category": "fuser",
+          "models": ["XC8163"]
+        },
+        {
+          "part_number": "40X-XXXX",
+          "description": "Fuser Assembly (Ultra High Speed)",
+          "category": "fuser",
+          "models": ["XC8163"]
+        },
+        {
+          "part_number": "40X-XXXX",
+          "description": "Fuser Assembly (Production)",
+          "category": "fuser",
+          "models": ["XC8163"]
+        }
+      ],
+      "categories": {
+        "fuser": "Fuser assembly and related components",
+        "drum": "Drum unit and related components",
+        "toner": "Toner cartridge and related components",
+        "paper": "Paper handling and related components",
+        "motor": "Motor and mechanical components",
+        "laser": "Laser unit and related components",
+        "scanner": "Scanner and imaging components",
+        "adf": "Automatic Document Feeder components",
+        "duplex": "Duplex printing components"
+      }
+    },
+    "utax": {
+      "name": "UTAX Part Numbers",
+      "description": "UTAX part number patterns and examples",
+      "format": "UXXXX-XXXX or similar",
+      "patterns": [
+        "part\\s+number[:\\s]+([A-Z0-9\\-]{6,12})",
+        "pn[:\\s]+([A-Z0-9\\-]{6,12})",
+        "([A-Z]{2,4}\\d{4,8}[A-Z]?)",
+        "([A-Z]\\d{6,10})"
+      ],
+      "validation_regex": "^[A-Z0-9\\-]{6,12}$",
+      "examples": [
+        {
+          "part_number": "UXXXX-XXXX",
+          "description": "Fuser Assembly",
+          "category": "fuser",
+          "models": ["2508CI", "3508CI", "5058i", "6058i", "7058i"]
+        },
+        {
+          "part_number": "UXXXX-XXXX",
+          "description": "Fuser Assembly (Alternative)",
+          "category": "fuser",
+          "models": ["2508CI", "3508CI"]
+        },
+        {
+          "part_number": "UXXXX-XXXX",
+          "description": "Fuser Assembly (High Volume)",
+          "category": "fuser",
+          "models": ["7058i"]
+        },
+        {
+          "part_number": "UXXXX-XXXX",
+          "description": "Fuser Assembly (Color)",
+          "category": "fuser",
+          "models": ["2508CI", "3508CI", "5058i", "6058i", "7058i"]
+        },
+        {
+          "part_number": "UXXXX-XXXX",
+          "description": "Fuser Assembly (Monochrome)",
+          "category": "fuser",
+          "models": ["2508CI", "3508CI"]
+        },
+        {
+          "part_number": "UXXXX-XXXX",
+          "description": "Fuser Assembly (Duplex)",
+          "category": "fuser",
+          "models": ["5058i", "6058i", "7058i"]
+        },
+        {
+          "part_number": "UXXXX-XXXX",
+          "description": "Fuser Assembly (Single Pass)",
+          "category": "fuser",
+          "models": ["2508CI", "3508CI"]
+        },
+        {
+          "part_number": "UXXXX-XXXX",
+          "description": "Fuser Assembly (Double Pass)",
+          "category": "fuser",
+          "models": ["5058i", "6058i", "7058i"]
+        },
+        {
+          "part_number": "UXXXX-XXXX",
+          "description": "Fuser Assembly (High Speed)",
+          "category": "fuser",
+          "models": ["7058i"]
+        },
+        {
+          "part_number": "UXXXX-XXXX",
+          "description": "Fuser Assembly (Standard Speed)",
+          "category": "fuser",
+          "models": ["6058i"]
+        },
+        {
+          "part_number": "UXXXX-XXXX",
+          "description": "Fuser Assembly (Low Speed)",
+          "category": "fuser",
+          "models": ["5058i"]
+        },
+        {
+          "part_number": "UXXXX-XXXX",
+          "description": "Fuser Assembly (Medium Speed)",
+          "category": "fuser",
+          "models": ["6058i"]
+        },
+        {
+          "part_number": "UXXXX-XXXX",
+          "description": "Fuser Assembly (High Speed)",
+          "category": "fuser",
+          "models": ["7058i"]
+        },
+        {
+          "part_number": "UXXXX-XXXX",
+          "description": "Fuser Assembly (Ultra High Speed)",
+          "category": "fuser",
+          "models": ["7058i"]
+        },
+        {
+          "part_number": "UXXXX-XXXX",
+          "description": "Fuser Assembly (Production)",
+          "category": "fuser",
+          "models": ["7058i"]
+        }
+      ],
+      "categories": {
+        "fuser": "Fuser assembly and related components",
+        "drum": "Drum unit and related components",
+        "toner": "Toner cartridge and related components",
+        "paper": "Paper handling and related components",
+        "motor": "Motor and mechanical components",
+        "laser": "Laser unit and related components",
+        "scanner": "Scanner and imaging components",
+        "adf": "Automatic Document Feeder components",
+        "duplex": "Duplex printing components"
+      }
+    }
+  }
+}
