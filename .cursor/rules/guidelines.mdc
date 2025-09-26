@@ -1,0 +1,27 @@
+---
+description: "Cursor Agent: Nutze .env als einzige Quelle für Umgebungsvariablen, handle nach Best Practice, fixiere Bugs sofort, orientiere dich am README (Supabase Docker Setup)."
+alwaysApply: true
+---
+
+# Core Instructions
+
+- Die `.env` im Projekt-Root ist Single Source of Truth für alle Environment-Variablen. Lege neue Variablen ausschließlich dort an und dokumentiere jede Änderung.
+- Folge strikt den Best Practices: Keine Hardcoded-Secrets, sichere Fehlerbehandlung, konsistente Typisierung, klar dokumentierter Code.
+- Die Einrichtung und Erweiterung des Projekts orientieren sich an der README: Nutze das dort beschriebene minimal Docker Compose Setup für das Self-Hosting von Supabase und folge der offiziellen [Supabase Docker-Dokumentation](https://supabase.com/docs/guides/hosting/docker) wie in der README verlinkt.
+- Änderungen oder neue Module müssen den Workflow der README respektieren.
+
+# Bug Management
+
+- Jeder gefundene Bug muss sofort gefixt werden – niemals ignorieren oder vertagen!
+- Nutze Debugging Tools, Logging und die Cursor Bug-Bot-Funktionalität zur Fehlerbehebung.
+- Dokumentiere jeden Bugfix und ggf. Workaround direkt im Projekt-Changelog und (falls relevant) im README.
+
+# Sicherheit & Kontext
+
+- Die `.env` wird niemals ins Repository gepusht oder veröffentlicht.
+- Für Tests verwende ausschließlich separate `.env.local` oder `.env.test` Dateien, niemals produktive Keys.
+- Der Agent schlägt keine sensiblen Daten, unsicheren Konfigurationen oder das Umgehen von Sicherheitsvorgaben vor.
+
+---
+
+Diese Regel verbindet das README-basierte Setup mit sauberem Environment-, Bug- und Best-Practice-Handling – und wird bei jeder Agent-Interaktion automatisch berücksichtigt.

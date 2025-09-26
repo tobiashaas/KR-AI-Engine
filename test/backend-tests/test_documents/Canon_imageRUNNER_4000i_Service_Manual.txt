@@ -1,0 +1,190 @@
+Canon imageRUNNER 4000i Series Service Manual
+Version 1.8
+Date: 2025-09-24
+
+SERVICE MANUAL OVERVIEW
+========================
+
+This service manual provides comprehensive maintenance and repair procedures for the Canon imageRUNNER 4000i series multifunction printers.
+
+CHAPTER 1: PRODUCT OVERVIEW
+============================
+
+1.1 Model Specifications
+
+Models Covered:
+- Canon imageRUNNER 4000i
+- Canon imageRUNNER 4015i
+- Canon imageRUNNER 4025i
+- Canon imageRUNNER 4035i
+
+Key Features:
+- Print Speed: 40 pages per minute
+- Copy Speed: 40 pages per minute
+- Scan Resolution: 600 x 600 dpi
+- Paper Capacity: 1,100 sheets
+- Memory: 2GB standard
+
+1.2 Safety Information
+
+Safety Precautions:
+- Always disconnect power before service
+- Use proper lifting techniques
+- Wear anti-static wrist strap
+- Follow lockout/tagout procedures
+- Use appropriate personal protective equipment
+
+CHAPTER 2: MAINTENANCE PROCEDURES
+==================================
+
+2.1 Daily Maintenance
+
+Daily Tasks:
+- Check paper levels
+- Verify toner levels
+- Clean glass platen
+- Check document feeder
+- Verify operation
+
+2.2 Weekly Maintenance
+
+Weekly Tasks:
+- Clean corona wires
+- Check fuser temperature
+- Clean paper path
+- Verify registration
+- Check print quality
+
+2.3 Monthly Maintenance
+
+Monthly Tasks:
+- Replace fuser film
+- Clean transfer roller
+- Check all sensors
+- Verify connections
+- Full calibration
+
+CHAPTER 3: TROUBLESHOOTING
+==========================
+
+3.1 Error Codes
+
+Error Code: E000
+Description: Fuser Error
+Solution:
+1. Check fuser temperature
+2. Verify fuser connections
+3. Replace fuser assembly if necessary
+
+Error Code: E001
+Description: Paper Jam
+Solution:
+1. Remove jammed paper
+2. Check paper path
+3. Verify paper settings
+4. Clean paper path
+
+Error Code: E002
+Description: Toner Low
+Solution:
+1. Replace toner cartridge
+2. Reset toner counter
+3. Check toner sensor
+
+3.2 Print Quality Issues
+
+Poor Print Quality:
+- Check toner level
+- Clean corona wires
+- Verify fuser temperature
+- Check paper quality
+
+Streaks on Print:
+- Clean transfer roller
+- Check fuser film
+- Verify laser scanner
+- Clean paper path
+
+CHAPTER 4: PARTS REPLACEMENT
+=============================
+
+4.1 Fuser Assembly
+
+Part Number: FM3-0436
+Description: Fuser Assembly Complete
+Price: $195.00
+Replacement Procedure:
+1. Power down printer
+2. Remove fuser assembly
+3. Install new fuser assembly
+4. Test operation
+
+4.2 Transfer Roller
+
+Part Number: FM3-0437
+Description: Transfer Roller
+Price: $85.00
+Replacement Procedure:
+1. Remove transfer roller
+2. Install new roller
+3. Test print quality
+
+4.3 Laser Scanner
+
+Part Number: FM3-0438
+Description: Laser Scanner Assembly
+Price: $280.00
+Replacement Procedure:
+1. Remove laser scanner
+2. Install new scanner
+3. Calibrate alignment
+
+CHAPTER 5: CALIBRATION
+=======================
+
+5.1 Print Quality Calibration
+
+Procedure:
+1. Access service mode
+2. Print test pattern
+3. Check print quality
+4. Adjust settings if necessary
+5. Save calibration
+
+5.2 Registration Calibration
+
+Procedure:
+1. Print registration pattern
+2. Check alignment
+3. Adjust registration values
+4. Verify accuracy
+5. Save settings
+
+CHAPTER 6: FIRMWARE
+===================
+
+6.1 Firmware Updates
+
+Current Version: V1.8.2
+Update Procedure:
+1. Download firmware
+2. Connect to printer
+3. Upload firmware
+4. Wait for completion
+5. Restart printer
+
+6.2 Service Mode
+
+Access Method:
+- Hold 2 and 8 keys
+- Power on printer
+- Release keys when display shows "Service Mode"
+
+Service Functions:
+- Print test patterns
+- Calibrate sensors
+- Check error logs
+- Update firmware
+- Reset counters
+
+This completes the Canon imageRUNNER 4000i Service Manual.

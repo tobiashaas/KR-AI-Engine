@@ -90,7 +90,7 @@ try_docker_compose_retry() {
             fi
         fi
         
-        # Try docker compose
+        # Try docker compose with optimized configuration
         if docker compose up -d; then
             echo -e "${GREEN}✅ Docker Compose erfolgreich gestartet!${NC}"
             

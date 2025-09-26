@@ -1,0 +1,203 @@
+HP TECHNICAL BULLETIN
+Bulletin Number: TB-2024-001
+Date: 2025-09-24
+Subject: Fuser Assembly Field Modification
+Priority: HIGH
+
+BULLETIN OVERVIEW
+=================
+
+This bulletin addresses a critical issue with fuser assemblies in HP LaserJet Pro 4000 series printers manufactured between January 2024 and March 2024.
+
+ISSUE DESCRIPTION
+=================
+
+Affected Models:
+- HP LaserJet Pro 4000
+- HP LaserJet Pro 4005
+- HP LaserJet Pro 4015
+
+Problem:
+Some fuser assemblies may exhibit premature failure due to a manufacturing defect in the fuser film. This can result in:
+- Print quality degradation
+- Fuser error codes (50.1.00, 50.2.00)
+- Complete fuser failure
+- Potential safety issues
+
+Root Cause:
+The fuser film manufacturing process had a quality control issue that resulted in inconsistent film thickness. This affects heat transfer and can cause film failure.
+
+IDENTIFICATION OF AFFECTED UNITS
+================================
+
+Serial Number Range:
+- Affected: X58000001 through X58001234
+- Date Range: January 15, 2024 through March 31, 2024
+- Manufacturing Location: Singapore Plant
+
+Identification Method:
+1. Check serial number on printer label
+2. Verify manufacturing date
+3. Check fuser assembly part number
+4. Look for specific manufacturing marks
+
+FIELD MODIFICATION PROCEDURE
+============================
+
+Required Tools:
+- Phillips screwdriver #2
+- Torx T-15 driver
+- Anti-static wrist strap
+- New fuser assembly (Part #: C4127-60001-B)
+
+Procedure Steps:
+1. Power down printer and disconnect power cord
+2. Remove rear cover (4 Phillips screws)
+3. Disconnect fuser electrical cables
+4. Remove fuser mounting screws (6 screws)
+5. Remove old fuser assembly
+6. Install new fuser assembly (Part #: C4127-60001-B)
+7. Reconnect electrical cables
+8. Replace rear cover
+9. Test printer operation
+10. Update service records
+
+Testing Requirements:
+1. Print test page
+2. Verify print quality
+3. Check for error codes
+4. Monitor fuser temperature
+5. Document results
+
+PARTS INFORMATION
+=================
+
+Replacement Fuser Assembly:
+- Part Number: C4127-60001-B (revised)
+- Description: Fuser Assembly with improved film
+- Warranty: 90 days from installation
+- Cost: Covered under warranty
+
+Ordering Information:
+- Contact: HP Parts Department
+- Phone: 1-800-HP-PARTS
+- Reference: TB-2024-001
+- Priority: Expedited shipping
+
+WARRANTY INFORMATION
+====================
+
+Coverage:
+- Parts: 90 days from installation
+- Labor: 60 days from installation
+- Travel: Covered for warranty repairs
+- Documentation: Required for warranty claims
+
+Claim Process:
+1. Complete field modification
+2. Document serial number
+3. Record installation date
+4. Submit warranty claim
+5. Include test results
+
+CUSTOMER COMMUNICATION
+======================
+
+Notification Method:
+- Email to registered customers
+- Web portal notification
+- Service bulletin distribution
+- Phone calls for critical accounts
+
+Customer Instructions:
+1. Do not use affected printers for production
+2. Contact HP service immediately
+3. Schedule field modification
+4. Backup important data
+5. Prepare for temporary downtime
+
+TIMELINE REQUIREMENTS
+=====================
+
+Critical Timeline:
+- Notification: Immediate
+- Field Modification: Within 7 days
+- Completion: Within 30 days
+- Follow-up: Within 60 days
+
+Service Provider Responsibilities:
+1. Notify affected customers
+2. Schedule modifications
+3. Perform field modifications
+4. Document results
+5. Follow up with customers
+
+QUALITY ASSURANCE
+=================
+
+Inspection Requirements:
+1. Verify correct part installation
+2. Test printer operation
+3. Check print quality
+4. Monitor error codes
+5. Document results
+
+Quality Metrics:
+- 100% completion rate required
+- Zero safety incidents
+- Customer satisfaction >95%
+- Documentation accuracy >99%
+
+FOLLOW-UP ACTIONS
+=================
+
+30-Day Follow-up:
+1. Contact customer
+2. Verify no issues
+3. Check print quality
+4. Monitor error logs
+5. Update service records
+
+60-Day Follow-up:
+1. Final customer contact
+2. Verify long-term stability
+3. Check warranty status
+4. Close service ticket
+5. Update database
+
+PREVENTION MEASURES
+===================
+
+Manufacturing Changes:
+1. Improved quality control
+2. Enhanced testing procedures
+3. Additional inspections
+4. Supplier audits
+5. Process improvements
+
+Future Prevention:
+1. Regular quality audits
+2. Enhanced testing protocols
+3. Improved supplier management
+4. Better communication
+5. Proactive monitoring
+
+CONTACT INFORMATION
+===================
+
+Technical Support:
+- Phone: 1-800-HP-TECH
+- Email: tech.support@hp.com
+- Web: www.hp.com/support
+
+Parts Department:
+- Phone: 1-800-HP-PARTS
+- Email: parts@hp.com
+- Web: www.hp.com/parts
+
+Service Management:
+- Phone: 1-800-HP-SERVICE
+- Email: service@hp.com
+- Web: www.hp.com/service
+
+This bulletin supersedes all previous communications regarding this issue. Contact HP Technical Support for additional information.

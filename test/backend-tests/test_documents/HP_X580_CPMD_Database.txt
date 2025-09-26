@@ -1,0 +1,331 @@
+HP X580 CPMD Database
+Customer Parts and Maintenance Data
+Version 3.2
+Date: 2025-09-24
+
+CPMD OVERVIEW
+==============
+
+This CPMD (Customer Parts and Maintenance Data) database contains detailed parts information, error codes, and maintenance procedures specific to the HP X580 printer series.
+
+CHAPTER 1: ERROR CODES AND SOLUTIONS
+====================================
+
+1.1 SYSTEM ERROR CODES
+
+Error Code: 13.20.00
+Description: Paper Jam in Duplex Unit
+Solution Steps:
+1. Open duplex unit cover
+2. Remove all jammed paper
+3. Check paper path for foreign objects
+4. Verify duplex unit alignment
+5. Close duplex unit cover
+6. Resume printing
+
+Error Code: 13.21.00
+Description: Paper Jam in Main Paper Path
+Solution Steps:
+1. Open top cover
+2. Remove jammed paper from paper path
+3. Check feed rollers for damage
+4. Clean paper path
+5. Close top cover
+6. Test print
+
+Error Code: 50.1.00
+Description: Fuser Error - Temperature Fault
+Solution Steps:
+1. Power cycle printer
+2. Check fuser connections
+3. Verify fuser film condition
+4. Replace fuser assembly if necessary
+5. Clear error and test
+
+Error Code: 50.2.00
+Description: Fuser Error - Sensor Fault
+Solution Steps:
+1. Check fuser thermistor connections
+2. Verify thermistor resistance
+3. Replace thermistor if out of spec
+4. Clear error and test
+
+Error Code: 21.3.00
+Description: Toner Cartridge Error
+Solution Steps:
+1. Remove toner cartridge
+2. Clean cartridge contacts
+3. Reinstall cartridge
+4. Check toner level sensor
+5. Replace cartridge if necessary
+
+1.2 PRINT QUALITY ERROR CODES
+
+Error Code: 59.00.00
+Description: Poor Print Quality
+Diagnostic Steps:
+1. Check toner level
+2. Clean corona wires
+3. Verify fuser temperature
+4. Check paper quality
+5. Run print quality calibration
+
+Error Code: 59.01.00
+Description: Streaks on Print
+Diagnostic Steps:
+1. Clean transfer roller
+2. Check fuser film
+3. Verify laser scanner
+4. Clean paper path
+5. Check paper quality
+
+CHAPTER 2: PARTS CROSS-REFERENCE
+================================
+
+2.1 FUSER ASSEMBLY PARTS
+
+Main Fuser Assembly:
+- HP Part Number: C4127-60001
+- Alternative: C4127-60001A (refurbished)
+- Compatible Models: X580, X585, X590
+- Life Expectancy: 50,000 pages
+
+Fuser Film:
+- HP Part Number: C4127-60002
+- Alternative: C4127-60002A (generic)
+- Compatible Models: All X580 series
+- Life Expectancy: 25,000 pages
+
+Fuser Thermistor:
+- HP Part Number: C4127-60003
+- Alternative: C4127-60003A (aftermarket)
+- Compatible Models: All X580 series
+- Life Expectancy: 100,000 pages
+
+2.2 TRANSFER SYSTEM PARTS
+
+Transfer Roller:
+- HP Part Number: C4127-70001
+- Alternative: C4127-70001A (refurbished)
+- Compatible Models: X580, X585, X590
+- Life Expectancy: 30,000 pages
+
+Transfer Roller Assembly:
+- HP Part Number: C4127-70002
+- Alternative: C4127-70002A (complete)
+- Compatible Models: All X580 series
+- Life Expectancy: 30,000 pages
+
+2.3 LASER SCANNER PARTS
+
+Laser Scanner Assembly:
+- HP Part Number: C4127-80001
+- Alternative: C4127-80001A (refurbished)
+- Compatible Models: X580, X585, X590
+- Life Expectancy: 100,000 pages
+
+Scanner Motor:
+- HP Part Number: C4127-80002
+- Alternative: C4127-80002A (aftermarket)
+- Compatible Models: All X580 series
+- Life Expectancy: 150,000 pages
+
+CHAPTER 3: MAINTENANCE PROCEDURES
+=================================
+
+3.1 PREVENTIVE MAINTENANCE SCHEDULE
+
+Daily Maintenance (Every 1,000 pages):
+- Check paper levels
+- Verify toner levels
+- Clean paper path
+- Check print quality
+
+Weekly Maintenance (Every 7,000 pages):
+- Clean corona wires
+- Check fuser temperature
+- Verify paper alignment
+- Clean transfer roller
+
+Monthly Maintenance (Every 30,000 pages):
+- Replace fuser film
+- Clean registration system
+- Check laser scanner
+- Verify all connections
+
+Quarterly Maintenance (Every 100,000 pages):
+- Replace transfer roller
+- Clean main motor
+- Check all sensors
+- Full calibration
+
+3.2 DETAILED MAINTENANCE PROCEDURES
+
+Fuser Maintenance:
+1. Power down printer
+2. Allow fuser to cool (15 minutes)
+3. Remove fuser assembly
+4. Clean fuser film surface with lint-free cloth
+5. Check thermistor connections
+6. Verify fuser film condition
+7. Reinstall fuser assembly
+8. Test print quality
+
+Transfer Roller Maintenance:
+1. Remove transfer roller assembly
+2. Clean roller surface with alcohol
+3. Check for damage or wear
+4. Verify roller rotation
+5. Replace if necessary
+6. Reinstall assembly
+7. Test print quality
+
+CHAPTER 4: DIAGNOSTIC PROCEDURES
+================================
+
+4.1 PRINT QUALITY DIAGNOSTICS
+
+Poor Print Quality Test:
+1. Print diagnostic page
+2. Check for specific defects
+3. Identify root cause
+4. Perform targeted maintenance
+5. Re-test print quality
+
+Streak Analysis:
+1. Print test pattern
+2. Measure streak location
+3. Identify affected component
+4. Clean or replace component
+5. Verify fix
+
+4.2 ELECTRICAL DIAGNOSTICS
+
+Power Supply Test:
+1. Measure voltage outputs
+2. Check for voltage drops
+3. Verify current capacity
+4. Test under load
+5. Replace if necessary
+
+Sensor Testing:
+1. Check sensor continuity
+2. Verify voltage levels
+3. Test response times
+4. Calibrate if necessary
+5. Replace if faulty
+
+CHAPTER 5: CALIBRATION PROCEDURES
+=================================
+
+5.1 LASER CALIBRATION
+
+Laser Power Calibration:
+1. Access service mode
+2. Navigate to laser settings
+3. Print test pattern
+4. Adjust laser power
+5. Save settings
+
+Scanner Calibration:
+1. Print alignment pattern
+2. Check horizontal alignment
+3. Adjust scanner timing
+4. Verify registration
+5. Save calibration
+
+5.2 REGISTRATION CALIBRATION
+
+Vertical Registration:
+1. Print registration pattern
+2. Measure alignment
+3. Adjust registration values
+4. Test print quality
+5. Save settings
+
+Horizontal Registration:
+1. Print test pattern
+2. Check side-to-side alignment
+3. Adjust horizontal timing
+4. Verify accuracy
+5. Save calibration
+
+CHAPTER 6: FIRMWARE INFORMATION
+===============================
+
+6.1 FIRMWARE VERSIONS
+
+Current Firmware: V3.2.1
+Release Date: 2024-01-15
+Compatibility: All X580 series models
+
+Previous Versions:
+- V3.2.0: 2023-12-01
+- V3.1.5: 2023-10-15
+- V3.1.0: 2023-08-01
+
+6.2 FIRMWARE UPDATE PROCEDURES
+
+Network Update:
+1. Connect printer to network
+2. Access web interface
+3. Navigate to firmware section
+4. Upload new firmware
+5. Wait for completion
+6. Restart printer
+
+USB Update:
+1. Download firmware to USB drive
+2. Insert USB drive
+3. Access service mode
+4. Select firmware update
+5. Wait for completion
+6. Restart printer
+
+CHAPTER 7: TROUBLESHOOTING GUIDE
+================================
+
+7.1 COMMON ISSUES
+
+Paper Jams:
+- Check paper quality
+- Verify paper size settings
+- Clean paper path
+- Check feed rollers
+- Verify paper guides
+
+Print Quality Issues:
+- Check toner level
+- Clean corona wires
+- Verify fuser temperature
+- Check paper quality
+- Run calibration
+
+Network Issues:
+- Check network connection
+- Verify IP settings
+- Test network connectivity
+- Check firewall settings
+- Update network drivers
+
+7.2 ESCALATION PROCEDURES
+
+Level 1 Support:
+- Basic troubleshooting
+- Error code lookup
+- Simple maintenance
+- Part identification
+
+Level 2 Support:
+- Advanced diagnostics
+- Complex repairs
+- Firmware updates
+- Parts replacement
+
+Level 3 Support:
+- Engineering support
+- Design issues
+- Special procedures
+- Field modifications
+
+This CPMD database is updated monthly. Contact HP Technical Support for the latest version.

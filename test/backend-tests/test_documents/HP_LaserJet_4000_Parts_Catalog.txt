@@ -1,0 +1,304 @@
+HP LaserJet Pro 4000 Series Parts Catalog
+Version 1.5
+Date: 2025-09-24
+
+PARTS CATALOG OVERVIEW
+======================
+
+This catalog contains all available parts for the HP LaserJet Pro 4000 series printers. All parts are genuine HP parts and carry full warranty.
+
+CHAPTER 1: MAIN ASSEMBLIES
+==========================
+
+1.1 FUSER ASSEMBLIES
+
+Part Number: C4127-60001
+Description: Fuser Assembly Complete
+Price: $189.50
+Availability: In Stock
+Compatibility: HP LaserJet Pro 4000, 4005, 4015
+Notes: Includes fuser film, thermistor, and heating element
+
+Part Number: C4127-60002  
+Description: Fuser Film Only
+Price: $45.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Replacement fuser film for existing assembly
+
+Part Number: C4127-60003
+Description: Fuser Thermistor
+Price: $12.50
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Temperature sensor for fuser control
+
+1.2 TRANSFER ASSEMBLIES
+
+Part Number: C4127-70001
+Description: Transfer Roller Assembly
+Price: $78.00
+Availability: In Stock
+Compatibility: HP LaserJet Pro 4000, 4005, 4015
+Notes: Complete transfer roller with mounting hardware
+
+Part Number: C4127-70002
+Description: Transfer Roller Only
+Price: $32.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Replacement roller for existing assembly
+
+1.3 LASER SCANNER ASSEMBLIES
+
+Part Number: C4127-80001
+Description: Laser Scanner Assembly
+Price: $245.00
+Availability: In Stock
+Compatibility: HP LaserJet Pro 4000, 4005, 4015
+Notes: Complete laser scanner with mirrors and motor
+
+Part Number: C4127-80002
+Description: Laser Scanner Motor
+Price: $45.00
+Availability: Limited Stock
+Compatibility: All 4000 series models
+Notes: Scanner motor replacement
+
+CHAPTER 2: PAPER HANDLING PARTS
+===============================
+
+2.1 FEED ROLLERS
+
+Part Number: C4127-90001
+Description: Main Feed Roller
+Price: $28.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Primary paper feed roller
+
+Part Number: C4127-90002
+Description: Separation Pad
+Price: $15.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Paper separation pad
+
+Part Number: C4127-90003
+Description: Duplex Feed Roller
+Price: $35.00
+Availability: In Stock
+Compatibility: Duplex models only
+Notes: Duplex unit feed roller
+
+2.2 PAPER GUIDES
+
+Part Number: C4127-95001
+Description: Paper Guide Assembly
+Price: $22.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Complete paper guide assembly
+
+Part Number: C4127-95002
+Description: Paper Guide Rails
+Price: $8.50
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Replacement guide rails
+
+CHAPTER 3: ELECTRONIC COMPONENTS
+================================
+
+3.1 CONTROLLER BOARDS
+
+Part Number: C4127-10001
+Description: Main Controller Board
+Price: $320.00
+Availability: Special Order
+Compatibility: HP LaserJet Pro 4000, 4005
+Notes: 32MB memory, requires programming
+
+Part Number: C4127-10002
+Description: Formatter Board
+Price: $180.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Print formatter board
+
+3.2 SENSORS
+
+Part Number: C4127-11001
+Description: Paper Out Sensor
+Price: $18.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Paper tray sensor
+
+Part Number: C4127-11002
+Description: Cover Open Sensor
+Price: $12.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Top cover sensor
+
+Part Number: C4127-11003
+Description: Toner Level Sensor
+Price: $25.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Toner cartridge sensor
+
+CHAPTER 4: MECHANICAL PARTS
+===========================
+
+4.1 MOTORS
+
+Part Number: C4127-12001
+Description: Main Motor Assembly
+Price: $85.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Primary drive motor
+
+Part Number: C4127-12002
+Description: Fuser Motor
+Price: $45.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Fuser drive motor
+
+Part Number: C4127-12003
+Description: Scanner Motor
+Price: $38.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Laser scanner motor
+
+4.2 GEARS AND BELTS
+
+Part Number: C4127-13001
+Description: Drive Belt Assembly
+Price: $22.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Main drive belt
+
+Part Number: C4127-13002
+Description: Fuser Gear Set
+Price: $35.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Complete fuser gear assembly
+
+CHAPTER 5: CONSUMABLES
+======================
+
+5.1 TONER CARTRIDGES
+
+Part Number: C4127-60001A
+Description: Black Toner Cartridge
+Price: $89.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: 6000 page yield
+
+Part Number: C4127-60001B
+Description: High Yield Toner Cartridge
+Price: $125.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: 9000 page yield
+
+5.2 DRUM UNITS
+
+Part Number: C4127-70001A
+Description: Imaging Drum Unit
+Price: $95.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: 12000 page yield
+
+CHAPTER 6: OPTIONAL ACCESSORIES
+===============================
+
+6.1 PAPER TRAYS
+
+Part Number: C4127-80001
+Description: 500-Sheet Paper Tray
+Price: $65.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Additional paper capacity
+
+Part Number: C4127-80002
+Description: Duplex Unit
+Price: $145.00
+Availability: In Stock
+Compatibility: HP LaserJet Pro 4000, 4005
+Notes: Double-sided printing
+
+6.2 NETWORKING
+
+Part Number: C4127-90001
+Description: Network Interface Card
+Price: $95.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Ethernet connectivity
+
+CHAPTER 7: TOOLS AND SUPPLIES
+=============================
+
+7.1 SERVICE TOOLS
+
+Part Number: C4127-T001
+Description: Service Tool Kit
+Price: $45.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Complete tool set for service
+
+Part Number: C4127-T002
+Description: Alignment Tool
+Price: $25.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Laser alignment tool
+
+7.2 CLEANING SUPPLIES
+
+Part Number: C4127-C001
+Description: Cleaning Kit
+Price: $18.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Complete cleaning supplies
+
+Part Number: C4127-C002
+Description: Lint-Free Cloths
+Price: $8.00
+Availability: In Stock
+Compatibility: All 4000 series models
+Notes: Pack of 10 cloths
+
+ORDERING INFORMATION
+====================
+
+To order parts:
+1. Contact HP Parts Department: 1-800-HP-PARTS
+2. Provide part numbers and quantities
+3. Specify shipping method
+4. Provide purchase order number
+
+Warranty Information:
+- All parts carry 90-day warranty
+- Labor warranty: 30 days
+- Consumables: No warranty
+
+Shipping:
+- Standard shipping: 3-5 business days
+- Express shipping: 1-2 business days
+- International: 7-10 business days
+
+This catalog is updated monthly. Check HP website for latest part numbers and prices.
