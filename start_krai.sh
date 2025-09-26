@@ -1,11 +1,12 @@
 #!/bin/bash
 
-# KRAI Engine - Complete Stack Startup
-# Starts all services in the correct order
+# 🚀 KR-AI-Engine - Consolidated Stack Startup
+# Single Source of Truth für alle Services
+# Verwendet die konsolidierte Docker-Compose-Datei
 
 set -e
 
-echo "🚀 Starting KRAI Engine Complete Stack..."
+echo "🚀 Starting KR-AI-Engine Consolidated Stack..."
 echo "==============================================="
 
 # Check if .env file exists
@@ -27,14 +28,18 @@ echo "   ├─ Redis: Port 6379"
 echo "   └─ PostgreSQL: Port 54322"
 
 echo ""
-echo "🐳 Starting Docker Stack..."
+echo "🐳 Starting Consolidated Docker Stack..."
 
-# Start all services
+# Stop any existing stacks first
+echo "🧹 Cleaning up existing containers..."
+docker-compose down --remove-orphans 2>/dev/null || true
+
+# Start the optimized stack
 docker-compose up -d
 
 echo ""
 echo "⏳ Waiting for services to start..."
-sleep 10
+sleep 15
 
 # Health checks
 echo ""
@@ -74,14 +79,14 @@ fi
 
 # Check Redis
 echo -n "   └─ Redis: "
-if docker exec -it $(docker ps -q -f name=redis) redis-cli ping > /dev/null 2>&1; then
+if docker exec krai-redis redis-cli ping > /dev/null 2>&1; then
     echo "✅ Running"
 else
     echo "❌ Not ready"
 fi
 
 echo ""
-echo "🎉 KRAI Engine Stack Started!"
+echo "🎉 KR-AI-Engine Consolidated Stack Started!"
 echo "==============================================="
 echo ""
 echo "📡 Service URLs:"
@@ -106,21 +111,27 @@ echo "🤖 Checking AI Models..."
 sleep 5
 
 # Check if models exist and pull if needed
-if ! docker exec $(docker ps -q -f name=ollama) ollama list | grep -q "llama3.2:3b"; then
+if ! docker exec krai-ollama ollama list | grep -q "llama3.2:3b"; then
     echo "⬇️ Pulling llama3.2:3b..."
-    docker exec $(docker ps -q -f name=ollama) ollama pull llama3.2:3b &
+    docker exec krai-ollama ollama pull llama3.2:3b &
 fi
 
-if ! docker exec $(docker ps -q -f name=ollama) ollama list | grep -q "llava:7b"; then
+if ! docker exec krai-ollama ollama list | grep -q "llava:7b"; then
     echo "⬇️ Pulling llava:7b..."
-    docker exec $(docker ps -q -f name=ollama) ollama pull llava:7b &
+    docker exec krai-ollama ollama pull llava:7b &
 fi
 
-if ! docker exec $(docker ps -q -f name=ollama) ollama list | grep -q "embeddinggemma"; then
+if ! docker exec krai-ollama ollama list | grep -q "embeddinggemma"; then
     echo "⬇️ Pulling embeddinggemma..."
-    docker exec $(docker ps -q -f name=ollama) ollama pull embeddinggemma &
+    docker exec krai-ollama ollama pull embeddinggemma &
 fi
 
 wait
 
-echo "✅ KRAI Engine Stack is fully operational!"
+echo "✅ KR-AI-Engine Consolidated Stack is fully operational!"
+echo ""
+echo "🎯 Next Steps:"
+echo "   1. Access KRAI API: http://localhost:${KRAI_API_PORT:-8001}"
+echo "   2. Open Chat Interface: http://localhost:8080"
+echo "   3. Check Supabase Studio: http://localhost:54323"
+echo "   4. Upload documents via API or Chat Interface"
