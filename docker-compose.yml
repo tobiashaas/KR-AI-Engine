@@ -74,6 +74,7 @@ services:
   # ===========================================
   supabase-db:
     image: public.ecr.aws/supabase/postgres:17.6.1.002
+    pull_policy: if_not_present  # Use cached image if available
     ports:
       - "54322:5432"
     environment:
@@ -98,6 +99,7 @@ services:
   # ===========================================
   supabase-storage:
     image: public.ecr.aws/supabase/storage-api:v1.11.0
+    pull_policy: if_not_present
     depends_on:
       supabase-db:
         condition: service_healthy
@@ -122,6 +124,7 @@ services:
   # ===========================================
   supabase-rest:
     image: public.ecr.aws/supabase/postgrest:v12.0.1
+    pull_policy: if_not_present
     depends_on:
       supabase-db:
         condition: service_healthy
@@ -140,6 +143,7 @@ services:
   # ===========================================
   supabase-auth:
     image: public.ecr.aws/supabase/gotrue:v2.158.1
+    pull_policy: if_not_present
     depends_on:
       supabase-db:
         condition: service_healthy
@@ -164,6 +168,7 @@ services:
   # ===========================================
   supabase-kong:
     image: public.ecr.aws/supabase/kong:2.8.1.0
+    pull_policy: if_not_present
     ports:
       - "54321:8000"  # Supabase API Gateway
       - "54323:8001"  # Kong Admin (Supabase Studio)

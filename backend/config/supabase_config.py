@@ -159,9 +159,13 @@ class SupabaseStorage:
             image_hash = self._calculate_file_hash(image_content)
             
             # Determine target bucket based on image type
-            # Schema-compliant bucket mapping: All images go to krai-images
-            # Schema defines: krai-documents, krai-images, krai-videos
-            target_bucket = "krai-images"
+            bucket_mapping = {
+                "error": "krai-error-images",
+                "manual": "krai-manual-images", 
+                "parts": "krai-parts-images"
+            }
+            
+            target_bucket = bucket_mapping.get(image_type, "krai-error-images")
             
             # Upload to specialized bucket
             public_url = await self.upload_file(
@@ -261,9 +265,9 @@ class SupabaseStorage:
             
             # Define the specialized buckets
             buckets = [
-                "krai-documents",
-                "krai-images", 
-                "krai-videos"
+                "krai-error-images",
+                "krai-manual-images", 
+                "krai-parts-images"
             ]
             
             success_count = 0

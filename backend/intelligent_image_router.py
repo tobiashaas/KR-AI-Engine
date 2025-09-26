@@ -40,14 +40,12 @@ class ImageRouter:
         ]
         
         # Storage bucket mapping
-        # Schema-compliant bucket mapping: All images go to krai-images
-        # Schema defines: krai-documents, krai-images, krai-videos  
         self.bucket_mapping = {
-            ImageType.ERROR_DEFECT: "krai-images",
-            ImageType.MANUAL_INSTRUCTION: "krai-images", 
-            ImageType.PARTS_TECHNICAL: "krai-images",
-            ImageType.EXTRACTED_CONTENT: "krai-images",
-            ImageType.UNKNOWN: "krai-images"
+            ImageType.ERROR_DEFECT: "krai-error-images",
+            ImageType.MANUAL_INSTRUCTION: "krai-manual-images", 
+            ImageType.PARTS_TECHNICAL: "krai-parts-images",
+            ImageType.EXTRACTED_CONTENT: "krai-manual-images",  # Default to manual
+            ImageType.UNKNOWN: "krai-manual-images"  # Default to manual
         }
     
     def route_image(

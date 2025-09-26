@@ -14,6 +14,7 @@ import sys
 import argparse
 import asyncio
 import json
+import uuid
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, List, Any, Optional
@@ -204,6 +205,10 @@ class KRAIProcessor:
             with open(file_path, 'rb') as f:
                 file_content = f.read()
             
+            # Store file content and filename for later use
+            self.file_content = file_content
+            self.current_filename = file_path.name
+                
             if self.config['verbose_logging']:
                 print(f"📄 Processing: {file_path.name} ({len(file_content)/1024/1024:.1f} MB)")
             
@@ -257,33 +262,84 @@ class KRAIProcessor:
                         results['processing_stages'].append('image_upload')
             
             # === CLASSIFICATION ===
+            classification = None
             if self.config.get('enable_classification', False):
                 if self.config['verbose_logging']:
                     print("🏷️ Classifying document...")
                 
-                classification = await self.processor._classify_document(
+                classification = self.processor._classify_document(
                     file_path.name, 
                     content_result.get('text', '')
                 )
+                # Store classification for intelligent image routing
+                self.classification_result = classification
                 results['classification'] = classification
                 results['processing_stages'].append('classification')
                 
                 if self.config['verbose_logging']:
                     print(f"   ✅ Type: {classification.get('document_type', 'unknown')}")
                     print(f"   ✅ Manufacturer: {classification.get('manufacturer', 'unknown')}")
+            else:
+                # Default classification for database storage
+                classification = {
+                    'document_type': 'unknown',
+                    'manufacturer': 'unknown',
+                    'confidence': 0.0,
+                    'models': [],
+                    'version': 'unknown'
+                }
+            
+            # === DATABASE STORAGE ===
+            document_id = None
+            if self.config.get('enable_database_storage', False):
+                if self.config['verbose_logging']:
+                    print("💾 Storing document in database...")
+                
+                # Create storage_result with hash for deduplication
+                import hashlib
+                file_hash = hashlib.sha256(self.file_content).hexdigest()
+                storage_result = {
+                    'hash': file_hash,
+                    'url': f'local://documents/{file_path.name}',
+                    'size': len(self.file_content)
+                }
+                
+                # Create default version/model results
+                version_result = {'version': 'unknown', 'confidence': 0.0}
+                model_result = {'models': [], 'confidence': 0.0}
+                
+                # Store document using the production processor's method
+                document_id = await self.processor._store_document_in_db(
+                    file_path,
+                    self.file_content,
+                    storage_result,
+                    content_result,
+                    classification,
+                    version_result,
+                    model_result,
+                    analyzed_images if analyzed_images else []
+                )
+                results['document_id'] = str(document_id)
+                results['processing_stages'].append('database_storage')
+                
+                if self.config['verbose_logging']:
+                    print(f"   ✅ Document stored: {document_id}")
             
             # === CHUNKING ===
             if self.config.get('enable_chunking', False):
                 if self.config['verbose_logging']:
                     print("🧩 Creating chunks...")
                 
-                # Create a temporary document ID for chunking
-                document_id = f"temp_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+                # Use real document_id or create temporary UUID
+                if not document_id:
+                    document_id = str(uuid.uuid4())
+                    if self.config['verbose_logging']:
+                        print(f"   ⚠️ Using temporary document_id: {document_id}")
                 
                 chunk_result = await self.processor._process_chunks_with_gpu(
-                    document_id,
+                    str(document_id),
                     content_result.get('text', ''),
-                    file_path.name
+                    classification or {}
                 )
                 
                 chunks = chunk_result.get('chunks', [])
@@ -391,11 +447,28 @@ class KRAIProcessor:
         """Upload images to Supabase storage"""
         uploaded_count = 0
         
+        # Import intelligent router
+        from intelligent_image_router import image_router
+        
         for image in images:
             try:
-                # Determine image type for bucket selection
+                # Use intelligent routing based on document type!
                 analysis = image.get('analysis', '')
-                image_type = self.processor._determine_image_type(analysis, 'temp_doc')
+                
+                # Route image intelligently based on document type and content
+                routing_result = image_router.route_image(
+                    document_type=getattr(self, 'classification_result', {}).get('document_type', 'service_manual'),
+                    document_filename=getattr(self, 'current_filename', 'unknown.pdf'),
+                    image_description=analysis,
+                    upload_source="extraction"  # This is extracted from document
+                )
+                
+                # Extract bucket type from routing (error, manual, parts)
+                bucket_name = routing_result['storage_bucket']  # krai-manual-images, etc.
+                image_type = bucket_name.split('-')[1]  # manual, error, parts
+                
+                if self.config['verbose_logging'] and uploaded_count % 100 == 0:
+                    print(f"   🎯 Routing: {routing_result['image_type']} → {bucket_name} ({routing_result['routing_reason']})")
                 
                 # Create image path
                 image_path = Path(f"temp_image_{uploaded_count}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")

@@ -1,0 +1,171 @@
+# KR-AI-Engine - Alternative Images für problematische PCs
+# Lösung für AWS ECR Image-Probleme
+
+services:
+  # ===========================================
+  # KRAI ENGINE API - MAIN APPLICATION
+  # ===========================================
+  krai-api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "${KRAI_API_PORT:-8001}:8001"
+    environment:
+      # Database Configuration
+      - POSTGRES_HOST=supabase-db
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      
+      # Supabase Configuration
+      - SUPABASE_URL=http://localhost:54321
+      - SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0
+      - SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hdp7fsn3W0YpN81IU
+      
+      # Ollama Configuration
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - OLLAMA_LLM_MODEL=${OLLAMA_LLM_MODEL:-llama3.2:3b}
+      - OLLAMA_VISION_MODEL=${OLLAMA_VISION_MODEL:-llava:7b}
+      - OLLAMA_EMBEDDING_MODEL=${OLLAMA_EMBEDDING_MODEL:-embeddinggemma}
+      
+      # Performance Configuration
+      - ML_DEVICE=${ML_DEVICE:-cpu}
+      - ML_BATCH_SIZE=${ML_BATCH_SIZE:-16}
+      - ML_CONCURRENT_DOCUMENTS=${ML_CONCURRENT_DOCUMENTS:-2}
+    depends_on:
+      supabase-db:
+        condition: service_healthy
+      ollama:
+        condition: service_healthy
+    volumes:
+      - krai_logs:/app/logs
+      - krai_uploads:/app/uploads
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ===========================================
+  # OLLAMA - AI MODELS
+  # ===========================================
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # ===========================================
+  # SUPABASE DATABASE - ALTERNATIVE IMAGE
+  # ===========================================
+  supabase-db:
+    # ✅ ALTERNATIVE: PostgreSQL mit pgvector extension
+    image: pgvector/pgvector:pg15
+    ports:
+      - "54322:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --lc-collate=C --lc-ctype=C"
+    volumes:
+      - supabase_db_data:/var/lib/postgresql/data
+      # Initiale Extensions werden über SQL Scripts geladen
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ===========================================
+  # MINIMAL SUPABASE STORAGE - ALTERNATIVE
+  # ===========================================
+  supabase-storage:
+    # ✅ ALTERNATIVE: Minio für S3-kompatiblen Storage
+    image: minio/minio:latest
+    ports:
+      - "54321:9000"      # Storage API
+      - "54324:9001"      # Admin Console
+    environment:
+      - MINIO_ROOT_USER=minioadmin
+      - MINIO_ROOT_PASSWORD=minioadmin123
+    volumes:
+      - supabase_storage_data:/data
+    command: server /data --console-address ":9001"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+  # ===========================================
+  # OPEN WEBUI - CHAT INTERFACE
+  # ===========================================
+  openwebui:
+    image: ghcr.io/open-webui/open-webui:main
+    ports:
+      - "8080:8080"
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - WEBUI_SECRET_KEY=${WEBUI_SECRET_KEY:-znlrNH6TuqL7HKrX}
+      - WEBUI_NAME=KRAI Engine Chat
+    volumes:
+      - openwebui_data:/app/backend/data
+    depends_on:
+      - ollama
+    restart: unless-stopped
+
+  # ===========================================
+  # REDIS - CACHING & SESSION STORAGE
+  # ===========================================
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+# ===========================================
+# VOLUMES
+# ===========================================
+volumes:
+  # KRAI Engine Data
+  krai_logs:
+  krai_uploads:
+  
+  # Supabase Data
+  supabase_db_data:
+  supabase_storage_data:
+  
+  # AI Models & Cache
+  ollama_data:
+  openwebui_data:
+  redis_data:
+
+# ===========================================
+# NETWORKS
+# ===========================================
+networks:
+  default:
+    name: krai-engine-alt
+    driver: bridge
