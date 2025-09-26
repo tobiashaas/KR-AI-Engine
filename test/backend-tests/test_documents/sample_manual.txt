@@ -1,0 +1,178 @@
+HP LaserJet Pro 4000 Series Service Manual
+
+Chapter 1: Introduction
+=======================
+
+This service manual provides detailed information for servicing the HP LaserJet Pro 4000 series printers. The manual covers maintenance procedures, troubleshooting, and parts replacement.
+
+Safety Precautions
+------------------
+
+Before performing any service procedures, read and understand all safety warnings. Always disconnect power before opening covers or removing parts.
+
+Chapter 2: Maintenance Procedures
+=================================
+
+Regular Maintenance Schedule
+----------------------------
+
+Daily:
+- Check paper levels
+- Verify toner levels
+- Clean paper path
+
+Weekly:
+- Clean corona wires
+- Check fuser assembly
+- Verify paper tray alignment
+
+Monthly:
+- Replace fuser film
+- Clean transfer roller
+- Check registration system
+
+Chapter 3: Troubleshooting
+==========================
+
+Common Error Codes
+------------------
+
+Error 13: Paper Jam
+- Check paper path for obstructions
+- Verify paper size settings
+- Clean paper feed rollers
+
+Error 21: Toner Low
+- Replace toner cartridge
+- Reset toner counter
+- Check toner sensor
+
+Error 50: Fuser Error
+- Check fuser temperature
+- Replace fuser assembly
+- Verify thermistor connections
+
+Chapter 4: Parts and Replacements
+=================================
+
+Fuser Assembly Replacement
+-------------------------
+
+Tools Required:
+- Phillips screwdriver
+- Torx T-15 driver
+- Anti-static wrist strap
+
+Procedure:
+1. Disconnect power cord
+2. Remove rear cover
+3. Disconnect fuser cables
+4. Remove fuser assembly screws
+5. Lift out fuser assembly
+6. Install new fuser assembly
+7. Reconnect cables
+8. Replace rear cover
+9. Test printer operation
+
+Part Numbers:
+- Fuser Assembly: C4127-60001
+- Fuser Film: C4127-60002
+- Thermistor: C4127-60003
+
+Chapter 5: Technical Specifications
+==================================
+
+Print Speed: 24 pages per minute
+Resolution: 600 x 600 dpi
+Paper Capacity: 500 sheets
+Memory: 32 MB standard
+Interface: USB, Ethernet, Parallel
+
+Power Requirements:
+- Voltage: 220-240V AC
+- Frequency: 50/60 Hz
+- Power Consumption: 650W maximum
+
+Environmental Conditions:
+- Temperature: 15-32°C
+- Humidity: 20-80% RH
+- Altitude: 0-2000m
+
+Chapter 6: Disassembly and Assembly
+==================================
+
+Main Controller Board Removal
+-----------------------------
+
+1. Power down printer
+2. Remove all cables
+3. Remove top cover
+4. Remove side panels
+5. Disconnect controller board cables
+6. Remove mounting screws
+7. Lift out controller board
+8. Reverse procedure for installation
+
+Paper Feed Assembly
+------------------
+
+The paper feed assembly consists of:
+- Feed roller
+- Separation pad
+- Paper guides
+- Feed motor
+
+Replacement procedure:
+1. Remove paper tray
+2. Remove feed assembly cover
+3. Disconnect motor cables
+4. Remove feed assembly
+5. Install new assembly
+6. Test paper feeding
+
+Chapter 7: Calibration Procedures
+=================================
+
+Print Quality Calibration
+------------------------
+
+1. Print test page
+2. Check print quality
+3. Adjust laser power if needed
+4. Calibrate registration
+5. Verify color alignment
+
+Registration Calibration
+-----------------------
+
+1. Access service mode
+2. Select calibration menu
+3. Print registration pattern
+4. Adjust registration values
+5. Save calibration data
+
+Chapter 8: Firmware Updates
+==========================
+
+Firmware Update Procedure
+------------------------
+
+1. Download latest firmware
+2. Connect printer to network
+3. Access web interface
+4. Navigate to firmware update
+5. Upload firmware file
+6. Wait for completion
+7. Restart printer
+8. Verify update success
+
+Service Bulletin Updates
+-----------------------
+
+Check HP website regularly for:
+- Service bulletins
+- Firmware updates
+- Parts advisories
+- Field modifications
+
+This completes the HP LaserJet Pro 4000 Series Service Manual. For additional support, contact HP Technical Support.

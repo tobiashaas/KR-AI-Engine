@@ -1,0 +1,248 @@
+HP LaserJet Pro 4000 Series Service Manual
+Version 2.0
+Date: 2025-09-24
+
+TABLE OF CONTENTS
+
+Chapter 1: Introduction
+=======================
+
+1.1 Overview
+The HP LaserJet Pro 4000 series represents the latest generation of high-performance laser printers designed for enterprise environments. This service manual provides comprehensive maintenance and repair procedures.
+
+1.2 Safety Precautions
+Before performing any service procedures, read and understand all safety warnings. Always disconnect power before opening covers or removing parts.
+
+Chapter 2: Maintenance Procedures
+=================================
+
+2.1 Regular Maintenance Schedule
+
+Daily Maintenance:
+- Check paper levels in all trays
+- Verify toner levels
+- Clean paper path rollers
+- Inspect output tray
+
+Weekly Maintenance:
+- Clean corona wires
+- Check fuser assembly temperature
+- Verify paper tray alignment
+- Clean transfer roller assembly
+
+Monthly Maintenance:
+- Replace fuser film assembly
+- Clean registration system
+- Check laser scanner assembly
+- Verify all electrical connections
+
+2.2 Preventive Maintenance Procedures
+
+Fuser Assembly Maintenance:
+1. Power down printer
+2. Allow fuser to cool (15 minutes)
+3. Remove fuser assembly
+4. Clean fuser film surface
+5. Check thermistor connections
+6. Reinstall fuser assembly
+
+Transfer Roller Maintenance:
+1. Remove transfer roller assembly
+2. Clean roller surface with lint-free cloth
+3. Check for damage or wear
+4. Replace if necessary
+
+Chapter 3: Troubleshooting
+==========================
+
+3.1 Common Error Codes
+
+Error 13.20: Paper Jam in Duplex Unit
+Symptoms: Paper jam error, duplex printing fails
+Solution:
+1. Open duplex unit cover
+2. Remove jammed paper
+3. Check paper path for obstructions
+4. Verify duplex unit alignment
+
+Error 50.1: Fuser Error
+Symptoms: Print quality issues, fuser error message
+Solution:
+1. Check fuser temperature sensor
+2. Verify fuser film condition
+3. Replace fuser assembly if necessary
+
+Error 21.3: Toner Cartridge Error
+Symptoms: Toner low warning, print quality degradation
+Solution:
+1. Remove and reinstall toner cartridge
+2. Check toner sensor connections
+3. Replace toner cartridge if necessary
+
+3.2 Print Quality Issues
+
+Poor Print Quality:
+- Check toner level
+- Clean corona wires
+- Verify fuser temperature
+- Check paper quality
+
+Streaks on Print:
+- Clean transfer roller
+- Check fuser film
+- Verify laser scanner
+- Clean paper path
+
+Chapter 4: Parts and Replacements
+=================================
+
+4.1 Major Components
+
+Fuser Assembly (Part #: C4127-60001)
+- Description: Complete fuser assembly with film
+- Replacement Interval: 50,000 pages
+- Tools Required: Phillips screwdriver, anti-static wrist strap
+
+Transfer Roller (Part #: C4127-60002)
+- Description: Transfer roller assembly
+- Replacement Interval: 30,000 pages
+- Tools Required: Torx T-15 driver
+
+Laser Scanner (Part #: C4127-60003)
+- Description: Laser scanner assembly
+- Replacement Interval: 100,000 pages
+- Tools Required: Special alignment tool
+
+4.2 Replacement Procedures
+
+Fuser Assembly Replacement:
+1. Power down printer and disconnect power cord
+2. Remove rear cover (4 Phillips screws)
+3. Disconnect fuser electrical cables
+4. Remove fuser mounting screws (6 screws)
+5. Lift out fuser assembly
+6. Install new fuser assembly
+7. Reconnect electrical cables
+8. Replace rear cover
+9. Test printer operation
+
+Transfer Roller Replacement:
+1. Remove paper tray
+2. Remove transfer roller cover
+3. Disconnect transfer roller cables
+4. Remove transfer roller assembly
+5. Install new transfer roller
+6. Reconnect cables
+7. Replace covers
+
+Chapter 5: Technical Specifications
+==================================
+
+5.1 General Specifications
+
+Print Speed: 24 pages per minute (A4)
+Print Resolution: 600 x 600 dpi
+First Page Out: 8.5 seconds
+Paper Capacity: 500 sheets (standard tray)
+Memory: 32 MB standard, expandable to 288 MB
+Interface: USB 2.0, Ethernet 10/100, Parallel
+
+5.2 Power Requirements
+
+Voltage: 220-240V AC
+Frequency: 50/60 Hz
+Power Consumption: 650W maximum, 350W average
+Standby Power: 15W
+
+5.3 Environmental Conditions
+
+Operating Temperature: 15-32°C (59-90°F)
+Operating Humidity: 20-80% RH
+Storage Temperature: -40 to 60°C (-40 to 140°F)
+Altitude: 0-2000m (0-6562 ft)
+
+Chapter 6: Disassembly and Assembly
+==================================
+
+6.1 Main Controller Board Removal
+
+Tools Required:
+- Phillips screwdriver #2
+- Torx T-15 driver
+- Anti-static wrist strap
+- Plastic pry tools
+
+Procedure:
+1. Power down printer and disconnect all cables
+2. Remove top cover (6 Phillips screws)
+3. Remove left side panel (4 screws)
+4. Remove right side panel (4 screws)
+5. Disconnect controller board cables
+6. Remove controller board mounting screws (8 screws)
+7. Lift out controller board carefully
+8. Reverse procedure for installation
+
+6.2 Paper Feed Assembly
+
+The paper feed assembly consists of:
+- Feed roller assembly
+- Separation pad
+- Paper guides
+- Feed motor
+- Paper sensors
+
+Replacement Procedure:
+1. Remove paper tray completely
+2. Remove feed assembly cover
+3. Disconnect motor cables
+4. Remove feed assembly mounting screws
+5. Lift out feed assembly
+6. Install new feed assembly
+7. Reconnect motor cables
+8. Test paper feeding operation
+
+Chapter 7: Calibration Procedures
+=================================
+
+7.1 Print Quality Calibration
+
+1. Print test page from service menu
+2. Check print quality indicators
+3. Adjust laser power if necessary
+4. Calibrate registration system
+5. Verify color alignment
+6. Save calibration data
+
+7.2 Registration Calibration
+
+1. Access service mode (hold Cancel + Go)
+2. Navigate to calibration menu
+3. Print registration pattern
+4. Adjust registration values
+5. Test print quality
+6. Save calibration settings
+
+Chapter 8: Firmware Updates
+==========================
+
+8.1 Firmware Update Procedure
+
+1. Download latest firmware from HP website
+2. Connect printer to network
+3. Access web interface (http://printer-ip)
+4. Navigate to firmware update section
+5. Upload firmware file
+6. Wait for update completion
+7. Restart printer
+8. Verify update success
+
+8.2 Service Bulletin Updates
+
+Check HP website regularly for:
+- Service bulletins
+- Firmware updates
+- Parts advisories
+- Field modifications
+- Known issues and solutions
+
+This completes the HP LaserJet Pro 4000 Series Service Manual. For additional support, contact HP Technical Support at 1-800-HP-INVENT.
