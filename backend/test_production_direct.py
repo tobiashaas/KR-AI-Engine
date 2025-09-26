@@ -4,6 +4,7 @@ Direct test of production processing without Supabase Storage
 """
 
 import asyncio
+import json
 import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent / "test" / "backend-tests"))
@@ -51,7 +52,20 @@ async def test_direct_processing():
         # 3. Store in database (bypass storage)
         print("💾 3. Storing in database...")
         
-        # Get manufacturer ID
+        # Check for duplicates by hash first!
+        file_hash = processor._calculate_file_hash(file_content)
+        
+        async with processor.db_pool.acquire() as conn:
+            existing_doc = await conn.fetchval(
+                "SELECT id FROM krai_core.documents WHERE file_hash = $1 LIMIT 1",
+                file_hash
+            )
+            if existing_doc:
+                print(f"   🔄 Document with hash {file_hash[:16]}... already exists: {existing_doc}")
+                print(f"   ⏭️ Skipping duplicate document processing!")
+                return
+        
+        # Get manufacturer ID  
         manufacturer_name = classification['manufacturer']
         async with processor.db_pool.acquire() as conn:
             manufacturer_id = await conn.fetchval(
@@ -65,7 +79,7 @@ async def test_direct_processing():
                     manufacturer_name, manufacturer_name.upper()
                 )
         
-            # Store document
+            # Store document (only if not duplicate!)
             document_id = await conn.fetchval(
                 """
                 INSERT INTO krai_core.documents 
@@ -78,64 +92,28 @@ async def test_direct_processing():
                 classification['document_type'],
                 classification.get('version', ''),
                 len(file_content),
-                processor._calculate_file_hash(file_content),
+                file_hash,
                 f"local://documents/{pdf_path.name}",
-                {'models': classification.get('models', []), 'analysis': classification}
+                json.dumps({'models': classification.get('models', []), 'analysis': classification})
             )
             
         print(f"   ✅ Document stored: {document_id}")
         
         # 4. Create chunks
         print("📝 4. Creating chunks...")
-        chunks = await processor._chunk_document(content_result['text'], classification)
-        print(f"   ✅ Created {len(chunks)} chunks")
+        chunk_result = await processor._process_chunks_with_gpu(str(document_id), content_result['text'], classification)
+        chunks = chunk_result.get('chunks', [])
+        chunk_ids = chunk_result.get('chunk_ids', [])
+        print(f"   ✅ Created & stored {len(chunks)} chunks")
         
-        # 5. Store chunks in database
-        print("💾 5. Storing chunks in database...")
-        chunk_ids = []
-        async with processor.db_pool.acquire() as conn:
-            for i, chunk_data in enumerate(chunks):
-                chunk_id = await conn.fetchval(
-                    """
-                    INSERT INTO krai_intelligence.chunks 
-                    (document_id, text_chunk, chunk_index, page_start, page_end, processing_status, fingerprint)
-                    VALUES ($1, $2, $3, $4, $5, 'completed', $6)
-                    RETURNING id
-                    """,
-                    document_id,
-                    chunk_data['text'],
-                    i,
-                    chunk_data.get('page_start', 0),
-                    chunk_data.get('page_end', 0),
-                    processor._calculate_text_hash(chunk_data['text'])
-                )
-                chunk_ids.append(chunk_id)
-        
-        print(f"   ✅ Stored {len(chunk_ids)} chunks")
-        
-        # 6. Generate embeddings  
+        # 6. Generate embeddings (with deduplication check)
         print("🧠 6. Generating embeddings...")
-        embeddings = await processor._generate_ollama_embeddings([chunk['text'] for chunk in chunks])
-        print(f"   ✅ Generated {len(embeddings)} embeddings")
+        embedding_result = await processor._generate_embeddings_with_gpu(str(document_id), chunks)
         
-        # 7. Store embeddings
-        print("💾 7. Storing embeddings...")
-        async with processor.db_pool.acquire() as conn:
-            for chunk_id, embedding in zip(chunk_ids, embeddings):
-                vector_str = '[' + ','.join(map(str, embedding)) + ']'
-                await conn.execute(
-                    """
-                    INSERT INTO krai_intelligence.embeddings 
-                    (chunk_id, embedding, model_name, model_version)
-                    VALUES ($1, $2::vector, $3, $4)
-                    """,
-                    chunk_id,
-                    vector_str,
-                    processor.embedding_model_name,
-                    "latest"
-                )
-        
-        print(f"   ✅ Stored {len(embeddings)} embeddings")
+        if embedding_result.get('skipped', False):
+            print(f"   🔄 Found {embedding_result['existing_count']} existing embeddings, skipped generation")
+        else:
+            print(f"   ✅ Generated and stored {len(embedding_result.get('embedding_ids', []))} new embeddings")
         
         # Update document status
         async with processor.db_pool.acquire() as conn:

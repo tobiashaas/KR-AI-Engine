@@ -1,8 +1,7 @@
 -- ======================================================================
 -- ⚡ KR-AI-ENGINE - PERFORMANCE OPTIMIZATIONS
 -- ======================================================================
--- This file consolidates: 07_performance_optimizations + 11_performance_optimization
---
+-- 
 -- Applies:
 -- - Advanced performance indexes (GIN, HNSW, Composite)
 -- - Query optimization functions
@@ -294,7 +293,7 @@ GRANT EXECUTE ON FUNCTION krai_intelligence.refresh_document_processing_summary 
 GRANT EXECUTE ON FUNCTION krai_system.get_performance_metrics TO krai_service_role;
 
 -- ======================================================================
--- PERFORMANCE INDEX CLEANUP (from 11_performance_optimization.sql)  
+-- PERFORMANCE INDEX CLEANUP
 -- ======================================================================
 
 -- Drop any redundant or unused indexes

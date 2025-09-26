@@ -7,6 +7,10 @@ import os
 import httpx
 from typing import Dict, Optional
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv(Path(__file__).parent.parent.parent / '.env')
 
 class SupabaseConfig:
     """Supabase configuration manager"""
@@ -148,15 +152,20 @@ class SupabaseStorage:
             print(f"❌ Error uploading file: {e}")
             return None
     
-    async def upload_image(self, image_path: Path, image_content: bytes) -> Optional[Dict]:
-        """Upload image with metadata"""
+    async def upload_image(self, image_path: Path, image_content: bytes, image_type: str = "error") -> Optional[Dict]:
+        """Upload image to appropriate specialized bucket"""
         try:
             # Calculate image hash
             image_hash = self._calculate_file_hash(image_content)
             
-            # Upload to image bucket
+            # Determine target bucket based on image type
+            # Schema-compliant bucket mapping: All images go to krai-images
+            # Schema defines: krai-documents, krai-images, krai-videos
+            target_bucket = "krai-images"
+            
+            # Upload to specialized bucket
             public_url = await self.upload_file(
-                self.config.config['image_bucket'],
+                target_bucket,
                 image_path,
                 image_content,
                 'image/jpeg'
@@ -168,13 +177,15 @@ class SupabaseStorage:
                     'hash': image_hash,
                     'size': len(image_content),
                     'content_type': 'image/jpeg',
-                    'filename': image_path.name
+                    'filename': image_path.name,
+                    'bucket': target_bucket,
+                    'image_type': image_type
                 }
             
             return None
         
         except Exception as e:
-            print(f"❌ Error uploading image: {e}")
+            print(f"❌ Error uploading image to {image_type} bucket: {e}")
             return None
     
     async def upload_document(self, doc_path: Path, doc_content: bytes) -> Optional[Dict]:
@@ -206,6 +217,25 @@ class SupabaseStorage:
             print(f"❌ Error uploading document: {e}")
             return None
     
+    async def bucket_exists(self, bucket_name: str) -> bool:
+        """Check if a storage bucket exists"""
+        try:
+            async with httpx.AsyncClient() as client:
+                response = await client.get(
+                    f"{self.storage_url}/bucket",
+                    headers=self.headers
+                )
+                
+                if response.status_code == 200:
+                    buckets = response.json()
+                    return any(bucket.get('id') == bucket_name for bucket in buckets)
+                else:
+                    return False
+        
+        except Exception as e:
+            print(f"❌ Error checking bucket {bucket_name}: {e}")
+            return False
+    
     def _get_content_type(self, file_path: Path) -> str:
         """Get content type based on file extension"""
         extension = file_path.suffix.lower()
@@ -225,27 +255,35 @@ class SupabaseStorage:
         return hashlib.sha256(content).hexdigest()
     
     async def setup_storage_buckets(self) -> bool:
-        """Setup required storage buckets"""
+        """Setup required storage buckets with existence check"""
         try:
-            print("🚀 Setting up Supabase storage buckets...")
+            print("🚀 Setting up specialized KR-AI-Engine storage buckets...")
             
-            # Create document bucket
-            doc_bucket_created = await self.create_bucket(
-                self.config.config['storage_bucket'], 
-                is_public=True
-            )
+            # Define the specialized buckets
+            buckets = [
+                "krai-documents",
+                "krai-images", 
+                "krai-videos"
+            ]
             
-            # Create image bucket
-            image_bucket_created = await self.create_bucket(
-                self.config.config['image_bucket'], 
-                is_public=True
-            )
+            success_count = 0
+            for bucket_name in buckets:
+                # Check if bucket exists first
+                exists = await self.bucket_exists(bucket_name)
+                if exists:
+                    print(f"ℹ️ Bucket already exists: {bucket_name}")
+                    success_count += 1
+                else:
+                    # Create bucket if it doesn't exist
+                    created = await self.create_bucket(bucket_name, is_public=True)
+                    if created:
+                        success_count += 1
             
-            if doc_bucket_created and image_bucket_created:
-                print("✅ All storage buckets created successfully")
+            if success_count == len(buckets):
+                print("✅ All specialized storage buckets ready")
                 return True
             else:
-                print("❌ Some buckets failed to create")
+                print(f"❌ {len(buckets) - success_count} buckets failed to setup")
                 return False
         
         except Exception as e:

@@ -67,6 +67,24 @@ class ProductionDocumentProcessor:
         self.available_models = []
         self.missing_models = []
         
+        # Initialize Supabase Storage for image uploads
+        self.supabase_storage = None
+        try:
+            # Import with proper path resolution
+            import os
+            import sys
+            config_path = os.path.join(os.path.dirname(__file__), 'config')
+            if config_path not in sys.path:
+                sys.path.insert(0, config_path)
+            
+            import supabase_config
+            self.supabase_config = supabase_config.SupabaseConfig()
+            self.supabase_storage = supabase_config.SupabaseStorage(self.supabase_config)
+            logger.info("✅ Supabase Storage initialized for image uploads")
+        except Exception as e:
+            logger.warning(f"⚠️ Supabase Storage init failed: {e}")
+            self.supabase_storage = None
+        
         # Processing statistics
         self.stats = {
             "documents_processed": 0,
@@ -187,6 +205,40 @@ class ProductionDocumentProcessor:
                     
         except Exception as e:
             logger.error(f"❌ Ollama connection test failed: {e}")
+    
+    def _calculate_file_hash(self, content: bytes) -> str:
+        """Calculate SHA256 hash of file content"""
+        import hashlib
+        return hashlib.sha256(content).hexdigest()
+    
+    def _determine_image_type(self, analysis: str, document_id: str) -> str:
+        """Determine which specialized bucket to use based on image analysis"""
+        analysis_lower = analysis.lower()
+        
+        # Error images: contain error codes, jam indicators, warning symbols
+        if any(keyword in analysis_lower for keyword in [
+            'error', 'jam', 'warning', 'alert', 'fault', 'trouble', 
+            'service required', 'maintenance', 'red light', 'blinking'
+        ]):
+            return "error"
+        
+        # Parts images: contain part numbers, components, replacement parts  
+        elif any(keyword in analysis_lower for keyword in [
+            'part number', 'component', 'assembly', 'cartridge', 'toner',
+            'drum', 'fuser', 'roller', 'gear', 'spring', 'sensor'
+        ]):
+            return "parts"
+        
+        # Manual images: contain procedures, step-by-step instructions
+        elif any(keyword in analysis_lower for keyword in [
+            'step', 'procedure', 'instruction', 'arrow', 'direction',
+            'remove', 'install', 'replace', 'turn', 'press', 'pull'
+        ]):
+            return "manual"
+        
+        # Default to error bucket for unknown types
+        else:
+            return "error"
     
     async def process_document(self, file_path: Path, file_content: bytes) -> Dict[str, Any]:
         """Process a document with full AI pipeline"""
@@ -452,11 +504,26 @@ class ProductionDocumentProcessor:
                             result = response.json()
                             analysis = result.get("response", "")
                             
-                            # Upload image to Supabase
-                            image_path = Path(f"image_{i}.png")
-                            image_storage = await self.supabase_storage.upload_image(
-                                image_path, image_data
-                            )
+                            # Upload image to specialized Supabase bucket (ENABLED!)
+                            image_storage = None
+                            if self.supabase_storage:
+                                try:
+                                    # Determine image type based on analysis content
+                                    image_type = self._determine_image_type(analysis, document_id)
+                                    
+                                    image_path = Path(f"doc_{document_id}_image_{i}_{hash(str(image_data))[:8]}.png")
+                                    image_storage = await self.supabase_storage.upload_image(
+                                        image_path, image_data, image_type
+                                    )
+                                    if image_storage:
+                                        logger.info(f"✅ Image uploaded to {image_storage['bucket']}: {image_storage['url']}")
+                                    else:
+                                        logger.warning(f"⚠️ Image upload returned None: {image_path}")
+                                except Exception as upload_err:
+                                    logger.error(f"❌ Image upload failed for image_{i}: {upload_err}")
+                                    image_storage = None
+                            else:
+                                logger.warning(f"⚠️ Supabase Storage not initialized, skipping image_{i} upload")
                             
                             # Store image in database
                             image_record = {
@@ -617,11 +684,27 @@ class ProductionDocumentProcessor:
             raise
     
     async def _generate_embeddings_with_gpu(self, document_id: str, chunks: List[Dict]) -> Dict:
-        """Generate embeddings using Ollama API"""
-        print("🚨 CRITICAL DEBUG: NEW _generate_embeddings_with_gpu method called!")
-        print(f"🚨 CRITICAL DEBUG: chunks length = {len(chunks)}")
+        """Generate embeddings using Ollama API with deduplication"""
         try:
             logger.info(f"🔄 Starting embedding generation for {len(chunks)} chunks")
+            
+            # Check if embeddings already exist for this document
+            async with self.db_pool.acquire() as conn:
+                existing_count = await conn.fetchval("""
+                    SELECT COUNT(e.id) 
+                    FROM krai_intelligence.embeddings e
+                    JOIN krai_intelligence.chunks c ON e.chunk_id = c.id
+                    WHERE c.document_id = $1 AND e.model_name = $2
+                """, document_id, self.embedding_model_name)
+                
+                if existing_count > 0:
+                    logger.info(f"🔄 Found {existing_count} existing embeddings for document {document_id}, skipping generation")
+                    return {
+                        'embeddings': [],
+                        'embedding_ids': [],
+                        'skipped': True,
+                        'existing_count': existing_count
+                    }
             
             # Generate embeddings for all chunks
             batch_texts = [chunk["text"] for chunk in chunks]
@@ -725,6 +808,17 @@ class ProductionDocumentProcessor:
         try:
             import uuid
             
+            # Check for duplicates by hash
+            file_hash = storage_result["hash"]
+            async with self.db_pool.acquire() as conn:
+                existing_doc = await conn.fetchval(
+                    "SELECT id FROM krai_core.documents WHERE file_hash = $1 LIMIT 1",
+                    file_hash
+                )
+                if existing_doc:
+                    logger.info(f"🔄 Document with hash {file_hash[:16]}... already exists: {existing_doc}")
+                    return str(existing_doc)
+            
             document_id = str(uuid.uuid4())
             
             # Prepare document data (SCHEMA CORRECTED)
@@ -737,19 +831,32 @@ class ProductionDocumentProcessor:
                 "processing_timestamp": datetime.now().isoformat()
             }
             
-            # Insert into database with correct schema
+            # Get manufacturer ID
+            manufacturer_name = classification_result.get("manufacturer", "unknown")
             async with self.db_pool.acquire() as conn:
+                manufacturer_id = await conn.fetchval(
+                    "SELECT id FROM krai_core.manufacturers WHERE name = $1",
+                    manufacturer_name
+                )
+                if not manufacturer_id:
+                    logger.info(f"⚠️ Creating manufacturer: {manufacturer_name}")
+                    manufacturer_id = await conn.fetchval(
+                        "INSERT INTO krai_core.manufacturers (name, display_name) VALUES ($1, $2) RETURNING id",
+                        manufacturer_name, manufacturer_name.upper()
+                    )
+                
+                # Insert into database with correct schema
                 await conn.execute("""
                     INSERT INTO krai_core.documents 
                     (id, title, document_type, version, language, file_path, 
                      file_size, file_hash, storage_url, metadata, processing_status, 
-                     created_at, updated_at)
-                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
+                     manufacturer_id, created_at, updated_at)
+                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
                 """, 
                 document_id, 
                 file_path.name,
                 classification_result.get("document_type", "unknown"), 
-                version_result.get("version", ""),
+                classification_result.get("version", ""),
                 "en",  # Default language
                 storage_result["url"],
                 len(file_content),
@@ -757,6 +864,7 @@ class ProductionDocumentProcessor:
                 storage_result["url"],
                 json.dumps(metadata),
                 "completed",
+                manufacturer_id,
                 datetime.now(),
                 datetime.now())
             

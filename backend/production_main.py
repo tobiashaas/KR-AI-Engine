@@ -146,7 +146,7 @@ async def upload_error_image(
         # TODO: Implement DSGVO anonymization and storage
         # This would include:
         # 1. AI-based anonymization (blur faces, remove personal data)
-        # 2. Store in krai-error-images bucket
+        # 2. Store in krai-images bucket (schema-compliant)
         # 3. Log for ML training purposes
         
         return {

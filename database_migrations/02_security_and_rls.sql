@@ -322,7 +322,7 @@ WHERE end_of_life_date IS NULL OR end_of_life_date > CURRENT_DATE;
 COMMENT ON VIEW krai_core.public_products IS 'Public view of products with non-sensitive information only';
 
 -- ======================================================================
--- SECURITY FIXES (from 10_security_fixes.sql)
+-- SECURITY FIXES
 -- ======================================================================
 
 -- Enhanced security functions with proper security definer
